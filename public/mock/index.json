@@ -1,0 +1,296 @@
+{
+  "ret": true,
+  "data": {
+    "homeTopSwiperList": [
+      {
+        "id": "0001",
+        "imgUrl": "https://img.import-express.com/importcsvimg/webpic/img/m-index-new/vickyindex/ban0507.jpg"
+      },
+      {
+        "id": "0002",
+        "imgUrl": "https://img.import-express.com/importcsvimg/webpic/img/m-index-new/vickyindex/m_indexban24301.jpg"
+      },
+      {
+        "id": "0003",
+        "imgUrl": "https://img.import-express.com/importcsvimg/webpic/img/m-index-new/vickyindex/ban05072.jpg"
+      }
+    ],
+    "searchList": [
+      {
+        "id": "001",
+        "keyword": "dress cardigan"
+      },
+      {
+        "id": "002",
+        "keyword": "dress chain"
+      },
+      {
+        "id": "003",
+        "keyword": "dress formal dress"
+      },
+      {
+        "id": "004",
+        "keyword": "dress necklace"
+      },
+      {
+        "id": "005",
+        "keyword": "dress oil"
+      },
+      {
+        "id": "006",
+        "keyword": "dress shirts"
+      },
+      {
+        "id": "007",
+        "keyword": "dress suit"
+      },
+      {
+        "id": "008",
+        "keyword": "dress v dress"
+      },
+      {
+        "id": "009",
+        "keyword": "dress v dress"
+      }
+    ],
+    "listResult": [
+      {
+        "id": "001",
+        "category": "Baby Bedding Kit"
+      },
+      {
+        "id": "002",
+        "category": "Baby Mat"
+      },
+      {
+        "id": "003",
+        "category": "Baby Pillow"
+      },
+      {
+        "id": "004",
+        "category": "Bib Bibs & Bibs"
+      }
+    ],
+    "productList": [
+      {
+        "id": "001",
+        "url": "https://img.import-express.com/importcsvimg/coreimg1/541860391844/3641395213_1587258044.220x220.jpg",
+        "currentPrice": "6.52",
+        "wholesalePrice": "5.92",
+        "sold": "224"
+      },
+      {
+        "id": "002",
+        "url": "https://img.import-express.com/importcsvimg/coreimg1/541860391844/3641395213_1587258044.220x220.jpg",
+        "currentPrice": "6.52",
+        "wholesalePrice": "5.92",
+        "sold": "224"
+      },
+      {
+        "id": "003",
+        "url": "https://img.import-express.com/importcsvimg/coreimg1/541860391844/3641395213_1587258044.220x220.jpg",
+        "currentPrice": "6.52",
+        "wholesalePrice": "5.92",
+        "sold": "224"
+      },
+      {
+        "id": "004",
+        "url": "https://img.import-express.com/importcsvimg/coreimg1/541860391844/3641395213_1587258044.220x220.jpg",
+        "currentPrice": "6.52",
+        "wholesalePrice": "5.92",
+        "sold": "224"
+      },
+      {
+        "id": "005",
+        "url": "https://img.import-express.com/importcsvimg/coreimg1/541860391844/3641395213_1587258044.220x220.jpg",
+        "currentPrice": "6.52",
+        "wholesalePrice": "5.92",
+        "sold": "224"
+      },
+      {
+        "id": "006",
+        "url": "https://img.import-express.com/importcsvimg/coreimg1/541860391844/3641395213_1587258044.220x220.jpg",
+        "currentPrice": "6.52",
+        "wholesalePrice": "5.92",
+        "sold": "224"
+      },
+      {
+        "id": "007",
+        "url": "https://img.import-express.com/importcsvimg/coreimg1/541860391844/3641395213_1587258044.220x220.jpg",
+        "currentPrice": "6.52",
+        "wholesalePrice": "5.92",
+        "sold": "224"
+      }
+    ],
+    "goodsBean": {
+      "id": "001",
+      "pName": "Women's Handmade British Flag Knitting Head Set Wool Wide Hair Hoop Hair Ornament",
+      "url": [
+        "https://img.import-express.com/importcsvimg/coreimg3/524646586711/2633348717_149379895.400x400.jpg",
+        "https://img.import-express.com/importcsvimg/coreimg3/524646586711/2631295473_149379895.400x400.jpg",
+        "https://img.import-express.com/importcsvimg/coreimg3/524646586711/2631286895_149379895.400x400.jpg",
+        "https://img.import-express.com/importcsvimg/coreimg3/524646586711/2633345869_149379895.400x400.jpg"
+      ],
+      "currentPrice": "6.52",
+      "wholesalePrice": "5.92",
+      "minOrder": "5",
+      "priceList": [
+        {
+          "price": "1.85",
+          "quantity": "1-4",
+          "moq": 1
+        },
+        {
+          "price": "1.68",
+          "quantity": "5-9",
+          "moq": 5
+        },
+        {
+          "price": "1.56",
+          "quantity": "≥10",
+          "moq": 10
+        }
+      ],
+      "sold": "224",
+      "imageList": [
+        "https://img1.import-express.com/importcsvimg/importimg/40884566912/ed68ca9a-2cc8-4b83-8f16-a78b6376c2d7_758_700.jpg",
+        "https://img1.import-express.com/importcsvimg/importimg/40884566912/2236c320-5ace-4538-bdba-2249866b2626_817_700.jpg",
+        "https://img1.import-express.com/importcsvimg/importimg/40884566912/176bdbb2-053f-4a28-b41a-2bb2ffce3f15_59_700.jpg",
+        "https://img1.import-express.com/importcsvimg/importimg/40884566912/25d30e7d-f7f4-4b8f-a96c-41a14813947f_101_700.jpg",
+        "https://img1.import-express.com/importcsvimg/importimg/40884566912/a99bc318-12d3-4537-94d3-4253a37d6ad4_636_700.jpg"
+      ],
+      "customerReviews": [
+        {
+          "name": "AAA",
+          "country": "Canada",
+          "comment": "Fast and very nice. Thanks"
+        },
+        {
+          "name": "ABBB",
+          "country": "USA",
+          "comment": "Fast and very nice. Thanks"
+        },
+        {
+          "name": "CCCC",
+          "country": "Canada",
+          "comment": "Cool thing, not expensive and fast!!! will order from this selwill order from this selwill order from this sel"
+        },
+        {
+          "name": "ddd",
+          "country": "Canada",
+          "comment": "Cool thing, not expensive and fast!!! will order from this selwill order from this selwill order from this sel"
+        },
+        {
+          "name": "Ttttt",
+          "country": "Canada",
+          "comment": "Fast and very nice. Thanks"
+        }
+      ],
+      "commodityDetails": [
+        {
+          "modified": "Cannot Modified"
+        },
+        {
+          "size": "One Size"
+        },
+        {
+          "category": "Night dress"
+        },
+        {
+          "modified1": "Cannot Modified"
+        },
+        {
+          "size1": "One Size"
+        },
+        {
+          "category1": "Night dress"
+        },
+        {
+          "modified2": "Cannot Modified"
+        },
+        {
+          "size2": "One Size"
+        },
+        {
+          "category2": "Night dress"
+        }
+      ],
+      "questionAnswer": [
+        {
+          "name": "Fiso.nkisjjjj",
+          "time": "2019-05-30 13:36:39:0",
+          "question": "Is it possible to expand memory? Will this device win a global version in the future?",
+          "answer": "Hello Christian, External Memory: Not Supported . This item is Chinese version. Let me know if you need any further assistance."
+        },
+        {
+          "name": "Fiso.nkisjjjj",
+          "time": "2019-05-30 13:36:39:0",
+          "question": "Is it possible to expand memory? Will this device win a global version in the future?",
+          "answer": "Hello Christian, External Memory: Not Supported . This item is Chinese version. Let me know if you need any further assistance."
+        },
+        {
+          "name": "Fiso.nkisjjjj",
+          "time": "2019-05-30 13:36:39:0",
+          "question": "Is it possible to expand memory? Will this device win a global version in the future?",
+          "answer": "Hello Christian, External Memory: Not Supported . This item is Chinese version. Let me know if you need any further assistance."
+        },
+        {
+          "name": "Fiso.nkisjjjj",
+          "time": "2019-05-30 13:36:39:0",
+          "question": "Is it possible to expand memory? Will this device win a global version in the future?",
+          "answer": "Hello Christian, External Memory: Not Supported . This item is Chinese version. Let me know if you need any further assistance."
+        }
+      ]
+    },
+    "shoppingCart":[
+      {
+        "shopName": "SHENZHEN MERUN",
+        "img": "https://img.import-express.com/importcsvimg/coreimg1/520383182212/2273659001_815379416.60x60.jpg",
+        "itemName":"Personal Zipper Pocket Self-cultivation Suit Spring And Autumn Women's Suit Jacket Trend",
+        "itemType":[ {
+          "itemSize": "S",
+          "itemColor": "orange",
+          "itemPiece":"19",
+          "currentPrice": "4.82",
+          "oldPrice": "5.82",
+          "itemWeight":"0.110",
+          "checked": false
+
+        },
+          {
+            "itemSize": "M ",
+            "itemColor": "Black",
+            "itemPiece":"11",
+            "currentPrice": "4.32",
+            "oldPrice": "5.62",
+            "itemWeight":"0.110",
+            "checked": false
+
+          }]
+      },
+      {
+        "shopName": "UGOODFASHION",
+        "img": "https://img.import-express.com/importcsvimg/img/44258315333/imgs/1964276927_1115689769.60x60.jpg",
+        "itemName":"Style Sexy Leather Lace Trimmings Splicing Contrast Colors Vest Over Hip Dress",
+        "itemType":[ {
+          "itemSize": "L",
+          "itemColor": "red",
+          "itemPiece":"2",
+          "currentPrice": "4.82",
+          "oldPrice": "5.82",
+          "itemWeight":"0.58",
+          "checked": false
+        } ]
+      }
+    ],
+    "personalInfo":
+      {
+        "email": "teset123@test.com",
+        "accountNumber": "000001",
+        "contactInfo": "",
+        "password": ""
+      }
+
+  }
+}
+
