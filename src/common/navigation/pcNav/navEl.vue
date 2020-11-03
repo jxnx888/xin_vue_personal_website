@@ -18,7 +18,8 @@
           <router-link to="/" class="each_link">About Me</router-link>
         </div>
         <div class="each_menu lang_area">
-          <a class="lang_ch" lang="zh-cn">中</a>
+          <a class="lang_ch" lang="zh-cn" @click="changeLanguage(this)">中文</a>
+          <a class="lang_us" lang="en-us" @click="changeLanguage(this)">English</a>
         </div>
       </div>
     </div>
@@ -27,7 +28,25 @@
 
 <script>
     export default {
-        name: "navEl"
+        name: "navEl",
+      data(){
+          return{
+
+          }
+
+      },
+      methods:{
+        changeLanguage(obj) {
+          var targetLocale = $(obj).attr('lang');
+          console.log(targetLocale)
+          var locale = localStorage.getItem('locale');// 语言标识
+          if ($(this).attr('lang') != locale) {
+            localStorage.setItem('locale',targetLocale);// 语言标识
+            console.log("current language = " +targetLocale)
+            // window.location.pathname = window.location.pathname.replace(/^\/(zh\-(cn|hk)|en\-us)?/, '/' + targetLocale);
+          }
+        }
+      }
     }
 </script>
 

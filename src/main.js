@@ -15,6 +15,9 @@ import ElmentUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElmentUI);
 
+// jQuery
+// import $ from 'jquery”
+
 //引用axios传输数据
 import axios from 'axios'
 axios.defaults.withCredentials =true; //允许请求携带cookie
