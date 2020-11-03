@@ -1,20 +1,20 @@
 <template>
-  <div>asdf
-<!--    <topSwiper :list="homeTopSwiperList"></topSwiper>-->
+  <div>
+    <topBannerSwiper :bannerList="bannerList"></topBannerSwiper>
+
   </div>
 </template>
 
 <script>
-    // import topSwiper from './components/topSwiper/topSwiper'
-
+    import topBannerSwiper from "@/common/topBannerSwiper/topBannerSwiper";
     export default {
         name: "home",
         components: {
-            // topSwiper
+            topBannerSwiper
         },
         data() {
             return {
-                homeTopSwiperList: [],
+                bannerList: ['/image/banner1.png'],
             }
         },
         methods: {

@@ -2,10 +2,18 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+//vue-i18n 多语言切换 main.js底部new vue中使用
+import i18n from './i18n';
 
 //reset styles
-import './assets/style/reset.css'
-import './assets/style/border.css'
+import './assets/style/reset.css';
+import './assets/style/border.css';
+import './assets/style/common.css';
+
+//Element UI
+import ElmentUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElmentUI);
 
 //引用axios传输数据
 import axios from 'axios'
@@ -25,9 +33,9 @@ Vue.prototype.$qs = qs;
 import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload, {
   preLoad: 1.3,  //如需测试，改为0.5 屏幕比例
-  error: 'dist/error.png',
-  loading: '/images/loading.gif', //预加载loading图片  图片在static文件夹，就可以直接写路径了
-  // loading: require('/images/loading.gif'), //预加载loading图片 图片在assets文件夹，就需要使用require（）进行引入。
+  error: '/image/error.png',
+  loading: '/image/loading.gif', //预加载loading图片  图片在static文件夹，就可以直接写路径了
+  // loading: require('/image/loading.gif'), //预加载loading图片 图片在assets文件夹，就需要使用require（）进行引入。
   attempt: 1
 });
 
@@ -43,5 +51,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  i18n,
   render: h => h(App)
 }).$mount('#app')

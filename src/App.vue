@@ -2,14 +2,17 @@
   <div id="app">
     <navMain></navMain>
     <router-view/>
+    <footerVue></footerVue>
   </div>
 </template>
 <script>
     import navMain from './common/navigation/navMain'
+    import footerVue from "./common/footerVue/footerVue";
     export default {
         name: "App",
         components:{
-            navMain
+            navMain,
+            footerVue
         }
     }
 </script>
@@ -20,5 +23,4 @@
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
-  margin-top 60px
 </style>
