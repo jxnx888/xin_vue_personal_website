@@ -14,12 +14,13 @@
         <div class="each_menu">
           <router-link to="/" class="each_link">Projects</router-link>
         </div>
-        <div class="each_menu">
+        <div class="each_menu last_menu">
           <router-link to="/" class="each_link">About Me</router-link>
         </div>
-        <div class="each_menu lang_area">
-          <a class="lang_ch" lang="zh-cn" @click="changeLanguage(this)">中文</a>
-          <a class="lang_us" lang="en-us" @click="changeLanguage(this)">English</a>
+        <div class="lang_area">
+          <a class="lang_ch" :class="{active_lang:currrent_lang === 'zh_cn'}" lang="zh-cn" @click="changeLanguage('zh_cn')">中文</a>
+          <i class="s_line">|</i>
+          <a class="lang_us" :class="{active_lang:currrent_lang === 'en_us'}"  lang="en-us" @click="changeLanguage('en_us')">English</a>
         </div>
       </div>
     </div>
@@ -31,19 +32,19 @@
         name: "navEl",
       data(){
           return{
-
+            currrent_lang: 'en_us', //语言默认值
           }
 
       },
       methods:{
-        changeLanguage(obj) {
-          var targetLocale = $(obj).attr('lang');
-          console.log(targetLocale)
-          var locale = localStorage.getItem('locale');// 语言标识
-          if ($(this).attr('lang') != locale) {
-            localStorage.setItem('locale',targetLocale);// 语言标识
-            console.log("current language = " +targetLocale)
-            // window.location.pathname = window.location.pathname.replace(/^\/(zh\-(cn|hk)|en\-us)?/, '/' + targetLocale);
+        changeLanguage(type) {
+          if(type=="zh_cn"){
+            this.$i18n.locale = "zh_cn";
+            this.currrent_lang ="zh_cn";
+          }
+          else if(type=='en_us'){
+            this.$i18n.locale = "en_us"
+            this.currrent_lang ="en_us";
           }
         }
       }
@@ -79,7 +80,23 @@
         top -1px
         right 0
         color #E4E4E4
-      .each_menu:last-child:after
+      .each_menu.last_menu:after
         display none
+      .lang_area
+        cursor pointer
+        margin-left 20px
+        float left
+        position relative
+        padding: 0 15px
+        font-size: 18px
+        a
+          color #333
+          opacity .7
+        a.active_lang
+          opacity 1
+        .s_line
+          color #333
+          opacity .7
+          padding 0 10px
 
 </style>
