@@ -1,9 +1,11 @@
 const zh_cn = {
-    index:{
-        resume:'导出简历'
+    footer:{
+        resume:'导出简历',
+        coverletter:'导出CV'
     },
     me: {
-        name: 'Xin Ning',
+        name: '宁鑫',
+        title:'前端开发工程师',
         info: {
             DoB: '1989/10/07'
         }

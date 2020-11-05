@@ -1,10 +1,11 @@
 const en_us = {
-    index:{
+    footer:{
         resume:'Print Resume',
-        coverletter:'CV'
+        coverletter:'Print CV'
     },
     me: {
         name: 'Xin Ning',
+        title:'Front-end Developer',
         info: {
             DoB: '1989/10/07'
         }

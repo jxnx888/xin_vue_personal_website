@@ -41,12 +41,20 @@
           if(type=="zh_cn"){
             this.$i18n.locale = "zh_cn";
             this.currrent_lang ="zh_cn";
+            localStorage.setItem('locale', 'zh_cn'); // 语言标识
           }
           else if(type=='en_us'){
             this.$i18n.locale = "en_us"
             this.currrent_lang ="en_us";
+            localStorage.setItem('locale','en_us'); // 语言标识
           }
+        },
+        getCurrentLang(){
+          this.currrent_lang = localStorage.getItem('locale') || 'en_us'; // 语言标识
         }
+      },
+      mounted() {
+        this.getCurrentLang();
       }
     }
 </script>
