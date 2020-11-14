@@ -9,6 +9,8 @@ import i18n from './i18n';
 import './assets/style/reset.css';
 import './assets/style/border.css';
 import './assets/style/common.css';
+//font
+
 
 //Element UI
 import ElmentUI from 'element-ui';

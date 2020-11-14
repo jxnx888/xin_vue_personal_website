@@ -1,16 +1,21 @@
 <template>
   <div>
     <topBannerSwiper :bannerList="bannerList"></topBannerSwiper>
-
+    <aboutPart></aboutPart>
+    <projects></projects>
   </div>
 </template>
 
 <script>
-    import topBannerSwiper from "@/common/topBannerSwiper/topBannerSwiper";
+    import topBannerSwiper from "./components/topBanner";
+    import aboutPart from "@/pages/home/components/aboutPart/aboutPart";
+    import projects from "@/pages/home/components/projects/projects";
     export default {
         name: "home",
         components: {
-            topBannerSwiper
+            topBannerSwiper,
+            aboutPart,
+            projects
         },
         data() {
             return {

@@ -6,9 +6,14 @@ const zh_cn = {
     me: {
         name: '宁鑫',
         title:'前端开发工程师',
+        subtitle:'(网页/安卓/iOS)',
         info: {
             DoB: '1989/10/07'
-        }
+        },
+        intro:'["嗨，我是宁鑫.", "欢迎来到我的个人主页！", "我有创新能力，并且我非常喜欢开发","我擅长ASP.NET, C#, JavaScript, HTML5 和 CSS3."]',
+
+        welcome:["You've found yourself at the online home of Xin Ning, a Web Developer.","Here you'll find a selection of my latest work, stats about my skills and a link to my resume and cv(pdf).","If you have a project or need some extra help, please drop me an email at","alternatively you can fill out my contact form in the Contact page."]
+
     },
     nav: {
         home: '首页',

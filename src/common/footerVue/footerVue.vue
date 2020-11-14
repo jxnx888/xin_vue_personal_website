@@ -7,8 +7,8 @@
         </el-col>
         <el-col :span="8" class="footer_each">
           <div class="download_file"><a href="/file/XinNing-Resume-CN.pdf" download="/file/XinNing-Resume-CN.pdf"><i
-            class="el-icon-printer"></i>{{$t('index.resume')}}</a></div>
-          <div class="download_file"><a download=""><i class="el-icon-printer"></i>Print CV</a></div>
+            class="el-icon-printer"></i>{{$t('footer.resume')}}</a></div>
+          <div class="download_file" v-if="currentLang==='en_us'"><a download=""><i class="el-icon-printer"></i>{{$t('footer.coverletter')}}</a></div>
         </el-col>
         <el-col :span="8" class="footer_each">
           Follow Me
@@ -26,7 +26,25 @@
 
 <script>
     export default {
-        name: "footerVue"
+        name: "footerVue",
+      data(){
+          return{
+            currentLang: this.$i18n.locale
+          }
+      },
+      created () {
+        this.watchLang();
+      },
+      methods:{
+        watchLang(){
+          // 判断当前环境是中文还是英文
+          this.currentLang = this.$i18n.locale;
+          console.log( this.currentLang )
+        }
+      },
+      watch:{
+
+      }
     }
 </script>
 
