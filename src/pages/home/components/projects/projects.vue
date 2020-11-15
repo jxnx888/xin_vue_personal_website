@@ -34,7 +34,52 @@
       </div>
       <div class="right_content">
         <div class="each_content" v-if="currentListIndex===1">
-
+          <ul class="each_content_list">
+            <li class="item_1">
+              <a href="https://www.import-express.com/" target="_blank">
+                <img src="/image/home/last_work4.jpg" alt="">
+                <div class="intro_wrapper">
+                  <h4 class="tit">E-commerce website</h4>
+                  <p class="txt"><a href="https://www.import-express.com/">Import Express</a></p>
+                  <p class="txt"><a href="https://www.kidscharming.com/">Kids Charming</a></p>
+                  <p class="txt"><a href="https://www.petstoreinc.com/">Pet Store</a></p>
+                  <i class="iconfont icon_arrow">&#xe61f;</i>
+                </div>
+              </a>
+            </li>
+            <li class="item_2">
+              <a href="/" target="_blank">
+                <img src="/image/home/last_work2.jpg" alt="">
+                <div class="intro_wrapper intro_wrapper2">
+                  <h4 class="tit">3D Printer App</h4>
+                  <p class="txt"><a href="/">Three.js based MegicBox for education</a></p>
+                  <i class="iconfont icon_arrow">&#xe61f;</i>
+                </div>
+              </a>
+            </li>
+            <li class="item_1">
+              <a href="https://www.import-express.com/" target="_blank">
+                <img src="/image/home/last_work4.jpg" alt="">
+                <div class="intro_wrapper">
+                  <h4 class="tit">E-commerce website</h4>
+                  <p class="txt"><a href="https://www.import-express.com/">Import Express</a></p>
+                  <p class="txt"><a href="https://www.kidscharming.com/">Kids Charming</a></p>
+                  <p class="txt"><a href="https://www.petstoreinc.com/">Pet Store</a></p>
+                  <i class="iconfont icon_arrow">&#xe61f;</i>
+                </div>
+              </a>
+            </li>
+            <li class="item_2">
+              <a href="/" target="_blank">
+                <img src="/image/home/last_work2.jpg" alt="">
+                <div class="intro_wrapper intro_wrapper2">
+                  <h4 class="tit">3D Printer App</h4>
+                  <p class="txt"><a href="/">Three.js based MegicBox for education</a></p>
+                  <i class="iconfont icon_arrow">&#xe61f;</i>
+                </div>
+              </a>
+            </li>
+          </ul>
         </div>
         <div class="each_content" v-if="currentListIndex===2">456</div>
         <div class="each_content" v-if="currentListIndex===3">789</div>
@@ -66,7 +111,7 @@ export default {
   background: #1b1f25;
   margin-bottom: 84px;
   .project_hook
-    width: 1200px;
+    width: 1440px;
     height: 780px;
     margin: 0px auto;
     cursor pointer
@@ -78,9 +123,13 @@ export default {
         height: 100%;
         li.each_list.acive_tab
           opacity: 1;
-        li.each_list.acive_tab .each_title:after
-          opacity: 1;
-          transform: translate(0px,0px);
+          .each_title:after
+            opacity: 1;
+            transform: translate(0px,0px);
+          .each_title
+            margin-left -28%
+          .each_responsibility
+            margin-left -28%
         li.each_list
           height: 33.3%;
           opacity: 0.4;
@@ -91,7 +140,7 @@ export default {
             color: #fff;
             position: absolute;
             left: 50%;
-            margin-left: -50%;
+            margin-left: -32%;
             top: 50%;
             margin-top: -15%;
             transition: margin-left 0.3s ease-out;
@@ -115,16 +164,98 @@ export default {
             color: #fff;
             position: absolute;
             left: 50%;
-            margin-left: -50%;
+            margin-left: -32%;
             top: 50%;
             margin-top: 0%;
             transition: margin-left 0.3s ease-out;
             right: 30px;
             line-height: 25px;
             list-style: inside;
+    .right_content *
+      text-align left
     .right_content
       width: 64%;
       height: 780px;
       margin-left: 36%;
       overflow: hidden;
+      .each_content
+        width: 100%;
+        height: 100%;
+        .each_content_list
+          width: 100%;
+          height: 100%;
+          li:hover
+            .intro_wrapper
+              .tit
+                margin-top: 29px;
+              .txt
+                opacity: 1;
+                transform: translate(0px,0);
+                transition: margin-left 0.3s ease-out;
+              .icon_arrow
+                opacity: 1;
+                animation: a_arrow_r 0.2s linear forwards;
+            .intro_wrapper2
+              .tit
+                margin-top: 68px;
+              .icon_arrow
+                  top 66px
+          li
+            width: 50%;
+            float: left;
+            height: 50%;
+            overflow hidden
+            position relative
+            img
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              margin: auto;
+              max-width: 100%;
+              max-height: 100%;
+            .intro_wrapper
+              width: 100%;
+              height: 50%;
+              position: absolute;
+              left: 0px;
+              bottom: 0px;
+              background: -webkit-linear-gradient(bottom,rgba(0,0,0,0.4),rgba(0,0,0,0));
+              .tit
+                margin-left: 43px;
+                margin-top: 119px;
+                font-size: 24px;
+                font-weight bold
+                color: #fff;
+                transition: margin-top 0.3s ease-out;
+              .txt
+                margin-left: 43px;
+                margin-top: 9px;
+                line-height: 1;
+                font-size: 16px;
+                color: #fff;
+                opacity: 0;
+                transform: translate(0px,15px);
+                transition: opacity 0.3s ease-out;
+                font-family: 'TencentSansw3';
+                margin-right: 43px;
+                a
+                  color: #fff;
+              .icon_arrow
+                position: absolute;
+                right: 40px;
+                top: 27px;
+                font-size: 40px;
+                color: #fff;
+                opacity: 0;
+                transition: all 0.3s ease-out;
+                background-size: 100% 100%;
+              .txt:hover
+                a
+                  text-decoration underline
+@keyframes a_arrow_r {
+  0%{ opacity: 0; right: 60px;}
+  100%{opacity: 1; right: 20px;}
+}
 </style>
