@@ -8,8 +8,9 @@
               :class="{acive_tab:currentListIndex===1}">
             <p class="each_title">Latest work</p>
             <ul class="each_responsibility">
-              <li class="responsibility_li">Maintain & modify E-commerce webist</li>
-              <li class="responsibility_li">Manage front-end develope team</li>
+              <li class="responsibility_li">Maintaining & modifying E-commerce website</li>
+              <li class="responsibility_li">Managing front-end team as a project manager assistant</li>
+              <li class="responsibility_li">Utilizing the Three.js to design and build 3D related WebApps.</li>
             </ul>
           </li>
           <li class="each_list"
@@ -24,10 +25,12 @@
           <li class="each_list"
               @mouseenter="showCurrent(3)"
               :class="{acive_tab:currentListIndex===3}">
-            <p class="each_title">Android</p>
+            <p class="each_title">Education</p>
             <ul class="each_responsibility">
-              <li class="responsibility_li">Maintain & modify E-commerce webist</li>
-              <li class="responsibility_li">Manage front-end develope team</li>
+              <li class="responsibility_li">Fairfield University</li>
+              <li class="responsibility_li no_style">Master of Science in Software Engineering</li>
+              <li class="responsibility_li no_style">GPA: 3.50/ 4.0</li>
+              <li class="responsibility_li no_style">January 2016 to May 2018</li>
             </ul>
           </li>
         </ul>
@@ -39,7 +42,7 @@
               <a href="https://www.import-express.com/" target="_blank">
                 <img src="/image/home/last_work4.jpg" alt="">
                 <div class="intro_wrapper">
-                  <h4 class="tit">E-commerce website</h4>
+                  <h4 class="tit">E-commerce websites</h4>
                   <p class="txt"><a href="https://www.import-express.com/">Import Express</a></p>
                   <p class="txt"><a href="https://www.kidscharming.com/">Kids Charming</a></p>
                   <p class="txt"><a href="https://www.petstoreinc.com/">Pet Store</a></p>
@@ -47,34 +50,35 @@
                 </div>
               </a>
             </li>
-            <li class="item_2">
-              <a href="/" target="_blank">
-                <img src="/image/home/last_work2.jpg" alt="">
-                <div class="intro_wrapper intro_wrapper2">
+            <!--<li class="item_2">
+              <a target="_blank">
+                <img src="/image/home/3dprinting.jpg" alt="">
+                <div class="intro_wrapper">
                   <h4 class="tit">3D Printer App</h4>
-                  <p class="txt"><a href="/">Three.js based MegicBox for education</a></p>
+                  <p class="txt">MegicBox for kids education based on Three.js</p>
+                  <p class="txt">Build modules by using default geometries</p>
                   <i class="iconfont icon_arrow">&#xe61f;</i>
                 </div>
               </a>
-            </li>
+            </li>-->
             <li class="item_1">
               <a href="https://www.import-express.com/" target="_blank">
-                <img src="/image/home/last_work4.jpg" alt="">
+                <img src="/image/home/luggage_decal.jpg" alt="">
                 <div class="intro_wrapper">
-                  <h4 class="tit">E-commerce website</h4>
-                  <p class="txt"><a href="https://www.import-express.com/">Import Express</a></p>
-                  <p class="txt"><a href="https://www.kidscharming.com/">Kids Charming</a></p>
-                  <p class="txt"><a href="https://www.petstoreinc.com/">Pet Store</a></p>
+                  <h4 class="tit">Luggage decal</h4>
+                  <p class="txt">Pick or upload decals to shoot on luggage. </p>
+                  <p class="txt">Before and after shooting the decal, users can change the decal size and rotation. </p>
                   <i class="iconfont icon_arrow">&#xe61f;</i>
                 </div>
               </a>
             </li>
-            <li class="item_2">
-              <a href="/" target="_blank">
-                <img src="/image/home/last_work2.jpg" alt="">
-                <div class="intro_wrapper intro_wrapper2">
+            <li class="item_3">
+              <a target="_blank">
+                <img src="/image/home/3dprinting1.jpg" alt="">
+                <div class="intro_wrapper intro_wrapper4">
                   <h4 class="tit">3D Printer App</h4>
-                  <p class="txt"><a href="/">Three.js based MegicBox for education</a></p>
+                  <p class="txt">MegicBox for kids education based on Three.js</p>
+                  <p class="txt">Build modules by using default geometries</p>
                   <i class="iconfont icon_arrow">&#xe61f;</i>
                 </div>
               </a>
@@ -82,7 +86,34 @@
           </ul>
         </div>
         <div class="each_content" v-if="currentListIndex===2">456</div>
-        <div class="each_content" v-if="currentListIndex===3">789</div>
+        <div class="each_content" v-if="currentListIndex===3">
+          <ul class="each_content_list only_two_item">
+            <li class="item_1">
+              <a href="https://www.fairfield.edu" target="_blank">
+                <img src="/image/home/FULogo.jpg" alt="">
+                <div class="intro_wrapper intro_wrapper3">
+                  <h4 class="tit">Fairfield University</h4>
+                  <p class="txt">Master of Science in Software Engineering</p>
+                  <p class="txt">GPA: 3.50/ 4.0</p>
+                  <p class="txt">January 2016 to May 2018</p>
+                  <i class="iconfont icon_arrow">&#xe61f;</i>
+                </div>
+              </a>
+            </li>
+            <li class="item_2">
+              <a href="http://gjjl.hkc.edu.cn/" target="_blank">
+                <img src="/image/home/hkc.jpg" alt="">
+                <div class="intro_wrapper intro_wrapper3">
+                  <h4 class="tit">Haikou University Of Economics</h4>
+                  <p class="txt">Bachelor of Science in Engineering Management</p>
+                  <p class="txt">GPA: 3.45/4.0</p>
+                  <p class="txt">September 2010 to June 2014</p>
+<!--                  <i class="iconfont icon_arrow">&#xe61f;</i>-->
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -170,7 +201,10 @@ export default {
             transition: margin-left 0.3s ease-out;
             right: 30px;
             line-height: 25px;
-            list-style: inside;
+            list-style: initial;
+            max-width: 374px;
+            .no_style
+              list-style-type none
     .right_content *
       text-align left
     .right_content
@@ -187,7 +221,7 @@ export default {
           li:hover
             .intro_wrapper
               .tit
-                margin-top: 29px;
+                margin-top: 75px;
               .txt
                 opacity: 1;
                 transform: translate(0px,0);
@@ -200,6 +234,21 @@ export default {
                 margin-top: 68px;
               .icon_arrow
                   top 66px
+            .intro_wrapper3
+              .tit
+                margin-top: 80px;
+              .icon_arrow
+                  top 80px
+            .intro_wrapper4
+              .tit
+                margin-top: 80px;
+              .icon_arrow
+                opacity: 1;
+                animation: a_arrow_r2 0.2s linear forwards;
+          li.item_3
+            width: 100%;
+            float: left;
+            height: 50%;
           li
             width: 50%;
             float: left;
@@ -245,7 +294,7 @@ export default {
               .icon_arrow
                 position: absolute;
                 right: 40px;
-                top: 27px;
+                top: 75px;
                 font-size: 40px;
                 color: #fff;
                 opacity: 0;
@@ -254,8 +303,30 @@ export default {
               .txt:hover
                 a
                   text-decoration underline
+            .intro_wrapper3
+              .tit
+                margin-top: 145px;
+              .icon_arrow
+                top 137px
+        .each_content_list.only_two_item
+          height: 50%;
+          margin auto
+          position relative
+          top 50%
+          -webkit-transform: translate(0,-50%);
+          -moz-transform: translate(0,-50%);
+          -ms-transform: translate(0,-50%);
+          -o-transform: translate(0,-50%);
+          transform: translate(0,-50%);
+
+          li
+            height 100%
 @keyframes a_arrow_r {
   0%{ opacity: 0; right: 60px;}
   100%{opacity: 1; right: 20px;}
+}
+@keyframes a_arrow_r2 {
+  0%{ opacity: 0; left: 240px;}
+  100%{opacity: 1; left: 300px;}
 }
 </style>
