@@ -6,16 +6,16 @@
       </div>
       <div class="rigth_menu">
         <div class="each_menu">
-          <router-link to="/" class="each_link">Home</router-link>
+          <router-link to="/" class="each_link">{{$t('nav.home')}}</router-link>
         </div>
         <div class="each_menu">
-          <router-link to="/" class="each_link">Skills</router-link>
+          <router-link to="/" class="each_link">{{$t('nav.skills')}}</router-link>
         </div>
         <div class="each_menu">
-          <router-link to="/" class="each_link">Projects</router-link>
+          <router-link to="/" class="each_link">{{$t('nav.Projects')}}</router-link>
         </div>
         <div class="each_menu last_menu">
-          <router-link to="/" class="each_link">About Me</router-link>
+          <router-link to="/" class="each_link">{{$t('nav.AboutMe')}}</router-link>
         </div>
         <div class="lang_area">
           <a class="lang_ch" :class="{active_lang:currrent_lang === 'zh_cn'}" lang="zh-cn" @click="changeLanguage('zh_cn')">中文</a>

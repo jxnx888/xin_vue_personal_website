@@ -6,11 +6,11 @@
           <li class="each_list"
               @mouseenter="showCurrent(1)"
               :class="{acive_tab:currentListIndex===1}">
-            <p class="each_title">Latest work</p>
+            <p class="each_title">{{$t('homeProject.list1.title')}}</p>
             <ul class="each_responsibility">
-              <li class="responsibility_li">Maintaining & modifying E-commerce website</li>
-              <li class="responsibility_li">Managing front-end team as a project manager assistant</li>
-              <li class="responsibility_li">Utilizing the Three.js to design and build 3D related WebApps.</li>
+              <li class="responsibility_li">{{$t('homeProject.list1.responsibility[0]')}}</li>
+              <li class="responsibility_li">{{$t('homeProject.list1.responsibility[1]')}}</li>
+              <li class="responsibility_li">{{$t('homeProject.list1.responsibility[2]')}}</li>
             </ul>
           </li>
           <li class="each_list"
@@ -25,12 +25,12 @@
           <li class="each_list"
               @mouseenter="showCurrent(3)"
               :class="{acive_tab:currentListIndex===3}">
-            <p class="each_title">Education</p>
+            <p class="each_title">{{$t('homeProject.list3.title')}}</p>
             <ul class="each_responsibility">
-              <li class="responsibility_li">Fairfield University</li>
-              <li class="responsibility_li no_style">Master of Science in Software Engineering</li>
-              <li class="responsibility_li no_style">GPA: 3.50/ 4.0</li>
-              <li class="responsibility_li no_style">January 2016 to May 2018</li>
+              <li class="responsibility_li">{{$t('homeProject.list3.responsibility[0]')}}</li>
+              <li class="responsibility_li no_style">{{$t('homeProject.list3.responsibility[1]')}}</li>
+              <li class="responsibility_li no_style">{{$t('homeProject.list3.responsibility[2]')}}</li>
+              <li class="responsibility_li no_style">{{$t('homeProject.list3.responsibility[3]')}}</li>
             </ul>
           </li>
         </ul>
@@ -42,32 +42,21 @@
               <a href="https://www.import-express.com/" target="_blank">
                 <img src="/image/home/last_work4.jpg" alt="">
                 <div class="intro_wrapper">
-                  <h4 class="tit">E-commerce websites</h4>
-                  <p class="txt"><a href="https://www.import-express.com/">Import Express</a></p>
-                  <p class="txt"><a href="https://www.kidscharming.com/">Kids Charming</a></p>
-                  <p class="txt"><a href="https://www.petstoreinc.com/">Pet Store</a></p>
+                  <h4 class="tit">{{$t('homeProject.list1.childList[0].title')}}</h4>
+                  <p class="txt"><a href="https://www.import-express.com/">{{$t('homeProject.list1.childList[0].txt[0]')}}</a></p>
+                  <p class="txt"><a href="https://www.kidscharming.com/">{{$t('homeProject.list1.childList[0].txt[1]')}}</a></p>
+                  <p class="txt"><a href="https://www.petstoreinc.com/">{{$t('homeProject.list1.childList[0].txt[2]')}}</a></p>
                   <i class="iconfont icon_arrow">&#xe61f;</i>
                 </div>
               </a>
             </li>
-            <!--<li class="item_2">
-              <a target="_blank">
-                <img src="/image/home/3dprinting.jpg" alt="">
-                <div class="intro_wrapper">
-                  <h4 class="tit">3D Printer App</h4>
-                  <p class="txt">MegicBox for kids education based on Three.js</p>
-                  <p class="txt">Build modules by using default geometries</p>
-                  <i class="iconfont icon_arrow">&#xe61f;</i>
-                </div>
-              </a>
-            </li>-->
             <li class="item_1">
               <a href="https://www.import-express.com/" target="_blank">
                 <img src="/image/home/luggage_decal.jpg" alt="">
                 <div class="intro_wrapper">
-                  <h4 class="tit">Luggage decal</h4>
-                  <p class="txt">Pick or upload decals to shoot on luggage. </p>
-                  <p class="txt">Before and after shooting the decal, users can change the decal size and rotation. </p>
+                  <h4 class="tit">{{$t('homeProject.list1.childList[1].title')}}</h4>
+                  <p class="txt">{{$t('homeProject.list1.childList[1].txt[0]')}}</p>
+                  <p class="txt">{{$t('homeProject.list1.childList[1].txt[1]')}}</p>
                   <i class="iconfont icon_arrow">&#xe61f;</i>
                 </div>
               </a>
@@ -76,9 +65,9 @@
               <a target="_blank">
                 <img src="/image/home/3dprinting1.jpg" alt="">
                 <div class="intro_wrapper intro_wrapper4">
-                  <h4 class="tit">3D Printer App</h4>
-                  <p class="txt">MegicBox for kids education based on Three.js</p>
-                  <p class="txt">Build modules by using default geometries</p>
+                  <h4 class="tit">{{$t('homeProject.list1.childList[2].title')}}</h4>
+                  <p class="txt">{{$t('homeProject.list1.childList[2].txt[0]')}}</p>
+                  <p class="txt">{{$t('homeProject.list1.childList[2].txt[1]')}}</p>
                   <i class="iconfont icon_arrow">&#xe61f;</i>
                 </div>
               </a>
@@ -92,10 +81,10 @@
               <a href="https://www.fairfield.edu" target="_blank">
                 <img src="/image/home/FULogo.jpg" alt="">
                 <div class="intro_wrapper intro_wrapper3">
-                  <h4 class="tit">Fairfield University</h4>
-                  <p class="txt">Master of Science in Software Engineering</p>
-                  <p class="txt">GPA: 3.50/ 4.0</p>
-                  <p class="txt">January 2016 to May 2018</p>
+                  <h4 class="tit">{{$t('homeProject.list3.childList[0].title')}}</h4>
+                  <p class="txt">{{$t('homeProject.list3.childList[0].txt[0]')}}</p>
+                  <p class="txt">{{$t('homeProject.list3.childList[0].txt[1]')}}</p>
+                  <p class="txt">{{$t('homeProject.list3.childList[0].txt[2]')}}</p>
                   <i class="iconfont icon_arrow">&#xe61f;</i>
                 </div>
               </a>
@@ -104,10 +93,10 @@
               <a href="http://gjjl.hkc.edu.cn/" target="_blank">
                 <img src="/image/home/hkc.jpg" alt="">
                 <div class="intro_wrapper intro_wrapper3">
-                  <h4 class="tit">Haikou University Of Economics</h4>
-                  <p class="txt">Bachelor of Science in Engineering Management</p>
-                  <p class="txt">GPA: 3.45/4.0</p>
-                  <p class="txt">September 2010 to June 2014</p>
+                  <h4 class="tit">{{$t('homeProject.list3.childList[1].title')}}</h4>
+                  <p class="txt">{{$t('homeProject.list3.childList[1].txt[0]')}}</p>
+                  <p class="txt">{{$t('homeProject.list3.childList[1].txt[1]')}}</p>
+                  <p class="txt">{{$t('homeProject.list3.childList[1].txt[2]')}}</p>
 <!--                  <i class="iconfont icon_arrow">&#xe61f;</i>-->
                 </div>
               </a>
