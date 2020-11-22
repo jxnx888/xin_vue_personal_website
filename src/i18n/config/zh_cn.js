@@ -45,7 +45,7 @@ const zh_cn = {
             childList: [
                 {
                     title: '费尔菲尔德大学',
-                    txt: ['软件工程硕士','平均成绩: 3.50/ 4.0','2016年1月-2018年五月']
+                    txt: ['软件工程硕士','平均成绩: 3.50/ 4.0','2016年1月-2018年5月']
                 },
                 {
                     title: '海口经济学院',
@@ -59,6 +59,7 @@ const zh_cn = {
         skills: '技术栈',
         Projects: '项目',
         AboutMe: '关于我',
+        contact: '联系我',
     }
 }
 export default zh_cn;

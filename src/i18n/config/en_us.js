@@ -1,7 +1,7 @@
 const en_us = {
     footer: {
-        resume: 'Print Resume',
-        coverletter: 'Print CV'
+        resume: 'Resume',
+        coverletter: 'Cover Letter'
     },
     home: {
         name: 'Xin Ning',
@@ -59,6 +59,7 @@ const en_us = {
         skills: 'Skills',
         Projects: 'Projects',
         AboutMe: 'About Me',
+        contact: 'Contact',
     }
 }
 export default en_us;
