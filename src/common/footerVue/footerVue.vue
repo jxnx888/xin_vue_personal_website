@@ -11,17 +11,17 @@
               </a>
             </div>
             <div class="each_social">
-              <a href="#" class="linkedin-btn">
+              <a href="https://www.linkedin.com/in/xin-ning-28818b115/" class="linkedin-btn" target="_blank">
                 <div class="icon i_linkedin"></div>
               </a>
             </div>
             <div class="each_social">
-              <a href="#" class="facebook-btn">
+              <a href="https://www.facebook.com/jxnx888" class="facebook-btn" target="_blank">
                 <div class="icon i_facebook"></div>
               </a>
             </div>
             <div class="each_social">
-              <a href="#" class="github-btn">
+              <a href="https://github.com/jxnx888" class="github-btn" target="_blank">
                 <div class="icon i_github"></div>
               </a>
             </div>
@@ -37,13 +37,13 @@
               <router-link to="/" class="each_link">{{ $t('nav.home') }}</router-link>
             </div>
             <div class="each_map">
-              <router-link to="/" class="each_link">{{ $t('nav.skills') }}</router-link>
+              <router-link to="/skills" class="each_link">{{ $t('nav.skills') }}</router-link>
             </div>
             <div class="each_map">
-              <router-link to="/" class="each_link">{{ $t('nav.Projects') }}</router-link>
+              <router-link to="/projects" class="each_link">{{ $t('nav.Projects') }}</router-link>
             </div>
             <div class="each_map last_menu">
-              <router-link to="/" class="each_link">{{ $t('nav.AboutMe') }}</router-link>
+              <router-link to="/aboutme" class="each_link">{{ $t('nav.AboutMe') }}</router-link>
             </div>
           </div>
         </el-col>

@@ -10,23 +10,23 @@
     <div class="bottom_list">
       <ul class="detail_list clearfix">
         <li>
-          <a href="" class="each_link">
+          <router-link  to="/aboutme" class="each_link">
             <p>{{ $t('home.aboutme') }}</p>
             <img src="/image/home/aboutme1.jpg" alt="">
-          </a>
+          </router-link>
         </li>
         <li>
-          <a href="" class="each_link">
+          <router-link  to="/projects" class="each_link">
             <p>{{ $t('home.myprojects') }}</p>
             <img src="/image/home/myprojects.jpg" alt="">
-          </a>
+          </router-link>
         </li>
 
         <li class="last">
-          <a href="" class="each_link">
+          <router-link  to="/skills" class="each_link">
             <p>{{ $t('home.myskills') }}</p>
             <img src="/image/home/myskills.jpg" alt="">
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
