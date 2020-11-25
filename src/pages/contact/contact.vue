@@ -2,9 +2,13 @@
   <div class="contact_wrapper">
     <!-- https://dafrok.github.io/vue-baidu-map/#/ -->
     <baidu-map class="map" :center="center" :zoom="zoom" @ready="handler">
-      <bm-geolocation :anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true"></bm-geolocation>
-      <bm-marker :position="tagCoordinate" :dragging="false" animation="BMAP_ANIMATION_BOUNCE" :icon="{url: 'http://developer.baidu.com/map/jsdemo/img/fox.gif', size: {width: 300, height: 157}}">
-        <bm-label :content="$t('contact.tagInfo') " :labelStyle="{color: 'red', fontSize : '16px'}" :offset="{width: -50, height: 50}"/>
+<!--      <bm-geolocation :anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true"></bm-geolocation>-->
+      <bm-marker :position="tagCoordinate" :dragging="false" animation="BMAP_ANIMATION_BOUNCE" :icon="{url: '/image/head_ico1.png', size: {width: 25, height: 25},}"  @click="infoWindowOpen" class="map_marker">
+        <bm-info-window :show="show" @close="infoWindowClose" @open="infoWindowOpen" class="info_window">
+          <div class="title">{{$t('contact.tagInfo[2]')}}</div>
+          <div class="title BMap_bubble_title">{{$t('contact.tagInfo[0]')}}</div>
+          <div class="address">{{$t('contact.tagInfo[1]')}}</div>
+        </bm-info-window>
       </bm-marker>
 
 
@@ -34,7 +38,8 @@ export default {
       center: {lng: 0, lat: 0},
       zoom: 20,
       tagCoordinate: {lng: 0, lat: 0},
-      active: false
+      active: false,
+      show: true
     }
   },
   methods: {
@@ -50,6 +55,12 @@ export default {
       const pixel = map.pointToOverlayPixel(new BMap.Point(121.389652, 31.22903))
       el.style.left = pixel.x - 60 + 'px'
       el.style.top = pixel.y - 20 + 'px'
+    },
+    infoWindowClose () {
+        this.show = false
+    },
+    infoWindowOpen () {
+        this.show = true
     }
   }
 }
@@ -60,7 +71,22 @@ export default {
   .map
     width: 100%;
     height: 500px;
+    >>> .BMap_pop
+      top: 100px!important;
+      left: 840px!important;
+    >>> .BMap_shadow
+      top 143px!important
 
+.title {
+  color:#CC5522;
+  font-size 14px;
+  line-height: 20px;
+}
+  .address{
+    color:#333;
+    font-size 14px;
+    line-height: 20px;
+  }
 .sample {
   width: 120px;
   height: 40px;
@@ -77,4 +103,5 @@ export default {
   background: rgba(0,0,0,0.75);
   color: #fff;
 }
+
 </style>
