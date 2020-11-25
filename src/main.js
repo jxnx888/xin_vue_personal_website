@@ -52,6 +52,12 @@ import  'swiper/swiper-bundle.css'
 Vue.use(VueAwesomeSwiper, /* { default global options } */);
 
 
+import BaiduMap from 'vue-baidu-map'
+Vue.use(BaiduMap, {
+  // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
+  ak: 'ltMWgFXjRibfXcKgWjDPfsSuQidpINet'
+})
+
 
 Vue.config.productionTip = false
 

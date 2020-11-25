@@ -60,6 +60,9 @@ const en_us = {
         Projects: 'Projects',
         AboutMe: 'About Me',
         contact: 'Contact',
+    },
+    contact:{
+        tagInfo:["上海凯融信息公司","地址：云岭东路汇银铭尊一号楼605室","I'm working here!"]
     }
 }
 export default en_us;
