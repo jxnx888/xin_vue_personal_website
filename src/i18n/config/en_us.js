@@ -62,7 +62,8 @@ const en_us = {
         contact: 'Contact',
     },
     contact:{
-        tagInfo:["上海凯融信息公司","地址：云岭东路汇银铭尊一号楼605室","I'm working here"]
+        tagInfo:["上海凯融信息公司","地址：云岭东路汇银铭尊一号楼605室","I'm working here"],
+        topTitle:["Want to contact Xin Ning","Here are few ways to get in touch with me"]
     }
 }
 export default en_us;

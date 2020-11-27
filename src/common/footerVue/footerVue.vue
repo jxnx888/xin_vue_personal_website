@@ -144,7 +144,7 @@ export default {
         margin 0 auto 20px
         .each_map
           float left
-          width: .8rem;
+          width: 1.1rem;
           position relative
           padding: 0 .15rem
           font-size: .16rem

@@ -14,8 +14,11 @@
         <div class="each_menu">
           <router-link to="/projects" class="each_link">{{$t('nav.Projects')}}</router-link>
         </div>
-        <div class="each_menu last_menu">
+        <div class="each_menu">
           <router-link to="/aboutme" class="each_link">{{$t('nav.AboutMe')}}</router-link>
+        </div>
+        <div class="each_menu last_menu">
+          <router-link to="/contact" class="each_link">{{$t('nav.contact')}}</router-link>
         </div>
         <div class="lang_area">
           <a class="lang_ch" :class="{active_lang:currrent_lang === 'zh_cn'}" lang="zh-cn" @click="changeLanguage('zh_cn')">中文</a>

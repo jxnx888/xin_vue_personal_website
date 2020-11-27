@@ -52,9 +52,8 @@ export default {
     padding: 105px 0 74px;
   .bottom_list
     width: 1240px;
-    margin: 0px auto;
+    margin: 0px auto 84px auto;
     height: 250px;
-    padding-bottom 84px
     .detail_list
       li
         display: inline-block;
