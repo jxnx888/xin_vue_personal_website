@@ -6,6 +6,7 @@ import router from './router'
 import i18n from './i18n';
 
 //reset styles
+import './assets/style/bootstrap-3.3.7.css';
 import './assets/style/reset.css';
 import './assets/style/border.css';
 import './assets/style/common.css';
