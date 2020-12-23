@@ -49,32 +49,35 @@
             <div class="num">02</div>
             <div class="contactWay">SEND ME <br> A MESSAGE</div>
           </div>
-          <div class="info_content">
-            <div class="each_input">
-              <input type="text" v-model="name" placeholder="YOUR NAME" id="name" ref="name">
-              <div class="valid" v-if="nameValid">* Please input your name</div>
+          <form id="sendEmail">
+            <div class="info_content">
+              <div class="each_input">
+                <input type="text" v-model="name" placeholder="YOUR NAME" id="name" ref="name" name="name">
+                <div class="valid" v-if="nameValid" @click="clearFocus(1)">* Please input your name</div>
+              </div>
+              <div class="each_input">
+                <input type="text" v-model="email" placeholder="EMAIL ADDRESS" id="email" ref="email" name="email">
+                <div class="valid" v-if="emailValid" @click="clearFocus(2)">* Please input your email address</div>
+              </div>
+              <div class="each_input">
+                <input type="text" v-model="phone" placeholder="TELEPHONE NUMBER" id="phone" ref="phone" name="phone">
+                <div class="valid" v-if="phoneValid" @click="clearFocus(3)">* Please input your telephone number</div>
+              </div>
+              <div class="each_input">
+                <input type="text" v-model="subject" placeholder="SUBJECT" id="subject" ref="subject">
+                <div class="valid" v-if="subjectValid" @click="clearFocus(4)">* Please input your subject</div>
+              </div>
+              <div class="each_input">
+                <textarea v-model="message" placeholder="YOUR MESSAGE" rows="5" id="message" ref="message"></textarea>
+                <div class="valid" v-if="messageValid" @click="clearFocus(5)">* Please input your message</div>
+              </div>
+              <input type="hidden" id="formEmail" name="email">
+              <input type="hidden" id="formMessage" name="message">
+              <div class="submit">
+                <div class="submit_btn" id="submitForm" @click="submit()">{{submitTxt}}</div>
+              </div>
             </div>
-            <div class="each_input">
-              <input type="text" v-model="email" placeholder="EMAIL ADDRESS" id="email" ref="email">
-              <div class="valid" v-if="emailValid">* Please input your email address</div>
-            </div>
-            <div class="each_input">
-              <input type="text" v-model="phone" placeholder="TELEPHONE NUMBER" id="phone" ref="phone">
-              <div class="valid" v-if="phoneValid">* Please input your telephone number</div>
-            </div>
-            <div class="each_input">
-              <input type="text" v-model="subject" placeholder="SUBJECT" id="subject" ref="subject">
-              <div class="valid" v-if="subjectValid">* Please input your subject</div>
-            </div>
-            <div class="each_input">
-              <textarea v-model="message" placeholder="YOUR MESSAGE" rows="5"  id="message" ref="message"></textarea>
-              <div class="valid" v-if="messageValid">* Please input your message</div>
-            </div>
-            <div class="submit">
-              <div class="submit_btn" @click="submit()">SUBMIT</div>
-            </div>
-          </div>
-
+          </form>
         </div>
         </div>
       </div>
@@ -84,10 +87,12 @@
 </template>
 
 <script>
+
     export default {
         name: "contactInfo",
         data() {
             return {
+                submitTxt:"SUBMIT",
                 name:'',
                 nameValid:false,
                 email:'',
@@ -106,20 +111,105 @@
             submit(){
                 if(!this.name){
                     this.nameValid = true;
+                    setTimeout(()=>{
+                        this.clearFocus(1)
+                    },3000)
                 }
                 else if(!this.email){
                     this.emailValid = true;
+                    setTimeout(()=>{
+                        this.clearFocus(2)
+                    },3000)
                 }
                 else if(!this.phone){
                     this.phoneValid = true;
+                    setTimeout(()=>{
+                        this.clearFocus(3)
+                    },3000)
                 }
                 else if(!this.subject){
                     this.subjectValid = true;
+                    setTimeout(()=>{
+                        this.clearFocus(4)
+                    },3000)
                 }
                 else if(!this.message){
                     this.messageValid = true;
+                    setTimeout(()=>{
+                        this.clearFocus(5)
+                    },3000)
                 }
+                else{
+                    this.submitTxt = "SUBMITTING...";
+                    $(".submit").addClass("submitting");
+                    $(".submit .submit_btn").attr("disabled", "disabled");
+                    this.sendEmail();
+                    setTimeout(()=>{
+                        this.submitTxt = "SUBMIT";
+                        $(".submit").removeClass("submitting");
+                        $(".submit .submit_btn").removeAttr("disabled");
+                    },3000)
+                }
+            },
+            clearFocus(e){
+                let validIndex = e;
+                switch (validIndex) {
+                  case 1:
+                      this.nameValid = false;
+                      this.$refs.name.focus();
+                      break;
+                  case 2:
+                      this.emailValid = false;
+                      this.$refs.email.focus();
+                      break;
+                  case 3:
+                      this.phoneValid = false;
+                      this.$refs.phone.focus();
+                      break;
+                  case 4:
+                      this.subjectValid = false;
+                      this.$refs.subject.focus();
+                      break;
+                  case 5:
+                      this.messageValid = false;
+                      this.$refs.message.focus();
+                      break;
+                  default:
+                      this.nameValid = false;
+                      this.$refs.name.focus();
+                      break;
+                }
+            },
+            sendEmail(){
+                let html =  "<h2>Name: </h2>" + this.name + '<br> ' +  // html 内容
+                '<h2>Email Address: </h2>' + this.email + '<br> ' +
+                '<h2>Telephone Number: </h2>' + this.phone + '<br> ' +
+                '<h2>Subject: </h2>' + this.subject + '<br> ' +
+                '<h2>Message: </h2>' + this.message + '<br> ';
+                $("#formEmail").val(this.email);
+                $("#formMessage").val(html);
+                var form = document.getElementById("sendEmail");
+                var url = 'https://formspree.io/f/mjvpedkw';
+                var data = new FormData(form);
+                this.$ajax.post(url, data).then(this.getEmailSucc)
+                    .catch(function (res) {
+                        console.log("error:" + res)
+                    })
+                /*let finalObj = {};
+                let messageObj = {};
+                messageObj['Subject'] = "Xin's Website Message:: " + this.subject;
+                let messageBodyObj = {};
+                messageBodyObj["ContentType"] = "Text",
+                messageBodyObj["Content"] = this.message;
+                messageObj['Body'] =messageBodyObj;
+                messageObj['ToRecipients'] =[{'EmailAddress': {"Address": "ningxin1007@hotmail.com"}}];
+                finalObj['Message'] = messageObj;
+                console.log(finalObj )
+                console.log(JSON.stringify(finalObj) )*/
+            },
 
+            getEmailSucc(res){
+                console.log(res);
             }
         },
     }
@@ -178,7 +268,7 @@
                 height .5rem
                 padding 0 .15rem
               .valid
-                display none
+                /*display none*/
                 text-align left
                 color red
                 width 3.8rem
@@ -204,7 +294,9 @@
               font-weight bold
             .submit:hover
               background #f89904
-
+            .submit.submitting
+              background #999
+              pointer-events none
 
 
         .contact_intro
