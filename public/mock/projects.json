@@ -4,19 +4,19 @@
     "kairong":[
       {
         "title": "Import Express",
-        "img": "/image/home/last_work1.jpg",
+        "img": "/image/projects/import.jpg",
         "desc":"",
         "tags":"Development, Jquery"
       },
       {
         "title": "Kids Charming",
-        "img": "/image/home/last_work2.jpg",
+        "img": "/image/projects/kids.jpg",
         "desc":"",
         "tags":"Development, Jquery"
       },
       {
         "title": "Pet Store",
-        "img": "/image/home/last_work3.jpg",
+        "img": "/image/projects/pet.jpg",
         "desc":"",
         "tags":"Development, Jquery"
       },
