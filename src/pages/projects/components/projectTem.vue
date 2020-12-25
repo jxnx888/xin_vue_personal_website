@@ -5,7 +5,10 @@
     <div class="info_wrapper">
       <div class="thisTitle">{{titleInf}}</div>
       <div class="thisDes">{{desc}}</div>
-      <div class="thisTags">{{tags}}</div>
+      <div class="thisTags">
+        <div class="subTitle">Tags:</div>
+        {{tags}}
+      </div>
     </div>
     </div>
   </div>
@@ -28,14 +31,16 @@
 .each_content
   cursor pointer
   position: relative;
-  margin-bottom 40px
-  width 49%;
+  margin-bottom .4rem
+  width 4.8rem;
+  height 4.1rem;
+  border: 10px ridge;
   float left
   .each_wrapper
-    width 100%
-    height 420px;
+    width 4.6rem
+    height 3.9rem;
     overflow hidden
-    border: 10px ridge;
+    position: relative;
     .each_img
       position: absolute;
       top 0
@@ -47,10 +52,11 @@
       max-height: 100%;
     .info_wrapper
       width: 100%;
+      height: 50%;
       position: absolute;
       left 0
       right 0
-      bottom 0
+      bottom -1.63rem
       z-index 9
       background rgba(0,0,0,0.7)
       color #fff
@@ -59,7 +65,32 @@
         line-height 30px
         border-top 1px solid #fff
         border-bottom 1px solid #fff
+      .thisDes
+        text-align left
+        min-height: 1rem;
+        padding .2rem .2rem
+        line-height .2rem
+        opacity 0
+      .thisTags
+        text-align left
+        line-height .3rem
+        padding 0 .2rem .2rem
+        opacity 0
+        .subTitle
+          font-weight bold
+  .each_wrapper:hover
+    .info_wrapper
+      bottom 0
+      opacity: 1;
+      animation: show_detail 0.3s linear forwards;
+      .thisDes
+      .thisTags
+        opacity 1
 .each_content:nth-of-type(2n+1)
   margin-right 2%
 
+@keyframes show_detail {
+  0%{bottom: -1.63rem;}
+  100%{bottom:0;}
+}
 </style>
