@@ -1,41 +1,58 @@
 <template>
   <div class="project_wrapper clearfix">
+  <div class="project_banner">
+    <topBanner
+      :bannerImg="'/image/banner2.png'"
+      :bannerContent="$t('projects.bannerInfo')"></topBanner>
+  </div>
+  <div class="project_main clearfix">
     <div v-for="(value,key,index) in projectsJson"
          :key="index"
          class="each_career clearfix">
-      <h1>{{key}}</h1>
+      <h1 :id="key.replace(/ /g,'')" class="company_name">
+        <p class="jobTitle">{{value.jobtitle}}</p>
+        <p class="jobCompany">-- {{value.companyName}}</p>
+        <p class="jobduration">-- {{value.startDate}} - {{value.endDate}} ({{value.duration}}) </p>
+      </h1>
       <projectTem
-        v-for="childItem of value"
+        v-for="childItem of value.projects"
         :key="childItem.id"
         :bgImg="childItem.img"
         :titleInf="childItem.title"
         :desc="childItem.desc"
         :tags="childItem.tags"
+        :link="childItem.url"
       ></projectTem>
     </div>
-    <div class="animation_menu">
-      <div class="each_menu"
-           v-for="(item, index) in parentsName"
+    <div class="animation_menu" :class="scrollingMenu? 'scrollMenu':''">
+      <div class="each_company_menu"
+           v-for="(item, index) in menuArr"
            :key='index'
-           @click="jumpToRelate(item)"
+           :class="activeMenuIndex == index ? 'active_menu':''"
+           @click="jumpToRelate(item.replace(/ /g,''),index)"
       >{{item}}
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
+    import topBanner from "@/common/topStaticBanner/topBanner";
     import projectTem from './components/projectTem'
 
     export default {
         name: "projects",
         components: {
+            topBanner,
             projectTem
         },
         data() {
             return {
                 projectsJson: {},
-                parentsName: []
+                menuArr: [],
+                scrollingMenu:false,
+                activeMenuIndex:0
             }
         },
         methods: {
@@ -51,29 +68,100 @@
                 if (res.data.code == 200) {
                     const data = res.data.data;
                     this.projectsJson = data;
-                    console.log("projectsJson：：：： " + JSON.stringify(this.projectsJson));
                     for (let i in data) {
-                        this.parentsName.push(i)
+                        this.menuArr.push(i)
                     }
                 }
             },
-            jumpToRelate(id) {
-                console.log(id)
+            jumpToRelate(id,index) {
+                $("html,body").scrollTop($("#"+id).offset().top)
+                this.activeMenuIndex = index;
+                this.menuScroll()
+            },
+            menuScroll(){
+                //当前滚动位置
+                let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
+                //滚动菜单的高度
+                var animation_menu_Height = $(".animation_menu").height();
+                // project_main 的整体的开始位置 防止报错,写死
+                var oriMoveTopP = $(".project_main").offset().top;
+                // project_wrapper可以滚动的最大位置 == project_wrapper顶部位置加高度
+                var moveBottomP = oriMoveTopP + $(".project_wrapper").height();
+
+                if(scrollTop>=oriMoveTopP && (scrollTop)<=(moveBottomP-animation_menu_Height)){
+                    this.scrollingMenu = true;//菜单固定class
+                    const menuArr = this.menuArr;
+                    for (var i in menuArr) {
+                        var thisOffsetTop = $('#' + menuArr[i].replace(/ /g,'')).offset().top;
+                        if (scrollTop >= thisOffsetTop) { //检测滚动距离，记录下方距离最近的一个id
+                            this.activeMenuIndex = i;
+                        }
+                    }
+                    $(".scrollMenu").css("top",scrollTop-oriMoveTopP+40);
+                }
+                else if(scrollTop<oriMoveTopP){
+                    this.scrollingMenu = false;
+                    this.activeMenuIndex = 0;
+                    $(".animation_menu").css("top","50px");
+                }
             }
         },
         mounted() {
-            this.getProject()
+            this.getProject();
+            window.addEventListener('scroll', this.menuScroll)
+        },
+        destroyed () {
+            window.addEventListener('scroll', this.menuScroll)
         }
     }
 </script>
 
 <style scoped lang="stylus">
-  .project_wrapper
+.project_wrapper
+  .project_main
     width: 1200px;
     margin: 0px auto;
     position relative
     .each_career
       width 980px;
-      margin: 0px auto;
-
+      margin: .3rem auto;
+      .company_name
+        text-align left
+        font-weight bold
+        color #333
+        margin .2rem 0
+        .jobTitle
+          font-size .25rem
+          line-height .35rem
+          text-shadow: 4px 3px 3px #a28d8d;
+        .jobCompany
+          font-size .15rem
+          line-height .2rem
+          color #999
+        .jobduration
+          font-size .15rem
+          color #999
+          line-height .2rem
+    .animation_menu
+      position: absolute;
+      top: 50px;
+      right: -50px;
+      z-index 9
+      width: 130px;
+      margin:0 auto 20px;
+      .each_company_menu
+        width: 100%;
+        height: 34px;
+        line-height: 34px;
+        color: #333333;
+        font-weight: bold;
+        font-size: 14px;
+        background: #eee;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 17px;
+        margin-bottom: 10px
+      .active_menu
+        background: #F78C3E;
+        color:#FFF
 </style>

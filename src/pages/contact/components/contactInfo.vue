@@ -181,6 +181,9 @@
                 }
             },
             sendEmail(){
+                //在Vue项目中，用户在高频率点击按钮时，会发送多个邮件 所以要用到节流，使用节流Throttle
+                //后续增加
+                // 。
                 let html =  "<h2>Name: </h2>" + this.name + '<br> ' +  // html 内容
                 '<h2>Email Address: </h2>' + this.email + '<br> ' +
                 '<h2>Telephone Number: </h2>' + this.phone + '<br> ' +

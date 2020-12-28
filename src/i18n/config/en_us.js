@@ -64,6 +64,9 @@ const en_us = {
     contact:{
         tagInfo:["上海凯融信息公司","地址：云岭东路汇银铭尊一号楼605室","I'm working here"],
         topTitle:["Want to contact Xin Ning","Here are few ways to get in touch with me"]
+    },
+    projects:{
+        bannerInfo:"I'm able to work independently and handle multiple tasks at the same time. More importantly, I am always a good team member with a team-oriented spirit in my mind."
     }
 }
 export default en_us;

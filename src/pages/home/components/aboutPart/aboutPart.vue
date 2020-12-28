@@ -12,20 +12,20 @@
         <li>
           <router-link  to="/aboutme" class="each_link">
             <p>{{ $t('home.aboutme') }}</p>
-            <img src="/image/home/aboutme1.jpg" alt="">
+            <img v-lazy="'/image/home/aboutme1.jpg'" alt="">
           </router-link>
         </li>
         <li>
           <router-link  to="/projects" class="each_link">
             <p>{{ $t('home.myprojects') }}</p>
-            <img src="/image/home/myprojects.jpg" alt="">
+            <img v-lazy="'/image/home/myprojects.jpg'" alt="">
           </router-link>
         </li>
 
         <li class="last">
           <router-link  to="/skills" class="each_link">
             <p>{{ $t('home.myskills') }}</p>
-            <img src="/image/home/myskills.jpg" alt="">
+            <img v-lazy="'/image/home/myskills.jpg'" alt="">
           </router-link>
         </li>
       </ul>
@@ -64,6 +64,7 @@ export default {
         margin-right: 20px;
         position: relative;
         overflow: hidden;
+        background: #eee;
         .each_link
           p
             display: block;
@@ -80,8 +81,7 @@ export default {
             color: #fff;
             border-bottom: 1px solid rgba(255,255,255,0);
             transform: translate(-50%,0);
-            padding-bottom: 3px;
-            transition: border-bottom 0.3s ease-out;
+            transition: all 0.3s ease-out;
             padding-bottom: 5px;
             -webkit-transition: width 1s linear;
           p:after
@@ -96,14 +96,18 @@ export default {
             -webkit-transition: all 0.2s linear;
           img
             display: block;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            left: 0px;
-            top: 0px;
             z-index: 1;
             transform: scale(1);
-            transition: transform 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+
         .each_link:after
           display: block;
           content: "";

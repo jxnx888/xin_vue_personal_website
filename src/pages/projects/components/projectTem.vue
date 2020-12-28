@@ -1,7 +1,8 @@
 <template>
   <div class="each_content">
+    <a :href="link">
     <div class="each_wrapper">
-    <img :src="bgImg" alt="" class="each_img">
+    <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">
     <div class="info_wrapper">
       <div class="thisTitle">{{titleInf}}</div>
       <div class="thisDes">{{desc}}</div>
@@ -11,6 +12,7 @@
       </div>
     </div>
     </div>
+    </a>
   </div>
 </template>
 
@@ -22,7 +24,8 @@
             bgImg:String,
             titleInf:String,
             desc:String,
-            tags:String
+            tags:String,
+            link:String,
         }
     }
 </script>
@@ -50,13 +53,14 @@
       margin: auto;
       max-width: 100%;
       max-height: 100%;
+      transition: all 0.5s ease-out;
     .info_wrapper
       width: 100%;
-      height: 50%;
+      height: 60%;
       position: absolute;
       left 0
       right 0
-      bottom -1.63rem
+      bottom -2.02rem
       z-index 9
       background rgba(0,0,0,0.7)
       color #fff
@@ -79,9 +83,10 @@
         .subTitle
           font-weight bold
   .each_wrapper:hover
+    .each_img
+      transform scale(1.03)
     .info_wrapper
       bottom 0
-      opacity: 1;
       animation: show_detail 0.3s linear forwards;
       .thisDes
       .thisTags
@@ -90,7 +95,7 @@
   margin-right 2%
 
 @keyframes show_detail {
-  0%{bottom: -1.63rem;}
+  0%{bottom: -2.02rem;}
   100%{bottom:0;}
 }
 </style>

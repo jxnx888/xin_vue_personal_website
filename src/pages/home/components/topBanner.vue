@@ -1,7 +1,7 @@
 <template>
   <div class="main_wrapper">
       <div class="banner banner_one">
-        <img :src="bannerList[0]" alt="">
+        <img v-lazy="bannerList[0]" alt="">
         <div class="banner_info">
           <h1>{{$t('home.name')}}</h1>
           <p class="title">{{$t('home.title')}}</p>
@@ -30,11 +30,11 @@ import autoTyping from "@/common/autoTyping/autoTyping";
   .banner
     position: relative;
     width 100%
-    height 561px
+    max-height 561px
     background #eee
     img
       width 100%
-      height 100%
+      max-height 100%
     .banner_info
       position absolute
       left: 50%

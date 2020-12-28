@@ -40,7 +40,7 @@
           <ul class="each_content_list">
             <li class="item_1">
               <a href="https://www.import-express.com/" target="_blank">
-                <img src="/image/home/last_work4.jpg" alt="">
+                <img v-lazy="'/image/home/last_work4.jpg'" alt="">
                 <div class="intro_wrapper">
                   <h4 class="tit">{{$t('homeProject.list1.childList[0].title')}}</h4>
                   <p class="txt"><a href="https://www.import-express.com/">{{$t('homeProject.list1.childList[0].txt[0]')}}</a></p>
@@ -52,7 +52,7 @@
             </li>
             <li class="item_1">
               <a href="https://www.import-express.com/" target="_blank">
-                <img src="/image/home/luggage_decal.jpg" alt="">
+                <img v-lazy="'/image/home/luggage_decal.jpg'" alt="">
                 <div class="intro_wrapper">
                   <h4 class="tit">{{$t('homeProject.list1.childList[1].title')}}</h4>
                   <p class="txt">{{$t('homeProject.list1.childList[1].txt[0]')}}</p>
@@ -63,7 +63,7 @@
             </li>
             <li class="item_3">
               <a target="_blank">
-                <img src="/image/home/3dprinting1.jpg" alt="">
+                <img v-lazy="'/image/home/3dprinting1.jpg'" alt="">
                 <div class="intro_wrapper intro_wrapper4">
                   <h4 class="tit">{{$t('homeProject.list1.childList[2].title')}}</h4>
                   <p class="txt">{{$t('homeProject.list1.childList[2].txt[0]')}}</p>
@@ -79,7 +79,7 @@
           <ul class="each_content_list only_two_item">
             <li class="item_1">
               <a href="https://www.fairfield.edu" target="_blank">
-                <img src="/image/home/FULogo.jpg" alt="">
+                <img v-lazy="'/image/home/FULogo.jpg'" alt="">
                 <div class="intro_wrapper intro_wrapper3">
                   <h4 class="tit">{{$t('homeProject.list3.childList[0].title')}}</h4>
                   <p class="txt">{{$t('homeProject.list3.childList[0].txt[0]')}}</p>
@@ -91,7 +91,7 @@
             </li>
             <li class="item_2">
               <a href="http://gjjl.hkc.edu.cn/" target="_blank">
-                <img src="/image/home/hkc.jpg" alt="">
+                <img v-lazy="'/image/home/hkc.jpg'" alt="">
                 <div class="intro_wrapper intro_wrapper3">
                   <h4 class="tit">{{$t('homeProject.list3.childList[1].title')}}</h4>
                   <p class="txt">{{$t('homeProject.list3.childList[1].txt[0]')}}</p>

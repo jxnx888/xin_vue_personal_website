@@ -5,7 +5,7 @@
         <el-col :span="24">
           <div class="social_wrapper clearfix">
             <div class="each_social">
-              <a href="#" class="wechat-btn">
+              <a class="wechat-btn">
                 <div class="icon i_wechat"></div>
                 <img src="/image/footer/wechat_xin.jpg" alt="">
               </a>

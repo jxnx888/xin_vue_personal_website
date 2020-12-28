@@ -1,7 +1,7 @@
 <template>
 <div class="main_wrapper clearfix">
   <div class="left_img">
-    <img src="/image/home/keep-learning.jpg" alt="">
+    <img v-lazy="'/image/home/keep-learning.jpg'" alt="">
   </div>
   <div class="right_info">
     <div class="text keep_title">
