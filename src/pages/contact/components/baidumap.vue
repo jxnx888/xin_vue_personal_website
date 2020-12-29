@@ -2,7 +2,7 @@
   <div class="map_wrapper">
     <!-- https://dafrok.github.io/vue-baidu-map/#/ -->
     <baidu-map class="map" :center="center" :zoom="zoom" @ready="handler">
-      <bm-marker :position="tagCoordinate" :dragging="false" animation="BMAP_ANIMATION_BOUNCE" :icon="{url: '/image/head_ico1.png', size: {width: 25, height: 25},}"  @click="infoWindowOpen" class="map_marker">
+      <bm-marker :position="tagCoordinate" :dragging="false" animation="BMAP_ANIMATION_BOUNCE" :icon="{url: '/image/head_ico.png', size: {width: 25, height: 25},}"  @click="infoWindowOpen" class="map_marker">
         <bm-info-window :show="show" @close="infoWindowClose" @open="infoWindowOpen" class="info_window">
           <div class="title">{{$t('contact.tagInfo[2]')}}</div>
           <div class="title BMap_bubble_title">{{$t('contact.tagInfo[0]')}}</div>

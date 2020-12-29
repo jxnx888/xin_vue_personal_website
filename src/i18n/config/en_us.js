@@ -67,6 +67,9 @@ const en_us = {
     },
     projects:{
         bannerInfo:"I'm able to work independently and handle multiple tasks at the same time. More importantly, I am always a good team member with a team-oriented spirit in my mind."
+    },
+    skills:{
+        bannerInfo:""
     }
 }
 export default en_us;

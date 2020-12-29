@@ -72,19 +72,20 @@
     margin auto
     .logo
       float left
-      width 160px
-      height 113px
-      margin-top 7px
+      width 1.6rem
+      height 1.13rem
+      margin-top 0.07rem
     .rigth_menu
       float right
-      line-height: 120px
+      line-height: 1.2rem
       .each_menu
         float left
         position relative
-        padding: 0 15px
-        font-size: 18px
+        padding: 0 .15rem
+        font-size: .18rem
         .each_link
           color #333333
+          padding 0 .15rem
       .each_menu:after
         content "|"
         position absolute
