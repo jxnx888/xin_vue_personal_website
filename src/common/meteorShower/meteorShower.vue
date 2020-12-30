@@ -53,11 +53,11 @@
   .star{
     /* 使用伪元素制作尾巴,此处可以写流星头部的形状 */
     /* 我觉得头部不带形状才好看,所以不写 */
-    width: 0;
-    height: 0;
+    width: 2px;
+    height: 2px;
     position: relative;
     opacity: 0;
-    animation: star-fall 3s linear infinite;
+    animation: star-fall 2s linear infinite;
     z-index: -1;
   }
   .star::after{
