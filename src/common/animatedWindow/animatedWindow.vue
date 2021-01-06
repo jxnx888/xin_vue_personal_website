@@ -23,6 +23,7 @@
         methods:{
             moveObj(obj,move_w,move_h,x,y,l,t,m){
                 console.log("moving...")
+                clearInterval(timer_move);
                 if(obj==undefined){
                     alert("方法调用错误,请传入正确参数!");
                     return;
@@ -75,6 +76,7 @@
         mounted() {
         },
         destroyed () {
+            $('.close_port').trigger("click");
         }
     }
 </script>

@@ -9,7 +9,6 @@
         :imgUrl="imgUrl"
         ref="child"
         :randomWindow="randomWindow"
-        :key="timer"
         />
       <skillsProgress :key="timer"></skillsProgress>
     </div>
@@ -33,7 +32,7 @@
                 imgUrl:'/image/skills/random.png',
                 tet:'Random',
                 resetPosition:false,
-                randomWindow:false
+                randomWindow:false,
             }
         },
         methods:{
@@ -58,6 +57,10 @@
                     console.log("123")
                 }
             }
+        },
+        beforeRouteLeave(to,from,next){
+            $(".child_box").find(".close_port").trigger("click");
+            next();
         }
     }
 </script>
