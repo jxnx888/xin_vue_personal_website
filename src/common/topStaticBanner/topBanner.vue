@@ -24,14 +24,15 @@
     .banner
       position: relative;
       width 100%
-      max-height 561px
-      min-height 251px
+      height 5.61rem
+      max-height 5.61rem
+      min-height 2.51rem
       background #eee
       @media screen and (max-width: 768px)
         min-height 1rem
       img
-        width 100%
-        max-height 100%
+        max-width: 100%;
+        max-height: 100%;
       .banner_info
         position absolute
         left: 50%

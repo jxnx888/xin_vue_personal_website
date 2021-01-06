@@ -25,7 +25,7 @@
   .banner
     position: relative;
     width 100%
-    height 561px
+    height 5.61rem
     background #eee
     img
       width 100%

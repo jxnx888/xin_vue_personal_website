@@ -30,16 +30,21 @@ import autoTyping from "@/common/autoTyping/autoTyping";
   .banner
     position: relative;
     width 100%
-    max-height 561px
+    height 5.61rem
+    min-height 2.51rem
     background #eee
+    @media screen and (max-width: 768px)
+      min-height 1rem
     img
-      width 100%
-      max-height 100%
+      max-width: 100%;
+      max-height: 100%;
     .banner_info
       position absolute
       left: 50%
       top 50%
       transform: translate(-50%,-50%);
+      @media screen and (max-width: 768px)
+        width 95%
       h1
         font-size: 70px;
         font-weight: bolder;
@@ -50,6 +55,9 @@ import autoTyping from "@/common/autoTyping/autoTyping";
         font-size: 30px;
         color: #bdb7b7;
       .subtitle
-        font-size 25px
-        padding 10px 0
+        font-size: .25rem;
+        padding .1rem 0
+        color: #666;
+        @media screen and (max-width: 768px)
+          font-size: .12rem;
 </style>
