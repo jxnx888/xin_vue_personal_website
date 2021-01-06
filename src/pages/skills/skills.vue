@@ -9,6 +9,7 @@
         :imgUrl="imgUrl"
         ref="child"
         :randomWindow="randomWindow"
+        :key="timer"
         />
       <skillsProgress :key="timer"></skillsProgress>
     </div>
