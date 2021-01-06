@@ -27,6 +27,8 @@
       max-height 561px
       min-height 251px
       background #eee
+      @media screen and (max-width: 768px)
+        min-height 1rem
       img
         width 100%
         max-height 100%
@@ -35,9 +37,14 @@
         left: 50%
         top 50%
         transform: translate(-50%,-50%);
+        @media screen and (max-width: 768px)
+          width 95%
         p
           font-size: .3rem;
           line-height .35rem
           color: #666;
+          @media screen and (max-width: 768px)
+            font-size: .12rem;
+            line-height .2rem
 
 </style>

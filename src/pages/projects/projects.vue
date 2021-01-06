@@ -1,30 +1,34 @@
 <template>
   <div class="project_wrapper clearfix">
-  <div class="project_banner">
-    <topBanner
-      :bannerImg="'/image/banner2.png'"
-      :bannerContent="$t('projects.bannerInfo')"></topBanner>
-  </div>
-  <div class="project_main clearfix">
-    <div v-for="(value,key,index) in projectsJson"
-         :key="index"
-         class="each_career clearfix">
-      <h1 :id="key.replace(/ /g,'')" class="company_name">
-        <p class="jobTitle">{{value.jobtitle}}</p>
-        <p class="jobCompany">-- {{value.companyName}}</p>
-        <p class="jobduration">-- {{value.startDate}} - {{value.endDate}} ({{value.duration}}) </p>
-      </h1>
-      <projectTem
-        v-for="childItem of value.projects"
-        :key="childItem.id"
-        :bgImg="childItem.img"
-        :titleInf="childItem.title"
-        :desc="childItem.desc"
-        :tags="childItem.tags"
-        :link="childItem.url"
+    <div class="project_banner">
+      <topBanner
+        :bannerImg="'/image/banner2.png'"
+        :bannerContent="$t('projects.bannerInfo')"></topBanner>
+    </div>
+    <threeDBuilder v-if="showTD && !mobile" :key="timer"></threeDBuilder>
+    <mobileThreeDBuilder v-if="showTD && mobile" :key="timer"></mobileThreeDBuilder>
+    <div class="project_main clearfix">
+      <div v-for="(value,key,index) in projectsJson"
+           :key="index"
+           class="each_career clearfix">
+        <h1 :id="key.replace(/ /g,'')" class="company_name">
+          <p class="jobTitle">{{value.jobtitle}}</p>
+          <p class="jobCompany">-- {{value.companyName}}</p>
+          <p class="jobduration">-- {{value.startDate}} - {{value.endDate}} ({{value.duration}}) </p>
+        </h1>
+        <projectTem
+          v-for="childItem of value.projects"
+          :key="childItem.id"
+          :bgImg="childItem.img"
+          :titleInf="childItem.title"
+          :desc="childItem.desc"
+          :tags="childItem.tags"
+          :link="childItem.url"
+          :code="childItem.code"
+        :showTD="showTD"
       ></projectTem>
     </div>
-    <div class="animation_menu" :class="scrollingMenu? 'scrollMenu':''">
+    <div class="animation_menu" :class="scrollingMenu? 'scrollMenu':''"  v-if="!mobile">
       <div class="each_company_menu"
            v-for="(item, index) in menuArr"
            :key='index'
@@ -40,19 +44,25 @@
 <script>
     import topBanner from "@/common/topStaticBanner/topBanner";
     import projectTem from './components/projectTem'
-
+    import threeDBuilder from '../../common/threeDBuilder/ThreeDimensionalBuilder'
+    import mobileThreeDBuilder from '../../common/threeDBuilder/mobileThreeDimensionalBuilder'
     export default {
         name: "projects",
         components: {
             topBanner,
-            projectTem
+            projectTem,
+            threeDBuilder,
+            mobileThreeDBuilder
         },
         data() {
             return {
                 projectsJson: {},
                 menuArr: [],
                 scrollingMenu:false,
-                activeMenuIndex:0
+                activeMenuIndex:0,
+                mobile:false,
+                showTD:false,
+                timer:'',
             }
         },
         methods: {
@@ -104,11 +114,16 @@
                     this.activeMenuIndex = 0;
                     $(".animation_menu").css("top","50px");
                 }
+            },
+            showThreeD(){
+                this.timer = new Date().getTime()
+                this.showTD = !this.showTD
             }
         },
         mounted() {
             this.getProject();
             window.addEventListener('scroll', this.menuScroll)
+            this.mobile=/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent);
         },
         destroyed () {
             window.addEventListener('scroll', this.menuScroll)
@@ -122,9 +137,13 @@
     width: 1200px;
     margin: 0px auto;
     position relative
+    @media screen and (max-width: 768px)
+      width 100%
     .each_career
       width 980px;
       margin: .3rem auto;
+      @media screen and (max-width: 768px)
+        width 100%
       .company_name
         text-align left
         font-weight bold

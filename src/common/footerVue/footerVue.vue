@@ -86,6 +86,8 @@ export default {
     width 1200px
     margin auto
     text-align center
+    @media screen and (max-width: 768px)
+      width 100%
 
     .social_wrapper
       width: 2.5rem;
@@ -142,6 +144,8 @@ export default {
       .sitemap_wrapper
         width 5.5rem
         margin 0 auto 20px
+        @media screen and (max-width: 768px)
+          width 100%
         .each_map
           float left
           width: 1.1rem;
@@ -149,6 +153,9 @@ export default {
           padding: 0 .15rem
           font-size: .16rem
           color #666
+          @media screen and (max-width: 768px)
+            width 50%
+            margin-bottom .1rem
         .each_map *
           color #666
         .each_map:after
@@ -157,6 +164,8 @@ export default {
           top -1px
           right 0
           color #666
+          @media screen and (max-width: 768px)
+            display none
         .each_map.last_menu:after
           display none
     .footer_copyright

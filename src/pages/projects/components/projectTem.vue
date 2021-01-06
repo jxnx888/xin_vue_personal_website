@@ -1,18 +1,32 @@
 <template>
   <div class="each_content">
-    <a :href="link">
-    <div class="each_wrapper">
-    <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">
-    <div class="info_wrapper">
-      <div class="thisTitle">{{titleInf}}</div>
-      <div class="thisDes">{{desc}}</div>
-      <div class="thisTags">
-        <div class="subTitle">Tags:</div>
-        {{tags}}
+    <a v-if="'3'!=code" :href="link">
+      <div class="each_wrapper">
+        <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">
+        <div class="info_wrapper">
+          <div class="thisTitle">{{titleInf}}</div>
+          <div class="thisDes">{{desc}}</div>
+          <div class="thisTags">
+            <div class="subTitle">Tags:</div>
+            {{tags}}
+          </div>
+        </div>
+      </div>
+    </a>
+    <div v-else-if="'3'==code" @click="show3Dbuilder" class="threed">
+      <div class="tip">Click here to try</div>
+      <div class="each_wrapper">
+        <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">
+        <div class="info_wrapper">
+          <div class="thisTitle">{{titleInf}}</div>
+          <div class="thisDes">{{desc}}</div>
+          <div class="thisTags">
+            <div class="subTitle">Tags:</div>
+            {{tags}}
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    </a>
   </div>
 </template>
 
@@ -26,6 +40,12 @@
             desc:String,
             tags:String,
             link:String,
+            code:Number,
+        },
+        methods:{
+            show3Dbuilder(){
+                this.$parent.showThreeD();
+            }
         }
     }
 </script>
@@ -39,11 +59,16 @@
   height 4.1rem;
   border: 10px ridge;
   float left
+  @media screen and (max-width: 768px)
+    width 95%
   .each_wrapper
     width 4.6rem
     height 3.9rem;
     overflow hidden
     position: relative;
+    @media screen and (max-width: 768px)
+      width 95%
+      margin auto
     .each_img
       position: absolute;
       top 0
@@ -93,9 +118,44 @@
         opacity 1
 .each_content:nth-of-type(2n+1)
   margin-right 2%
+.each_content
+  .threed
+    position relative
+    .tip
+      position: absolute
+      left 50%
+      top 20%
+      transform translate(-50%,-20%)
+      z-index 9
+      width 1.5rem
+      line-height .2rem
+      border 1px solid #eeeeee
+      padding .05rem .1rem
+      border-radius .5rem
+      background #fcfcfc
+      -webkit-animation twinkling 1s infinite 0.9s ease-in-out alternate
+      animation twinkling 1s infinite 0.9s ease-in-out alternate
 
 @keyframes show_detail {
   0%{bottom: -2.02rem;}
   100%{bottom:0;}
+}
+
+@-webkit-keyframes twinkling {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes twinkling {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>

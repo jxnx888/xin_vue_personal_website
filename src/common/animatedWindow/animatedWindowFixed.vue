@@ -73,7 +73,7 @@ methods:{
                 obj.t=null;
                 //事件
                 if (obj.url != undefined){
-                    obj.onclick = function () {
+                    obj.@click = function () {
                         switch (this.target) {
                             case "_blank":
                                 open(this.url);

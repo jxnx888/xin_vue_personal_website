@@ -13,28 +13,32 @@
           "img": "/image/projects/import.jpg",
           "desc": "Online Shopping for Clothing, Mobile Phone, Computers, Jewelry, Beauty, Sports, Home and so on; Shopping on Our website For Small Businesses.",
           "tags": "Development and maintainance, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
-          "url": "https://www.import-express.com/"
+          "url": "https://www.import-express.com/",
+          "code": 0
         },
         {
           "title": "Kids Charming - Ecommerce",
           "img": "/image/projects/kids.jpg",
           "desc": "China Wholesale Online, China Wholesale Suppliers, China Cheap Products for Children",
           "tags": "Development and maintainance, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
-          "url": "https://www.kidscharming.com/"
+          "url": "https://www.kidscharming.com/",
+          "code": 1
         },
         {
           "title": "Pet Store - Ecommerce",
           "img": "/image/projects/pet.jpg",
           "desc": "China Wholesale Online, China Wholesale Suppliers, China Cheap Products for Pets",
           "tags": "Development and maintainance, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
-          "url": "https://www.petstoreinc.com/"
+          "url": "https://www.petstoreinc.com/",
+          "code": 2
         },
         {
           "title": "Magic Box - App for Children",
           "img": "/image/home/3dprinting.jpg",
           "desc": "MagicBox for kids education based on Three.js. Build modules by using default geometries",
           "tags": "Development, Android, iOS, Three.js, Javascript, Jquery, CSS3, HTML5",
-          "url": ""
+          "url": "/threeDimensionalBuilder",
+          "code": 3
         }
       ]
     },

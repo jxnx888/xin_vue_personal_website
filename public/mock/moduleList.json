@@ -1,0 +1,249 @@
+{
+  "data": {
+    "shapes": [
+      {
+        "title": "cube",
+        "name": "矩形",
+        "code": 0,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "矩形{height:80px;width:80px;background-position: 0 -82px;}矩形-Y{height:80px;width:80px;background-position: -80px -82px;}",
+        "module": "shape"
+      },
+      {
+        "title": "ball",
+        "name": "球",
+        "code": 3,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "球-Y{height:80px;width:80px;background-position: -241px -82px;}\n@mixin 球{height:80px;width:80px;background-position: -160px -82px;}",
+        "module": "shape"
+      },
+      {
+        "title": "cylinder",
+        "name": "圆柱",
+        "code": 1,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "圆柱{height:80px;width:80px;background-position: -480px 0;}\n@mixin 圆柱-Y{height:80px;width:80px;background-position: -560px 0;}",
+        "module": "shape"
+      },
+      {
+        "title": "prismatic",
+        "name": "棱柱",
+        "code": 5,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "棱柱{height:80px;width:80px;background-position: -321px -82px;}\n@mixin 棱柱-Y{height:80px;width:80px;background-position: -399px -81px;}",
+        "module": "shape"
+      },
+      {
+        "title": "cone",
+        "name": "圆锥",
+        "code": 2,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "圆锥{height:200px;width:200px;background-position: -532px -138px;}\n@mixin 圆锥-Y{height:200px;width:200px;background-position: -313px -170px;}",
+        "module": "shape"
+      },
+      {
+        "title": "pyramid",
+        "name": "三棱锥",
+        "code": 6,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "三棱柱{height:80px;width:80px;background-position: -160px 0;}三棱柱-Y{height:80px;width:80px;background-position: -240px 0;}",
+        "module": "shape"
+      },
+      {
+        "title": "doughnut",
+        "name": "甜甜圈",
+        "code": 4,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "甜甜圈{height:80px;width:80px;background-position: 0 0;}甜甜圈-Y{height:80px;width:80px;background-position: -80px 0;}",
+        "module": "shape"
+      },
+      {
+        "title": "hollowcylinder",
+        "name": "空心圆柱",
+        "code": 7,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "空心圆柱{height:80px;width:80px;background-position: -640px 0;}\n@mixin 空心圆柱-Y{height:80px;width:80px;background-position: -720px 0;}",
+        "module": "shape"
+      },
+      {
+        "title": "triprism",
+        "name": "直三棱柱",
+        "code": 8,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "直三棱柱{height:80px;width:80px;background-position: -320px 0;} 直三棱柱-Y{height:80px;width:80px;background-position: -400px 0;}",
+        "module": "shape"
+      },
+      {
+        "title": "fivepointstar",
+        "name": "五角星",
+        "code": 11,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "",
+        "module": "stl"
+      },
+      {
+        "title": "text",
+        "name": "文字",
+        "code": 222,
+        "url": "../img/3dPrinting/shapes.png",
+        "sprint": "",
+        "module": "text"
+      }
+    ],
+    "stl": [
+      {
+        "title": "standing",
+        "name": "站立",
+        "url": "",
+        "module": "stl",
+        "code": 0
+      },
+      {
+        "title": "climbing",
+        "name": "爬",
+        "url": "",
+        "module": "stl",
+        "code": 1
+      },
+      {
+        "title": "lying",
+        "name": "躺",
+        "url": "",
+        "module": "stl",
+        "code": 2
+      },
+      {
+        "title": "sitting",
+        "name": "坐",
+        "url": ".",
+        "module": "stl",
+        "code":3
+      },
+      {
+        "title": "tyrannosaurusRex",
+        "name": "霸王龙",
+        "url": "",
+        "module": "stl",
+        "code":4
+      },
+      {
+        "title": "bulbasaur",
+        "name": "妙蛙种子",
+        "url": "",
+        "module": "stl",
+        "code":5
+      },
+      {
+        "title": "charmander",
+        "name": "小火龙",
+        "url": "../img/3dPrinting/doughnut.png",
+        "module": "stl",
+        "code":6
+      },
+      {
+        "title": "chikorita",
+        "name": "菊草叶",
+        "url": "../img/3dPrinting/doughnut.png",
+        "module": "stl",
+        "code":7
+      },
+      {
+        "title": "pikachu",
+        "name": "皮卡丘",
+        "url": "../img/3dPrinting/doughnut.png",
+        "module": "stl",
+        "code":8
+      },
+      {
+        "title": "squirtle",
+        "name": "杰尼龟",
+        "url": "../img/3dPrinting/doughnut.png",
+        "module": "stl",
+        "code":9
+      },
+      {
+        "title": "totodile",
+        "name": "小锯鳄",
+        "url": "../img/3dPrinting/doughnut.png",
+        "module": "stl",
+        "code":10
+      }
+    ],
+    "lego": [
+      {
+        "name": "Car",
+        "url": "../models/ldraw/car.ldr_Packed.mpd"
+      },
+      {
+        "name": "Lunar Vehicle",
+        "url": "../models/ldraw/1621-1-LunarMPVVehicle.mpd_Packed.mpd"
+      },
+      {
+        "name": "Radar Truck",
+        "url": "../models/ldraw/889-1-RadarTruck.mpd_Packed.mpd"
+      },
+      {
+        "name": "Trailer",
+        "url": "../models/ldraw/4838-1-MiniVehicles.mpd_Packed.mpd"
+      },
+      {
+        "name": "Bulldozer",
+        "url": "../models/ldraw/4915-1-MiniConstruction.mpd_Packed.mpd"
+      },
+      {
+        "name": "Helicopter",
+        "url": "../models/ldraw/4918-1-MiniFlyers.mpd_Packed.mpd"
+      },
+      {
+        "name": "Plane",
+        "url": "../models/ldraw/5935-1-IslandHopper.mpd_Packed.mpd"
+      }
+    ],
+    "pose": [
+      {
+        "name": "01",
+        "url": "../models/vpds/01.vpd"
+      },
+      {
+        "name": "02",
+        "url": "../models/vpds/02.vpd"
+      },
+      {
+        "name": "03",
+        "url": "../models/vpds/03.vpd"
+      },
+      {
+        "name": "04",
+        "url": "../models/vpds/04.vpd"
+      },
+      {
+        "name": "05",
+        "url": "../models/vpds/05.vpd"
+      },
+      {
+        "name": "06",
+        "url": "../models/vpds/06.vpd"
+      },
+      {
+        "name": "07",
+        "url": "../models/vpds/07.vpd"
+      },
+      {
+        "name": "08",
+        "url": "../models/vpds/08.vpd"
+      },
+      {
+        "name": "09",
+        "url": "../models/vpds/09.vpd"
+      },
+      {
+        "name": "10",
+        "url": "../models/vpds/10.vpd"
+      },
+      {
+        "name": "11",
+        "url": "../models/vpds/11.vpd"
+      }
+    ]
+  }
+}
