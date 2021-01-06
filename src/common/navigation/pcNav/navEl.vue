@@ -14,9 +14,9 @@
         <div class="each_menu">
           <router-link to="/projects" class="each_link">{{$t('nav.Projects')}}</router-link>
         </div>
-        <div class="each_menu">
+        <!--<div class="each_menu">
           <router-link to="/aboutme" class="each_link">{{$t('nav.AboutMe')}}</router-link>
-        </div>
+        </div>-->
         <div class="each_menu last_menu">
           <router-link to="/contact" class="each_link">{{$t('nav.contact')}}</router-link>
         </div>

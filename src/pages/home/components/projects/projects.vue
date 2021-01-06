@@ -97,7 +97,6 @@
                   <p class="txt">{{$t('homeProject.list3.childList[1].txt[0]')}}</p>
                   <p class="txt">{{$t('homeProject.list3.childList[1].txt[1]')}}</p>
                   <p class="txt">{{$t('homeProject.list3.childList[1].txt[2]')}}</p>
-<!--                  <i class="iconfont icon_arrow">&#xe61f;</i>-->
                 </div>
               </a>
             </li>
