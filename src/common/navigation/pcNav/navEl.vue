@@ -6,9 +6,6 @@
       </div>
       <div class="rigth_menu">
         <div class="each_menu">
-          <router-link to="/threeDimensionalBuilder" class="each_link">3DBuilder</router-link>
-        </div>
-        <div class="each_menu">
           <router-link to="/" class="each_link">{{$t('nav.home')}}</router-link>
         </div>
         <div class="each_menu">

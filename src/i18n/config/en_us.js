@@ -15,6 +15,7 @@ const en_us = {
         aboutme: 'About Me',
         myprojects: 'My Projects',
         myskills: 'My Skills',
+        keepLearning:['KEEP LEARNING, KEEP GROWING','Once you stop learning, you start dying.','Albert Einstein']
     },
     homeProject: {
         list1: {
@@ -62,14 +63,19 @@ const en_us = {
         contact: 'Contact',
     },
     contact:{
-        tagInfo:["上海凯融信息公司","地址：云岭东路汇银铭尊一号楼605室","I'm working here"],
-        topTitle:["Want to contact Xin Ning","Here are few ways to get in touch with me"]
+        tagInfo:["Shanghai Kairong Information Technology Co., Lt","Address: 601 Yunling Lu, Shanghai, China, 200062","I'm working here"],
+        topTitle:["Want to contact Xin Ning","Here are few ways to get in touch with me"],
+        getInTouch:["I'm very approachable and would love to speak to you.","Feel free to call, send us an email, facebook me or simply complete the enquiry form."],
+        message:["YOUR NAME","EMAIL ADDRESS","TELEPHONE NUMBER","SUBJECT","YOUR MESSAGE","SUBMIT"]
     },
     projects:{
-        bannerInfo:"I'm able to work independently and handle multiple tasks at the same time. More importantly, I am always a good team member with a team-oriented spirit in my mind."
+        bannerInfo:"I'm able to work independently and handle multiple tasks at the same time. More importantly, I am always a good team member with a team-oriented spirit in my mind.",
+        tip:'Click Here to Play'
     },
     skills:{
-        bannerInfo:""
+        bannerInfo:"",
+        devSkill:'Developer Skills',
+        SoftSkill:'Soft Skills'
     }
 }
 export default en_us;

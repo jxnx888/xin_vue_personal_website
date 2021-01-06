@@ -2,105 +2,58 @@
   "code": 200,
   "data": {
     "Kai Rong": {
-      "companyName": "Shanghai Kairong Information Technology Co., Lt",
-      "jobtitle": "Senior Front-end Developer",
+      "companyName": "上海凯融信息公司",
+      "jobtitle": "高级前端开发人员",
       "startDate": "2020/05",
-      "endDate": "Present",
-      "duration": "1 yr 8 mos",
+      "endDate": "至今",
+      "duration": "1 年 8 个月",
       "projects": [
         {
           "title": "Import Express - Ecommerce",
           "img": "/image/projects/import.jpg",
-          "desc": "Online Shopping for Clothing, Mobile Phone, Computers, Jewelry, Beauty, Sports, Home and so on; Shopping on Our website For Small Businesses.",
-          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf",
-          "url": "https://www.import-express.com/"
+          "desc": "我们出售服装、手机、电脑、珠宝、美容、运动、家居等商品; 推荐小企业在我们的网站上购物",
+          "tags": "开发和维护, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "url": "https://www.import-express.com/",
+          "code": 0
         },
         {
           "title": "Kids Charming - Ecommerce",
           "img": "/image/projects/kids.jpg",
-          "desc": "China Wholesale Online, China Wholesale Suppliers, China Cheap Products for Children",
-          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf",
-          "url": "https://www.kidscharming.com/"
+          "desc": "中国网上批发, 中国供应商批发, 中国儿童廉价产品",
+          "tags": "开发和维护, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "url": "https://www.kidscharming.com/",
+          "code": 1
         },
         {
           "title": "Pet Store - Ecommerce",
           "img": "/image/projects/pet.jpg",
-          "desc": "China Wholesale Online, China Wholesale Suppliers, China Cheap Products for Pets",
-          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf",
-          "url": "https://www.petstoreinc.com/"
+          "desc": "中国网上批发, 中国供应商批发, 中国宠物廉价产品",
+          "tags": "开发和维护, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "url": "https://www.petstoreinc.com/",
+          "code": 2
         },
         {
           "title": "Magic Box - App for Children",
           "img": "/image/home/3dprinting.jpg",
-          "desc": "",
-          "tags": "Development, Jquery, CSS3, HTML5, Three.js, Android, iOS",
-          "url": ""
-        }
-      ]
-    },
-    "Wicresoft": {
-      "companyName": "Wicresoft",
-      "jobtitle": "SharePoint & O365 Dev Support/EXO support (Microsoft Vendor Staff)",
-      "startDate": "2018/09",
-      "endDate": "2019/05",
-      "duration": "9 mos",
-      "projects": [
-        {
-          "title": "Import Express - Ecommerce",
-          "img": "/image/projects/import.jpg",
-          "desc": "Online Shopping for Clothing, Mobile Phone, Computers, Jewelry, Beauty, Sports, Home and so on; Shopping on Our website For Small Businesses.",
-          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf"
-        },
-        {
-          "title": "Kids Charming - Ecommerce",
-          "img": "/image/projects/kids.jpg",
-          "desc": "China Wholesale Online, China Wholesale Suppliers, China Cheap Products for Children",
-          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf"
-        },
-        {
-          "title": "Pet Store - Ecommerce",
-          "img": "/image/projects/pet.jpg",
-          "desc": "China Wholesale Online, China Wholesale Suppliers, China Cheap Products for Pets",
-          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf"
-        },
-        {
-          "title": "Magic Box - App for Children",
-          "img": "/image/home/3dprinting.jpg",
-          "desc": "",
-          "tags": "Development, Jquery, CSS3, HTML5, Three.js, Android, iOS"
+          "desc": "MagicBox是针对于小孩教育的一款Three.js的App, 用户可以使用默认的几何模型或者卡通模型来搭建模型",
+          "tags": "开发和维护, Android, iOS, Three.js, Javascript, Jquery, CSS3, HTML5",
+          "url": "/threeDimensionalBuilder",
+          "code": 3
         }
       ]
     },
     "Yuan Dian": {
-      "companyName": "北京源点互动科技有限公司",
-      "jobtitle": "Junior Front-end Developer",
+      "companyName": "源点互动的科技有限公司",
+      "jobtitle": "前端开发人员",
       "startDate": "2018/05",
       "endDate": "2018/09",
-      "duration": "3 mos",
+      "duration": "3 个月",
       "projects": [
         {
           "title": "Import Express - Ecommerce",
           "img": "/image/projects/import.jpg",
           "desc": "Online Shopping for Clothing, Mobile Phone, Computers, Jewelry, Beauty, Sports, Home and so on; Shopping on Our website For Small Businesses.",
           "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf"
-        },
-        {
-          "title": "Kids Charming - Ecommerce",
-          "img": "/image/projects/kids.jpg",
-          "desc": "China Wholesale Online, China Wholesale Suppliers, China Cheap Products for Children",
-          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf"
-        },
-        {
-          "title": "Pet Store - Ecommerce",
-          "img": "/image/projects/pet.jpg",
-          "desc": "China Wholesale Online, China Wholesale Suppliers, China Cheap Products for Pets",
-          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf"
-        },
-        {
-          "title": "Magic Box - App for Children",
-          "img": "/image/home/3dprinting.jpg",
-          "desc": "",
-          "tags": "Development, Jquery, CSS3, HTML5, Three.js, Android, iOS"
         }
       ]
     }

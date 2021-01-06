@@ -14,7 +14,7 @@
       </div>
     </a>
     <div v-else-if="'3'==code" @click="show3Dbuilder" class="threed">
-      <div class="tip">Click here to try</div>
+      <div class="tip">{{$t('projects.tip') }}</div>
       <div class="each_wrapper">
         <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">
         <div class="info_wrapper">
@@ -127,7 +127,7 @@
       top 20%
       transform translate(-50%,-20%)
       z-index 9
-      width 1.5rem
+      width 2rem
       line-height .2rem
       border 1px solid #eeeeee
       padding .05rem .1rem
@@ -136,11 +136,21 @@
       -webkit-animation twinkling 1s infinite 0.9s ease-in-out alternate
       animation twinkling 1s infinite 0.9s ease-in-out alternate
 
+
+.tip:hover~.each_wrapper .each_img{
+  transform scale(1.03)
+}
+.tip:hover~.each_wrapper .info_wrapper{
+   bottom 0
+   animation: show_detail 0.3s linear forwards;
+}
+.tip:hover~.each_wrapper .info_wrapper .thisDes,.tip:hover~.each_wrapper .info_wrapper .thisTags{
+    opacity 1
+}
 @keyframes show_detail {
   0%{bottom: -2.02rem;}
   100%{bottom:0;}
 }
-
 @-webkit-keyframes twinkling {
   0% {
     opacity: 0.1;
@@ -149,7 +159,6 @@
     opacity: 1;
   }
 }
-
 @keyframes twinkling {
   0% {
     opacity: 0.1;

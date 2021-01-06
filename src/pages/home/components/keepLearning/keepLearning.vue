@@ -5,11 +5,11 @@
   </div>
   <div class="right_info">
     <div class="text keep_title">
-      Keep learning, keep growing
+      {{$t('home.keepLearning[0]')}}
     </div>
     <div class="text dictum">
-      "Once you stop learning, you start dying."
-      <div class="author"> -- Albert Einstein</div>
+      "{{$t('home.keepLearning[1]')}}"
+      <div class="author"> --  {{$t('home.keepLearning[2]')}}</div>
     </div>
   </div>
 </div>

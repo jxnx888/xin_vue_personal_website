@@ -14,8 +14,8 @@
           </div>
 
         </div>
-        <div class="contact_intro">I'm very approachable and would love to speak to you.</div>
-        <div class="contact_intro contact_intro2">Feel free to call, send us an email, facebook me or simply complete the enquiry form.</div>
+        <div class="contact_intro">{{$t('contact.getInTouch[0]')}}</div>
+        <div class="contact_intro contact_intro2">{{$t('contact.getInTouch[1]')}}</div>
         <div class="each_method clearfix">
           <a href="tel:+86 18535424777">
           <div class="icon icon_phone"></div>
@@ -52,23 +52,23 @@
           <form id="sendEmail">
             <div class="info_content">
               <div class="each_input">
-                <input type="text" v-model="name" placeholder="YOUR NAME" id="name" ref="name" name="name">
+                <input type="text" v-model="name" :placeholder="$t('contact.message[0]')" id="name" ref="name" name="name">
                 <div class="valid" v-if="nameValid" @click="clearFocus(1)">* Please input your name</div>
               </div>
               <div class="each_input">
-                <input type="text" v-model="email" placeholder="EMAIL ADDRESS" id="email" ref="email" name="email">
+                <input type="text" v-model="email" :placeholder="$t('contact.message[1]')" id="email" ref="email" name="email">
                 <div class="valid" v-if="emailValid" @click="clearFocus(2)">* Please input your email address</div>
               </div>
               <div class="each_input">
-                <input type="text" v-model="phone" placeholder="TELEPHONE NUMBER" id="phone" ref="phone" name="phone">
+                <input type="text" v-model="phone" :placeholder="$t('contact.message[2]')" id="phone" ref="phone" name="phone">
                 <div class="valid" v-if="phoneValid" @click="clearFocus(3)">* Please input your telephone number</div>
               </div>
               <div class="each_input">
-                <input type="text" v-model="subject" placeholder="SUBJECT" id="subject" ref="subject">
+                <input type="text" v-model="subject" :placeholder="$t('contact.message[3]')" id="subject" ref="subject">
                 <div class="valid" v-if="subjectValid" @click="clearFocus(4)">* Please input your subject</div>
               </div>
               <div class="each_input">
-                <textarea v-model="message" placeholder="YOUR MESSAGE" rows="5" id="message" ref="message"></textarea>
+                <textarea v-model="message" :placeholder="$t('contact.message[4]')" rows="5" id="message" ref="message"></textarea>
                 <div class="valid" v-if="messageValid" @click="clearFocus(5)">* Please input your message</div>
               </div>
               <input type="hidden" id="formEmail" name="email">
@@ -141,11 +141,13 @@
                 }
                 else{
                     this.submitTxt = "SUBMITTING...";
+                    if('zh_cn' == this.$i18n.locale){this.submitTxt = "提交中..."}
                     $(".submit").addClass("submitting");
                     $(".submit .submit_btn").attr("disabled", "disabled");
                     this.sendEmail();
                     setTimeout(()=>{
                         this.submitTxt = "SUBMIT";
+                        if('zh_cn' == this.$i18n.locale){this.submitTxt = "提交"}
                         $(".submit").removeClass("submitting");
                         $(".submit .submit_btn").removeAttr("disabled");
                     },3000)
@@ -215,6 +217,9 @@
                 console.log(res);
             }
         },
+        mounted() {
+            if('zh_cn' == this.$i18n.locale){this.submitTxt = "提交"}
+        }
     }
 </script>
 

@@ -3,7 +3,7 @@
     <meteorShower></meteorShower>
     <div class="skills_progress clearfix">
     <div class="develop_skills clearfix">
-      <h1>Developer Skills</h1>
+      <h1>{{$t('skills.devSkill')}}</h1>
       <div class="each_skill progressbar clearfix"
       v-for="(value, key, index) in skillsList"
       :key="index"
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="softskills clearfix">
-      <h1>Soft Skills</h1>
+      <h1>{{$t('skills.SoftSkill')}}</h1>
       <div class="each_skill progressbar clearfix"
            v-for="(value, key, index) in softSkills"
            :key="index"

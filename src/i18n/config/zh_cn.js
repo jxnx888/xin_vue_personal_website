@@ -15,6 +15,7 @@ const zh_cn = {
         aboutme:'关于本人',
         myprojects:'我的项目',
         myskills:'我的技术栈',
+        keepLearning:['不断学习，不断成长','一旦你停止学习,你就会开始死亡 ','阿尔伯特 · 爱因斯坦']
     },
     homeProject:{
         list1:{
@@ -60,6 +61,21 @@ const zh_cn = {
         Projects: '项目',
         AboutMe: '关于我',
         contact: '联系我',
+    },
+    contact:{
+        tagInfo:["上海凯融信息公司","地址：云岭东路汇银铭尊一号楼605室","I'm working here"],
+        topTitle:["想要联系宁鑫","这里有几种方法可以和我联系"],
+        getInTouch:["我很平易近人，很想和你谈谈。","请随时致电，给我们发邮件，facebook我或简单地填写查询表。"],
+        message:["姓名","邮件地址","手机号码","标题","内容","提交"]
+    },
+    projects:{
+        bannerInfo:"我即擅长独立工作，同时又擅长处理多项任务。更重要的是，我一直是一个很好的团队成员，有团队精神。",
+        tip:'点击开始'
+    },
+    skills:{
+        bannerInfo:"",
+        devSkill:'开发技能',
+        SoftSkill:'软性技巧'
     }
 }
 export default zh_cn;

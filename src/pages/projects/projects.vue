@@ -67,7 +67,12 @@
         },
         methods: {
             getProject() {
-                this.$ajax.get('/mock/projects.json') // npm run build ==>  ./static/mock/index.json
+                var url = '/mock/projects.json';
+                var lang = this.$i18n.locale;
+                if( 'zh_cn' == lang){
+                    url = '/mock/projectsCN.json';
+                }
+                this.$ajax.get(url) // npm run build ==>  ./static/mock/index.json
                     .then(this.getProjectSucc)
                     .catch(function (res) {
                         console.log("error:" + res)
