@@ -44,8 +44,8 @@
 <script>
     import topBanner from "@/common/topStaticBanner/topBanner";
     import projectTem from './components/projectTem'
-    import threeDBuilder from '../../common/threeDBuilder/ThreeDimensionalBuilder'
-    import mobileThreeDBuilder from '../../common/threeDBuilder/mobileThreeDimensionalBuilder'
+    import threeDBuilder from '../../common/threejs/threeDBuilder/ThreeDimensionalBuilder'
+    import mobileThreeDBuilder from '../../common/threejs/threeDBuilder/mobileThreeDimensionalBuilder'
     export default {
         name: "projects",
         components: {

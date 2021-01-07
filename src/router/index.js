@@ -38,9 +38,9 @@ const routes = [
     component: () => import('@/pages/contact/contact')
   },
   {
-    path: '/threeDimensionalBuilder',
-    name: 'ThreeDimensionalBuilder',
-    component: () => import('@/common/threeDBuilder/ThreeDimensionalBuilder')
+    path: '/threejs',
+    name: 'threejs',
+    component: () => import('@/common/threejs/luggageDecalSplatter/luggageDecalSplatter')
   }
 ]
 

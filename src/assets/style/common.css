@@ -38,3 +38,11 @@ img[lazy="loading"] {
     max-height: 100%;
 }
 
+/*luggage decal*/
+.dg.ac {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 10 !important; /* TODO Solve this in HTML */
+}

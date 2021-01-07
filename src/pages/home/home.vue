@@ -18,7 +18,7 @@
             topBannerSwiper,
             aboutPart,
             projects,
-          keepLearning
+            keepLearning
         },
         data() {
             return {
