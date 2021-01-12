@@ -1,8 +1,8 @@
 <template>
   <div class="skill_wrapper">
-    <topBanner
+    <!--<topBanner
       :bannerImg="'/image/banner3.png'"
-      :bannerContent="''"></topBanner>
+      :bannerContent="''"></topBanner>-->
     <div class="skill_container">
       <div v-if="resetPosition == true" class="resetRandomP"><img :src="imgUrl" alt=""></div>
       <animatedWindow
@@ -16,13 +16,13 @@
 </template>
 
 <script>
-    import topBanner from "@/common/topStaticBanner/topBanner";
+    // import topBanner from "@/common/topStaticBanner/topBanner";
     import animatedWindow from "@/common/animatedWindow/animatedWindow";
     import skillsProgress from "./components/skillsProgress";
     export default {
         name: "skills",
         components: {
-            topBanner,
+            // topBanner,
             skillsProgress,
             animatedWindow,
         },

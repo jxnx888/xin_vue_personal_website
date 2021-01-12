@@ -7,6 +7,7 @@
     </div>
     <threeDBuilder v-if="showTD && !mobile" :key="timer"></threeDBuilder>
     <mobileThreeDBuilder v-if="showTD && mobile" :key="timer"></mobileThreeDBuilder>
+    <forFun v-if="showTester" :key="timer" :forFunJson="forFunJson"></forFun>
     <div class="project_main clearfix">
       <div v-for="(value,key,index) in projectsJson"
            :key="index"
@@ -46,22 +47,26 @@
     import projectTem from './components/projectTem'
     import threeDBuilder from '../../common/threejs/threeDBuilder/ThreeDimensionalBuilder'
     import mobileThreeDBuilder from '../../common/threejs/threeDBuilder/mobileThreeDimensionalBuilder'
+    import forFun from "@/common/forFun/forFun";
     export default {
         name: "projects",
         components: {
             topBanner,
             projectTem,
             threeDBuilder,
-            mobileThreeDBuilder
+            mobileThreeDBuilder,
+            forFun
         },
         data() {
             return {
                 projectsJson: {},
+                forFunJson: {},
                 menuArr: [],
                 scrollingMenu:false,
                 activeMenuIndex:0,
                 mobile:false,
                 showTD:false,
+                showTester:false,
                 timer:'',
             }
         },
@@ -123,10 +128,30 @@
             showThreeD(){
                 this.timer = new Date().getTime()
                 this.showTD = !this.showTD
+            },
+            getForFun() {
+                var url = '/mock/yuandian.json';
+                this.$ajax.get(url) // npm run build ==>  ./static/mock/index.json
+                    .then(this.getForFunSucc)
+                    .catch(function (res) {
+                        console.log("error:" + res)
+                    })
+            },
+            getForFunSucc(res) {
+                console.log(res);
+                if (res.data.code == 200) {
+                    const data = res.data.data;
+                    this.forFunJson = data
+                }
+            },
+            showTest(){
+                this.timer = new Date().getTime()
+                this.showTester = !this.showTester
             }
         },
         mounted() {
             this.getProject();
+            this.getForFun();
             window.addEventListener('scroll', this.menuScroll)
             this.mobile=/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent);
         },
