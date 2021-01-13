@@ -166,7 +166,30 @@
         },
         destroyed () {
             window.addEventListener('scroll', this.menuScroll)
-        }
+        },
+        watch: {
+            showTester(newValue, oldValue) {
+                if(newValue != oldValue){
+                    if(newValue == true){
+                        $("html").css("overflow",'hidden')
+                    }
+                    else{
+                        $("html").css("overflow",'visible')
+                    }
+                }
+            },
+            showTD(newValue, oldValue) {
+                console.log(newValue)
+                if(newValue != oldValue){
+                    if(newValue == true){
+                        $("html").css("overflow",'hidden')
+                    }
+                    else{
+                        $("html").css("overflow",'visible')
+                    }
+                }
+            }
+        },
     }
 </script>
 

@@ -124,7 +124,7 @@
     top 0
     left 0
     right 0
-    z-index 9
+    z-index 10
     background #FFF
     transition: all 0.2s linear;
     -webkit-transition: all 0.2s linear;
