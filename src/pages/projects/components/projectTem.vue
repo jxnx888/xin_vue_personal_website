@@ -136,6 +136,7 @@
       padding .05rem .1rem
       border-radius .5rem
       background #f78c3e
+      color #fff
       -webkit-animation twinkling 1s infinite 0.9s ease-in-out alternate
       animation twinkling 1s infinite 0.9s ease-in-out alternate
 
