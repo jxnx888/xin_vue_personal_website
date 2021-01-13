@@ -13,9 +13,18 @@
            :key="index"
            class="each_career clearfix">
         <h1 :id="key.replace(/ /g,'')" class="company_name">
-          <p class="jobTitle">{{value.jobtitle}}</p>
-          <p class="jobCompany">-- {{value.companyName}}</p>
-          <p class="jobduration">-- {{value.startDate}} - {{value.endDate}} ({{value.duration}}) </p>
+          <div class="jobTitle">{{value.jobtitle}}</div>
+          <div class="jobCompany">-- {{value.companyName}}</div>
+          <div class="jobduration">-- {{value.startDate}} - {{value.endDate}} ({{value.duration}}) </div>
+          <div class="jobResponsibilities">
+            -- Responsibilities
+            <ul>
+              <li v-for="(resp,rIndex) in value.responsibilities"
+                  :key="rIndex">
+                {{resp}}
+              </li>
+            </ul>
+          </div>
         </h1>
         <projectTem
           v-for="childItem of value.projects"
@@ -183,15 +192,20 @@
           font-size .25rem
           line-height .35rem
           text-shadow: 4px 3px 3px #a28d8d;
-        .jobCompany
+        .jobCompany,.jobduration,.jobResponsibilities
           font-size .15rem
           line-height .2rem
           color #999
-        .jobduration
-          font-size .15rem
-          color #999
-          line-height .2rem
-    .animation_menu
+        .jobResponsibilities
+          ul
+            li
+              font-size .15rem
+              color #999
+              line-height .2rem
+              list-style: initial;
+              margin-left .35rem
+
+.animation_menu
       position: absolute;
       top: 50px;
       right: -50px;

@@ -132,10 +132,10 @@
       z-index 9
       width 2rem
       line-height .2rem
-      border 1px solid #eeeeee
+      border 1px solid #f78c3e
       padding .05rem .1rem
       border-radius .5rem
-      background #fcfcfc
+      background #f78c3e
       -webkit-animation twinkling 1s infinite 0.9s ease-in-out alternate
       animation twinkling 1s infinite 0.9s ease-in-out alternate
 
@@ -156,7 +156,7 @@
 }
 @-webkit-keyframes twinkling {
   0% {
-    opacity: 0.1;
+    opacity: 0.3;
   }
   100% {
     opacity: 1;
@@ -164,7 +164,7 @@
 }
 @keyframes twinkling {
   0% {
-    opacity: 0.1;
+    opacity: 0.3;
   }
   100% {
     opacity: 1;
