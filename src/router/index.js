@@ -34,7 +34,7 @@ const routes = [
   },
   {
     path: '/contact',
-    name: 'Cntact',
+    name: 'Contact',
     component: () => import('@/pages/contact/contact')
   },
   {

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <navMain></navMain>
-    <router-view/>
+    <keep-alive>
+      <router-view class="mainBody"/>
+    </keep-alive>
     <footerVue></footerVue>
   </div>
 </template>
@@ -23,4 +25,6 @@
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
+  .mainBody
+    margin-top 1rem
 </style>

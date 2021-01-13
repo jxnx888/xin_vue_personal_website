@@ -1,18 +1,18 @@
 <template>
     <div id="nav">
       <pcNav v-if="!mobile"></pcNav>
-      <mobileNav v-if="mobile"></mobileNav>
+<!--      <mobileNav v-if="mobile"></mobileNav>-->
     </div>
 </template>
 
 <script>
   import pcNav from './pcNav/navEl'
-  import mobileNav from './mbNav/navEl'
+  // import mobileNav from './mbNav/navEl'
     export default {
         name: "navMain",
         components:{
             pcNav,
-            mobileNav
+            // mobileNav
         },
         data () {
             return {
