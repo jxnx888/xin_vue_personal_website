@@ -31,7 +31,7 @@
           <!-- <div class="download_file"><a href="/file/XinNing-Resume-CN.pdf" download="/file/XinNing-Resume-CN.pdf"><i class="el-icon-printer"></i>{{$t('footer.resume')}}</a></div>-->
           <!--          <div class="download_file" v-if="currentLang==='en_us'"><a download=""><i class="el-icon-printer"></i>{{$t('footer.coverletter')}}</a></div>-->
           <div class="sitemap_wrapper clearfix">
-            <div class="each_map"><a href="/file/XinNing-Resume-CN.pdf" download="/file/XinNing-Resume-CN.pdf"><i
+            <div class="each_map"><a :href="resumeLink" download="/file/XinNing-Resume-CN.pdf"><i
                 class="el-icon-printer"></i>{{ $t('footer.resume') }}</a></div>
             <div class="each_map">
               <router-link to="/" class="each_link">{{ $t('nav.home') }}</router-link>
@@ -60,7 +60,8 @@ export default {
   name: "footerVue",
   data() {
     return {
-      currentLang: this.$i18n.locale
+      currentLang: this.$i18n.locale,
+        resumeLink:'/file/XinNing-Resume-CN.pdf',
     }
   },
   created() {
@@ -73,7 +74,18 @@ export default {
       console.log(this.currentLang)
     }
   },
-  watch: {}
+  watch: {
+      '$i18n.locale'(newValue, oldValue) {
+          if(newValue!=oldValue)   {
+              if('zh_cn' == newValue){
+                  this.resumeLink = '/file/XinNing-Resume-CN.pdf';
+              }
+              else{
+                  this.resumeLink = '/file/XinNing-Resume-EN.pdf';
+              }
+          }
+      }
+  }
 }
 </script>
 

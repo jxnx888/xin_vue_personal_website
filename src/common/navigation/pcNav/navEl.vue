@@ -67,7 +67,6 @@
                 const navHeight = 100;//$(".nav_wrapper").height();
                 const scrollTop = $(window).scrollTop();
                 if (scrollTop >= navHeight) {
-                    console.log(123)
                     this.fixedHide = true;
                     if(scrollTop-this.lastScrollTop<=0){
                         this.fixedShow = true;
@@ -90,11 +89,12 @@
             window.removeEventListener('scroll', this.navPosition); // 销毁监听
         },
         watch: {
+            // eslint-disable-next-line no-unused-vars
             $route(to, from) {
-                console.log("to:")
+               /* console.log("to:")
                 console.log(to)
                 console.log("from:")
-                console.log(from)
+                console.log(from)*/
                 switch (to.name) {
                     case 'Skills':
                         this.navIndex = 2;

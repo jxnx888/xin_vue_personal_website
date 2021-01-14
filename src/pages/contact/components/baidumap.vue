@@ -3,7 +3,7 @@
     <!-- https://dafrok.github.io/vue-baidu-map/#/ -->
     <baidu-map class="map" :center="center" :zoom="zoom" @ready="handler">
       <bm-marker :position="tagCoordinate" :dragging="false" animation="BMAP_ANIMATION_BOUNCE" :icon="{url: '/image/head_ico.png', size: {width: 25, height: 25},}"  @click="infoWindowOpen" class="map_marker">
-        <bm-info-window :show="show" @close="infoWindowClose" @open="infoWindowOpen" class="info_window">
+        <bm-info-window :show="show" @close="infoWindowClose" @open="infoWindowOpen" class="info_window"  @ready="readAdd">
           <div class="title">{{$t('contact.tagInfo[2]')}}</div>
           <div class="title BMap_bubble_title">{{$t('contact.tagInfo[0]')}}</div>
           <div class="address">{{$t('contact.tagInfo[1]')}}</div>
@@ -26,7 +26,7 @@
                 zoom: 20,
                 tagCoordinate: {lng: 0, lat: 0},
                 active: false,
-                show: true
+                show: true,
             }
         },
         methods: {
@@ -37,6 +37,15 @@
                 this.tagCoordinate.lng = 121.389652
                 this.tagCoordinate.lat = 31.22903
                 this.zoom = 20
+            },
+            readAdd(){
+                var i18n = this.$i18n.locale;
+                setTimeout(function(){
+                    if('en_us'==i18n){
+                        $(".BMap_pop").addClass("en_us");
+                    }
+                },200)
+
             },
             draw ({el, BMap, map}) {
                 const pixel = map.pointToOverlayPixel(new BMap.Point(121.389652, 31.22903))
@@ -49,7 +58,21 @@
             infoWindowOpen () {
                 this.show = true
             }
-        }
+        },
+        mounted() {
+
+        },
+        watch: {
+            '$i18n.locale'(newValue, oldValue) {
+                if (newValue != oldValue) {
+                    if ('zh_cn' == newValue) {
+                        $(".BMap_pop").removeClass("en_us")
+                    } else {
+                        $(".BMap_pop").addClass("en_us")
+                    }
+                }
+            }
+        },
     }
 </script>
 
@@ -61,6 +84,8 @@
       >>> .BMap_pop
         top: 100px!important;
         left: 840px!important;
+      >>> .BMap_pop.en_us
+        left: 791px!important;
       >>> .BMap_shadow
         top 143px!important
 
