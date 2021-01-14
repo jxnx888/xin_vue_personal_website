@@ -1,0 +1,147 @@
+body {
+	margin: 0;
+	background-color: #000;
+	color: #fff;
+	font-family: Monospace;
+	font-size: 13px;
+	line-height: 24px;
+	overscroll-behavior: none;
+}
+
+a {
+	color: #ff0;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+canvas {
+	display: block;
+}
+
+#info {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	z-index: 1; /* TODO Solve this in HTML */
+}
+
+a, button, input, select {
+	pointer-events: auto;
+}
+
+.dg.ac {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	z-index: 2 !important; /* TODO Solve this in HTML */
+}
+
+#overlay {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 1;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+#overlay > div {
+	text-align: center;
+}
+
+#overlay > div > button {
+	height: 20px;
+	background: transparent;
+	color: #ffffff;
+	outline: 1px solid #ffffff;
+	border: 0px;
+	cursor: pointer;
+}
+
+#overlay > div > p {
+	color: #777777;
+	font-size: 12px;
+}
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;font-family:Microsoft YaHei; }
+.clearfix:after{content:'.';display:block;clear:both;visibility:hidden;line-height:0;height:0;font-size:0}
+/*#container{float: right}*/
+div#decals { width: 355px;min-width: 127px;height: 100%; float: left; background: #F4F4F4; position: fixed; left: 0; top: 0; bottom:0;overflow: auto}
+.map_wrapper,.recently_wrapper{ margin: 0 auto; width: 330px; }
+.recently_wrapper{display: none;}
+.top_nav { margin: 0 auto; width: 320px; }
+.map,.recent{float: left;width: 50%;display: inline-block;text-align: center;color:#333;font-size:16px;line-height: 26px;cursor: pointer;}
+.active{border-bottom: 2px solid #333;}
+.each_decal{ position: relative;width: 100px;height: 100px;float: left;border:1px solid #D6DBE1;margin: 5px;background: #F4F4F4;}
+.each_decal img{ position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto; max-width: 100%; max-height: 100%;}
+.show_more{background-image: url("/image/decals/showmore.png");background-repeat: no-repeat;background-size: cover;position: fixed;left: 355px;top: 50%;width: 17px; height: 47px;cursor: pointer;}
+.show_more img { position: absolute; left: 6px; top: 17px; cursor: pointer;}
+div#decals.close{width: 127px;overflow-x: hidden}
+div#decals.close .top_nav .recent{display: none;}
+div#decals.close .map_wrapper,div#decals.close .recently_wrapper,div#decals.close .top_nav{width: 108px;}
+.show_more.show_more_close{left: 127px;}
+.map.map_btn_close{width: 110px;}
+.no_recently { color: #333; width: 100%; text-align: center; padding: 20px 0; }
+.activeDecal{border:1px solid red}
+#decal_upload {position: relative;cursor: pointer;}
+#decal_upload .text_ipload{cursor: pointer;color: #999; width: 95%; margin: 10px auto; padding: 5px; text-align: center; border: 1px dashed #999; }
+#decal_upload #upload_input { cursor: pointer;position: absolute; top: 0; left: 9px; width: 95%; height: 36px; opacity: 0; z-index: 1; }
+p.open_upload { margin: 0; }
+.close_upload{display: none;}
+.close .open_upload{display: none;}
+.close .close_upload{display: block;margin: 0;font-size: 25px; line-height: 25px; }
+.back_btn,.forward_btn,.back_btn:hover,.forward_btn:hover{width:50%;display: inline-block;background-repeat: no-repeat!important;background-position: 85%!important;}
+.back_btn{background-image: url("/image/decals/back_dark.png")!important;}
+.forward_btn{background-image: url("/image/decals/forward_dark.png")!important;}
+.forward_btn,.forward_btn:hover{background-image: url("/image/decals/forward_dark.png")!important;}
+.back_btn .property-name,.forward_btn .property-name{width:80%!important;}
+.back_btn.active_back{background-image: url("/image/decals/back_grey.png")!important;}
+.forward_btn.active_forward{background-image: url("/image/decals/forward_grey.png")!important;}
+.dg.main.a,.close-button{min-width: 250px;min-width: 350px;}
+.exportSTL{display: none}
+.ie_notice{	display: none;}
+
+.rotation_no { pointer-events: none; z-index: 4; cursor: not-allowed!important;} /*首次进入不能操作*/
+.input_no { pointer-events: none; z-index: 4;cursor: not-allowed!important; } /*首次进入不能操作*/
+.rotation_cover{cursor: not-allowed!important; }
+
+.needHide{	display: none;}
+.dg.ac{z-index:10!important;}
+.right_click_menu { position: fixed; top: 20%; left: 30%;display: none;z-index:10;}
+.right_menu_bg{position: fixed; left: 0; top: 0; width: 100%; height: 100%;z-index:9;background: #000;opacity: 0;}
+
+#loading_data {display:none;position: fixed;top: 0;right: 0;left: 0;bottom:0;background:#FFF;opacity: .7;z-index: 999;}
+#loading_data img{position: absolute;top: 48%;left: 48%;}
+
+
+.main_wrapper{width: 100%;position: relative;}
+#container canvas{float:right;}
+@media only screen and (max-width:1200px){
+	div#decals{width:237px;}
+	.show_more{left: 235px;}
+	.map_wrapper, .recently_wrapper{width:220px;}
+	.top_nav{width:220px;}
+}
+

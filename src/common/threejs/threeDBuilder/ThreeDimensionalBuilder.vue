@@ -1886,8 +1886,13 @@
                     this.saveModuleShow( 0 );
                     this.goHomeFlag = true;
                 }
-            }
-
+            },
+            windowReisze(){
+                const _this=this;
+                _this.CONTAIN_WIDTH = document.getElementById( "mainWrapper" ).offsetWidth;
+                _this.CONTAIN_HEIGHT = document.getElementById( "mainWrapper" ).offsetHeight;
+                _this.onWindowResize();
+            },
         },
         mounted() {
             this.mobile = /Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)
@@ -1903,21 +1908,18 @@
             window.deleteObjFlag = this.deleteObjFlag;
             this.init();
             this.listModule();
-            const _this=this;
-            window.onresize = function(){ // 定义窗口大小变更通知事件
-                _this.CONTAIN_WIDTH = document.getElementById( "mainWrapper" ).offsetWidth;
-                _this.CONTAIN_HEIGHT = document.getElementById( "mainWrapper" ).offsetHeight;
-                _this.onWindowResize();
-            };
-            /*_this.container.addEventListener( 'mousedown', function () {
-                console.log(1)
-                _this.controlsMoved = false;
-                _this.showColorOption = false;
-                _this.showZoomOption = false;
-            }, false );
-            _this.container.addEventListener( 'mouseup', _this.onDocumentMouseDown, false );*/
+            window.addEventListener("resize",this.windowReisze);
         },
+
         destroyed(){
+            const _this = this
+            window.removeEventListener("resize",this.windowReisze);
+            _this.controls.removeEventListener("change");
+            _this.transformControl.removeEventListener("dragging-changed");
+            _this.transformControl.removeEventListener("change");
+            _this.transformControl.removeEventListener("mouseDown");
+            _this.transformControl.removeEventListener("objectChange");
+            _this.transformControl.removeEventListener("mouseUp");
 
         },
         watch:{

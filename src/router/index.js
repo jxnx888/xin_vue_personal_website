@@ -40,7 +40,7 @@ const routes = [
   {
     path: '/threejs',
     name: 'threejs',
-    component: () => import('@/common/threejs/luggageDecalSplatter/luggageDecalSplatter')
+    component: () => import('@/common/threejs/luggageDecalSplatter/decals')
   }
 ]
 

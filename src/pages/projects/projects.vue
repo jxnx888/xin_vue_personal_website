@@ -8,6 +8,7 @@
     <threeDBuilder v-if="showTD && !mobile" :key="timer"></threeDBuilder>
     <mobileThreeDBuilder v-if="showTD && mobile" :key="timer"></mobileThreeDBuilder>
     <forFun v-if="showTester" :key="timer" :forFunJson="forFunJson"></forFun>
+    <luggageDecalSplatter  v-if="showDecal" :key="timer" ></luggageDecalSplatter>
     <div class="project_main clearfix">
       <div v-for="(value,key,index) in projectsJson"
            :key="index"
@@ -54,9 +55,10 @@
 <script>
     import topBanner from "@/common/topStaticBanner/topBanner";
     import projectTem from './components/projectTem'
-    import threeDBuilder from '../../common/threejs/threeDBuilder/ThreeDimensionalBuilder'
-    import mobileThreeDBuilder from '../../common/threejs/threeDBuilder/mobileThreeDimensionalBuilder'
+    import threeDBuilder from '@/common/threejs/threeDBuilder/ThreeDimensionalBuilder'
+    import mobileThreeDBuilder from '@/common/threejs/threeDBuilder/mobileThreeDimensionalBuilder'
     import forFun from "@/common/forFun/forFun";
+    import luggageDecalSplatter from "@/common/threejs/luggageDecalSplatter/decals";
     export default {
         name: "projects",
         components: {
@@ -64,7 +66,8 @@
             projectTem,
             threeDBuilder,
             mobileThreeDBuilder,
-            forFun
+            forFun,
+            luggageDecalSplatter
         },
         data() {
             return {
@@ -76,6 +79,7 @@
                 mobile:false,
                 showTD:false,
                 showTester:false,
+                showDecal:false,
                 timer:'',
             }
         },
@@ -156,6 +160,13 @@
             showTest(){
                 this.timer = new Date().getTime()
                 this.showTester = !this.showTester
+            },
+            showDecals(){
+                this.timer = new Date().getTime()
+                this.showDecal = !this.showDecal
+            },
+            resizeDecals(){
+                $(".decalsMain,.decalWrapper").css({'width':$(window).width(),'height':$(window).height()})
             }
         },
         mounted() {
@@ -163,9 +174,11 @@
             this.getForFun();
             window.addEventListener('scroll', this.menuScroll)
             this.mobile=/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent);
+            window.addEventListener( 'resize', this.resizeDecals(), false );
         },
         destroyed () {
             window.addEventListener('scroll', this.menuScroll)
+            window.addEventListener( 'resize', this.resizeDecals(), false );
         },
         watch: {
             showTester(newValue, oldValue) {
@@ -180,6 +193,16 @@
             },
             showTD(newValue, oldValue) {
                 console.log(newValue)
+                if(newValue != oldValue){
+                    if(newValue == true){
+                        $("html").css("overflow",'hidden')
+                    }
+                    else{
+                        $("html").css("overflow",'visible')
+                    }
+                }
+            },
+            showDecal(newValue, oldValue) {
                 if(newValue != oldValue){
                     if(newValue == true){
                         $("html").css("overflow",'hidden')

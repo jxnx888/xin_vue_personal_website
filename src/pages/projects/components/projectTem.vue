@@ -1,6 +1,6 @@
 <template>
   <div class="each_content">
-    <a v-if="'3'!=code && '4'!=code" :href="link">
+    <a v-if="'3'!=code && '4'!=code && '5'!=code" :href="link">
       <div class="each_wrapper">
         <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">
         <div class="info_wrapper">
@@ -13,7 +13,12 @@
         </div>
       </div>
     </a>
-    <div v-else-if="'3'==code || '4'==code" @click="'3' == code ? show3Dbuilder() : showTester()" class="threed">
+    <div v-else-if="'3'==code || '4'==code || '5'==code"
+         @click="
+         '3' == code ? show3Dbuilder() :'';
+         '4' == code?showDecals():'';
+         '5' == code ? showTester():''"
+         class="threed">
       <div class="tip">{{$t('projects.tip') }}</div>
       <div class="each_wrapper">
         <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">
@@ -48,6 +53,9 @@
             },
             showTester(){
                 this.$parent.showTest();
+            },
+            showDecals(){
+                this.$parent.showDecals();
             }
         }
     }

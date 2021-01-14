@@ -46,6 +46,14 @@
           "tags": "Development and maintenance, Android, iOS, Three.js, Javascript, Jquery, CSS3, HTML5",
           "url": "/threeDimensionalBuilder",
           "code": 3
+        },
+        {
+          "title": "Luggage Decal Splatter",
+          "img": "/image/projects/luggage.jpg",
+          "desc": "Pick or upload decals to  on luggage. Before and after shooting the decal, users can change the decal size and rotation and position",
+          "tags": "Development and maintenance, Three.js, Javascript, Jquery, CSS3, HTML5",
+          "url": "/threeDimensionalBuilder",
+          "code": 4
         }
       ]
     },
@@ -66,7 +74,7 @@
           "img": "/image/projects/mice.jpg",
           "desc": "Gain an authentic, dedicated, and diverse online following from scratch for WeChat",
           "tags": "Development and maintenance, Javascript, Jquery, CSS3, HTML5",
-          "code": 4
+          "code": 5
         }
       ]
     }
