@@ -7,7 +7,10 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/pages/home/home')
+    component: () => import('@/pages/home/home'),
+    meta: {
+      keepAlive: true
+    }
   },
  /* {
     path: '/about',
@@ -20,32 +23,48 @@ const routes = [
   {
     path: '/projects',
     name: 'Projects',
-    component: () => import('@/pages/projects/projects')
+    component: () => import('@/pages/projects/projects'),
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/skills',
     name: 'Skills',
-    component: () => import('@/pages/skills/skills')
+    component: () => import('@/pages/skills/skills'),
+    meta: {
+      keepAlive: false
+    }
   },
   {
     path: '/aboutme',
     name: 'Aboutme',
-    component: () => import('@/pages/aboutme/aboutme')
+    component: () => import('@/pages/aboutme/aboutme'),
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/contact',
     name: 'Contact',
-    component: () => import('@/pages/contact/contact')
+    component: () => import('@/pages/contact/contact'),
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/threejs',
     name: 'threejs',
-    component: () => import('@/common/threejs/luggageDecalSplatter/decals')
+    component: () => import('@/common/threejs/luggageDecalSplatter/decals'),
+    meta: {
+      keepAlive: true
+    }
   }
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history'   //去除url #
 })
 
 export default router

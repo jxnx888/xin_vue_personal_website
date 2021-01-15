@@ -42,9 +42,6 @@
             showRandom(){
                 this.resetPosition=false;
                 this.$refs.child.moveObj(".child_box",$(".skill_container").width(),$(".skill_container").height());
-            },
-            resetRandomPosition(){
-              this.resetPosition=true;
             }
         },
         mounted() {

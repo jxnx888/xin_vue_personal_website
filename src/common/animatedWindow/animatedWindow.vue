@@ -68,9 +68,6 @@
             },
             parentMethod(){
                 this.$parent.reloadSkill();
-            },
-            parentReset(){
-                this.$emit('resetRandomPosition');
             }
         },
         mounted() {

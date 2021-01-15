@@ -2,8 +2,9 @@
   <div id="app">
     <navMain></navMain>
     <keep-alive>
-      <router-view class="mainBody"/>
+      <router-view v-if="$route.meta.keepAlive"  class="mainBody"></router-view>
     </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"  class="mainBody"></router-view>
     <footerVue></footerVue>
   </div>
 </template>
