@@ -30,7 +30,6 @@ import autoTyping from "@/common/autoTyping/autoTyping";
       watch: {
         '$i18n.locale'(newValue, oldValue) {
           if(newValue!=oldValue)   {
-            console.log("reload auto-type")
             this.timer = new Date().getTime()
           }
         }
