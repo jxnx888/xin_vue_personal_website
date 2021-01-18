@@ -40,6 +40,9 @@ TxtType.prototype.tick = function () {
 };
 
 window.onload = function () {
+    // onloadFn(); //如果不是es6 可直接调用该方法，但是因为vue 需要导出该方法并在外部调用
+};
+function onloadFn(){
     var elements = document.getElementsByClassName('typewrite-word');
     for (var i = 0; i < elements.length; i++) {
         var toRotate = elements[i].getAttribute('data-type');
@@ -53,4 +56,5 @@ window.onload = function () {
     css.type = "text/css";
     css.innerHTML = ".typewrite-word > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
-};
+}
+export {onloadFn}

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import topBannerSwiper from "./components/topBanner";
+    import topBannerSwiper from "./components/topBanner/topBanner";
     import aboutPart from "@/pages/home/components/aboutPart/aboutPart";
     import projects from "@/pages/home/components/projects/projects";
     import keepLearning from "@/pages/home/components/keepLearning/keepLearning";

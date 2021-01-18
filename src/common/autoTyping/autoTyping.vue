@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import './typeWrite'
+import {onloadFn} from './typeWrite'
 
 export default {
   name: "autoTyping",
@@ -19,57 +19,9 @@ export default {
 
     }
   },
-/*  methods: {
-    startTextType(){
-      var elements = document.getElementsByClassName('typewrite-word');
-      for (var i = 0; i < elements.length; i++) {
-        var toRotate = elements[i].getAttribute('data-type');
-        var period = elements[i].getAttribute('data-period');
-        if (toRotate) {
-          const loopNum = 0;
-          period = parseInt(period, 10) || 2000;
-          const txt = '';
-          const isDeleting = false;
-          this.$options.methods.tick(elements[i], JSON.parse(toRotate), period,loopNum,txt,isDeleting);
-        }
-      }
-      // INJECT CSS
-      var css = document.createElement("style");
-      css.type = "text/css";
-      css.innerHTML = ".typewrite-word > .wrap { border-right: 0.08em solid #fff}";
-      document.body.appendChild(css);
-    },
-    tick(el, toRotate, period,loopNum,txt,isDeleting){
-      var i = loopNum % toRotate.length;
-      var fullTxt = toRotate[i];
-      if (isDeleting) {
-        txt = fullTxt.substring(0, txt.length - 1);
-      } else {
-        txt = fullTxt.substring(0, txt.length + 1);
-      }
-
-     el.innerHTML = '<span class="wrap">' + txt + '</span>';
-
-      var delta = 200 - Math.random() * 100;
-
-      if (isDeleting) { delta /= 2; }
-
-      if (!isDeleting && txt === fullTxt) {
-        delta = period;
-        isDeleting = true;
-      } else if (isDeleting && txt === '') {
-        isDeleting = false;
-        loopNum++;
-        delta = 500;
-      }
-      setTimeout(function () {
-        this.tick();
-      }, delta);
+    mounted() {
+        onloadFn();
     }
-  },
-  mounted() {
-    this.startTextType();
-  }*/
 }
 </script>
 
