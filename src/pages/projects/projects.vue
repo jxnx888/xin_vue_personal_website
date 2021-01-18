@@ -121,16 +121,16 @@
                 // project_wrapper可以滚动的最大位置 == project_wrapper顶部位置加高度
                 var moveBottomP = oriMoveTopP + $(".project_wrapper").height();
 
-                if(scrollTop>=oriMoveTopP && (scrollTop)<=(moveBottomP-animation_menu_Height)){
+                if(scrollTop>=oriMoveTopP-100 && (scrollTop)<=(moveBottomP-animation_menu_Height)){ //-100 因为动态导航会遮挡右侧菜单
                     this.scrollingMenu = true;//菜单固定class
                     const menuArr = this.menuArr;
                     for (var i in menuArr) {
-                        var thisOffsetTop = $('#' + menuArr[i].replace(/ /g,'')).offset().top;
+                        var thisOffsetTop = $('#' + menuArr[i].replace(/ /g,'')).offset().top - 120; //  -100 提前改变菜单
                         if (scrollTop >= thisOffsetTop) { //检测滚动距离，记录下方距离最近的一个id
                             this.activeMenuIndex = i;
                         }
                     }
-                    $(".scrollMenu").css("top",scrollTop-oriMoveTopP+40);
+                    $(".scrollMenu").css("top",scrollTop-oriMoveTopP+140);//40改为140 因为动态导航会遮挡右侧菜单
                 }
                 else if(scrollTop<oriMoveTopP){
                     this.scrollingMenu = false;
@@ -220,7 +220,7 @@
 .project_wrapper
   .project_main
     width: 1200px;
-    margin: 0px auto;
+    margin: 0px auto 1rem;
     position relative
     @media screen and (max-width: 768px)
       width 100%
