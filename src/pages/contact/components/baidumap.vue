@@ -1,7 +1,7 @@
 <template>
   <div class="map_wrapper">
     <!-- https://dafrok.github.io/vue-baidu-map/#/ -->
-    <baidu-map class="map" :center="center" :zoom="zoom" @ready="handler">
+    <baidu-map class="map" :center="center" :zoom="zoom" @ready="handler" :atuo-resize="true">
       <bm-marker :position="tagCoordinate" :dragging="false" animation="BMAP_ANIMATION_BOUNCE" :icon="{url: '/image/head_ico.png', size: {width: 25, height: 25},}"  @click="infoWindowOpen" class="map_marker">
         <bm-info-window :show="show" @close="infoWindowClose" @open="infoWindowOpen" class="info_window"  @ready="readAdd">
           <div class="title">{{$t('contact.tagInfo[2]')}}</div>
@@ -12,6 +12,8 @@
       <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="true"></bm-geolocation><!--定位-->
       <bm-scale anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-scale> <!--比例尺-->
       <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation> <!--缩放控件-->
+      <bm-overview-map anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :isOpen="false"></bm-overview-map><!--缩略图-->
+      <bm-geolocation anchor="BMAP_ANCHOR_BOTTOM_RIGHT" :showAddressBar="true" :autoLocation="false"></bm-geolocation><!--定位-->
     </baidu-map>
 
   </div>
@@ -62,17 +64,6 @@
         mounted() {
 
         },
-        watch: {
-            '$i18n.locale'(newValue, oldValue) {
-                if (newValue != oldValue) {
-                    if ('zh_cn' == newValue) {
-                        $(".BMap_pop").removeClass("en_us")
-                    } else {
-                        $(".BMap_pop").addClass("en_us")
-                    }
-                }
-            }
-        },
     }
 </script>
 
@@ -83,9 +74,6 @@
       height: 500px;
       >>> .BMap_pop
         top: 100px!important;
-        left: 840px!important;
-      >>> .BMap_pop.en_us
-        left: 791px!important;
       >>> .BMap_shadow
         top 143px!important
 
