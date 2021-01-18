@@ -7,7 +7,7 @@
           <p class="title">{{$t('home.title')}}</p>
           <p class="subtitle">{{$t('home.subtitle')}}</p>
         </div>
-        <autoTyping></autoTyping>
+        <autoTyping :key="timer"></autoTyping>
       </div>
   </div>
 </template>
@@ -19,9 +19,22 @@ import autoTyping from "@/common/autoTyping/autoTyping";
       components: {
         autoTyping
       },
+      data() {
+        return {
+          timer: null
+        }
+      },
       props: {
             bannerList: Array
         },
+      watch: {
+        '$i18n.locale'(newValue, oldValue) {
+          if(newValue!=oldValue)   {
+            console.log("reload auto-type")
+            this.timer = new Date().getTime()
+          }
+        }
+      },
     }
 </script>
 

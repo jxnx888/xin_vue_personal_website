@@ -60,19 +60,12 @@ export default {
   name: "footerVue",
   data() {
     return {
-      currentLang: this.$i18n.locale,
         resumeLink:'/file/XinNing-Resume-CN.pdf',
     }
   },
   created() {
-    this.watchLang();
   },
   methods: {
-    watchLang() {
-      // 判断当前环境是中文还是英文
-      this.currentLang = this.$i18n.locale;
-      console.log(this.currentLang)
-    }
   },
   watch: {
       '$i18n.locale'(newValue, oldValue) {

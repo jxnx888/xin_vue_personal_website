@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-
 //vue-i18n 多语言切换 main.js底部new vue中使用
 import i18n from './i18n';
+import store from './vuex/store'
 
 //reset styles
 import './assets/style/bootstrap-3.3.7.css';
@@ -11,8 +11,18 @@ import './assets/style/reset.css';
 import './assets/style/border.css';
 import './assets/style/common.css';
 import './assets/iconfont/iconfont.css';
-//font
 
+// 解决移动端点击延迟200ms的问题
+import FastClick from 'fastclick'
+if ('addEventListener' in document) {
+  document.addEventListener('DOMContentLoaded', function () {
+    FastClick.attach(document.body);
+  }, false);
+}
+
+
+import Vuex from 'vuex'
+Vue.use(Vuex)
 
 //Element UI
 import ElmentUI from 'element-ui';
@@ -71,5 +81,6 @@ new Vue({
       focusedTransformObj:null,
       deleteObjFlag:null,
     }
-  }
+  },
+  store,
 }).$mount('#app')

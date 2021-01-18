@@ -19,8 +19,10 @@ const en_us = {
     },
     homeProject: {
         list1: {
-            title: 'Latest work',
-            responsibility: ['Maintaining & modifying E-commerce website', 'Managing front-end team as a project manager assistant', 'Utilizing the Three.js to design and build 3D related WebApps'],
+            title: 'Last work',
+            responsibility: ['Maintaining & modifying E-commerce website',
+                'Managing front-end team as a project manager assistant',
+                'Utilizing the Three.js to design and build 3D related WebApps (Android && iOS)'],
             childList: [
                 {
                     title: 'E-commerce websites',
@@ -38,7 +40,9 @@ const en_us = {
         },
         list2: {
             title: 'Latest work',
-            responsibility: ['Maintaining & modifying E-commerce website', 'Managing front-end team as a project manager assistant', 'Utilizing the Three.js to design and build 3D related WebApps.']
+            responsibility: ['Maintaining & modifying E-commerce website',
+                'Managing front-end team as a project manager assistant',
+                'Utilizing the Three.js to design and build 3D related WebApps.']
         },
         list3: {
             title: 'Education',
