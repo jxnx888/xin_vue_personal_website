@@ -45,15 +45,17 @@ import autoTyping from "@/common/autoTyping/autoTyping";
                 _this.currentWord.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                     _this.currentWord.removeClass('animated rubberBand');
                 });
-            }
-        },
-        mounted() {
-            //dom渲染完成后，操作增加动态效果
-            this.$nextTick(function () {
+            },
+            animatedInit(type){ //type 0 init 1 切换语言
+                let timer = 3000;
+                if(1 == type){
+                    timer = 1000
+                }
                 let a = 0;
                 $(".each_word").each(function(){
                     const el = $(this);
                     const index =$(this).index();
+                    $(".animationCapt").removeClass('animationCapt');
                     setTimeout(function(){
                         if( 0 == index || 4 == index){
                             el.addClass('animated animationCapt');
@@ -73,13 +75,23 @@ import autoTyping from "@/common/autoTyping/autoTyping";
                             el.removeClass('animated rubberBand');
                         });
                     });
-                    },3000)
+                },timer)
+            }
+        },
+        mounted() {
+            const _this = this;
+            //dom渲染完成后，操作增加动态效果
+            _this.$nextTick(function () {
+                _this.animatedInit(0)
             })
         },
         watch: {
         '$i18n.locale'(newValue, oldValue) {
           if(newValue!=oldValue)   {
-            this.timer = new Date().getTime()
+            this.timer = new Date().getTime();
+              this.$nextTick(function () {
+                  this.animatedInit(1)
+              })
           }
         }
       },
