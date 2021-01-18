@@ -51,7 +51,7 @@
               </a>
             </li>
             <li class="item_1">
-              <a href="https://www.import-express.com/" target="_blank">
+                <router-link :to="{path:'/projects',query:{jump:'LuggageDecalSplatter'}}">
                 <img v-lazy="'/image/home/luggage_decal.jpg'" alt="">
                 <div class="intro_wrapper">
                   <h4 class="tit">{{$t('homeProject.list1.childList[1].title')}}</h4>
@@ -59,10 +59,10 @@
                   <p class="txt">{{$t('homeProject.list1.childList[1].txt[1]')}}</p>
                   <i class="iconfont icon_arrow">&#xe61f;</i>
                 </div>
-              </a>
+                </router-link>
             </li>
             <li class="item_3">
-              <a target="_blank">
+              <router-link :to="{path:'/projects',query:{jump:'MagicBox-AppforChildren'}}">
                 <img v-lazy="'/image/home/3dprinting1.jpg'" alt="">
                 <div class="intro_wrapper intro_wrapper4">
                   <h4 class="tit">{{$t('homeProject.list1.childList[2].title')}}</h4>
@@ -70,7 +70,7 @@
                   <p class="txt">{{$t('homeProject.list1.childList[2].txt[1]')}}</p>
                   <i class="iconfont icon_arrow">&#xe61f;</i>
                 </div>
-              </a>
+              </router-link>
             </li>
           </ul>
         </div>

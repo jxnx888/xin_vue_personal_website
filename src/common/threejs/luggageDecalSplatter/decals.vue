@@ -27,12 +27,17 @@
         },
         mounted() {
             this.checkWindowWH();
-            window.addEventListener( 'resize', this.checkWindowWH(), false );
+            window.addEventListener( 'resize', this.checkWindowWH, false );
             this.decaleClosed = document.getElementById("decalsMain").contentWindow.decaleClosed;
         },
         destroyed() {
-            window.removeEventListener( 'resize', this.checkWindowWH(), false );
+            window.removeEventListener( 'resize', this.checkWindowWH, false );
         },
+        //keep-alive 激活状态，无法销毁监听，需要使用deactivated来销毁
+        deactivated() {
+            window.removeEventListener( 'resize', this.checkWindowWH, false );
+        },
+
         watch: {
             decaleClosed(newVal,oldVal){
                 console.log(newVal)

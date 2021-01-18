@@ -1920,7 +1920,17 @@
             _this.transformControl.removeEventListener("mouseDown");
             _this.transformControl.removeEventListener("objectChange");
             _this.transformControl.removeEventListener("mouseUp");
-
+        },
+        //keep-alive 激活状态，无法销毁监听，需要使用deactivated来销毁
+        deactivated() {
+            const _this = this
+            window.removeEventListener("resize",this.windowReisze);
+            _this.controls.removeEventListener("change");
+            _this.transformControl.removeEventListener("dragging-changed");
+            _this.transformControl.removeEventListener("change");
+            _this.transformControl.removeEventListener("mouseDown");
+            _this.transformControl.removeEventListener("objectChange");
+            _this.transformControl.removeEventListener("mouseUp");
         },
         watch:{
             CONTAIN_WIDTH(newVal){

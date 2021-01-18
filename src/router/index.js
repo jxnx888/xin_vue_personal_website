@@ -61,9 +61,23 @@ const routes = [
     }
   }
 ]
+//表示页面跳转的时候，新页面始终是在顶部
+// eslint-disable-next-line no-unused-vars
+const scrollBehavior = function (to, from, savedPosition) {
+  if (to.hash) {
+    return {
+      // 通过 to.hash 的值來找到对应的元素
+      selector: to.hash
+    }
+  }
+  else{
+    return {x:0, y:0}
+  }
+}
 
 const router = new VueRouter({
   routes,
+  scrollBehavior,
   mode: 'history'   //去除url #
 })
 

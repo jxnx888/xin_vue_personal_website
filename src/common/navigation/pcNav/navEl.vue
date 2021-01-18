@@ -88,6 +88,11 @@
         destroyed() {
             window.removeEventListener('scroll', this.navPosition); // 销毁监听
         },
+        //keep-alive 激活状态，无法销毁监听，需要使用deactivated来销毁
+        deactivated() {
+            window.removeEventListener('scroll', this.navPosition); // 销毁监听
+        },
+
         watch: {
             // eslint-disable-next-line no-unused-vars
             $route(to, from) {

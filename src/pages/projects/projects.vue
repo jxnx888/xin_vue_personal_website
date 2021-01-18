@@ -37,6 +37,7 @@
           :link="childItem.url"
           :code="childItem.code"
         :showTD="showTD"
+          :id="childItem.title.replaceAll(' ','')"
       ></projectTem>
     </div>
     <div class="animation_menu" :class="scrollingMenu? 'scrollMenu':''"  v-if="!mobile">
@@ -167,6 +168,19 @@
             },
             resizeDecals(){
                 $(".decalsMain,.decalWrapper").css({'width':$(window).width(),'height':$(window).height()})
+            },
+            checkQuery(){
+              if (this.$route.query.jump !== 'null') {
+                  const jumpTo = this.$route.query.jump;
+                  console.log("has query:" + jumpTo)
+                  let inter = setInterval(() => {
+                      let target = document.getElementById(jumpTo);
+                      if (target) {
+                          clearInterval(inter)
+                          target.scrollIntoView()
+                      }
+                  },100)
+              }
             }
         },
         mounted() {
@@ -174,11 +188,24 @@
             this.getForFun();
             window.addEventListener('scroll', this.menuScroll)
             this.mobile=/Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent);
-            window.addEventListener( 'resize', this.resizeDecals(), false );
+            window.addEventListener( 'resize', this.resizeDecals, false );
+            // 判断commentId 是否有值，如果没有的话，就不进行跳转，我这里就用'null'来判断了，你们随意
+            // document.querySelector用来获取element，有个坑，id值不能全为数字，否则报错，所以我在id值前面加了id，id格式大致是：id123456
+            // scrollIntoView就是用来跳转到锚点的函数
+            this.checkQuery()
+        },
+        //keep-alive 激活状态，缓存不会再走mounted，所以走activated来获取参数
+        activated() {
+            this.checkQuery()
         },
         destroyed () {
-            window.addEventListener('scroll', this.menuScroll)
-            window.addEventListener( 'resize', this.resizeDecals(), false );
+            window.removeEventListener('scroll', this.menuScroll, false)
+            window.removeEventListener( 'resize', this.resizeDecals, false );
+        },
+        //keep-alive 激活状态，无法销毁监听，需要使用deactivated来销毁
+        deactivated () {
+            window.removeEventListener('scroll', this.menuScroll, false)
+            window.removeEventListener( 'resize', this.resizeDecals, false );
         },
         watch: {
             showTester(newValue, oldValue) {
