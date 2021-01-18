@@ -1,6 +1,5 @@
 <template>
   <div class="progress_main clearfix">
-    <meteorShower></meteorShower>
     <div class="skills_progress clearfix">
     <div class="develop_skills clearfix">
       <h1>{{$t('skills.devSkill')}}</h1>
@@ -33,12 +32,8 @@
 </template>
 
 <script>
-  import meteorShower from "@/common/meteorShower/meteorShower";
     export default {
         name: "skillsProgress",
-        components: {
-            meteorShower
-        },
         data() {
             return {
                 skillsList:{
@@ -112,7 +107,6 @@
 <style scoped lang="stylus">
 .progress_main
   position: relative;
-  background url("/image/meteorshower.gif")
   .skills_progress
     width 1200px;
     margin auto

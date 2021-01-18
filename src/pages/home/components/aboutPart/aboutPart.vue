@@ -2,10 +2,15 @@
   <div class="aboutPart">
     <div class="top_intro">
       <p>{{ $t('home.welcome[0]') }}</p>
-      <p>{{ $t('home.welcome[1]') }}</p>
-      <p>{{ $t('home.welcome[2]') }}
+      <p>{{ $t('home.welcome[1]') }}
+        <a :href="resumeLink" download="/file/XinNing-Resume-CN.pdf">{{ $t('home.welcome[2]') }}</a>
+        <!--{{ $t('home.welcome[3]') }}
+        <a :href="resumeLink" download="/file/XinNing-Resume-CN.pdf">{{ $t('home.welcome[4]') }}</a>-->.</p>
+      <p>{{ $t('home.welcome[5]') }}
         <a href="mailto:jxnx888@hotmail.com">jxnx888@hotmail.com</a>,</p>
-      <p>{{ $t('home.welcome[3]') }}</p>
+      <p>{{ $t('home.welcome[6]') }}
+      <router-link to="/contact">{{ $t('home.welcome[7]') }}</router-link>
+      </p>
     </div>
     <div class="bottom_list">
       <ul class="detail_list clearfix">
@@ -36,7 +41,23 @@
 <script>
 export default {
   name: "aboutPart",
-
+    data() {
+        return {
+            resumeLink:'/file/XinNing-Resume-CN.pdf',
+        }
+    },
+    watch: {
+        '$i18n.locale'(newValue, oldValue) {
+            if(newValue!=oldValue)   {
+                if('zh_cn' == newValue){
+                    this.resumeLink = '/file/XinNing-Resume-CN.pdf';
+                }
+                else{
+                    this.resumeLink = '/file/XinNing-Resume-EN.pdf';
+                }
+            }
+        }
+    }
 }
 </script>
 

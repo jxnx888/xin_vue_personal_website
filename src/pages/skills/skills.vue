@@ -1,9 +1,16 @@
 <template>
   <div class="skill_wrapper">
+    <meteorShower></meteorShower>
     <!--<topBanner
       :bannerImg="'/image/banner3.png'"
       :bannerContent="''"></topBanner>-->
     <div class="skill_container">
+      <h1 class="title">{{$t('skills.infor[0]')}}</h1>
+      <p class="each_info"
+         v-for="(item,index) in $t('skills.infor').slice(1)"
+         :key="index">
+        {{item}}
+      </p>
       <div v-if="resetPosition == true" class="resetRandomP"><img :src="imgUrl" alt=""></div>
       <animatedWindow
         :imgUrl="imgUrl"
@@ -16,13 +23,14 @@
 </template>
 
 <script>
-    // import topBanner from "@/common/topStaticBanner/topBanner";
+    import meteorShower from "@/common/meteorShower/meteorShower";
     import animatedWindow from "@/common/animatedWindow/animatedWindow";
     import skillsProgress from "./components/skillsProgress";
     export default {
         name: "skills",
         components: {
             // topBanner,
+            meteorShower,
             skillsProgress,
             animatedWindow,
         },
@@ -64,9 +72,18 @@
 
 <style scoped lang="stylus">
 .skill_wrapper
-  background #333
+  position: relative;
+  background url("/image/meteorshower.gif")
   .skill_container
     position: relative;
+    .title
+      font-size .35rem
+      color #fff
+      padding .2rem
+    .each_info
+      font-size .2rem
+      color #fff
+      line-height .3rem
     .resetRandomP
       position: absolute;
       top .1rem

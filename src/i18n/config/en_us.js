@@ -11,7 +11,7 @@ const en_us = {
             DoB: '1989/10/07'
         },
         intro: '[ "Hi, I am Xin Ning.", " Welcome to my personal website.", "I am Creative, and I Love to Develop.", "I am Good at JavaScript, Jquery, Vue, HTML5 and CSS3."]',
-        welcome: ["You've found yourself at the online home of Xin Ning, a Front-end Developer.", "Here you'll find a selection of my latest work, stats about my skills and a link to my resume and cv(pdf).", "If you have a project or need some extra help, please drop me an email at", " alternatively you can fill out my contact form in the Contact page."],
+        welcome: ["You've found yourself at the online home of Xin Ning, a Front-end Developer.", "Here you'll find a selection of my latest work, stats about my skills and a link to my ","resume"," and ","cv(pdf).", "If you have a project or need some extra help, please drop me an email at", " alternatively you can fill out my contact form in the ","Contact page."],
         aboutme: 'About Me',
         myprojects: 'My Projects',
         myskills: 'My Skills',
@@ -62,7 +62,7 @@ const en_us = {
     nav: {
         home: 'Home',
         skills: 'Skills',
-        Projects: 'Projects',
+        Projects: 'Portfolio',
         AboutMe: 'About Me',
         contact: 'Contact',
     },
@@ -79,7 +79,8 @@ const en_us = {
     skills:{
         bannerInfo:"",
         devSkill:'Developer Skills',
-        SoftSkill:'Soft Skills'
+        SoftSkill:'Soft Skills',
+        infor:['Skills & Experience','The main area of my expertise is front end development.','HTML, CSS, JS, JQuery, building e-commerce web and web apps with vue.js and threejs.']
     }
 }
 export default en_us;
