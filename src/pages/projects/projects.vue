@@ -172,12 +172,11 @@
             checkQuery(){
               if (this.$route.query.jump !== 'null') {
                   const jumpTo = this.$route.query.jump;
-                  console.log("has query:" + jumpTo)
                   let inter = setInterval(() => {
                       let target = document.getElementById(jumpTo);
                       if (target) {
                           clearInterval(inter)
-                          target.scrollIntoView()
+                          target.scrollIntoView({behavior:'smooth',block: "center"})
                       }
                   },100)
               }
