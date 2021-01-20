@@ -36,7 +36,7 @@
         </ul>
       </div>
       <div class="right_content">
-        <div class="each_content" v-if="currentListIndex===1">
+        <div class="each_content" v-show="currentListIndex===1">
           <ul class="each_content_list">
             <li class="item_1">
               <a href="https://www.import-express.com/" target="_blank">
@@ -74,8 +74,8 @@
             </li>
           </ul>
         </div>
-        <div class="each_content" v-if="currentListIndex===2">456</div>
-        <div class="each_content" v-if="currentListIndex===3">
+        <div class="each_content" v-show="currentListIndex===2">456</div>
+        <div class="each_content" v-show="currentListIndex===3">
           <ul class="each_content_list only_two_item">
             <li class="item_1">
               <a href="https://www.fairfield.edu" target="_blank">

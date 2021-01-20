@@ -12,22 +12,22 @@
       <router-link to="/contact">{{ $t('home.welcome[7]') }}</router-link>
       </p>
     </div>
-    <div class="bottom_list">
+    <div class="bottom_list" id="homeList">
       <ul class="detail_list clearfix">
-        <li>
+        <li id="homeAM" :class="addAnimation?'bounceInLeft animated':''">
           <router-link  to="/aboutme" class="each_link">
             <p>{{ $t('home.aboutme') }}</p>
             <img v-lazy="'/image/home/aboutme1.jpg'" alt="">
           </router-link>
         </li>
-        <li>
+        <li id="homePj" :class="addAnimation?'bounceIn animated':''">
           <router-link  to="/projects" class="each_link">
             <p>{{ $t('home.myprojects') }}</p>
             <img v-lazy="'/image/home/myprojects.jpg'" alt="">
           </router-link>
         </li>
 
-        <li class="last">
+        <li class="last" id="homeSk" :class="addAnimation?'bounceInRight animated':''">
           <router-link  to="/skills" class="each_link">
             <p>{{ $t('home.myskills') }}</p>
             <img v-lazy="'/image/home/myskills.jpg'" alt="">
@@ -44,7 +44,40 @@ export default {
     data() {
         return {
             resumeLink:'/file/XinNing-Resume-CN.pdf',
+            addAnimation:false,
         }
+    },
+    methods: {
+        checkPosition() {
+            //当前滚动位置
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
+            //当前滚动位置
+            let windowHeight = $(window).height();
+            //添加动画的元素的开始位置 (防止报错,建议写死)
+            var animationPart = $("#homeList").offset().top;
+
+            var postionToSee = scrollTop+windowHeight;
+            console.log("scrollTop::"+scrollTop)
+            console.log("animationPart::"+animationPart)
+            if(postionToSee>=animationPart){
+                this.addAnimation=true;
+            }
+            else{
+                this.addAnimation=false;
+            }
+        }
+    },
+    mounted() {
+        window.addEventListener('scroll', this.checkPosition);
+    },
+    destroyed() {
+        window.removeEventListener('scroll', this.checkPosition);
+    },
+    activated() {
+        window.addEventListener('scroll', this.checkPosition);
+    },
+    deactivated() {
+        window.removeEventListener('scroll', this.checkPosition);
     },
     watch: {
         '$i18n.locale'(newValue, oldValue) {
@@ -86,6 +119,11 @@ export default {
         position: relative;
         overflow: hidden;
         background: #eee;
+        opacity 0
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both
         .each_link
           p
             display: block;
@@ -151,4 +189,6 @@ export default {
           width: 100%;
       li.last
         margin-right 0
+      li.animated
+        opacity 1
 </style>

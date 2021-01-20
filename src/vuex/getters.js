@@ -1,5 +1,10 @@
 /**
- * getters.js  顾名思义 取用，不做修改
+ * getters.js  顾名思义 取用,包装作用，不做修改
+ * 1. 用于对store中的数据进行加工处理，形成新的数据。
+ * 2. store中数据发生变化，getter的数据也会跟着变化
+ * eg: showNum(state){
+ *     return '当前最新的数量是【‘+state.count+’】'
+ * }
  */
 import {
     CURRENT_LANGUAGE,
