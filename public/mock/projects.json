@@ -3,10 +3,11 @@
   "data": {
     "Kai Rong": {
       "companyName": "Shanghai Kairong Information Technology Co., Lt",
+      "companySC": "Kai Rong",
       "jobtitle": "Senior Front-end Developer",
       "responsibilities": [
         "Utilizing the Vue.js framework to build a new version of the E-commerce website by self.",
-        "Maintaining current E-commerce website by using HTML, CSS, JQuery, JSP, Thyemleaf.",
+        "Maintaining current E-commerce website by using HTML, CSS, JQuery, JSP, Thymeleaf.",
         "Managing front end team as a project manager assistant.",
         "Working closely with UX/UI designers and product manager to develop responsive, high performance, accessible, reliable E-commerce websites.",
         "Utilizing the Three.js to design and build a luggage decal project., and 3D printing related WebApp."
@@ -59,6 +60,7 @@
     },
     "Yuan Dian": {
       "companyName": "Yuan Dian Hu Dong Technology Co., Ltd",
+      "companySC": "Yuan Dian",
       "jobtitle": "Junior Front-end Developer",
       "responsibilities": [
         "Managed H5 fission project development for WeChat public accounts as a leader.",

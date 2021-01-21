@@ -24,10 +24,10 @@
           <router-link to="/contact" class="each_link">{{$t('nav.contact')}}</router-link>
         </div>
         <div class="lang_area">
-          <a class="lang_ch" :class="{active_lang:currrent_lang === 'zh_cn'}" lang="zh-cn"
+          <a class="lang_ch eacb_lang" :class="{active_lang:currrent_lang === 'zh_cn'}" lang="zh-cn"
              @click="changeLanguage('zh_cn')">中文</a>
           <i class="s_line">|</i>
-          <a class="lang_us" :class="{active_lang:currrent_lang === 'en_us'}" lang="en-us"
+          <a class="lang_us eacb_lang" :class="{active_lang:currrent_lang === 'en_us'}" lang="en-us"
              @click="changeLanguage('en_us')">English</a>
         </div>
       </div>
@@ -174,7 +174,6 @@
           display none
 
         .lang_area
-          cursor pointer
           margin-left 20px
           float left
           position relative
@@ -185,6 +184,7 @@
             color #333
             opacity .7
             position relative
+            cursor pointer
 
           a:hover
             opacity: 1;

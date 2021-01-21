@@ -3,7 +3,15 @@
   "data": {
     "Kai Rong": {
       "companyName": "上海凯融信息公司",
+      "companySC": "上海凯融",
       "jobtitle": "高级前端开发人员",
+      "responsibilities": [
+        "作为项目经理助理，管理前端团队.",
+        "通过Vue.js来开发新版本的电商网站.",
+        "与UX/UI设计师和产品经理密切合作，开发响应快、性能高、易访问、可靠的电子商务网站。",
+        "使用HTML, CSS, JQuery, JSP, Thymeleaf等维护现有的三个电商网站.",
+        "使用three.js开发纯前端的行李箱涂鸦项目，以及3D打印机配套App"
+      ],
       "startDate": "2020/05",
       "endDate": "至今",
       "duration": "1 年 8 个月",
@@ -39,12 +47,26 @@
           "tags": "开发和维护, Android, iOS, Three.js, Javascript, Jquery, CSS3, HTML5",
           "url": "/threeDimensionalBuilder",
           "code": 3
+        },
+        {
+          "title": "Luggage Decal Splatter",
+          "img": "/image/projects/luggage.jpg",
+          "desc": "挑选或上传图片, 并涂鸦在行李上。在涂鸦前后，用户可以更改涂鸦的大小、旋转角度和位置",
+          "tags": "开发和维护，three.js, Javascript, Jquery, CSS3, HTML5",
+          "url": "/threeDimensionalBuilder",
+          "code": 4
         }
       ]
     },
     "Yuan Dian": {
-      "companyName": "源点互动的科技有限公司",
+      "companyName": "源点互动科技有限公司",
+      "companySC": "源点互动",
       "jobtitle": "前端开发人员",
+      "responsibilities": [
+        "负责管理和开发微信公众号H5裂变项目",
+        "管理开发团队, 负责与产品经理和业务伙伴沟通。",
+        "使用HTML5/CSS3，vue.js、JavaScript、jQuery、MySQL开发移动端响应式H5项目"
+      ],
       "startDate": "2018/05",
       "endDate": "2018/09",
       "duration": "3 个月",
@@ -53,7 +75,8 @@
           "title": "Import Express - Ecommerce",
           "img": "/image/projects/import.jpg",
           "desc": "Online Shopping for Clothing, Mobile Phone, Computers, Jewelry, Beauty, Sports, Home and so on; Shopping on Our website For Small Businesses.",
-          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf"
+          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "code": 5
         }
       ]
     }

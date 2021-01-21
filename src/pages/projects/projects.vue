@@ -42,11 +42,11 @@
     </div>
     <div class="animation_menu" :class="scrollingMenu? 'scrollMenu':''"  v-if="!mobile">
       <div class="each_company_menu"
-           v-for="(item, index) in menuArr"
+           v-for="(key,val, index) in menuArr"
            :key='index'
            :class="activeMenuIndex == index ? 'active_menu':''"
-           @click="jumpToRelate(item.replace(/ /g,''),index)"
-      >{{item}}
+           @click="jumpToRelate(val.replace(/ /g,''),index)"
+      >{{key}}
       </div>
     </div>
   </div>
@@ -74,7 +74,7 @@
             return {
                 projectsJson: {},
                 forFunJson: {},
-                menuArr: [],
+                menuArr: {},
                 scrollingMenu:false,
                 activeMenuIndex:0,
                 mobile:false,
@@ -102,8 +102,9 @@
                 if (res.data.code == 200) {
                     const data = res.data.data;
                     this.projectsJson = data;
+                    this.menuArr= {};
                     for (let i in data) {
-                        this.menuArr.push(i)
+                        this.menuArr[i] = data[i].companySC
                     }
                 }
             },
@@ -125,10 +126,12 @@
                 if(scrollTop>=oriMoveTopP-100 && (scrollTop)<=(moveBottomP-animation_menu_Height)){ //-100 因为动态导航会遮挡右侧菜单
                     this.scrollingMenu = true;//菜单固定class
                     const menuArr = this.menuArr;
-                    for (var i in menuArr) {
-                        var thisOffsetTop = $('#' + menuArr[i].replace(/ /g,'')).offset().top - 120; //  -100 提前改变菜单
+                    var arrIndex = 0;
+                    for (var key in menuArr) {
+                        var thisOffsetTop = $('#' + key.replace(/ /g,'')).offset().top - 120; //  -100 提前改变菜单
                         if (scrollTop >= thisOffsetTop) { //检测滚动距离，记录下方距离最近的一个id
-                            this.activeMenuIndex = i;
+                            this.activeMenuIndex = arrIndex;
+                            arrIndex++
                         }
                     }
                     $(".scrollMenu").css("top",scrollTop-oriMoveTopP+140);//40改为140 因为动态导航会遮挡右侧菜单
@@ -236,6 +239,11 @@
                     else{
                         $("html").css("overflow",'visible')
                     }
+                }
+            },
+            '$i18n.locale'(newValue, oldValue) {
+                if(newValue!=oldValue)   {
+                    this.getProject()
                 }
             }
         },
