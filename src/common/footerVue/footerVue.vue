@@ -5,23 +5,23 @@
         <el-col :span="24">
           <div class="social_wrapper clearfix">
             <div class="each_social">
-              <a class="wechat-btn">
+              <a class="wechat-btn" title="WeChat:Xin Ning">
                 <div class="icon i_wechat"></div>
                 <img src="/image/footer/wechat_xin.jpg" alt="">
               </a>
             </div>
             <div class="each_social">
-              <a href="https://www.linkedin.com/in/xin-ning-28818b115/" class="linkedin-btn" target="_blank">
+              <a href="https://www.linkedin.com/in/xin-ning-28818b115/" class="linkedin-btn" target="_blank"  title="LinkedIn:Xin Ning">
                 <div class="icon i_linkedin"></div>
               </a>
             </div>
             <div class="each_social">
-              <a href="https://www.facebook.com/jxnx888" class="facebook-btn" target="_blank">
+              <a href="https://www.facebook.com/jxnx888" class="facebook-btn" target="_blank" title="Facebook:Xin Ning">
                 <div class="icon i_facebook"></div>
               </a>
             </div>
             <div class="each_social">
-              <a href="https://github.com/jxnx888" class="github-btn" target="_blank">
+              <a href="https://github.com/jxnx888" class="github-btn" target="_blank" title="Github:Xin Ning">
                 <div class="icon i_github"></div>
               </a>
             </div>

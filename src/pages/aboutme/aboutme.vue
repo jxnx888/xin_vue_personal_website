@@ -1,12 +1,16 @@
 <template>
   <div class="aboutme_wrapper">
-    about me
+    <introduction></introduction>
   </div>
 </template>
 
 <script>
+    import introduction from './components/introduction.vue';
 export default {
-  name: "aboutme"
+  name: "aboutme",
+    components:{
+        introduction,
+    }
 }
 </script>
 

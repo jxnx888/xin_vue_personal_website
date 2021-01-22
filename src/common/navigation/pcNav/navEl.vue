@@ -1,6 +1,6 @@
 <template>
 
-  <div class="nav_wrapper" :class="[fixedShow?'fixedShow':'',fixedHide?'fixedHide':'']">
+  <div class="nav_wrapper not-select" :class="[fixedShow?'fixedShow':'',fixedHide?'fixedHide':'']">
     <div class="main_wrapper">
       <div class="logo img_wrapper">
         <router-link to="/">

@@ -1,7 +1,7 @@
 <template>
   <div class="main_wrapper">
       <div class="banner banner_one">
-        <img v-lazy="bannerList[0]" alt="">
+        <img :src="bannerList[0]" alt="">
         <div class="banner_info">
 <!--          <h1>{{$t('home.name')}}</h1>-->
           <h1>

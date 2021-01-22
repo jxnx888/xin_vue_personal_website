@@ -1,7 +1,7 @@
 <template>
   <div class="main_wrapper">
     <div class="banner banner_one">
-      <img v-lazy="bannerImg" alt="">
+      <img :src="bannerImg" alt="">
       <div class="banner_info">
         <p class="title">{{bannerContent}}</p>
       </div>
