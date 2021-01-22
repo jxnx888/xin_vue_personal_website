@@ -70,8 +70,9 @@ const en_us = {
         tagInfo:["Shanghai Kairong Information Technology Co., Lt","Address: 601 Yunling Lu, Shanghai, China, 200062","I'm working here"],
         topTitle:["Want to contact Xin Ning","Here are few ways to get in touch with me"],
         getInTouch:["I'm very approachable and would love to speak to you.","Feel free to call, send us an email, facebook me or simply complete the enquiry form."],
-        message:["YOUR NAME","EMAIL ADDRESS","TELEPHONE NUMBER","SUBJECT","YOUR MESSAGE","SUBMIT"]
-    },
+        message:["YOUR NAME","EMAIL ADDRESS","TELEPHONE NUMBER","SUBJECT","YOUR MESSAGE","SUBMIT"],
+        validation:["* Please input your name","* Please input your email address","* Please enter a valid email address.","* Please input your telephone number","* Please input your subject","* Please input your message","* Network error, please try again later","Succeeded, I will give you back within 24 hours, Thanks."]
+        },
     projects:{
         bannerInfo:"I'm able to work independently and handle multiple tasks at the same time. More importantly, I am always a good team member with a team-oriented spirit in my mind.",
         tip:'Click Here to Play'

@@ -42,8 +42,11 @@
             <div class="each_map">
               <router-link to="/projects" class="each_link">{{ $t('nav.Projects') }}</router-link>
             </div>
-            <div class="each_map last_menu">
+            <div class="each_map">
               <router-link to="/aboutme" class="each_link">{{ $t('nav.AboutMe') }}</router-link>
+            </div>
+            <div class="each_map last_menu">
+              <router-link to="/aboutme" class="each_link">{{ $t('nav.contact') }}</router-link>
             </div>
           </div>
         </el-col>
@@ -147,7 +150,7 @@ export default {
 
     .sitemap
       .sitemap_wrapper
-        width 5.5rem
+        width 6.6rem
         margin 0 auto 20px
         @media screen and (max-width: 768px)
           width 100%

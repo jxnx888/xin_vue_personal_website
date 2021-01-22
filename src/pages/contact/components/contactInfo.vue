@@ -53,28 +53,32 @@
             <div class="info_content">
               <div class="each_input">
                 <input type="text" v-model="name" :placeholder="$t('contact.message[0]')" id="name" ref="name" name="name">
-                <div class="valid" v-if="nameValid" @click="clearFocus(1)">* Please input your name</div>
+                <div class="valid" v-if="nameValid" @click="clearFocus(1)">{{$t('contact.validation[0]')}}</div>
               </div>
               <div class="each_input">
                 <input type="text" v-model="email" :placeholder="$t('contact.message[1]')" id="email" ref="email" name="email">
-                <div class="valid" v-if="emailValid" @click="clearFocus(2)">* Please input your email address</div>
+                <div class="valid" v-if="emailValid" @click="clearFocus(2)">{{$t('contact.validation[1]')}}</div>
+                <div class="valid" v-if="emailRegexValid" @click="clearFocus(6)">{{$t('contact.validation[2]')}}</div>
               </div>
               <div class="each_input">
                 <input type="text" v-model="phone" :placeholder="$t('contact.message[2]')" id="phone" ref="phone" name="phone">
-                <div class="valid" v-if="phoneValid" @click="clearFocus(3)">* Please input your telephone number</div>
+                <div class="valid" v-if="phoneValid" @click="clearFocus(3)">{{$t('contact.validation[3]')}}</div>
               </div>
               <div class="each_input">
                 <input type="text" v-model="subject" :placeholder="$t('contact.message[3]')" id="subject" ref="subject">
-                <div class="valid" v-if="subjectValid" @click="clearFocus(4)">* Please input your subject</div>
+                <div class="valid" v-if="subjectValid" @click="clearFocus(4)">{{$t('contact.validation[4]')}}</div>
               </div>
               <div class="each_input">
                 <textarea v-model="message" :placeholder="$t('contact.message[4]')" rows="5" id="message" ref="message"></textarea>
-                <div class="valid" v-if="messageValid" @click="clearFocus(5)">* Please input your message</div>
+                <div class="valid" v-if="messageValid" @click="clearFocus(5)">{{$t('contact.validation[5]')}}</div>
               </div>
               <input type="hidden" id="formEmail" name="email">
               <input type="hidden" id="formMessage" name="message">
               <div class="submit">
                 <div class="submit_btn" id="submitForm" @click="submit()">{{submitTxt}}</div>
+                <div class="valid" v-if="submitFailed">{{$t('contact.validation[6]')}}</div>
+                <div class="valid valid_succ" v-if="submitSucc">{{$t('contact.validation[7]')}}</div>
+
               </div>
             </div>
           </form>
@@ -87,7 +91,7 @@
 </template>
 
 <script>
-
+    import {Email} from './js/smtp.js'
     export default {
         name: "contactInfo",
         data() {
@@ -97,63 +101,92 @@
                 nameValid:false,
                 email:'',
                 emailValid:false,
+                emailRegexValid:false,
                 phone:'',
                 phoneValid:false,
                 subject:'',
                 subjectValid:false,
                 message:'',
-                messageValid:false
+                messageValid:false,
+                submitFailed:false,
+                submitSucc:false,
+                smtpServer:'smtp.elasticemail.com', //port 2525
+                qqEmail:'jxnx888@gmail.com',
+                qqPs:'7C004C30FE0FF7028912F92D95E2CDF9037E',
+                emailTitle:'Xin Ning :: Personal Website--contect form',
+                validTimeOut:null,
             }
         },
         created() {
         },
         methods: {
             submit(){
+                clearTimeout(this.validTimeOut);
                 if(!this.name){
                     this.nameValid = true;
-                    setTimeout(()=>{
+                    this.validTimeOut = setTimeout(()=>{
                         this.clearFocus(1)
                     },3000)
                 }
                 else if(!this.email){
                     this.emailValid = true;
-                    setTimeout(()=>{
+                    this.validTimeOut = setTimeout(()=>{
                         this.clearFocus(2)
                     },3000)
                 }
-                else if(!this.phone){
-                    this.phoneValid = true;
-                    setTimeout(()=>{
-                        this.clearFocus(3)
-                    },3000)
-                }
-                else if(!this.subject){
-                    this.subjectValid = true;
-                    setTimeout(()=>{
-                        this.clearFocus(4)
-                    },3000)
-                }
-                else if(!this.message){
-                    this.messageValid = true;
-                    setTimeout(()=>{
-                        this.clearFocus(5)
-                    },3000)
-                }
                 else{
-                    this.submitTxt = "SUBMITTING...";
-                    if('zh_cn' == this.$i18n.locale){this.submitTxt = "提交中..."}
-                    $(".submit").addClass("submitting");
-                    $(".submit .submit_btn").attr("disabled", "disabled");
-                    this.sendEmail();
-                    setTimeout(()=>{
-                        this.submitTxt = "SUBMIT";
-                        if('zh_cn' == this.$i18n.locale){this.submitTxt = "提交"}
-                        $(".submit").removeClass("submitting");
-                        $(".submit .submit_btn").removeAttr("disabled");
-                    },3000)
+                  const emailRegex = this.checkRegex(0);
+                  if(emailRegex){
+                      if(!this.phone){
+                          this.phoneValid = true;
+                          this.validTimeOut = setTimeout(()=>{
+                              this.clearFocus(3)
+                          },3000)
+                      }
+                      else{
+                          if(!this.subject){
+                              this.subjectValid = true;
+                              this.validTimeOut = setTimeout(()=>{
+                                  this.clearFocus(4)
+                              },3000)
+                          }
+                          else if(!this.message){
+                              this.messageValid = true;
+                              this.validTimeOut = setTimeout(()=>{
+                                  this.clearFocus(5)
+                              },3000)
+                          }
+                          else{
+                              this.submitTxt = "SUBMITTING...";
+                              if('zh_cn' == this.$i18n.locale){this.submitTxt = "提交中..."}
+                              $(".submit").addClass("submitting");
+                              $(".submit .submit_btn").attr("disabled", "disabled");
+                              this.sendEmail();
+                          }
+                      }
+                  }
+                  else{
+                      return
+                  }
                 }
             },
+            checkRegex(type){
+                var returnVal = true;
+                if(0==type) {
+                    var re = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+                    if (!re.test(this.email)) {  //输入为空、输入不符合邮箱格式此正则都能判断
+                        this.emailRegexValid = true;
+                        setTimeout(()=>{
+                            this.clearFocus(6)
+                        },3000)
+                        returnVal = false;
+                    }
+                }
+
+                return returnVal
+            },
             clearFocus(e){
+                clearTimeout(this.validTimeOut);
                 let validIndex = e;
                 switch (validIndex) {
                   case 1:
@@ -176,6 +209,10 @@
                       this.messageValid = false;
                       this.$refs.message.focus();
                       break;
+                  case 6:
+                      this.emailRegexValid = false;
+                      this.$refs.email.focus();
+                      break;
                   default:
                       this.nameValid = false;
                       this.$refs.name.focus();
@@ -183,38 +220,47 @@
                 }
             },
             sendEmail(){
-                //在Vue项目中，用户在高频率点击按钮时，会发送多个邮件 所以要用到节流，使用节流Throttle
-                //后续增加
-                // 。
-                let html =  "<h2>Name: </h2>" + this.name + '<br> ' +  // html 内容
-                '<h2>Email Address: </h2>' + this.email + '<br> ' +
-                '<h2>Telephone Number: </h2>' + this.phone + '<br> ' +
-                '<h2>Subject: </h2>' + this.subject + '<br> ' +
-                '<h2>Message: </h2>' + this.message + '<br> ';
-                $("#formEmail").val(this.email);
-                $("#formMessage").val(html);
-                var form = document.getElementById("sendEmail");
-                var url = 'https://formspree.io/f/mjvpedkw';
-                var data = new FormData(form);
-                this.$ajax.post(url, data).then(this.getEmailSucc)
-                    .catch(function (res) {
-                        console.log("error:" + res)
-                    })
-                /*let finalObj = {};
-                let messageObj = {};
-                messageObj['Subject'] = "Xin's Website Message:: " + this.subject;
-                let messageBodyObj = {};
-                messageBodyObj["ContentType"] = "Text",
-                messageBodyObj["Content"] = this.message;
-                messageObj['Body'] =messageBodyObj;
-                messageObj['ToRecipients'] =[{'EmailAddress': {"Address": "ningxin1007@hotmail.com"}}];
-                finalObj['Message'] = messageObj;
-                console.log(finalObj )
-                console.log(JSON.stringify(finalObj) )*/
+                const webContent =  "<h2>Name: </h2>" + this.name + '<br> ' +  // html 内容
+                    '<h2>Email Address: </h2>' + this.email + '<br> ' +
+                    '<h2>Telephone Number: </h2>' + this.phone + '<br> ' +
+                    '<h2>Subject: </h2>' + this.subject + '<br> ' +
+                    '<h2>Message: </h2>' + this.message + '<br> ';
+                //https://www.smtpjs.com/
+                Email.send({
+                    Host : this.smtpServer,
+                    Username : this.qqEmail,
+                    Password : this.qqPs,
+                    To : 'jxnx888@hotmail.com',
+                    From : this.qqEmail,
+                    Subject : this.emailTitle,
+                    Body : webContent
+
+                }).then(
+                    message => this.getEmailSucc(message)
+                );
             },
 
             getEmailSucc(res){
+                if('OK' == res){
+                  this.submitSucc = true;
+                  this.clearForm();
+                }
+                else{
+                  this.submitFailed = true;
+                }
+                this.submitTxt = "SUBMIT";
+                if('zh_cn' == this.$i18n.locale){this.submitTxt = "提交"}
+                $(".submit").removeClass("submitting");
+                $(".submit .submit_btn").removeAttr("disabled");
+                setTimeout(()=>{this.submitSucc = false;this.submitFailed = false;},5000)
                 console.log(res);
+            },
+            clearForm(){
+                this.name = '';
+                this.email = '';
+                this.phone = '';
+                this.subject = '';
+                this.message = '';
             }
         },
         mounted() {
@@ -300,6 +346,15 @@
               color #FFF
               font-size .20rem
               font-weight bold
+              .valid
+                text-align left
+                color red
+                width 3.8rem
+                height .48rem
+                line-height .48rem
+                font-size .12rem
+              .valid.valid_succ
+                color #4aba92
             .submit:hover
               background #f89904
             .submit.submitting
