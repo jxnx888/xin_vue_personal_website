@@ -1,6 +1,7 @@
 <template>
   <div class="skill_wrapper">
     <meteorShower></meteorShower>
+    <snowMeteor></snowMeteor>
     <!--<topBanner
       :bannerImg="'/image/banner3.png'"
       :bannerContent="''"></topBanner>-->
@@ -24,6 +25,7 @@
 
 <script>
     import meteorShower from "@/common/meteorShower/meteorShower";
+    import snowMeteor from '@/common/meteorShower/snowMeteor.vue';
     import animatedWindow from "@/common/animatedWindow/animatedWindow";
     import skillsProgress from "./components/skillsProgress";
     export default {
@@ -31,6 +33,7 @@
         components: {
             // topBanner,
             meteorShower,
+            snowMeteor,
             skillsProgress,
             animatedWindow,
         },
