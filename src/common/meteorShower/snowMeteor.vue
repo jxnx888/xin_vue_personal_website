@@ -18,7 +18,7 @@
                 })
                 new Snows({
                     isRain: false,
-                    num: 100
+                    num: 50
                 })
             },
             stopSnow(){
