@@ -61,7 +61,7 @@
                 <div class="valid" v-if="emailRegexValid" @click="clearFocus(6)">{{$t('contact.validation[2]')}}</div>
               </div>
               <div class="each_input">
-                <input type="text" v-model="phone" :placeholder="$t('contact.message[2]')" id="phone" ref="phone" name="phone">
+                <input type="number" v-model="phone" :placeholder="$t('contact.message[2]')" id="phone" ref="phone" name="phone">
                 <div class="valid" v-if="phoneValid" @click="clearFocus(3)">{{$t('contact.validation[3]')}}</div>
               </div>
               <div class="each_input">
