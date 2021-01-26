@@ -22,7 +22,8 @@
                 $(".decalsMain,.decalWrapper").css({'width':this.windowWidth,'height':this.windowHeight})
             },
             hideSelf(){
-                this.$parent.showDecals();
+                // this.$parent.showDecals();
+                this.$router.push({path:'/projects',query:{jump:'LuggageDecalSplatter'}})
             }
         },
         mounted() {

@@ -486,6 +486,9 @@ function loadSTL( file,decalMapArr ) {
         setTimeout(function () {
             $(".activeDecal").trigger("click"); //激活鼠标首次decal显示
         },200)
+    },function(xhr){
+        console.log("xgr::"+xhr)
+        $(".processingbar .barwidth").css("width",( xhr.loaded / xhr.total * 100 )+"%")
     } );
 }
 

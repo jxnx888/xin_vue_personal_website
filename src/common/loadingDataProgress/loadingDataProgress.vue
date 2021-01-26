@@ -1,6 +1,7 @@
 <template>
   <div id="loading_data"><img src="/image/loading.gif" alt="">
     <div class="processingbar">
+
       <div class="barwidth" :style="{width:progressingBar+'%'}"></div>
     </div>
   </div>

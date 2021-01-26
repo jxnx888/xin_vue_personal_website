@@ -14,7 +14,10 @@
       </div>
     </a>
     <div v-else-if="'3'==code || '4'==code || '5'==code"
-         @click="goChildPage(code)"
+         @click="
+         '3' == code ? show3Dbuilder() :'';
+         '4' == code?showDecals():'';
+         '5' == code ? showTester():''"
          class="threed">
       <div class="tip">{{$t('projects.tip') }}</div>
       <div class="each_wrapper">
@@ -45,19 +48,15 @@
             code:Number,
         },
         methods:{
-            goChildPage(page){
-                const _this = this;
-                switch (page) {
-                    case 3:
-                        _this.$router.push({name:'MagicBox'})
-                        break;
-                    case 4:
-                        _this.$router.push({path:'/projects/luggageDecalSplatter'})
-                        break;
-                    default:
-                        _this.$router.push({path:'/projects/forFun'})
-                }
+            show3Dbuilder(){
+                this.$parent.showThreeD();
             },
+            showTester(){
+                this.$parent.showTest();
+            },
+            showDecals(){
+                this.$parent.showDecals();
+            }
         }
     }
 </script>

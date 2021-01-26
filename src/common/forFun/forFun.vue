@@ -89,11 +89,9 @@
 <script>
     export default {
         name: "forFun",
-        props:{
-            forFunJson:Object,
-        },
         data() {
             return {
+                forFunJson: {},
                 showMenu: true,
                 showQuize: false,
                 quizeIndex: 1,
@@ -115,8 +113,24 @@
             }
         },
         methods:{
+            getForFun() {
+                var url = '/mock/yuandian.json';
+                this.$ajax.get(url) // npm run build ==>  ./static/mock/index.json
+                    .then(this.getForFunSucc)
+                    .catch(function (res) {
+                        console.log("error:" + res)
+                    })
+            },
+            getForFunSucc(res) {
+                console.log(res);
+                if (res.data.code == 200) {
+                    const data = res.data.data;
+                    this.forFunJson = data
+                }
+            },
             hideSelf(){
-                this.$parent.showTest();
+                // this.$parent.showTest();
+                this.$router.push({path:'/projects',query:{jump:'WeChat'}})
             },
             showTest(id,imgUrl,resultImgs){
                 this.userName = '';
@@ -331,6 +345,9 @@
                     $("#userInputName").focus();
                 }
             }
+        },
+        mounted() {
+            this.getForFun()
         },
         watch: {
             // eslint-disable-next-line no-unused-vars

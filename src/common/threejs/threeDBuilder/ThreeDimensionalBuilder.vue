@@ -1419,8 +1419,9 @@
                 this.render();
             },
             hideSelf(){
-                this.$parent.showThreeD();
+                /*this.$parent.showThreeD();*/
                 $(".orientationControls").remove();
+                this.$router.push({path:'/projects',query:{jump:'MagicBox-AppforChildren'}})
             },
             allOperationAdd() {
                 if (window.focusedTransformObj) {
@@ -1900,6 +1901,7 @@
             },
         },
         mounted() {
+            this.showLoading = true
             this.mobile = /Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)
             this.container = document.getElementById( 'container' );
             this.shapesEventL = document.getElementById( "childWrapper" );
@@ -1914,6 +1916,14 @@
             this.init();
             this.listModule();
             window.addEventListener("resize",this.windowReisze);
+            this.progressingBar = 0;
+            let proInterval = setInterval(()=>{
+                this.progressingBar += 10
+              },100)
+            setTimeout(()=>{
+                clearInterval(proInterval);
+                this.showLoading = false
+            },1000)
         },
 
         destroyed(){
@@ -2306,7 +2316,7 @@
     .text_window
       position: fixed;
       top: .1rem;
-      right: 1.1rem;
+      right: 2.5rem;
       width: 1.5rem;
       background: #fff;
       border-radius: 4px;

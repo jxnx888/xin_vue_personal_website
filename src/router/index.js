@@ -3,6 +3,12 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+//获取原型对象上的push函数
+const originalPush = VueRouter.prototype.push
+//修改原型对象中的push方法
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 const routes = [
   {
     path: '/',
@@ -26,7 +32,33 @@ const routes = [
     component: () => import('@/pages/projects/projects'),
     meta: {
       keepAlive: true
-    }
+    },
+    children:[
+      {
+        path: 'magicBox',
+        name: 'MagicBox',
+        component: () => import('@/common/threejs/threeDBuilder/ThreeDimensionalBuilder'),
+        meta: {
+          keepAlive: false
+        }
+      },
+      {
+        path: 'luggageDecalSplatter',
+        name: 'LuggageDecalSplatter',
+        component: () => import('@/common/threejs/luggageDecalSplatter/decals'),
+        meta: {
+          keepAlive: false
+        }
+      },
+      {
+        path: 'forFun',
+        name: 'ForFun',
+        component: () => import('@/common/forFun/forFun'),
+        meta: {
+          keepAlive: false
+        }
+      }
+    ]
   },
   {
     path: '/skills',

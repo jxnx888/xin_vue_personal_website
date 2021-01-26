@@ -5,10 +5,10 @@
         :bannerImg="'/image/banner2.png'"
         :bannerContent="$t('projects.bannerInfo')"></topBanner>
     </div>
-    <threeDBuilder v-if="showTD && !mobile" :key="timer"></threeDBuilder>
+   <!-- <threeDBuilder v-if="showTD && !mobile" :key="timer"></threeDBuilder>
     <mobileThreeDBuilder v-if="showTD && mobile" :key="timer"></mobileThreeDBuilder>
     <forFun v-if="showTester" :key="timer" :forFunJson="forFunJson"></forFun>
-    <luggageDecalSplatter  v-if="showDecal" :key="timer" ></luggageDecalSplatter>
+    <luggageDecalSplatter  v-if="showDecal" :key="timer" ></luggageDecalSplatter>-->
     <div class="project_main clearfix">
       <div v-for="(value,key,index) in projectsJson"
            :key="index"
@@ -36,7 +36,7 @@
           :tags="childItem.tags"
           :link="childItem.url"
           :code="childItem.code"
-        :showTD="showTD"
+          :showTD="showTD"
           :id="childItem.title.replaceAll(' ','')"
       ></projectTem>
     </div>
@@ -50,25 +50,27 @@
       </div>
     </div>
   </div>
+    <router-view></router-view> <!--用于子路由渲染-->
   </div>
 </template>
 
 <script>
     import topBanner from "@/common/topStaticBanner/topBanner";
     import projectTem from './components/projectTem'
-    import threeDBuilder from '@/common/threejs/threeDBuilder/ThreeDimensionalBuilder'
-    import mobileThreeDBuilder from '@/common/threejs/threeDBuilder/mobileThreeDimensionalBuilder'
-    import forFun from "@/common/forFun/forFun";
-    import luggageDecalSplatter from "@/common/threejs/luggageDecalSplatter/decals";
+    // import threeDBuilder from '@/common/threejs/threeDBuilder/ThreeDimensionalBuilder'
+    // import mobileThreeDBuilder from '@/common/threejs/threeDBuilder/mobileThreeDimensionalBuilder'
+    // import forFun from "@/common/forFun/forFun";
+    // // import luggageDecalSplatter from "@/common/threejs/luggageDecalSplatter/decals";
+    // import luggageDecalSplatter from "@/common/threejs/luggageDecalSplatter/luggageDecalSplatter";
     export default {
         name: "projects",
         components: {
             topBanner,
             projectTem,
-            threeDBuilder,
+           /* threeDBuilder,
             mobileThreeDBuilder,
             forFun,
-            luggageDecalSplatter
+            luggageDecalSplatter*/
         },
         data() {
             return {
@@ -210,7 +212,7 @@
             window.removeEventListener( 'resize', this.resizeDecals, false );
         },
         watch: {
-            showTester(newValue, oldValue) {
+            /*showTester(newValue, oldValue) {
                 if(newValue != oldValue){
                     if(newValue == true){
                         $("html").css("overflow",'hidden')
@@ -240,7 +242,7 @@
                         $("html").css("overflow",'visible')
                     }
                 }
-            },
+            },*/
             '$i18n.locale'(newValue, oldValue) {
                 if(newValue!=oldValue)   {
                     this.getProject()
