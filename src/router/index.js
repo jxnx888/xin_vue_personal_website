@@ -55,7 +55,8 @@ const routes = [
   {
     path: '/threejs',
     name: 'threejs',
-    component: () => import('@/common/threejs/luggageDecalSplatter/decals'),
+    // component: () => import('@/common/threejs/luggageDecalSplatter/decals'),
+    component: () => import('@/common/threejs/threeDBuilder/ThreeDimensionalBuilder'),
     meta: {
       keepAlive: true
     }

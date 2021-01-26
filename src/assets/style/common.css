@@ -797,3 +797,14 @@ animation-fill-mode: both*
     -webkit-animation-name: bounceOutUp;
     animation-name: bounceOutUp
 }
+
+
+/*three js*/
+.orientationControls { right: 1.3rem!important; left: auto!important;position: fixed;z-index: 100; }
+.orientationControls.right_menu_hide { right: 0.3rem!important; left: auto!important; }
+#front {background: #ff972d;}
+#right {background: #ffde41;}
+#back {background: #d3dbff;}
+#left {background: #ff51e8;}
+#top {background: #fff;}
+/*three js end*/

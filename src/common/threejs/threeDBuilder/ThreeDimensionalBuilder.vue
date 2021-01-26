@@ -179,7 +179,7 @@
     // import {TransformControls} from 'three/examples/jsm/controls/TransformControls'
     import {TransformControls} from './js/TransformControls.js'
     // import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer'
-    // import './js/OrientationControls.js'·
+    import  {OrientationControls} from './js/OrientationControls2.js'
     export default {
         name: "ThreeDimensionalBuilder",
         data(){
@@ -303,6 +303,7 @@
                 // camera.position.set( 0, 200, 350 ); //正面
                 _this.camera.position.set(170, 145, 255); //45°
                 _this.camera.lookAt(0, 0, 0);
+                window.camera = _this.camera;
                 _this.scene = new THREE.Scene();
                 const geometry = new THREE.PlaneBufferGeometry(_this.WORK_SPACE_SIZE, _this.WORK_SPACE_SIZE);
                 geometry.rotateX(-Math.PI / 2);
@@ -328,7 +329,7 @@
                 // _this.outline(); //objects outline
                 _this.orbitCont();
                 _this.transformCont();
-                // _this.orientationCont();
+                _this.orientationCont();
                 // _this.containerListenner();
                 _this.animate();
                 _this.onWindowResize();
@@ -495,38 +496,39 @@
                 this.transformControlMove = false;
             },
             orientationCont() {
-                this.orientationContr = new THREE.OrientationControls(50); //右上角三视图
-                document.body.appendChild(this.orientationContr.element);
-                this.orientationContr.element.addEventListener('click', function (e) {
+                const _this = this;
+                _this.orientationContr = new OrientationControls(50); //右上角三视图
+                document.body.appendChild(_this.orientationContr.element);
+                _this.orientationContr.element.addEventListener('click', function (e) {
                     switch (e.target.id) {
                         case 'front':
-                            this.camera.position.set(0, 0, 300);
+                            _this.camera.position.set(0, 0, 300);
                             break;
                         case 'back':
-                            this.camera.position.set(0, 0, -300);
+                            _this.camera.position.set(0, 0, -300);
                             break;
                         case 'top':
-                            this.camera.position.set(0, 300, 0);
+                            _this.camera.position.set(0, 300, 0);
                             break;
                         case 'bottom':
-                            this.camera.position.set(0, -300, 0);
+                            _this.camera.position.set(0, -300, 0);
                             break;
                         case 'left':
-                            this.camera.position.set(-300, 0, 0);
+                            _this.camera.position.set(-300, 0, 0);
                             break;
                         case 'right':
-                            this.camera.position.set(300, 0, 0);
+                            _this.camera.position.set(300, 0, 0);
                             break;
                     }
-                    this.camera.lookAt(this.scene.position);
-                    this.camera.updateProjectionMatrix();
+                    _this.camera.lookAt(_this.scene.position);
+                    _this.camera.updateProjectionMatrix();
                 });
 
             },
             animate() {
                 requestAnimationFrame(this.animate);
                 this.renderer.render(this.scene, this.camera);
-                // this.orientationControls.update( this.camera );
+                this.orientationContr.update( this.camera );
                 // this.composer.render();
             },
             onWindowResize() {
@@ -582,8 +584,10 @@
             showMoreFn() {
                 if (this.showMore) {
                     this.showMore = false;
+                    $(".orientationControls").addClass("right_menu_hide");
                 } else {
                     this.showMore = true;
+                    $(".orientationControls").removeClass("right_menu_hide");
                 }
                 this.onWindowResize();
             },
@@ -1416,6 +1420,7 @@
             },
             hideSelf(){
                 this.$parent.showThreeD();
+                $(".orientationControls").remove();
             },
             allOperationAdd() {
                 if (window.focusedTransformObj) {
@@ -1931,6 +1936,7 @@
             _this.transformControl.removeEventListener("mouseDown");
             _this.transformControl.removeEventListener("objectChange");
             _this.transformControl.removeEventListener("mouseUp");
+            $(".orientationControls").remove();
         },
         watch:{
             CONTAIN_WIDTH(newVal){
@@ -2368,4 +2374,5 @@
     z-index: 99999;
     position: absolute;
   }
+
 </style>
