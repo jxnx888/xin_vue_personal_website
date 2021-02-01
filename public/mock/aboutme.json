@@ -1,0 +1,93 @@
+{
+  "code": 200,
+  "data": {
+    "resume": {
+      "name": "Xin Ning",
+      "phone": "18535424777",
+      "website": "http://www.ning-xin.com",
+      "email": [
+        "ningxin1007@hotmail.com",
+        "364693022@qq.com"
+      ],
+      "github": "https://github.com/jxnx888",
+      "linkedin": "https://www.linkedin.com/in/xin-ning-28818b115/",
+      "blog": [
+        "https://www.cnblogs.com/ningxin/",
+        "https://blog.csdn.net/weixin_36291531"
+      ],
+      "resumeTitles": ["SKILLS & ABILITIES","EXPERIENCE","EDUCATION"],
+      "skills": {
+        "programmingLanguages": "HTML5, CSS3, JavaScript",
+        "frameworks": "Vue.js, Three.js, Cesium.js, Node.js, SharePoint, Microsoft Graph API, ASP.NET Web Form",
+        "software": "WebStorm, IntelliJ IDEA, GitHub, WordPress, Visual Studio, Visual Studio code, Microsoft Suite, and Photoshop"
+      },
+      "experience": [
+        {
+          "title": "Senior Front-end Developer",
+          "companyName": "Shanghai Kairong Information Technology Co., Lt",
+          "position": "中国上海市",
+          "time": "May 2019 – Present",
+          "responsibilities": [
+            "Managing front end team as a project manager assistant。",
+            "使用HTML, CSS, JQuery, JSP, Thymeleaf等维护现有的三个电商网站。",
+            "通过Vue.js独立开发新版本的电商网站。",
+            "与UX/UI设计师和产品经理密切合作，开发响应快、性能高、易访问、可靠的电子商务网站。",
+            "使用three.js开发纯前端的行李箱涂鸦项目，以及3D打印机配套App。"
+          ]
+        },
+        {
+          "title": "微软SharePoint Online Dev技术支持",
+          "companyName": "上海微创软件股份有限公司 =",
+          "position": "中国上海市",
+          "time": "2018/09 – 2019/04",
+          "responsibilities": [
+            "深入学习并掌握微软SharePoint Online（网站）， Office 365和Microsoft Graph API。",
+            "通过电话或邮件为全球各地客户进行技术支持，并且在各大论坛提供微软技术支持。",
+            "使用HTML5/CSS3, JavaScript, jQuery创建SharePoint Framework web组件和扩展功能组件。",
+            "使用PowerShell cmdlet 操作 Azure， SharePoint， Exchange。"
+          ]
+        },
+        {
+          "title": "web前端开发",
+          "companyName": "北京源点互动科技有限公司",
+          "position": "中国北京市",
+          "time": "2018/05 - 2018/09",
+          "responsibilities": [
+            "Managed H5 fission project development for WeChat public accounts as a leader.",
+            "Managed Development team, and communicating with product manager and business partners.",
+            "Utilized HTML5/CSS3, Vue.js, JavaScript, jQuery, MySQL to develop mobile friendly responsible H5 projects."
+          ]
+        },
+        {
+          "title": "web 前端开发实习生",
+          "companyName": "Mack Media Group （美国）",
+          "position": "Brookfield, CT",
+          "time": "May 2017 - September 2017",
+          "responsibilities": [
+            "负责使用 HTML5， CSS3，JavaScript，PHP 和 Wordpress，根据设计模版图，进行网页设计。",
+            "负责维护用户网站，修改格式以及内容。",
+            "使用 CSS，DIV 进行网页布局，并编辑移动响应式网页。",
+            "使用Photoshop设计和修改图像。"
+          ]
+        }
+      ],
+      "education": [{
+        "schoolName": "菲尔费尔德大学",
+        "time": "2016/01 - 2018/5",
+        "location": "美国 康涅狄格州 菲尔费尔德",
+        "major": "软件工程  研究生",
+        "gpa": "3.50/ 4.0",
+        "courseHighlights": "Web Client-side Development I, Web Development II with ASP.NET, Database Management Systems, Capstone Professional Project I & II"
+      },
+        {
+        "schoolName": "海口经济学院",
+        "time": "2010/09 - 2014/6",
+        "location": "中国海南省海口市",
+        "major": "工程管理  本科",
+        "gpa": "3.45/4.0"
+      }],
+      "duringCampus": "在研究生期间，担任中国学生会副会长。在大学期间，担任社团联合会策划部部长。"
+    }
+  }
+}
+

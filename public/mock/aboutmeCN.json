@@ -1,0 +1,94 @@
+{
+  "code": 200,
+  "data": {
+    "resume": {
+      "name": "宁鑫",
+      "phone": "18535424777",
+      "address":"现居住于上海-闵行区 | 硕士 | 党员 | 有海外工作/学习经历",
+      "website": "http://www.ning-xin.com",
+      "email": [
+        "ningxin1007@hotmail.com",
+        "364693022@qq.com"
+      ],
+      "github": "https://github.com/jxnx888",
+      "linkedin": "https://www.linkedin.com/in/xin-ning-28818b115/",
+      "blog": [
+        "https://www.cnblogs.com/ningxin/",
+        "https://blog.csdn.net/weixin_36291531"
+      ],
+      "resumeTitles": ["特殊技能 & ABILITIES","工作经历","教育经历"],
+      "skills": {
+        "programmingLanguages": "HTML5, CSS3, JavaScript",
+        "frameworks": "Vue.js, Three.js, Cesium.js, Node.js, SharePoint, Microsoft Graph API, ASP.NET Web Form",
+        "software": "WebStorm, IntelliJ IDEA, GitHub, WordPress, Visual Studio, Visual Studio code, Microsoft Suite, and Photoshop"
+      },
+      "experience": [
+        {
+          "title": "高级前端开发工程师",
+          "companyName": "上海凯融信息科技有限公司",
+          "position": "中国上海市",
+          "time": "2019/05 –至今",
+          "responsibilities": [
+            "作为项目经理助理，管理前端团队.",
+            "Utilizing the Vue.js framework to build a new version of the E-commerce website by self.",
+            "Managing front end team as a project manager assistant.",
+            "Working closely with UX/UI designers and product manager to develop responsive, high performance, accessible, reliable E-commerce websites.",
+            "Utilizing the Three.js to design and build 3D printer, and luggage decal related WebApp."
+          ]
+        },
+        {
+          "title": "SharePoint & O365 Dev Support (Microsoft Vendor Staff)",
+          "companyName": "Shanghai Wicresoft Co. Ltd",
+          "position": "中国上海市",
+          "time": "September 2018 – April 2019",
+          "responsibilities": [
+            "Deep learning SharePoint Online（Website） & Microsoft Graph API.",
+            "Providing SharePoint Online development support for the customer through phone or email.",
+            "Utilizing HTML5/CSS3, JavaScript, jQuery to build SharePoint Framework Webparts and Extensions.",
+            "Using PowerShell cmdlet to operate Azure, SharePoint, Exchange."
+          ]
+        },
+        {
+          "title": "Front-end Developer",
+          "companyName": "Yuandian Hudong Technology Company",
+          "position": "Beijing, China",
+          "time": "May 2018 – August 2018",
+          "responsibilities": [
+            "Managed H5 fission project development for WeChat public accounts as a leader.",
+            "Managed Development team, and communicating with product manager and business partners.",
+            "Utilized HTML5/CSS3, Vue.js, JavaScript, jQuery, MySQL to develop mobile friendly responsible H5 projects."
+          ]
+        },
+        {
+          "title": "Web Designer Intern",
+          "companyName": "Mack Media Group",
+          "position": "Brookfield, CT",
+          "time": "May 2017 - September 2017",
+          "responsibilities": [
+            "Utilized HTML5/CSS3, JavaScript, jQuery, PHP and WordPress to design and modify web pages.",
+            "Modified existing website to allow for more graphic content.",
+            "Designed and modified images using Photoshop.",
+            "Built responsive, mobile-friendly websites."
+          ]
+        }
+      ],
+      "education": [{
+        "schoolName": "Fairfield University",
+        "time": "January 2016 to May 2018",
+        "location": "Fairfield, CT, USA",
+        "major": "Master of Science in Software Engineering",
+        "gpa": "3.50/ 4.0",
+        "courseHighlights": "Web Client-side Development I, Web Development II with ASP.NET, Database Management Systems, Capstone Professional Project I & II"
+      },
+        {
+        "schoolName": "Haikou College of Economics",
+        "time": "September 2010 to June 2014",
+        "location": "Haikou, China",
+        "major": "Bachelor of Science in Engineering Management",
+        "gpa": "3.45/4.0"
+      }],
+      "duringCampus": ""
+    }
+  }
+}
+

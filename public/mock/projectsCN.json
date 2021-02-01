@@ -7,9 +7,9 @@
       "jobtitle": "高级前端开发人员",
       "responsibilities": [
         "作为项目经理助理，管理前端团队.",
+        "使用HTML, CSS, JQuery, JSP, Thymeleaf等维护现有的三个电商网站.",
         "通过Vue.js来开发新版本的电商网站.",
         "与UX/UI设计师和产品经理密切合作，开发响应快、性能高、易访问、可靠的电子商务网站.",
-        "使用HTML, CSS, JQuery, JSP, Thymeleaf等维护现有的三个电商网站.",
         "使用three.js开发纯前端的3D打印机，以及行李箱涂鸦项目的配套App."
       ],
       "startDate": "2020/05",
