@@ -152,12 +152,5 @@ import autoTyping from "@/common/autoTyping/autoTyping";
         animation: twinkling 1s 1.3s backwards;
         @media screen and (max-width: 768px)
           font-size: .12rem;
-@keyframes twinkling {
-  0%   { opacity: 0;}
-  100% {opacity: 1;}
-}
-@-webkit-keyframes twinkling {
-  0%   { opacity: 0;  }
-  100% {opacity: 1;}
-}
+
 </style>

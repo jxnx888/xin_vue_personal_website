@@ -23,9 +23,9 @@
           </a>
         </div>
         <div class="each_method clearfix">
-          <a href="mailto:jxnx888@hotmail.com">
+          <a href="mailto:ningxin1007@hotmail.com">
           <div class="icon icon_email"></div>
-           <div class="each_content">jxnx888@hotmail.com</div>
+           <div class="each_content">ningxin1007@hotmail.com</div>
           </a>
         </div>
         <div class="each_method clearfix">
@@ -230,7 +230,7 @@
                     Host : this.smtpServer,
                     Username : this.qqEmail,
                     Password : this.qqPs,
-                    To : 'jxnx888@hotmail.com',
+                    To : 'ningxin1007@hotmail.com',
                     From : this.qqEmail,
                     Subject : this.emailTitle,
                     Body : webContent

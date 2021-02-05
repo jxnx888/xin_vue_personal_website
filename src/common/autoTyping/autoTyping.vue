@@ -26,6 +26,18 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+  .typewrite-word
+    span.typewrite-cursor::after
+      content "|"
+      display inline
+      color #333
+      width 5px
+      height 1rem
+      line-height 1rem
+      position: relative;
+      top -3px
+      -webkit-animation: twinkling 1.3s 1.3s infinite;
+      animation: twinkling 1.3s 1.3s infinite;
 @media screen and (min-width: 769px)
   .typeWrite
     position: absolute;
@@ -84,4 +96,5 @@ export default {
     }
 
   }
+
 </style>

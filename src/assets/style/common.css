@@ -75,6 +75,14 @@ animation-fill-mode: both*
     animation: animation2 1000ms linear both;
     opacity: 1 !important;
 }
+@keyframes twinkling {
+    0%   { opacity: 0;}
+    100% {opacity: 1;}
+}
+@-webkit-keyframes twinkling {
+    0%   { opacity: 0;  }
+    100% {opacity: 1;}
+}
 /* Generated with Bounce.js. Edit at https://goo.gl/DwMSyn */
 @-webkit-keyframes animation2 {
     0% { -webkit-transform: matrix3d(0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }

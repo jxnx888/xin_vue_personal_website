@@ -1,6 +1,7 @@
 var TxtType = function (el, toRotate, period) {
     this.toRotate = toRotate;
-    this.el = el;
+    // this.el = el;
+    this.el = el.getElementsByClassName('wrap')[0];
     this.loopNum = 0;
     this.period = parseInt(period, 10) || 2000;
     this.txt = '';
@@ -18,7 +19,14 @@ TxtType.prototype.tick = function () {
         this.txt = fullTxt.substring(0, this.txt.length + 1);
     }
 
-    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+    // this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+   /* if(this.txt.length == 0 || this.txt.length == fullTxt.length){
+        this.el.classList.add("typewrite-cursor")
+    }
+    else{
+        this.el.classList.remove("typewrite-cursor")
+    }*/
+    this.el.innerHTML = this.txt;
 
     var that = this;
     var delta = 200 - Math.random() * 100;

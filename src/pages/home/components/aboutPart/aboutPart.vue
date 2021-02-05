@@ -7,7 +7,7 @@
         <!--{{ $t('home.welcome[3]') }}
         <a :href="resumeLink" download="/file/XinNing-Resume-CN.pdf">{{ $t('home.welcome[4]') }}</a>-->.</p>
       <p>{{ $t('home.welcome[5]') }}
-        <a href="mailto:jxnx888@hotmail.com">jxnx888@hotmail.com</a>,</p>
+        <a href="mailto:ningxin1007@hotmail.com">ningxin1007@hotmail.com</a>,</p>
       <p>{{ $t('home.welcome[6]') }}
       <router-link to="/contact">{{ $t('home.welcome[7]') }}</router-link>
       </p>
