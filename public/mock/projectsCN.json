@@ -46,6 +46,10 @@
           "desc": "MagicBox是针对于小孩教育的一款Three.js的App, 用户可以使用默认的几何模型或者卡通模型来搭建模型",
           "tags": "开发和维护, Android, iOS, Three.js, Javascript, Jquery, CSS3, HTML5",
           "url": "/threeDimensionalBuilder",
+          "storeUrlQr": {
+            "ios": "/image/qr/magicboxQR.png",
+            "android": ""
+          },
           "code": 3
         },
         {

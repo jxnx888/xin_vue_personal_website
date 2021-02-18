@@ -46,6 +46,10 @@
           "desc": "MagicBox for kids education based on Three.js. Build modules by using default geometries",
           "tags": "Development and maintenance, Android, iOS, Three.js, Javascript, Jquery, CSS3, HTML5",
           "url": "/threeDimensionalBuilder",
+          "storeUrlQr": {
+            "ios": "/image/qr/magicboxQR.png",
+            "android": ""
+          },
           "code": 3
         },
         {

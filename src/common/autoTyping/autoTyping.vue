@@ -1,9 +1,9 @@
 <template>
-  <div class="typeWrite">
+  <div class="typeWrite not-select">
 
     <h1 class="typewrite-word" data-period="2000"
         :data-type="$t('home.intro')">
-      <span class="wrap"></span>
+      <span class="wrap typewrite-cursor"></span>
     </h1>
   </div>
 
@@ -30,14 +30,16 @@ export default {
     span.typewrite-cursor::after
       content "|"
       display inline
-      color #333
+      color #eee
       width 5px
       height 1rem
       line-height 1rem
       position: relative;
       top -3px
-      -webkit-animation: twinkling 1.3s 1.3s infinite;
-      animation: twinkling 1.3s 1.3s infinite;
+    span.typewrite-cursor-anim::after
+      -webkit-animation: twinkling 1s 1s infinite;
+      animation: twinkling 1s 1s infinite;
+      transition all .1s
 @media screen and (min-width: 769px)
   .typeWrite
     position: absolute;

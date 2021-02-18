@@ -37,6 +37,7 @@
           :link="childItem.url"
           :code="childItem.code"
           :showTD="showTD"
+          :storeUrlQr="childItem.storeUrlQr"
           :id="childItem.title.replaceAll(' ','')"
       ></projectTem>
     </div>

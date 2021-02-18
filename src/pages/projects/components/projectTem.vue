@@ -19,6 +19,21 @@
       <div class="tip">{{$t('projects.tip') }}</div>
       <div class="each_wrapper">
         <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">
+        <div class="qr_wrapper" v-if="storeUrlQr">
+          <div class="row" >
+            <div class="col-xs-6" v-for="(value,key,index) in storeUrlQr"
+                 :key="index" >
+              <div class="col-xs-12" v-if="value">
+                <div class="img_wrapper">
+                <img  v-lazy="value" :key="storeUrlQr" alt="">
+                </div>
+              </div>
+              <div class="col-xs-12 qrTitle" v-if="value">
+                {{key}}
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="info_wrapper">
           <div class="thisTitle">{{titleInf}}</div>
           <div class="thisDes">{{desc}}</div>
@@ -43,6 +58,7 @@
             tags:String,
             link:String,
             code:Number,
+            storeUrlQr:String,
         },
         methods:{
             goChildPage(page){
@@ -91,6 +107,24 @@
       max-width: 100%;
       max-height: 100%;
       transition: all 0.5s ease-out;
+    .qr_wrapper
+      opacity 0
+      width 100%
+      padding 0 .15rem
+      position absolute
+      left: 0
+      bottom 60%
+      transform scale(1.03)
+      .img_wrapper
+        width 1rem
+        height 1rem
+        margin auto
+      .qrTitle
+        text-align center
+        font-size .14rem
+        line-height .3rem
+        color #FFF
+        text-transform uppercase
     .info_wrapper
       width: 100%;
       height: 60%;
@@ -128,6 +162,9 @@
       .thisDes
       .thisTags
         opacity 1
+    .qr_wrapper
+      opacity 1
+      animation: bounceInA 1s linear forwards;
 .each_content:nth-of-type(2n+1)
   margin-right 2%
 .each_content

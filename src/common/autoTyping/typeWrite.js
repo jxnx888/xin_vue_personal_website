@@ -20,12 +20,12 @@ TxtType.prototype.tick = function () {
     }
 
     // this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-   /* if(this.txt.length == 0 || this.txt.length == fullTxt.length){
-        this.el.classList.add("typewrite-cursor")
+    if(this.txt.length == 0 || this.txt.length == fullTxt.length){
+        this.el.classList.add("typewrite-cursor-anim")
     }
     else{
-        this.el.classList.remove("typewrite-cursor")
-    }*/
+        this.el.classList.remove("typewrite-cursor-anim")
+    }
     this.el.innerHTML = this.txt;
 
     var that = this;
@@ -39,7 +39,7 @@ TxtType.prototype.tick = function () {
     } else if (this.isDeleting && this.txt === '') {
         this.isDeleting = false;
         this.loopNum++;
-        delta = 500;
+        delta = 1000;
     }
 
     setTimeout(function () {
