@@ -77,7 +77,16 @@ const zh_cn = {
         bannerInfo:"",
         devSkill:'开发技能',
         SoftSkill:'软性技巧',
-        infor:['技能和经验','我主要专注于前端开发.','使用 HTML, CSS, JS, JQuery, vue.js 和 three.js 开发电商网站和app.']
+        infor:['技能和经验','我主要专注于前端开发.','使用 HTML, CSS, JS, JQuery, vue.js 和 three.js 开发电商网站和app.'],
+        softSkillName: {
+            'Focus': '专注力',
+            'Teamwork': '团队合作',
+            'Patience': '耐心',
+            'Organisation': '组织能力',
+            'Flexibility': '灵活性',
+            'Communication': '沟通能力',
+            'Listening': '倾听能力'
+        }
     }
 }
 export default zh_cn;

@@ -1935,6 +1935,7 @@
             _this.transformControl.removeEventListener("mouseDown");
             _this.transformControl.removeEventListener("objectChange");
             _this.transformControl.removeEventListener("mouseUp");
+            $(".orientationControls").remove(); // 删除orientation的旋转方块
         },
         //keep-alive 激活状态，无法销毁监听，需要使用deactivated来销毁
         deactivated() {
@@ -1946,7 +1947,7 @@
             _this.transformControl.removeEventListener("mouseDown");
             _this.transformControl.removeEventListener("objectChange");
             _this.transformControl.removeEventListener("mouseUp");
-            $(".orientationControls").remove();
+            $(".orientationControls").remove(); // 删除orientation的旋转方块
         },
         watch:{
             CONTAIN_WIDTH(newVal){

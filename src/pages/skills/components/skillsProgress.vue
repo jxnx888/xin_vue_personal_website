@@ -20,8 +20,8 @@
            v-for="(value, key, index) in softSkills"
            :key="index"
       >
-        <div class="skill_title">{{key}}</div>
-        <div class="skill_progress" :percentage="value">
+        <div class="skill_title">{{$t(value.name)}}</div>
+        <div class="skill_progress" :percentage="value.value">
           <div class="percbar"><span></span></div>
           <div class="perc_lable"><span></span><div class="perc"></div></div>
         </div>
@@ -49,15 +49,6 @@
                     "Java": 31,
                     "Microsoft Office": 90,
                 },
-                softSkills:{
-                    "Focus": 100, // Coding requires focus and dedication - do they have what it takes?
-                    "Teamwork": 90, //will they contribute to and strengthen existing teams?
-                    "Patience": 80, //Can they explain technical concepts patiently, concisely and simply?
-                    "Organisation": 80, //Can they balance multiple projects with conflicting pressures?
-                    "Flexibility": 80, // How will they react to circumstances that are out of their control
-                    "Communication": 80, // Could they successfully explain delays to clients and team decisions to the CTO?
-                    "Listening": 80,//Would they be prepared to clearfiy something they'd misheard?
-                },
                 windowWidth :0,
                 context :'',
                 starsArr :[],
@@ -66,6 +57,19 @@
                 rainCount : 20
             }
         },
+      computed:{
+        softSkills() {
+          return {
+            "Focus": {name: this.$t('skills.softSkillName.Focus'), value: 100}, // Coding requires focus and dedication - do they have what it takes?
+            "Teamwork": {name: this.$t('skills.softSkillName.Teamwork'), value: 90}, //will they contribute to and strengthen existing teams?
+            "Patience": {name: this.$t('skills.softSkillName.Patience'), value: 80}, //Can they explain technical concepts patiently, concisely and simply?
+            "Organisation": {name: this.$t('skills.softSkillName.Organisation'), value: 80}, //Can they balance multiple projects with conflicting pressures?
+            "Flexibility":{name: this.$t('skills.softSkillName.Flexibility'), value: 80}, // How will they react to circumstances that are out of their control
+            "Communication": {name: this.$t('skills.softSkillName.Communication'), value: 80}, // Could they successfully explain delays to clients and team decisions to the CTO?
+            "Listening": {name: this.$t('skills.softSkillName.Listening'), value: 80},//Would they be prepared to clearfiy something they'd misheard?
+          }
+        },
+      },
         methods: {
           animateProg(){
               $(".each_skill").each(function(){
@@ -100,7 +104,7 @@
         },
         mounted() {
             this.animateProg();
-        }
+        },
     }
 </script>
 
