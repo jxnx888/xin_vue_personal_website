@@ -29,7 +29,11 @@ module.exports = {
               new TerserPlugin(),
           ],
       },
-    }
+    },
+ /* babel: {
+      presets:['es2015'],
+    plugins: ['transform-runtime']
+  }*/
 
     /*configureWebpack: config => {
         if (process.env.NODE_ENV === 'production') {

@@ -6,15 +6,15 @@
 <!--          <h1>{{$t('home.name')}}</h1>-->
           <h1>
             <span class="each_word"
-                  v-for="(item, index) in $t('home.name')"
+                  v-for="(item, index) in $t('MY_NAME')"
                   :key="index" @mouseenter="animatedWord">
             {{item}}
           </span>
           </h1>
-          <p class="title">{{$t('home.title')}}</p>
-          <p class="subtitle">{{$t('home.subtitle')}}</p>
+          <p class="title">{{$t('MY_TITLE')}}</p>
+          <p class="subtitle">{{$t('MY_SUBTITLE')}}</p>
         </div>
-        <autoTyping :key="timer"></autoTyping>
+        <autoTyping :key="timer" :dataType="$t('INTRODUCTION')"></autoTyping>
       </div>
   </div>
 </template>

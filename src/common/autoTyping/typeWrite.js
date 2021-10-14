@@ -56,6 +56,10 @@ function onloadFn(){
         var toRotate = elements[i].getAttribute('data-type');
         var period = elements[i].getAttribute('data-period');
         if (toRotate) {
+            if((typeof toRotate) !== "object"){
+                // 如果是i18n，语言是字符串，而不是数组，所以要转换成数组
+                toRotate = toRotate.split("||")
+            }
             new TxtType(elements[i], JSON.parse(toRotate), period);
         }
     }

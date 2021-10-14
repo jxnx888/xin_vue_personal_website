@@ -1,36 +1,36 @@
 <template>
-  <div class="aboutPart">
-    <div class="top_intro">
-      <p>{{ $t('home.welcome[0]') }}</p>
-      <p>{{ $t('home.welcome[1]') }}
-        <a :href="resumeLink" download="/file/XinNing-Resume-CN.pdf">{{ $t('home.welcome[2]') }}</a>
-        <!--{{ $t('home.welcome[3]') }}
-        <a :href="resumeLink" download="/file/XinNing-Resume-CN.pdf">{{ $t('home.welcome[4]') }}</a>-->.</p>
-      <p>{{ $t('home.welcome[5]') }}
-        <a href="mailto:ningxin1007@hotmail.com">ningxin1007@hotmail.com</a>,</p>
-      <p>{{ $t('home.welcome[6]') }}
-      <router-link to="/contact">{{ $t('home.welcome[7]') }}</router-link>
+  <div class='aboutPart'>
+    <div class='top_intro'>
+      <p>{{ $t('HOME_WELCOME1') }}</p>
+      <p>{{ $t('HOME_WELCOME2') }}
+        <a :href='resumeLink' download='/file/XinNing-Resume-CN.pdf'>{{ $t('RESUME_LOWER') }}</a>
+        <!-- <a :href="resumeLink" download="/file/XinNing-Resume-CN.pdf">{{ $t('home.welcome[4]') }}</a>-->.
+      </p>
+      <p>{{ $t('HOME_WELCOME3') }}
+        <a :href = "mailTo">{{ $t('EMAIL') }}</a>,</p>
+      <p>{{ $t('HOME_WELCOME4') }}
+        <router-link to='/contact'>{{ $t('CONTACTPAGE') }}</router-link>
       </p>
     </div>
-    <div class="bottom_list" id="homeList">
-      <ul class="detail_list clearfix">
-        <li id="homeAM" :class="addAnimation?'bounceInLeft animated':''">
-          <router-link  to="/aboutme" class="each_link">
-            <p>{{ $t('home.aboutme') }}</p>
-            <img v-lazy="'/image/home/aboutme1.jpg'" alt="">
+    <div class='bottom_list' id='homeList'>`
+      <ul class='detail_list clearfix'>
+        <li id='homeAM' :class="addAnimation?'bounceInLeft animated':''">
+          <router-link to='/aboutme' class='each_link'>
+            <p>{{ $t('ABOUT_ME') }}</p>
+            <img v-lazy="'/image/home/aboutme1.jpg'" alt=''>
           </router-link>
         </li>
-        <li id="homePj" :class="addAnimation?'bounceIn animated':''">
-          <router-link  to="/projects" class="each_link">
-            <p>{{ $t('home.myprojects') }}</p>
-            <img v-lazy="'/image/home/myprojects.jpg'" alt="">
+        <li id='homePj' :class="addAnimation?'bounceIn animated':''">
+          <router-link to='/projects' class='each_link'>
+            <p>{{ $t('My_PROJECTS') }}</p>
+            <img v-lazy="'/image/home/myprojects.jpg'" alt=''>
           </router-link>
         </li>
 
-        <li class="last" id="homeSk" :class="addAnimation?'bounceInRight animated':''">
-          <router-link  to="/skills" class="each_link">
-            <p>{{ $t('home.myskills') }}</p>
-            <img v-lazy="'/image/home/myskills.jpg'" alt="">
+        <li class='last' id='homeSk' :class="addAnimation?'bounceInRight animated':''">
+          <router-link to='/skills' class='each_link'>
+            <p>{{ $t('MY_SKILLS') }}</p>
+            <img v-lazy="'/image/home/myskills.jpg'" alt=''>
           </router-link>
         </li>
       </ul>
@@ -40,60 +40,63 @@
 
 <script>
 export default {
-  name: "aboutPart",
-    data() {
-        return {
-            resumeLink:'/file/XinNing-Resume-CN.pdf',
-            addAnimation:false,
-        }
-    },
-    methods: {
-        checkPosition() {
-            //当前滚动位置
-            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
-            //当前滚动位置
-            let windowHeight = $(window).height();
-            //添加动画的元素的开始位置 (防止报错,建议写死)
-            var animationPart = $("#homeList").offset().top;
-            var postionToSee = scrollTop+windowHeight;
-            // console.log("scrollTop::"+scrollTop)
-            // console.log("animationPart::"+animationPart)
-            if(postionToSee>=animationPart){
-                this.addAnimation=true;
-            }
-            else{
-                this.addAnimation=false;
-            }
-        }
-    },
-    mounted() {
-        window.addEventListener('scroll', this.checkPosition);
-    },
-    destroyed() {
-        window.removeEventListener('scroll', this.checkPosition);
-    },
-    activated() {
-        window.addEventListener('scroll', this.checkPosition);
-    },
-    deactivated() {
-        window.removeEventListener('scroll', this.checkPosition);
-    },
-    watch: {
-        '$i18n.locale'(newValue, oldValue) {
-            if(newValue!=oldValue)   {
-                if('zh_cn' == newValue){
-                    this.resumeLink = '/file/XinNing-Resume-CN.pdf';
-                }
-                else{
-                    this.resumeLink = '/file/XinNing-Resume-EN.pdf';
-                }
-            }
-        }
+  name: 'aboutPart',
+  data() {
+    return {
+      resumeLink: '/file/XinNing-Resume-CN.pdf',
+      addAnimation: false,
     }
+  },
+  methods: {
+    checkPosition() {
+      //当前滚动位置
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
+      //当前滚动位置
+      let windowHeight = $(window).height()
+      //添加动画的元素的开始位置 (防止报错,建议写死)
+      var animationPart = $('#homeList').offset().top
+      var postionToSee = scrollTop + windowHeight
+      // console.log("scrollTop::"+scrollTop)
+      // console.log("animationPart::"+animationPart)
+      if (postionToSee >= animationPart) {
+        this.addAnimation = true
+      } else {
+        this.addAnimation = false
+      }
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.checkPosition)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.checkPosition)
+  },
+  activated() {
+    window.addEventListener('scroll', this.checkPosition)
+  },
+  deactivated() {
+    window.removeEventListener('scroll', this.checkPosition)
+  },
+  computed:{
+    mailTo(){
+      return `mailto:${this.$t('EMAIL')}`
+    }
+  },
+  watch: {
+    '$i18n.locale'(newValue, oldValue) {
+      if (newValue != oldValue) {
+        if ('zh_cn' == newValue) {
+          this.resumeLink = '/file/XinNing-Resume-CN.pdf'
+        } else {
+          this.resumeLink = '/file/XinNing-Resume-EN.pdf'
+        }
+      }
+    }
+  }
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang='stylus'>
 .aboutPart
   .top_intro
     width: 1200px;
@@ -103,10 +106,12 @@ export default {
     color: #5f6464;
     line-height: 54px;
     padding: 105px 0 74px;
+
   .bottom_list
     width: 1240px;
     margin: 0px auto 84px auto;
     height: 250px;
+
     .detail_list
       li
         display: inline-block;
@@ -123,6 +128,7 @@ export default {
         animation-duration: 1s;
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both
+
         .each_link
           p
             display: block;
@@ -137,11 +143,12 @@ export default {
             margin-top: -20px;
             z-index: 3;
             color: #fff;
-            border-bottom: 1px solid rgba(255,255,255,0);
-            transform: translate(-50%,0);
+            border-bottom: 1px solid rgba(255, 255, 255, 0);
+            transform: translate(-50%, 0);
             transition: all 0.3s ease-out;
             padding-bottom: 5px;
             -webkit-transition: width 1s linear;
+
           p:after
             content: ' ';
             width: 0;
@@ -152,6 +159,7 @@ export default {
             position: absolute;
             opacity: 0;
             -webkit-transition: all 0.2s linear;
+
           img
             display: block;
             z-index: 1;
@@ -171,23 +179,28 @@ export default {
           content: "";
           height: 100%;
           width: 100%;
-          background: rgba(0,82,217,0.7);
+          background: rgba(0, 82, 217, 0.7);
           position: absolute;
           left: 0px;
           top: 0px;
           z-index: 2;
           opacity: 0;
           transition: opacity 0.3s ease-out;
+
         .each_link:hover:after
           opacity: 1;
+
         .each_link:hover img
           transform: scale(1.024);
+
         .each_link:hover p:after
           opacity: 1;
           left: 0;
           width: 100%;
+
       li.last
         margin-right 0
+
       li.animated
         opacity 1
 </style>

@@ -5,11 +5,11 @@
   </div>
   <div class="right_info">
     <div class="text keep_title">
-      {{$t('home.keepLearning[0]')}}
+      {{$t('KEEP_LEARNING[0]')}}
     </div>
     <div class="text dictum">
-      "{{$t('home.keepLearning[1]')}}"
-      <div class="author"> --  {{$t('home.keepLearning[2]')}}</div>
+      "{{$t('KEEP_LEARNING[1]')}}"
+      <div class="author"> --  {{$t('KEEP_LEARNING[2]')}}</div>
     </div>
   </div>
 </div>

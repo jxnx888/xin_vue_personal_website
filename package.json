@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
+    "babel": "^6.23.0",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
     "fastclick": "^1.0.6",

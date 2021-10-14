@@ -32,21 +32,21 @@
           <!--          <div class="download_file" v-if="currentLang==='en_us'"><a download=""><i class="el-icon-printer"></i>{{$t('footer.coverletter')}}</a></div>-->
           <div class="sitemap_wrapper clearfix">
             <div class="each_map"><a :href="resumeLink" download="/file/XinNing-Resume-CN.pdf"><i
-                class="el-icon-printer"></i>{{ $t('footer.resume') }}</a></div>
+                class="el-icon-printer"></i>{{ $t('RESUME') }}</a></div>
             <div class="each_map">
-              <router-link to="/" class="each_link">{{ $t('nav.home') }}</router-link>
+              <router-link to="/" class="each_link">{{ $t('HOME') }}</router-link>
             </div>
             <div class="each_map">
-              <router-link to="/skills" class="each_link">{{ $t('nav.skills') }}</router-link>
+              <router-link to="/skills" class="each_link">{{ $t('SKILLS') }}</router-link>
             </div>
             <div class="each_map">
-              <router-link to="/projects" class="each_link">{{ $t('nav.Projects') }}</router-link>
+              <router-link to="/projects" class="each_link">{{ $t('PROJECTS') }}</router-link>
             </div>
             <div class="each_map">
-              <router-link to="/aboutme" class="each_link">{{ $t('nav.AboutMe') }}</router-link>
+              <router-link to="/aboutme" class="each_link">{{ $t('ABOUT_ME') }}</router-link>
             </div>
             <div class="each_map last_menu">
-              <router-link to="/aboutme" class="each_link">{{ $t('nav.contact') }}</router-link>
+              <router-link to="/aboutme" class="each_link">{{ $t('CONTACT') }}</router-link>
             </div>
           </div>
         </el-col>

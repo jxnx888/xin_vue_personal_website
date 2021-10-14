@@ -9,19 +9,19 @@
       </div>
       <div class="rigth_menu">
         <div class="each_menu" :class="'1' == navIndex?'activeMenu':''">
-          <router-link to="/" class="each_link">{{$t('nav.home')}}</router-link>
+          <router-link to="/" class="each_link">{{$t('HOME')}}</router-link>
         </div>
         <div class="each_menu" :class="'2' == navIndex?'activeMenu':''">
-          <router-link to="/skills" class="each_link">{{$t('nav.skills')}}</router-link>
+          <router-link to="/skills" class="each_link">{{$t('SKILLS')}}</router-link>
         </div>
         <div class="each_menu" :class="'3' == navIndex?'activeMenu':''">
-          <router-link to="/projects" class="each_link">{{$t('nav.Projects')}}</router-link>
+          <router-link to="/projects" class="each_link">{{$t('PROJECTS')}}</router-link>
         </div>
         <div class="each_menu" :class="'4' == navIndex?'activeMenu':''">
-          <router-link to="/aboutme" class="each_link">{{$t('nav.AboutMe')}}</router-link>
+          <router-link to="/aboutme" class="each_link">{{$t('ABOUT_ME')}}</router-link>
         </div>
         <div class="each_menu last_menu" :class="'5' == navIndex?'activeMenu':''">
-          <router-link to="/contact" class="each_link">{{$t('nav.contact')}}</router-link>
+          <router-link to="/contact" class="each_link">{{$t('CONTACT')}}</router-link>
         </div>
         <div class="lang_area">
           <a class="lang_ch eacb_lang" :class="{active_lang:currrent_lang === 'zh_cn'}" lang="zh-cn"
@@ -198,8 +198,6 @@
             padding 0 10px
 
         .each_menu
-          a:
-
           :after
             display: block;
             content: "";

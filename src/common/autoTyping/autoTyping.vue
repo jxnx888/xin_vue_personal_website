@@ -2,7 +2,7 @@
   <div class="typeWrite not-select">
 
     <h1 class="typewrite-word" data-period="2000"
-        :data-type="$t('home.intro')">
+        :data-type="dataType">
       <span class="wrap typewrite-cursor"></span>
     </h1>
   </div>
@@ -14,6 +14,9 @@ import {onloadFn} from './typeWrite'
 
 export default {
   name: "autoTyping",
+  props: {
+    dataType: String
+  },
   data() {
     return {
 

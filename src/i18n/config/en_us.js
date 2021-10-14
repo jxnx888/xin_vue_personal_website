@@ -1,71 +1,75 @@
 const en_us = {
-  footer: {
-    resume: 'Resume',
-    coverletter: 'Cover Letter'
+  HOME: 'Home',
+  SKILLS: 'Skills',
+  PROJECTS: 'Portfolio',
+  ABOUT_ME: 'About Me',
+  CONTACT: 'Contact',
+  RESUME: 'Resume',
+  RESUME_LOWER: 'resume',
+  COVERLETTER: 'Cover Letter',
+  MY_NAME: 'Xin Ning',
+  MY_TITLE: 'Front-end Developer',
+  MY_SUBTITLE: '(Web/Android/iOS)',
+  MY_DOB: '1989/10/07',
+  INTRODUCTION: '[ "Hi, I am Xin Ning.", " Welcome to my personal website.", "I am Creative, and I Love to Develop.", "I am Good at JavaScript, Jquery, Vue, HTML5 and CSS3."]',
+  AND: 'and',
+  CV: 'cv(pdf).',
+  EMAIL: 'ningxin1007@hotmail.com',
+  HOME_WELCOME1: 'You\'ve found yourself at the online home of Xin Ning, a Front-end Developer.',
+  HOME_WELCOME2: 'Here you\'ll find a selection of my latest work, stats about my skills and a link to my ',
+  HOME_WELCOME3: 'If you have a project or need some extra help, please drop me an email at',
+  HOME_WELCOME4: ' alternatively you can fill out my contact form in the ',
+  CONTACTPAGE: 'Contact page.',
+  My_PROJECTS: 'My Projects',
+  MY_SKILLS: 'My Skills',
+  KEEP_LEARNING: ['KEEP LEARNING, KEEP GROWING', 'Once you stop learning, you start dying.', 'Albert Einstein'],
+  PROJECT1: {
+    title: 'Great Wall Motor (Last work)',
+    responsibility: ['Maintaining & modifying E-commerce website',
+      'Managing front-end team as a project manager assistant',
+      'Utilizing the Three.js to design and build 3D related WebApps (Android && iOS)'],
+    childList: [
+      {
+        title: 'E-commerce websites',
+        txt: ['Great Wall Motor Manufacturing (Thailand)','Order Now']
+      }
+    ]
   },
-  home: {
-    name: 'Xin Ning',
-    title: 'Front-end Developer',
-    subtitle: '(Web/Android/iOS)',
-    info: {
-      DoB: '1989/10/07'
-    },
-    intro: '[ "Hi, I am Xin Ning.", " Welcome to my personal website.", "I am Creative, and I Love to Develop.", "I am Good at JavaScript, Jquery, Vue, HTML5 and CSS3."]',
-    welcome: ['You\'ve found yourself at the online home of Xin Ning, a Front-end Developer.', 'Here you\'ll find a selection of my latest work, stats about my skills and a link to my ', 'resume', ' and ', 'cv(pdf).', 'If you have a project or need some extra help, please drop me an email at', ' alternatively you can fill out my contact form in the ', 'Contact page.'],
-    aboutme: 'About Me',
-    myprojects: 'My Projects',
-    myskills: 'My Skills',
-    keepLearning: ['KEEP LEARNING, KEEP GROWING', 'Once you stop learning, you start dying.', 'Albert Einstein']
+  PROJECT2: {
+    title: 'KAI RONG',
+    responsibility: ['Maintaining & modifying E-commerce website',
+      'Managing front-end team as a project manager assistant',
+      'Utilizing the Three.js to design and build 3D related WebApps (Android && iOS)'],
+    childList: [
+      {
+        title: 'E-commerce websites',
+        txt: ['Import Express', 'Kids Charming', 'Pet Store']
+      },
+      {
+        title: 'Luggage decal',
+        txt: ['Pick or upload decals to  on luggage', 'Before and after shooting the decal, users can change the decal size and rotation and position']
+      },
+      {
+        title: 'MagicBox App',
+        txt: ['MagicBox for kids education based on Three.js', 'Build modules by using default geometries']
+      }
+    ]
   },
-  homeProject: {
-    list1: {
-      title: 'Last work',
-      responsibility: ['Maintaining & modifying E-commerce website',
-        'Managing front-end team as a project manager assistant',
-        'Utilizing the Three.js to design and build 3D related WebApps (Android && iOS)'],
-      childList: [
-        {
-          title: 'E-commerce websites',
-          txt: ['Import Express', 'Kids Charming', 'Pet Store']
-        },
-        {
-          title: 'Luggage decal',
-          txt: ['Pick or upload decals to  on luggage', 'Before and after shooting the decal, users can change the decal size and rotation and position']
-        },
-        {
-          title: 'MagicBox App',
-          txt: ['MagicBox for kids education based on Three.js', 'Build modules by using default geometries']
-        }
-      ]
-    },
-    list2: {
-      title: 'Latest work',
-      responsibility: ['Maintaining & modifying E-commerce website',
-        'Managing front-end team as a project manager assistant',
-        'Utilizing the Three.js to design and build 3D related WebApps.']
-    },
-    list3: {
-      title: 'Education',
-      responsibility: ['Fairfield University', 'Master of Science in Software Engineering', 'GPA: 3.50/ 4.0', 'January 2016 to May 2018'],
-      childList: [
-        {
-          title: 'Fairfield University',
-          txt: ['Master of Science in Software Engineering', 'GPA: 3.50/ 4.0', 'January 2016 to May 2018']
-        },
-        {
-          title: 'Haikou University Of Economics',
-          txt: ['Bachelor of Science in Engineering Management', 'GPA: 3.45/4.0', 'September 2010 to June 2014']
-        }
-      ]
-    }
+  EDUCATION: {
+    title: 'Education',
+    responsibility: ['Fairfield University', 'Master of Science in Software Engineering', 'GPA: 3.50/ 4.0', 'January 2016 to May 2018'],
+    childList: [
+      {
+        title: 'Fairfield University',
+        txt: ['Master of Science in Software Engineering', 'GPA: 3.50/ 4.0', 'January 2016 to May 2018']
+      },
+      {
+        title: 'Haikou University Of Economics',
+        txt: ['Bachelor of Science in Engineering Management', 'GPA: 3.45/4.0', 'September 2010 to June 2014']
+      }
+    ]
   },
-  nav: {
-    home: 'Home',
-    skills: 'Skills',
-    Projects: 'Portfolio',
-    AboutMe: 'About Me',
-    contact: 'Contact'
-  },
+
   contact: {
     tagInfo: ['Shanghai Kairong Information Technology Co., Lt', 'Address: 601 Yunling Lu, Shanghai, China, 200062', 'I\'m working here'],
     topTitle: ['Want to contact Xin Ning', 'Here are few ways to get in touch with me'],
