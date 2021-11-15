@@ -1,5 +1,5 @@
 <template>
-<div class="main_wrapper clearfix">
+<div :class="`main_wrapper clearfix main_wrapper-${this.$root.userAgent}`">
   <div class="left_img">
     <img v-lazy="'/image/home/keep-learning.jpg'" alt="">
   </div>
@@ -25,7 +25,8 @@ name: "keepLearning"
 .main_wrapper *
   box-sizing border-box
 .main_wrapper
-  width 1230px
+  max-width 1230px
+  width 100%
   margin auto auto 84px auto
   .left_img
     float left
@@ -57,4 +58,37 @@ name: "keepLearning"
       .author
         text-align right
         padding-top 20px;
+.main_wrapper-phone
+  width 100%
+  .left_img
+    float none
+    width 100%
+    min-height 2.5rem
+    img
+      margin: auto;
+  .right_info
+    min-height auto
+    float none
+    width 100%
+    padding .15rem
+    .keep_title
+      font-size .18rem
+      padding-top .1rem
+    .dictum
+      font-size .15rem
+      padding-top .1rem
+      .author
+        padding-top .1rem
+.main_wrapper-pad
+  padding .15rem
+  .left_img
+    min-height: 2rem
+  .right_info
+    min-height: 2rem
+    .keep_title
+      font-size .22rem
+    .dictum
+      padding-top: .26rem
+      font-size .18rem
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="each_content">
+  <div :class="`each_content each_content-${this.$root.userAgent}`">
     <a v-if="'3'!=code && '4'!=code && '5'!=code" :href="link">
       <div class="each_wrapper">
         <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">
@@ -83,14 +83,15 @@
   cursor pointer
   position: relative;
   margin-bottom .4rem
-  width 4.8rem;
+  width 50%
+  max-width 4.8rem;
   height 4.1rem;
   border: 10px ridge;
   float left
   @media screen and (max-width: 768px)
     width 95%
   .each_wrapper
-    width 4.6rem
+    max-width 4.6rem
     height 3.9rem;
     overflow hidden
     position: relative;
@@ -197,6 +198,15 @@
 .tip:hover~.each_wrapper .info_wrapper .thisDes,.tip:hover~.each_wrapper .info_wrapper .thisTags{
     opacity 1
 }
+.each_content-phone,.each_content-pad
+  width 48%
+  .each_wrapper
+    .info_wrapper
+      bottom 0
+      .thisTags, .thisDes
+        opacity 1
+.each_content-phone
+  width 100%
 @keyframes show_detail {
   0%{bottom: -2.02rem;}
   100%{bottom:0;}

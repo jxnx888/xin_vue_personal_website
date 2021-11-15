@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "18991674",
+      "name": "menu",
+      "font_class": "menu",
+      "unicode": "e865",
+      "unicode_decimal": 59493
+    },
+    {
       "icon_id": "91553",
       "name": "减号",
       "font_class": "jianhao",

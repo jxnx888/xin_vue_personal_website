@@ -1,7 +1,9 @@
 <template>
-  <div class="skill_wrapper">
+  <div :class="`skill_wrapper skill_wrapper-${this.$root.userAgent}`">
     <meteorShower></meteorShower>
-    <snowMeteor></snowMeteor>
+    <template v-if='this.$root.userAgent === "pc"'>
+      <snowMeteor></snowMeteor>
+    </template>
     <!--<topBanner
       :bannerImg="'/image/banner3.png'"
       :bannerContent="''"></topBanner>-->
@@ -96,4 +98,12 @@
     color #fff
     font-size .18rem
     line-height .3rem
+.skill_wrapper-phone,.skill_wrapper-pad
+  padding 0 .15rem
+  .skill_container
+    h1.title
+      font-size .18rem
+    p.each_info
+      font-size .14rem
+      text-align left
 </style>

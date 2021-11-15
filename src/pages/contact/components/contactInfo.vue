@@ -1,6 +1,6 @@
 <template>
 
-  <div class="contactInfo">
+  <div :class="`contactInfo contactInfo-${this.$root.userAgent}`">
   <div class="contactInfo_wrapper">
     <h1 class="top_title">{{$t('contact.topTitle[0]')}}</h1>
     <div class="top_subtitle">{{$t('contact.topTitle[1]')}}</div>
@@ -273,7 +273,7 @@
 .contactInfo
   background #eeeeee
   .contactInfo_wrapper
-    width 12rem
+    max-width 12rem
     padding .2rem .15rem
     margin auto
 
@@ -292,7 +292,7 @@
         float left
         width 50%
         .left_wrapper,.right_wrapper
-          width 4rem
+          max-width 4rem
           margin auto
         .info_title
           .title_wrapper
@@ -314,7 +314,7 @@
           .info_content
             .each_input
               position relative
-              width 4rem
+              max-width 4rem
               margin auto auto .2rem auto
               border 1px solid #999
               input
@@ -363,7 +363,7 @@
 
 
         .contact_intro
-          width 4rem
+          max-width 4rem
           margin 0 auto
           text-align left
           color #333
@@ -411,6 +411,51 @@
             background url('/image/footer/icon_linkedin_hover.png')
           .icon_facebook
             background url('/image/footer/icon_facebook_hover.png')
+
+.contactInfo-pad
+  .contactInfo_wrapper
+    .top_title
+      font-size .3rem
+    .contact_body
+      .num
+        font-size .4rem!important
+        line-height .4rem!important
+      .contactWay
+        font-size .2rem!important
+        line-height .2rem!important
+      .submit
+        width 100%!important
+.contactInfo-phone
+  .contactInfo_wrapper
+    .top_title
+      font-size .2rem!important
+    .top_subtitle
+      font-size .16rem!important
+    .contact_body
+      .left, .right
+        float none
+        width 100%
+        .info_title
+          text-align center
+      .title_wrapper
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+      .num
+        font-size .4rem!important
+        line-height .4rem!important
+        float none!important
+      .contactWay
+        font-size .2rem!important
+        line-height .2rem!important
+        float none!important
+      .submit
+        width 100%!important
+
+
 /* 通用 */
 ::-webkit-input-placeholder {font-weight:bold; color:#999; }
 ::-moz-placeholder {font-weight:bold; color:#999;} /* firefox 19+ */

@@ -1,5 +1,5 @@
 <template>
-  <div class="typeWrite not-select">
+  <div :class="`typeWrite not-select typeWrite-${this.$root.userAgent}`">
 
     <h1 class="typewrite-word" data-period="2000"
         :data-type="dataType">
@@ -43,36 +43,63 @@ export default {
       -webkit-animation: twinkling 1s 1s infinite;
       animation: twinkling 1s 1s infinite;
       transition all .1s
-@media screen and (min-width: 769px)
-  .typeWrite
+  .typeWrite.typeWrite-pc, .typeWrite.typeWrite-pad
     position: absolute;
-    bottom: 60px;
-    left: 50%;
-    margin-left: -325px;
-    width: 650px;
+    left 50%
     color: #6ba2ca;
     font-size: 24px;
-  .typeWrite *
-    font-size: 24px;
-@media screen and (max-width: 768px)
-  .typeWrite
+  .typeWrite.typeWrite-pc
+    width: 650px;
+    bottom: 8%;
+    transform translate(-50%, -8%)
+    & *
+      font-size .24rem
+  .typeWrite.typeWrite-pad
+    width: 80%;
+    bottom: 20%;
+    transform translate(-50%, -20%)
+    & *
+      font-size .18rem
+    h1
+      line-height: .5rem;
+      height: .5rem;
+height-phone = .6rem
+half-height-phone = .3rem
+  .typeWrite.typeWrite-phone
     width: 95%
-    height: 1rem
+    height: height-phone
     margin: .2rem  auto
     background-color: #fff
     -webkit-border-radius: .1rem
     -moz-border-radius: .1rem
     border-radius: .1rem
     color:#000
+    & *
+      font-size: .14rem;
     .typewrite-word
-      line-height: 1rem
+      line-height: height-phone
       text-align: center
       color: #4aba92
-      border:  2px solid #b969a8
+      border:  2px solid #cdcdcd
       border-radius: .1rem
     h1
-      height: 1rem
-      line-height: 1rem
+      position relative
+      height: height-phone
+      line-height: height-phone
+    span
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: half-height-phone;
+      &:after
+        height: half-height-phone
+        line-height: half-height-phone
+        color #000
+        top -1px
     svg
       margin-top: -65px
       top: 0

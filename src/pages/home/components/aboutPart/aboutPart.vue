@@ -1,36 +1,57 @@
 <template>
-  <div class='aboutPart'>
+  <div :class='`aboutPart aboutPart-${this.$root.userAgent }`'>
     <div class='top_intro'>
-      <p>{{ $t('HOME_WELCOME1') }}</p>
-      <p>{{ $t('HOME_WELCOME2') }}
-        <a :href='resumeLink' download='/file/XinNing-Resume-CN.pdf'>{{ $t('RESUME_LOWER') }}</a>
-        <!-- <a :href="resumeLink" download="/file/XinNing-Resume-CN.pdf">{{ $t('home.welcome[4]') }}</a>-->.
-      </p>
-      <p>{{ $t('HOME_WELCOME3') }}
-        <a :href = "mailTo">{{ $t('EMAIL') }}</a>,</p>
-      <p>{{ $t('HOME_WELCOME4') }}
-        <router-link to='/contact'>{{ $t('CONTACTPAGE') }}</router-link>
-      </p>
+      <template v-if="this.$root.userAgent === 'pc'">
+        <p>{{ $t('HOME_WELCOME1') }}</p>
+        <p>{{ $t('HOME_WELCOME2') }}
+          <a
+            :href='resumeLink'
+            :download='resumeLink'
+          >
+            {{ $t('RESUME_LOWER') }}
+          </a>
+        </p>
+        <p>{{ $t('HOME_WELCOME3') }}
+          <a :href = "mailTo">{{ $t('EMAIL') }}</a>,</p>
+        <p>{{ $t('HOME_WELCOME4') }}
+          <router-link to='/contact'>{{ $t('CONTACTPAGE') }}</router-link>
+        </p>
+      </template>
+      <template v-if="this.$root.userAgent !== 'pc'">
+        <p>{{ $t('HOME_WELCOME1') }} {{ $t('HOME_WELCOME2') }}
+          <a
+            :href='resumeLink'
+            :download='resumeLink'
+          >
+            {{ $t('RESUME_LOWER') }}
+          </a>
+          .
+        {{ $t('HOME_WELCOME3') }}
+          <a :href = "mailTo">{{ $t('EMAIL') }}</a>,{{ $t('HOME_WELCOME4') }}
+          <router-link to='/contact'>{{ $t('CONTACTPAGE') }}</router-link>
+        </p>
+      </template>
+
     </div>
-    <div class='bottom_list' id='homeList'>`
+    <div class='bottom_list' id='homeList'>
       <ul class='detail_list clearfix'>
-        <li id='homeAM' :class="addAnimation?'bounceInLeft animated':''">
+        <li id='homeAM' :class="ifAnimation ? 'bounceInLeft animated':''">
           <router-link to='/aboutme' class='each_link'>
             <p>{{ $t('ABOUT_ME') }}</p>
-            <img v-lazy="'/image/home/aboutme1.jpg'" alt=''>
+            <img v-lazy="this.$root.userAgent === 'pc' ? '/image/home/aboutme1.jpg' : ''" alt=''>
           </router-link>
         </li>
-        <li id='homePj' :class="addAnimation?'bounceIn animated':''">
+        <li id='homePj' :class="ifAnimation ? 'bounceIn animated':''">
           <router-link to='/projects' class='each_link'>
             <p>{{ $t('My_PROJECTS') }}</p>
-            <img v-lazy="'/image/home/myprojects.jpg'" alt=''>
+            <img v-lazy="this.$root.userAgent === 'pc' ? '/image/home/myprojects.jpg' : ''" alt=''>
           </router-link>
         </li>
 
-        <li class='last' id='homeSk' :class="addAnimation?'bounceInRight animated':''">
+        <li class='last' id='homeSk' :class="ifAnimation ? 'bounceInRight animated':''">
           <router-link to='/skills' class='each_link'>
             <p>{{ $t('MY_SKILLS') }}</p>
-            <img v-lazy="'/image/home/myskills.jpg'" alt=''>
+            <img v-lazy="this.$root.userAgent === 'pc' ? '/image/home/myskills.jpg' : ''" alt=''>
           </router-link>
         </li>
       </ul>
@@ -43,7 +64,6 @@ export default {
   name: 'aboutPart',
   data() {
     return {
-      resumeLink: '/file/XinNing-Resume-CN.pdf',
       addAnimation: false,
     }
   },
@@ -80,18 +100,15 @@ export default {
   computed:{
     mailTo(){
       return `mailto:${this.$t('EMAIL')}`
+    },
+    resumeLink(){
+      return `${this.$i18n.locale === "zh_cn" ? "/file/XinNing-Resume-CN.pdf" : "/file/XinNing-Resume-EN.pdf"}`
+    },
+    ifAnimation(){
+      return (this.$root.userAgent === 'pc' ? this.addAnimation : true )
     }
   },
   watch: {
-    '$i18n.locale'(newValue, oldValue) {
-      if (newValue != oldValue) {
-        if ('zh_cn' == newValue) {
-          this.resumeLink = '/file/XinNing-Resume-CN.pdf'
-        } else {
-          this.resumeLink = '/file/XinNing-Resume-EN.pdf'
-        }
-      }
-    }
   }
 }
 </script>
@@ -99,7 +116,6 @@ export default {
 <style scoped lang='stylus'>
 .aboutPart
   .top_intro
-    width: 1200px;
     margin: auto;
     text-align: center;
     font-size: 24px;
@@ -203,4 +219,31 @@ export default {
 
       li.animated
         opacity 1
+.aboutPart-pad, .aboutPart-phone
+  .bottom_list
+    width 90%
+    height auto
+    .detail_list
+      li
+        width 100%
+        margin-bottom: .2rem;
+        margin-right: 0;
+        float: none;
+.aboutPart-pad
+  & *
+    font-size .20rem
+  .top_intro
+    font-size .20rem
+    padding .5rem .2rem .2rem .2rem
+    text-align left
+    text-indent: 2em;
+.aboutPart-phone
+  & *
+    font-size .14rem
+  .top_intro
+    width 95%
+    text-align left
+    text-indent: 1em;
+    padding .2rem .15rem
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class='project_wrapper'>
+  <div :class='`project_wrapper project_wrapper-${this.$root.userAgent}`'>
     <div class='project_hook'>
       <div class='left_tab'>
         <ul class='tab_list'>
@@ -59,9 +59,9 @@
         </div>
         <div class='each_content' v-show='currentListIndex===2'>
           <ul class='each_content_list'>
-            <li class='item_1'>
+            <li class='item_1' v-lazy:background-image="'/image/home/last_work4.jpg'">
               <a href='https://www.import-express.com/' target='_blank'>
-                <img v-lazy="'/image/home/last_work4.jpg'" alt=''>
+<!--                <img v-lazy="'/image/home/last_work4.jpg'" alt=''>-->
                 <div class='intro_wrapper'>
                   <h4 class='tit'>{{ $t('PROJECT2.childList[0].title') }}</h4>
                   <p class='txt'><a href='https://www.import-express.com/'>{{ $t('PROJECT2.childList[0].txt[0]') }}</a>
@@ -73,9 +73,9 @@
                 </div>
               </a>
             </li>
-            <li class='item_1'>
+            <li class='item_1' v-lazy:background-image="'/image/home/luggage_decal.jpg'">
               <router-link :to="{path:'/projects',query:{jump:'LuggageDecalSplatter'}}">
-                <img v-lazy="'/image/home/luggage_decal.jpg'" alt=''>
+<!--                <img v-lazy="'/image/home/luggage_decal.jpg'" alt=''>-->
                 <div class='intro_wrapper'>
                   <h4 class='tit'>{{ $t('PROJECT2.childList[1].title') }}</h4>
                   <p class='txt'>{{ $t('PROJECT2.childList[1].txt[0]') }}</p>
@@ -84,9 +84,9 @@
                 </div>
               </router-link>
             </li>
-            <li class='item_3'>
+            <li class='item_3' v-lazy:background-image="'/image/home/3dprinting1.jpg'">
               <router-link :to="{path:'/projects',query:{jump:'MagicBox-AppforChildren'}}">
-                <img v-lazy="'/image/home/3dprinting1.jpg'" alt=''>
+<!--                <img v-lazy="'/image/home/3dprinting1.jpg'" alt=''>-->
                 <div class='intro_wrapper intro_wrapper4'>
                   <h4 class='tit'>{{ $t('PROJECT2.childList[2].title') }}</h4>
                   <p class='txt'>{{ $t('PROJECT2.childList[2].txt[0]') }}</p>
@@ -146,15 +146,19 @@ export default {
 </script>
 
 <style scoped lang='stylus'>
+projectMaxHeight = 780px
+projectHeight = 50vw
 .project_wrapper
   width: 100%;
-  height: 780px;
+  height: projectHeight;
+  max-height: projectMaxHeight;
   background: #1b1f25;
   margin-bottom: 84px;
 
   .project_hook
-    width: 1440px;
-    height: 780px;
+    max-width: 1440px;
+    height: projectHeight;
+    max-height: projectMaxHeight;
     margin: 0px auto;
     cursor pointer
 
@@ -233,7 +237,7 @@ export default {
 
     .right_content
       width: 64%;
-      height: 780px;
+      height: 100%;
       margin-left: 36%;
       overflow: hidden;
 
@@ -292,7 +296,8 @@ export default {
             height: 50%;
             overflow hidden
             position relative
-
+            background-repeat no-repeat
+            background-size contain
             img
               position: absolute;
               top: 0;

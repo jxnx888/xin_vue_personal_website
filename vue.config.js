@@ -1,62 +1,55 @@
 const webpack = require('webpack')
+const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin')
-module.exports = {
-    publicPath: './',
-    configureWebpack: {
-      plugins: [
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-          new webpack.ProvidePlugin({
-              $: "jquery",
-              jQuery: "jquery",
-              jquery:"jquery",
-              "windows.jQuery": "jquery"
-          }),
-          /*new TerserPlugin({
-              test: /\.js(\?.*)?$/i, //用来匹配需要压缩的文件。
-              include: /\/includes/, //匹配参与压缩的文件。
-              exclude: /\/excludes/, //匹配不需要压缩的文件。
-              parallel: true, // Boolean 启用/禁用多进程并发运行功能. Number 启用多进程并发运行并设置并发运行次数(parallel: 4,)。 使用多进程并发运行以提高构建速度
-              terserOptions: { //Terser 压缩配置 。
-                  compress: {
-                      pure_funcs: ["console.log"]
-                  }
-              }
-          })*/
-      ],
-      optimization: {
-          minimize: true,
-          minimizer: [
-              new TerserPlugin(),
-          ],
+module.exports = {
+  publicPath: './',
+  outputDir: 'dist',
+  configureWebpack: {
+    resolve: {
+      extensions: [ '.json', '.vue', '.js' ],
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+        asset: path.resolve(__dirname, 'src/asset'),
       },
     },
- /* babel: {
-      presets:['es2015'],
-    plugins: ['transform-runtime']
-  }*/
-
-    /*configureWebpack: config => {
-        if (process.env.NODE_ENV === 'production') {
-            //生产环境配置
-            config.plugins.push(new TerserPlugin())
-            new webpack.ProvidePlugin({
-                $: "jquery",
-                jQuery: "jquery",
-                jquery:"jquery",
-                "windows.jQuery": "jquery"
-            })
-        }
-        else{
-            //开发环境配置
-            new webpack.ProvidePlugin({
-                $: "jquery",
-
-                jQuery: "jquery",
-                jquery:"jquery",
-                "windows.jQuery": "jquery"
-
-            })
-        }
-    }*/
-
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          use: [
+            { loader: 'style-loader' },
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' },
+          ],
+        },
+      ],
+    },
+    plugins: [
+      /*new UglifyJsPlugin({
+        uglifyOptions: {
+          compress: {
+            drop_debugger: true,
+            drop_console: true,
+            pure_funcs: [ 'console.log' ],
+          },
+        },
+        sourceMap: false,	// config.build.productionSourceMap
+        parallel: true,	// 并行任务构建
+      }),*/
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        jquery: 'jquery',
+        'windows.jQuery': 'jquery'
+      })
+    ],
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin()
+      ]
+    }
+  }
 }

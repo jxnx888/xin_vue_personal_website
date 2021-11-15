@@ -1,11 +1,14 @@
 <template>
-  <div class="footer_wrapper">
+  <div :class="`footer_wrapper footer_wrapper-${this.$root.userAgent}`">
     <footer class="common_footer">
       <el-row>
         <el-col :span="24">
           <div class="social_wrapper clearfix">
             <div class="each_social">
-              <a class="wechat-btn" title="WeChat:Xin Ning">
+              <a
+                title="WeChat:Xin Ning"
+                :class="`wechat-btn ${showWebChat ? 'wechat-btn-show' : ''}`"
+                @click='openWechatImg'>
                 <div class="icon i_wechat"></div>
                 <img src="/image/footer/wechat_xin.jpg" alt="">
               </a>
@@ -51,7 +54,7 @@
           </div>
         </el-col>
         <el-col :span="24" class="footer_copyright">
-          Copyright 2015-2020 | Xin Ning
+            {{ `Copyright 2015 - ${new Date().getFullYear()} | Xin Ning` }}
         </el-col>
       </el-row>
     </footer>
@@ -63,12 +66,18 @@ export default {
   name: "footerVue",
   data() {
     return {
-        resumeLink:'/file/XinNing-Resume-CN.pdf',
+      resumeLink:'/file/XinNing-Resume-CN.pdf',
+      showWebChat:false
     }
   },
   created() {
   },
   methods: {
+    openWechatImg(){
+      if(this.$root.userAgent !== "pc") {
+        this.showWebChat = !this.showWebChat
+      }
+    }
   },
   watch: {
       '$i18n.locale'(newValue, oldValue) {
@@ -180,4 +189,11 @@ export default {
       font-size .14rem
       color #666
       margin-bottom 20px
+.footer_wrapper-phone, .footer_wrapper-pad
+  .wechat-btn:hover
+    img
+      display none!important
+  .wechat-btn-show
+    img
+      display block!important
 </style>

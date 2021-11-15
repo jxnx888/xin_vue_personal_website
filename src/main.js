@@ -70,6 +70,10 @@ Vue.use(BaiduMap, {
 })
 
 
+import getUserAgent from './utils/getUserAgent'
+
+let userAgent = getUserAgent();
+Vue.prototype.$userAgent = userAgent
 Vue.config.productionTip = false
 
 new Vue({
@@ -80,7 +84,11 @@ new Vue({
     return{
       focusedTransformObj:null,
       deleteObjFlag:null,
+      userAgent:userAgent,
+      windowWidth: (window.innerWidth > 992) // 992 pc菜单最小宽度（加滚动条）
+
     }
   },
   store,
 }).$mount('#app')
+

@@ -26,6 +26,7 @@ TxtType.prototype.tick = function () {
     else{
         this.el.classList.remove("typewrite-cursor-anim")
     }
+    // console.log(this.txt, 'this.txt')
     this.el.innerHTML = this.txt;
 
     var that = this;

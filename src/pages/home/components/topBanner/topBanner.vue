@@ -1,5 +1,5 @@
 <template>
-  <div class="main_wrapper">
+  <div :class="`banner-${this.$root.userAgent} main_wrapper`">
       <div class="banner banner_one">
         <img :src="bannerList[0]" alt="">
         <div class="banner_info">
@@ -14,8 +14,9 @@
           <p class="title">{{$t('MY_TITLE')}}</p>
           <p class="subtitle">{{$t('MY_SUBTITLE')}}</p>
         </div>
-        <autoTyping :key="timer" :dataType="$t('INTRODUCTION')"></autoTyping>
+        <autoTyping v-if='this.$root.userAgent !== "phone"' :key="timer" :dataType="$t('INTRODUCTION')"></autoTyping>
       </div>
+    <autoTyping v-if='this.$root.userAgent === "phone"' :key="timer" :dataType="$t('INTRODUCTION')"></autoTyping>
   </div>
 </template>
 
@@ -99,12 +100,12 @@ import autoTyping from "@/common/autoTyping/autoTyping";
 </script>
 
 <style scoped lang="stylus">
-.main_wrapper
+.main_wrapper, .banner-pc
   .banner
     position: relative;
     width 100%
     /*height 5.56rem*/
-    min-height 2.56rem
+    /*min-height 2.56rem*/
     background #eee
     @media screen and (max-width: 768px)
       min-height 1rem
@@ -114,8 +115,8 @@ import autoTyping from "@/common/autoTyping/autoTyping";
     .banner_info
       position absolute
       left: 50%
-      top 50%
-      transform: translate(-50%,-50%);
+      top 40%
+      transform: translate(-50%,-60%);
       @media screen and (max-width: 768px)
         width 95%
       h1
@@ -124,6 +125,10 @@ import autoTyping from "@/common/autoTyping/autoTyping";
         text-shadow: 6px 9px 2px #999;
         color: #333;
         padding 20px 0
+        @media screen and (max-width: 1024px)
+          font-size: 55px;
+        @media screen and (max-width: 768px)
+          font-size: 40px;
         .each_word
           cursor default
           min-width .2rem
@@ -144,13 +149,27 @@ import autoTyping from "@/common/autoTyping/autoTyping";
         letter-spacing: 5px;
         -webkit-animation: twinkling 1s 1.3s backwards;
         animation: twinkling 1s 1.3s backwards;
+        @media screen and (max-width: 1024px)
+          font-size: .18rem;
+        @media screen and (max-width: 768px)
+          font-size: .14rem;
       .subtitle
         font-size: .2rem;
         padding .1rem 0
         color: #bdb7b7;
         -webkit-animation: twinkling 1s 1.3s backwards;
         animation: twinkling 1s 1.3s backwards;
+        @media screen and (max-width: 1024px)
+          font-size: .18rem;
         @media screen and (max-width: 768px)
-          font-size: .12rem;
+          font-size: .14rem;
 
+.banner-phone .banner
+  .banner_info
+    top: 50%;
+    transform: translate(-50%, -50%);
+    h1
+      font-size .2rem
+    p
+      font-size .16rem
 </style>

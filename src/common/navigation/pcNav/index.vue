@@ -137,7 +137,7 @@
     -ms-transition: all 0.2s linear;
     -o-transition: all 0.2s linear;
     .main_wrapper
-      width 1200px;
+      max-width 1200px;
       height: 1rem;
       margin auto
 

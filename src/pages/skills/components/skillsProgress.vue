@@ -1,5 +1,5 @@
 <template>
-  <div class="progress_main clearfix">
+  <div :class="`progress_main clearfix progress_main-${this.$root.userAgent}`">
     <div class="skills_progress clearfix">
     <div class="develop_skills clearfix">
       <h1>{{$t('skills.devSkill')}}</h1>
@@ -289,6 +289,18 @@
 
 
 
+.progress_main-phone,.progress_main-pad
+  .skills_progress
+    width 100%
+    h1
+      font-size .2rem
+    .each_skill
+      width 100%
+      float none
+      .skill_title
+        width 30%
+      .skill_progress
+        width 70%
 @-webkit-keyframes sparkle {
   from {background-position: 0 0;}
   to {background-position: 0 -64px;}

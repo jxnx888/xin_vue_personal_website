@@ -11,7 +11,7 @@ const en_us = {
   MY_TITLE: 'Front-end Developer',
   MY_SUBTITLE: '(Web/Android/iOS)',
   MY_DOB: '1989/10/07',
-  INTRODUCTION: '[ "Hi, I am Xin Ning.", " Welcome to my personal website.", "I am Creative, and I Love to Develop.", "I am Good at JavaScript, Jquery, Vue, HTML5 and CSS3."]',
+  INTRODUCTION: '[ "Hi, I am Xin Ning.", " Welcome to my personal website.", "I am Creative, and I Love to Develop.", "I am Good at JavaScript, Jquery, React Hooks, Vue.js, HTML5 and CSS3."]',
   AND: 'and',
   CV: 'cv(pdf).',
   EMAIL: 'ningxin1007@hotmail.com',
