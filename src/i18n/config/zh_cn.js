@@ -12,7 +12,7 @@ const zh_cn = {
     MY_TITLE: '前端开发工程师',
     MY_SUBTITLE: '(网页/安卓/iOS)',
     MY_DOB: '1989/10/07',
-    INTRODUCTION: '["嗨，我是宁鑫.", "欢迎来到我的个人主页！", "我具有很好的学习能力，并且我非常喜欢开发","我擅长JavaScript, Jquery, Vue, HTML5 and CSS3."]',
+    INTRODUCTION: '["嗨，我是宁鑫.", "欢迎来到我的个人主页！", "我具有很好的学习能力，并且我非常喜欢开发","我擅长JavaScript, Jquery, React Hooks, Vue.js, HTML5 and CSS3."]',
     AND: '和',
     CV: 'cv(pdf).',
     EMAIL: 'ningxin1007@hotmail.com',
