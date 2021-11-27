@@ -37,7 +37,7 @@
           :link='childItem.url'
           :code='childItem.code'
           :showTD='showTD'
-          :storeUrlQr='childItem.storeUrlQr'
+          :storeUrlQr='childItem.storeUrlQr || ""'
           :id="childItem.title.replaceAll(' ','')"
         ></projectTem>
       </div>
@@ -102,7 +102,7 @@ export default {
         })
     },
     getProjectSucc(res) {
-      console.log(res)
+      // console.log(res)
       if (res.data.code == 200) {
         const data = res.data.data
         this.projectsJson = data
@@ -159,7 +159,7 @@ export default {
         })
     },
     getForFunSucc(res) {
-      console.log(res)
+      // console.log(res)
       if (res.data.code == 200) {
         const data = res.data.data
         this.forFunJson = data

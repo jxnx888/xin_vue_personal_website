@@ -25,7 +25,7 @@
                  :key="index" >
               <div class="col-xs-12" v-if="value">
                 <div class="img_wrapper">
-                <img  v-lazy="value" :key="storeUrlQr" alt="">
+                <img  v-lazy="value" :key="key" alt="">
                 </div>
               </div>
               <div class="col-xs-12 qrTitle" v-if="value">
@@ -58,7 +58,7 @@
             tags:String,
             link:String,
             code:Number,
-            storeUrlQr:String,
+            storeUrlQr:{},
         },
         methods:{
             goChildPage(page){
