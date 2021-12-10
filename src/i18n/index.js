@@ -13,8 +13,8 @@ const i18n = new VueI18n({
     locale: getLocalStore('locale') || 'en_us', // 语言标识
     // 添加多语言（每一个语言标示对应一个语言文件）
     messages: {
-        'zh_cn': zh_cn,
-        'en_us': en_us,
+        'zh_cn': { ...zh_cn },
+        'en_us': { ...en_us },
     }
 })
 // 暴露i18n

@@ -30,7 +30,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElmentUI);
 
 // jQuery
-// import $ from 'jquery”
+// eslint-disable-next-line no-unused-vars
+import $ from 'jquery'
 
 //引用axios传输数据
 import axios from 'axios'
@@ -68,7 +69,6 @@ Vue.use(BaiduMap, {
   // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
   ak: 'ltMWgFXjRibfXcKgWjDPfsSuQidpINet'
 })
-
 
 import getUserAgent from './utils/getUserAgent'
 
