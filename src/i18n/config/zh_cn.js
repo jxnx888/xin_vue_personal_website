@@ -93,6 +93,24 @@ const zh_cn = {
             'Communication': '沟通能力',
             'Listening': '倾听能力'
         }
-    }
+    },
+    REGULAR:'基础',
+    CARTOON:'卡通',
+    MODEL: '模型',
+    BACK: '返回',
+    SAVE: '保存',
+    REDO:'撤回',
+    UNDO:'恢复',
+    CHANGE_SIZE:'改变大小',
+    MOVE:'移动',
+    ROTATE:'旋转',
+    ZOOM:'放大缩小',
+    DELETE:'删除',
+    COLOR:'颜色',
+    NAME:'命名',
+    NAME_MODEL:'模型还没有名字，取个名字吧',
+    ENTER_MODEL_NAME:'请输入模型名称',
+    NOTE:'提示',
+    SAVE_OR_NOT:'模型进度还没有保存哦，此时离开会丢失进度，是否保存？',
 }
 export default zh_cn

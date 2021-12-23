@@ -10,23 +10,23 @@ THREE.OrientationControls = (function () {
 
         const elements = matrix.elements;
         const matrix3d = 'matrix3d(' +
-            epsilon( elements[ 0 ] ) + ',' +
-            epsilon( elements[ 1 ] ) + ',' +
-            epsilon( elements[ 2 ] ) + ',' +
-            epsilon( elements[ 3 ] ) + ',' +
-            epsilon( -elements[ 4 ] ) + ',' +
-            epsilon( -elements[ 5 ] ) + ',' +
-            epsilon( -elements[ 6 ] ) + ',' +
-            epsilon( -elements[ 7 ] ) + ',' +
-            epsilon( elements[ 8 ] ) + ',' +
-            epsilon( elements[ 9 ] ) + ',' +
-            epsilon( elements[ 10 ] ) + ',' +
-            epsilon( elements[ 11 ] ) + ',' +
-            epsilon( elements[ 12 ] ) + ',' +
-            epsilon( elements[ 13 ] ) + ',' +
-            epsilon( elements[ 14 ] ) + ',' +
-            epsilon( elements[ 15 ] ) +
-            ')';
+          epsilon( elements[ 0 ] ) + ',' +
+          epsilon( elements[ 1 ] ) + ',' +
+          epsilon( elements[ 2 ] ) + ',' +
+          epsilon( elements[ 3 ] ) + ',' +
+          epsilon( -elements[ 4 ] ) + ',' +
+          epsilon( -elements[ 5 ] ) + ',' +
+          epsilon( -elements[ 6 ] ) + ',' +
+          epsilon( -elements[ 7 ] ) + ',' +
+          epsilon( elements[ 8 ] ) + ',' +
+          epsilon( elements[ 9 ] ) + ',' +
+          epsilon( elements[ 10 ] ) + ',' +
+          epsilon( elements[ 11 ] ) + ',' +
+          epsilon( elements[ 12 ] ) + ',' +
+          epsilon( elements[ 13 ] ) + ',' +
+          epsilon( elements[ 14 ] ) + ',' +
+          epsilon( elements[ 15 ] ) +
+          ')';
 
 
         return 'translate(-50%,-50%)' + matrix3d;
@@ -205,25 +205,25 @@ THREE.OrientationControls = (function () {
 
             e.id = id;
             switch(side){
-				case 'Front':
-					e.textContent = "前";
-					break;
-				case 'Right':
-					e.textContent = "右";
-					break;
-				case 'Back':
-					e.textContent = "后";
-					break;
-				case 'Left':
-					e.textContent = "左";
-					break;
-				case 'Top':
-					e.textContent = "上";
-					break;
-				case 'Bottom':
-					e.textContent = "下";
-					break;
-			}
+                case 'Front':
+                    e.textContent = "前";
+                    break;
+                case 'Right':
+                    e.textContent = "右";
+                    break;
+                case 'Back':
+                    e.textContent = "后";
+                    break;
+                case 'Left':
+                    e.textContent = "左";
+                    break;
+                case 'Top':
+                    e.textContent = "上";
+                    break;
+                case 'Bottom':
+                    e.textContent = "下";
+                    break;
+            }
             // e.textContent = side;
             e.className = id + ' face';
 
@@ -245,13 +245,13 @@ THREE.OrientationControls = (function () {
         plane( 'Top' );
         plane( 'Bottom' );
 
-		/*plane( '前' );
-        plane( '右' );
-        plane( '后' );
-        plane( '左' );
-        plane( '上' );
-        plane( '下' );
-*/
+        /*plane( '前' );
+            plane( '右' );
+            plane( '后' );
+            plane( '左' );
+            plane( '上' );
+            plane( '下' );
+    */
 
 
         this.element = container;
@@ -269,8 +269,8 @@ THREE.OrientationControls = (function () {
             box.style.WebkitTransform = style;
             box.style.transform = style;
 
-			container.style.perspective = ( ( options.perspective && camera.isPerspectiveCamera ) ?
-			( Math.pow( size * size + size * size, 0.5 ) / Math.tan( ( camera.fov / 2 ) * Math.PI / 180 ) ) : 0 ) + unit;
+            container.style.perspective = ( ( options.perspective && camera.isPerspectiveCamera ) ?
+              ( Math.pow( size * size + size * size, 0.5 ) / Math.tan( ( camera.fov / 2 ) * Math.PI / 180 ) ) : 0 ) + unit;
 
 
 

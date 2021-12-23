@@ -95,6 +95,24 @@ const en_us = {
       'Communication': 'Communication',
       'Listening': 'Listening'
     }
-  }
+  },
+  REGULAR:'Regular',
+  CARTOON:'Cartoon',
+  MODEL: 'model',
+  BACK: 'Back',
+  SAVE: 'Save',
+  REDO:'Redo',
+  UNDO:'Undo',
+  CHANGE_SIZE:'Change Size',
+  MOVE:'Move',
+  ROTATE:'Rotate',
+  ZOOM:'Zoom',
+  DELETE:'Delete',
+  COLOR:'Color',
+  NAME:'Name',
+  NAME_MODEL:'Please name your modle',
+  ENTER_MODEL_NAME:'Please enter the name of your model',
+  NOTE:'Note',
+  SAVE_OR_NOT:'The progress of the model has not been saved. If you leave at this time, the model will be lost. Do you want to save?',
 }
 export default en_us

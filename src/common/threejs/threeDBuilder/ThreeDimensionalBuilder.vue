@@ -1,91 +1,92 @@
 <template>
   <div class='builder fixedBuilder'>
-    <div class='main_wrapper' id='mainWrapper'>
+    <div :class='`main_wrapper main_wrapper_${this.$i18n.locale}`' id='mainWrapper'>
       <div id='container' class='clearfix' @click='containerListenner' @mousedown='containerMouseDown'
            @mousemove='containerMouseMove' @mouseup='containerMouseUp'></div>
       <div class='show_more clearfix' @click='showMoreFn()' :class="showMore?'':'show_more_close'"><img
         src='/image/3dBuilder/arrow.png' alt=''></div>
-      <div v-if='showMore' id='shapes' class='clearfix'>
-        <div class='shapes_wrapper'>
-          <div class='shapes_options normal' @click='showModule(0)'>基础模型 <i
+      <div v-show='showMore' id='shapes' class='clearfix'>
+        <div class='shapes_wrapper' v-if='!shapesListShow && !cartoonStlShow'>
+          <div class='shapes_options normal' @click='showModule(0)'>{{ $t('REGULAR') }} {{ $t('MODEL') }} <i
             class='iconfont arrow arrow_right'>&#xe6f8;</i></div>
-          <div class='shapes_options cartoon' @click='showModule(1)'>卡通模型 <i
+          <div class='shapes_options cartoon' @click='showModule(1)'>{{ $t('CARTOON') }} {{ $t('MODEL') }} <i
             class='iconfont arrow arrow_right'>&#xe6f8;</i></div>
         </div>
-      </div>
-      <div id='childWrapper' v-show='shapesListShow || cartoonStlShow'>
-        <div class='child_wrapper normal_wrapper' v-if='shapesListShow'>
-          <div class='child_title' @click='hideModule()'><i class='iconfont arrow'>&#xe720;</i>基础模型</div>
-          <div v-for='(item, index) in shapesList'
-               :key=index
-               :class='item.title'
-               @click='selectModule(0,item.code,index,item.module)'
-               class='module shapes drag'>
-            <input v-if="item.module =='shape'" class='this_module' type='hidden' value='0'>
-            <input v-else-if="item.module =='stl'" class='this_module' type='hidden' value='1'>
-            <input v-else-if="item.module =='text'" class='this_module' type='hidden' value='2'>
-            <input class='this_code' type='hidden' :value='item.code'>
-            <div class='drag sprint' :class="'sprint_'+item.title"
-                 v-lazy:background-image="'/image/3dBuilder/3dPrinting/sprint_'+item.title+'.png'"></div>
-            <div class='name drag'>{{ item.name }}</div>
+        <div id='childWrapper' v-if='shapesListShow || cartoonStlShow'>
+          <div class='child_wrapper normal_wrapper' v-if='shapesListShow'>
+            <div class='child_title' @click='hideModule()'><i class='iconfont arrow'>&#xe720;</i>{{ $t('REGULAR') }} {{ $t('MODEL') }}</div>
+            <div v-for='(item, index) in shapesList'
+                 :key=index
+                 :class='item.title'
+                 @click='selectModule(0,item.code,index,item.module)'
+                 class='module shapes drag'>
+              <input v-if="item.module =='shape'" class='this_module' type='hidden' value='0'>
+              <input v-else-if="item.module =='stl'" class='this_module' type='hidden' value='1'>
+              <input v-else-if="item.module =='text'" class='this_module' type='hidden' value='2'>
+              <input class='this_code' type='hidden' :value='item.code'>
+              <div class='drag sprint' :class="'sprint_'+item.title"
+                   v-lazy:background-image="'/image/3dBuilder/3dPrinting/sprint_'+item.title+'.png'"></div>
+              <div class='name drag'>{{ item.name }}</div>
+            </div>
+          </div>
+          <div class='child_wrapper cartoon_wrapper' v-if='cartoonStlShow'>
+            <div class='child_title' @click='hideModule()'><i class='iconfont arrow'>&#xe720;</i>{{ $t('CARTOON') }} {{ $t('MODEL') }}</div>
+            <div v-for='(item, index) in cartoonStlList'
+                 :key=index
+                 :class='item.title'
+                 @click='selectModule(1,item.code,index,item.module)'
+                 class='module lego drag'>
+              <input class='this_module' type='hidden' value='1'>
+              <input class='this_code' type='hidden' :value='index'>
+              <div class='drag sprint sprintY' :class="'sprint_'+item.title"
+                   v-lazy:background-image="'/image/3dBuilder/3dPrinting/sprint_'+item.title+'.png'"></div>
+              <div class='name drag'>{{ item.name }}</div>
+            </div>
           </div>
         </div>
-        <div class='child_wrapper cartoon_wrapper' v-if='cartoonStlShow'>
-          <div class='child_title' @click='hideModule()'><i class='iconfont arrow'>&#xe720;</i>卡通模型</div>
-          <div v-for='(item, index) in cartoonStlList'
-               :key=index
-               :class='item.title'
-               @click='selectModule(1,item.code,index,item.module)'
-               class='module lego drag'>
-            <input class='this_module' type='hidden' value='1'>
-            <input class='this_code' type='hidden' :value='index'>
-            <div class='drag sprint sprintY' :class="'sprint_'+item.title"
-                 v-lazy:background-image="'/image/3dBuilder/3dPrinting/sprint_'+item.title+'.png'"></div>
-            <div class='name drag'>{{ item.name }}</div>
-          </div>
-        </div>
       </div>
+
       <div class='module_btns clearfix'>
         <div class='btn_main go_mainPage' @click='leaveBuilder()'>
           <div class='btn_child btn_home'><i class='iconfont'>&#xe651;</i></div>
-          <div class='module_btn_name'>Back</div>
+          <div class='module_btn_name'>{{$t('BACK')}}</div>
         </div>
         <div class='btn_main save_module save_stl' :class="activeSave?'':'noActive_save'" @click='saveModuleShow(0)'>
           <div class='btn_child btn_save_module'><i class='iconfont'>&#xe710;</i></div>
-          <div class='module_btn_name'>保存</div>
+          <div class='module_btn_name'>{{$t('SAVE')}}</div>
         </div>
       </div>
       <div class='obj_control has_right_menu'>
         <div class='obj_control_wrapper clearfix' v-if='controlBar'>
           <div class='control_btn undo_control ' :class="undoActive?'':'noActive_control'" @click='redoUndo(0)'>
             <i class='iconfont'>&#xe696;</i>
-            <div class='btn_name'>撤回</div>
+            <div class='btn_name'>{{$t('REDO')}}</div>
           </div>
           <div class='control_btn redo_control ' :class="redoActive?'':'noActive_control'" @click='redoUndo(1)'>
             <i class='iconfont'>&#xe697;</i>
-            <div class='btn_name'>恢复</div>
+            <div class='btn_name'>{{$t('UNDO')}}</div>
           </div>
           <div class='control_btn size_control' @click='changeControls(0)'>
             <div class='icon_wrapper'>
               <i class='iconfont'>&#xe6aa;</i>
             </div>
-            <div class='btn_name'>修改大小</div>
+            <div class='btn_name'>{{$t('CHANGE_SIZE')}}</div>
           </div>
           <div class='control_btn trans_control active_control' @click='changeControls(1)'>
             <div class='icon_wrapper'>
               <i class='iconfont'>&#xe69b;</i>
             </div>
-            <div class='btn_name'>移动</div>
+            <div class='btn_name'>{{$t('MOVE')}}</div>
           </div>
           <div class='control_btn rotate_control' @click='changeControls(2)'>
             <div class='icon_wrapper'>
               <i class='iconfont'>&#xe626;</i>
             </div>
-            <div class='btn_name'>旋转</div>
+            <div class='btn_name'>{{$t('ROTATE')}}</div>
           </div>
           <div class='control_btn zoomin_control' @click='showChild(0)'>
             <i class='iconfont'>&#xe64e;</i>
-            <div class='btn_name'>放大缩小</div>
+            <div class='btn_name'>{{$t('ZOOM')}}</div>
             <div class='zoom_options' v-if='showZoomOption'>
               <div class='zoom_opt' @click='zoomView(50)'>50%</div>
               <div class='zoom_opt' @click='zoomView(100)'>100%</div>
@@ -102,11 +103,11 @@
               </div>-->
           <div class='control_btn delete_control' @click='deletedSelected()'>
             <i class='iconfont'>&#xe783;</i>
-            <div class='btn_name'>删除</div>
+            <div class='btn_name'>{{$t('DELETE')}}</div>
           </div>
           <div class='control_btn color_control_wrapper' v-if='colorControl' @click='showChild(1)'>
             <div class='color_circle outside_color' :class="isWhite?'white_color_circle':''"></div>
-            <div class='btn_name'>颜色</div>
+            <div class='btn_name'>{{$t('COLOR')}}</div>
             <div class='color_wrapper' v-if='showColorOption'>
               <div class='color_control yellow_control' @click='changeCurrentColor(1)'>
                 <div class='color_circle'></div>
@@ -127,15 +128,15 @@
     </div>
     <div class='save_name_module_bg' v-if='saveNmaeWindow'></div>
     <div class='save_name_module' v-if='saveNmaeWindow'>
-      <div class='save_name_title'>命名</div>
-      <div class='save_name_tip'>模型还没有名字，取个名字吧</div>
-      <input type='text' placeholder='请输入模型名称' maxlength='14' id='save_name' oninput="saveModuleName(this,'oninput')"
+      <div class='save_name_title'>{{$t('NAME')}}</div>
+      <div class='save_name_tip'>{{$t('NAME_MODEL')}}</div>
+      <input type='text' placeholder="$t('ENTER_MODEL_NAME')" maxlength='14' id='save_name' oninput="saveModuleName(this,'oninput')"
              onblur="saveModuleName(this,'onblur')" onFocus="saveModuleName(this,'onFocus')"
              onkeyup="this.value=this.value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g ,'')"
              blur="saveModuleName(this,'blur')"
              :value=this.getTimeStr()
       >
-      <div class='save_name_verify'>请输入模型名称</div>
+      <div class='save_name_verify'>{{ $t('ENTER_MODEL_NAME') }}</div>
       <div class='btn_wrapper clearfix'>
         <img src='/image/3dBuilder/3dPrinting/btn_yes1.png' class='save_name_ok' @click="activeSave?exportMoudle(0):''">
         <img src='/image/3dBuilder/3dPrinting/btn_close.png' class='imgBtn save_name_cancle'
@@ -144,9 +145,9 @@
     </div>
     <div class='save_ask_module_bg' v-if='notSaveNote'></div>
     <div class='save_ask' v-if='notSaveNote'>
-      <div class='save_name_title'>提示</div>
+      <div class='save_name_title'>{{$t('NOTE')}}</div>
       <div class='save_name_tip'>
-        模型进度还没有保存哦，此时离开会丢失进度，是否保存？
+        {{$t('SAVE_OR_NOT')}}
       </div>
       <div class='btn_wrapper clearfix'>
         <img src='/image/3dBuilder/3dPrinting/btn_no.png' class='go_home_ok' @click='goHomeSaveModule(0)'>
@@ -189,7 +190,8 @@ import { STLExporter } from 'three/examples/jsm/exporters/STLExporter'
 // import {TransformControls} from 'three/examples/jsm/controls/TransformControls'
 import { TransformControls } from '@/assets/threejs/TransformControls.js'
 // import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer'
-import { OrientationControls } from './js/OrientationControls2.js'
+// import { OrientationControls } from './js/OrientationControls2.js'
+import { OrientationControls } from '@/assets/threejs/OrientationControls2.js'
 
 export default {
   name: 'ThreeDimensionalBuilder',
@@ -240,7 +242,7 @@ export default {
       movedDir: null,
       shapesList: [],
       cartoonStlList: [],
-      shapesListShow: false,
+      shapesListShow: true,
       cartoonStlShow: false,
       controlBar: false,
       redoActive: false,
@@ -339,8 +341,8 @@ export default {
       // lights end
       // _this.outline(); //objects outline
       _this.orbitCont()
-      // _this.transformCont()
-      _this.orientationCont()
+      _this.transformCont()
+      // _this.orientationCont()
       // _this.containerListenner();
       _this.animate()
       _this.onWindowResize()
@@ -539,7 +541,7 @@ export default {
     animate() {
       requestAnimationFrame(this.animate)
       this.renderer.render(this.scene, this.camera)
-      this.orientationContr.update(this.camera)
+      // this.orientationContr.update(this.camera)
       // this.composer.render();
     },
     onWindowResize() {
@@ -1009,6 +1011,7 @@ export default {
       _this.showLoading = true
       _this.showInput(1)
       this.fontLoader.load('/font/SimHei_Regular.json', function(font) {
+          console.log(123)
           _this.wordFont = font
           _this.createText()
           _this.showLoading = false
@@ -1993,6 +1996,9 @@ export default {
 </script>
 
 <style scoped lang='stylus'>
+RIGHT-WIDTH = 1rem;
+RIGHT-WIDTH-EN = 1.3rem;
+
 .builder
   position: relative;
   margin auto
@@ -2019,7 +2025,7 @@ export default {
     .show_more
       position: absolute;
       top: 50%;
-      right 1rem
+      right RIGHT-WIDTH
       transform translate(0, -50%)
       cursor pointer
       z-index: 3;
@@ -2053,13 +2059,13 @@ export default {
       right 0
       top 0
       bottom 0
-      width 1rem
+      width RIGHT-WIDTH
       background: #F0F7FF;
       color: #000;
       text-align: center;
       font-size: .14rem;
       line-height: 0.3rem;
-      z-index: 4;
+      z-index: 6;
 
       *
         color: #323232;
@@ -2078,13 +2084,13 @@ export default {
       right 0
       top 0
       bottom 0
-      width 1rem
-      max-width: 1rem;
+      width RIGHT-WIDTH
+      max-width: RIGHT-WIDTH ;
       z-index: 5;
 
       .child_wrapper
         height: 100%;
-        max-width: 1rem;
+        max-width: RIGHT-WIDTH ;
         background: #F0F7FF;
         cursor pointer
 
@@ -2095,7 +2101,7 @@ export default {
           right: 0;
           left: 0;
           z-index: 2;
-          width: 1rem;
+          width: RIGHT-WIDTH ;
           background: #F0F7FF;
           text-align: left;
           line-height: 0.3rem;
@@ -2108,7 +2114,7 @@ export default {
 
         .module
           position: relative;
-          width: 1rem;
+          width: RIGHT-WIDTH ;
           height: .75rem;
           float: left;
 
@@ -2440,6 +2446,17 @@ export default {
     line-height: .2rem;
     padding: .07rem;
 
+  .main_wrapper.main_wrapper_en_us
+    .show_more
+      right RIGHT-WIDTH-EN
+    #shapes, #childWrapper
+      width RIGHT-WIDTH-EN
+      max-width: RIGHT-WIDTH-EN
+      .child_wrapper
+        width RIGHT-WIDTH-EN
+        max-width: RIGHT-WIDTH-EN
+        .child_title,.module
+          width RIGHT-WIDTH-EN
 .builder.fixedBuilder
   position fixed
   top 0
