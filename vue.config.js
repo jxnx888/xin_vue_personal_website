@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const UglifyPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
-  publicPath: './',
+  publicPath: '/',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: true,
