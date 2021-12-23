@@ -66,7 +66,6 @@ export default {
   name: "footerVue",
   data() {
     return {
-      resumeLink:'/file/XinNing-Resume-CN.pdf',
       showWebChat:false
     }
   },
@@ -79,17 +78,10 @@ export default {
       }
     }
   },
-  watch: {
-      '$i18n.locale'(newValue, oldValue) {
-          if(newValue!=oldValue)   {
-              if('zh_cn' == newValue){
-                  this.resumeLink = '/file/XinNing-Resume-CN.pdf';
-              }
-              else{
-                  this.resumeLink = '/file/XinNing-Resume-EN.pdf';
-              }
-          }
-      }
+  computed:{
+    resumeLink(){
+      return `${this.$i18n.locale === "zh_cn" ? "/file/XinNing-Resume-CN.pdf" : "/file/XinNing-Resume-EN.pdf"}`
+    },
   }
 }
 </script>
