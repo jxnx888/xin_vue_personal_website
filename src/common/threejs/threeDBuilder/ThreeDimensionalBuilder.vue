@@ -14,7 +14,9 @@
         </div>
         <div id='childWrapper' v-if='shapesListShow || cartoonStlShow'>
           <div class='child_wrapper normal_wrapper' v-if='shapesListShow'>
-            <div class='child_title' @click='hideModule()'><i class='iconfont arrow'>&#xe720;</i>{{ $t('REGULAR') }} {{ $t('MODEL') }}</div>
+            <div class='child_title' @click='hideModule()'><i class='iconfont arrow'>&#xe720;</i>{{ $t('REGULAR') }}
+              {{ $t('MODEL') }}
+            </div>
             <div v-for='(item, index) in shapesList'
                  :key=index
                  :class='item.title'
@@ -26,11 +28,13 @@
               <input class='this_code' type='hidden' :value='item.code'>
               <div class='drag sprint' :class="'sprint_'+item.title"
                    v-lazy:background-image="'/image/3dBuilder/3dPrinting/sprint_'+item.title+'.png'"></div>
-              <div class='name drag'>{{ item.name }}</div>
+              <div class='name drag'>{{ $t(item.name) }}</div>
             </div>
           </div>
           <div class='child_wrapper cartoon_wrapper' v-if='cartoonStlShow'>
-            <div class='child_title' @click='hideModule()'><i class='iconfont arrow'>&#xe720;</i>{{ $t('CARTOON') }} {{ $t('MODEL') }}</div>
+            <div class='child_title' @click='hideModule()'><i class='iconfont arrow'>&#xe720;</i>{{ $t('CARTOON') }}
+              {{ $t('MODEL') }}
+            </div>
             <div v-for='(item, index) in cartoonStlList'
                  :key=index
                  :class='item.title'
@@ -40,7 +44,7 @@
               <input class='this_code' type='hidden' :value='index'>
               <div class='drag sprint sprintY' :class="'sprint_'+item.title"
                    v-lazy:background-image="'/image/3dBuilder/3dPrinting/sprint_'+item.title+'.png'"></div>
-              <div class='name drag'>{{ item.name }}</div>
+              <div class='name drag'>{{ $t(item.name) }}</div>
             </div>
           </div>
         </div>
@@ -49,44 +53,44 @@
       <div class='module_btns clearfix'>
         <div class='btn_main go_mainPage' @click='leaveBuilder()'>
           <div class='btn_child btn_home'><i class='iconfont'>&#xe651;</i></div>
-          <div class='module_btn_name'>{{$t('BACK')}}</div>
+          <div class='module_btn_name'>{{ $t('BACK') }}</div>
         </div>
         <div class='btn_main save_module save_stl' :class="activeSave?'':'noActive_save'" @click='saveModuleShow(0)'>
           <div class='btn_child btn_save_module'><i class='iconfont'>&#xe710;</i></div>
-          <div class='module_btn_name'>{{$t('SAVE')}}</div>
+          <div class='module_btn_name'>{{ $t('SAVE') }}</div>
         </div>
       </div>
       <div class='obj_control has_right_menu'>
         <div class='obj_control_wrapper clearfix' v-if='controlBar'>
           <div class='control_btn undo_control ' :class="undoActive?'':'noActive_control'" @click='redoUndo(0)'>
             <i class='iconfont'>&#xe696;</i>
-            <div class='btn_name'>{{$t('REDO')}}</div>
+            <div class='btn_name'>{{ $t('REDO') }}</div>
           </div>
           <div class='control_btn redo_control ' :class="redoActive?'':'noActive_control'" @click='redoUndo(1)'>
             <i class='iconfont'>&#xe697;</i>
-            <div class='btn_name'>{{$t('UNDO')}}</div>
+            <div class='btn_name'>{{ $t('UNDO') }}</div>
           </div>
           <div class='control_btn size_control' @click='changeControls(0)'>
             <div class='icon_wrapper'>
               <i class='iconfont'>&#xe6aa;</i>
             </div>
-            <div class='btn_name'>{{$t('CHANGE_SIZE')}}</div>
+            <div class='btn_name'>{{ $t('CHANGE_SIZE') }}</div>
           </div>
           <div class='control_btn trans_control active_control' @click='changeControls(1)'>
             <div class='icon_wrapper'>
               <i class='iconfont'>&#xe69b;</i>
             </div>
-            <div class='btn_name'>{{$t('MOVE')}}</div>
+            <div class='btn_name'>{{ $t('MOVE') }}</div>
           </div>
           <div class='control_btn rotate_control' @click='changeControls(2)'>
             <div class='icon_wrapper'>
               <i class='iconfont'>&#xe626;</i>
             </div>
-            <div class='btn_name'>{{$t('ROTATE')}}</div>
+            <div class='btn_name'>{{ $t('ROTATE') }}</div>
           </div>
           <div class='control_btn zoomin_control' @click='showChild(0)'>
             <i class='iconfont'>&#xe64e;</i>
-            <div class='btn_name'>{{$t('ZOOM')}}</div>
+            <div class='btn_name'>{{ $t('ZOOM') }}</div>
             <div class='zoom_options' v-if='showZoomOption'>
               <div class='zoom_opt' @click='zoomView(50)'>50%</div>
               <div class='zoom_opt' @click='zoomView(100)'>100%</div>
@@ -103,11 +107,11 @@
               </div>-->
           <div class='control_btn delete_control' @click='deletedSelected()'>
             <i class='iconfont'>&#xe783;</i>
-            <div class='btn_name'>{{$t('DELETE')}}</div>
+            <div class='btn_name'>{{ $t('DELETE') }}</div>
           </div>
           <div class='control_btn color_control_wrapper' v-if='colorControl' @click='showChild(1)'>
             <div class='color_circle outside_color' :class="isWhite?'white_color_circle':''"></div>
-            <div class='btn_name'>{{$t('COLOR')}}</div>
+            <div class='btn_name'>{{ $t('COLOR') }}</div>
             <div class='color_wrapper' v-if='showColorOption'>
               <div class='color_control yellow_control' @click='changeCurrentColor(1)'>
                 <div class='color_circle'></div>
@@ -128,9 +132,10 @@
     </div>
     <div class='save_name_module_bg' v-if='saveNmaeWindow'></div>
     <div class='save_name_module' v-if='saveNmaeWindow'>
-      <div class='save_name_title'>{{$t('NAME')}}</div>
-      <div class='save_name_tip'>{{$t('NAME_MODEL')}}</div>
-      <input type='text' placeholder="$t('ENTER_MODEL_NAME')" maxlength='14' id='save_name' oninput="saveModuleName(this,'oninput')"
+      <div class='save_name_title'>{{ $t('NAME') }}</div>
+      <div class='save_name_tip'>{{ $t('NAME_MODEL') }}</div>
+      <input type='text' placeholder="$t('ENTER_MODEL_NAME')" maxlength='14' id='save_name'
+             oninput="saveModuleName(this,'oninput')"
              onblur="saveModuleName(this,'onblur')" onFocus="saveModuleName(this,'onFocus')"
              onkeyup="this.value=this.value.replace(/[^\a-\z\A-\Z0-9\u4E00-\u9FA5]/g ,'')"
              blur="saveModuleName(this,'blur')"
@@ -145,9 +150,9 @@
     </div>
     <div class='save_ask_module_bg' v-if='notSaveNote'></div>
     <div class='save_ask' v-if='notSaveNote'>
-      <div class='save_name_title'>{{$t('NOTE')}}</div>
+      <div class='save_name_title'>{{ $t('NOTE') }}</div>
       <div class='save_name_tip'>
-        {{$t('SAVE_OR_NOT')}}
+        {{ $t('SAVE_OR_NOT') }}
       </div>
       <div class='btn_wrapper clearfix'>
         <img src='/image/3dBuilder/3dPrinting/btn_no.png' class='go_home_ok' @click='goHomeSaveModule(0)'>
@@ -161,17 +166,17 @@
       </div>
     </div>
     <div class='text_window' v-if='showTextWindow'>
-      <div class='text_title'>生成3D文字</div>
-      <input type='text' placeholder='请输入文字' maxlength='10' id='textContent' @input='textInputFn'
+      <div class='text_title'>{{$t('GENERATE_TEXT')}}</div>
+      <input type='text' placeholder="$t{'ENTER_TEXT'}" maxlength='10' id='textContent' @input='textInputFn'
              @blur='textInputFn'>
       <div class='btn_wrapper clearfix'>
         <div class='btns btn_ok text_ok' :class="inputCanConfirm?'':'btn_disable'"
-             @click='inputCanConfirm?insertWord():null'>确定
+             @click='inputCanConfirm?insertWord():null'>{{$t('CONFIRM')}}
         </div>
-        <div class='btns btn_cancle text_cancle' @click='showInput(1)'>取消</div>
+        <div class='btns btn_cancle text_cancle' @click='showInput(1)'>{{$t('CANCEL')}}</div>
       </div>
     </div>
-    <div class='control_type' v-if='controlType' v-text='statusTxt'>当前状态: 移动</div>
+    <div class='control_type' v-if='controlType' v-text='statusTxt'>{{$t('CURRENT_STATUS')}} {{$t('MOVE')}}</div>
     <div id='loading_data' :class="showMore?'hideShowMore':''" v-if='showLoading'><img
       src='/image/3dBuilder/loading.gif' alt=''>
       <div class='processingbar'>
@@ -277,9 +282,6 @@ export default {
       selectedObjects: [],//当前加outline的对象
       statusTxt: null,
       controlType: null,//是否显示文案
-      textTR: '当前状态:移动',
-      textSC: '当前状态:改变大小',
-      textRO: '当前状态:旋转',
       transformControlModeType: 1, //当前transformControl的 模式  0:scale  1:translate  2:rotate
       intersectsSelect: [], //焦点 交点
       intersection: {
@@ -400,7 +402,7 @@ export default {
         BOTTOM: 83 // down arrow
       }
       _this.controls.enablePan = false//是否开启右键拖拽
-      _this.controls.enableZoom = false//是否可以缩放
+      _this.controls.enableZoom = true//是否可以缩放
       // _this.controls.enabled = false;
       _this.controls.addEventListener('change', function() {
         _this.controlsMoved = true
@@ -1940,7 +1942,17 @@ export default {
       this.showLoading = false
     }, 1000)
   },
-
+  computed:{
+    textTR() {
+      return  `${this.$t('CURRENT_STATUS')} ${this.$t('MOVE')}`
+    },
+    textSC() {
+      return  `${this.$t('CURRENT_STATUS')} ${this.$t('CHANGE_SIZE')}`
+    },
+    textRO() {
+      return  `${this.$t('CURRENT_STATUS')} ${this.$t('ROTATE')}`
+    }
+  },
   destroyed() {
     const _this = this
     window.removeEventListener('resize', this.windowReisze)
@@ -2085,12 +2097,12 @@ RIGHT-WIDTH-EN = 1.3rem;
       top 0
       bottom 0
       width RIGHT-WIDTH
-      max-width: RIGHT-WIDTH ;
+      max-width: RIGHT-WIDTH;
       z-index: 5;
 
       .child_wrapper
         height: 100%;
-        max-width: RIGHT-WIDTH ;
+        max-width: RIGHT-WIDTH;
         background: #F0F7FF;
         cursor pointer
 
@@ -2101,7 +2113,7 @@ RIGHT-WIDTH-EN = 1.3rem;
           right: 0;
           left: 0;
           z-index: 2;
-          width: RIGHT-WIDTH ;
+          width: RIGHT-WIDTH;
           background: #F0F7FF;
           text-align: left;
           line-height: 0.3rem;
@@ -2114,7 +2126,7 @@ RIGHT-WIDTH-EN = 1.3rem;
 
         .module
           position: relative;
-          width: RIGHT-WIDTH ;
+          width: RIGHT-WIDTH;
           height: .75rem;
           float: left;
 
@@ -2449,14 +2461,18 @@ RIGHT-WIDTH-EN = 1.3rem;
   .main_wrapper.main_wrapper_en_us
     .show_more
       right RIGHT-WIDTH-EN
+
     #shapes, #childWrapper
       width RIGHT-WIDTH-EN
       max-width: RIGHT-WIDTH-EN
+
       .child_wrapper
         width RIGHT-WIDTH-EN
         max-width: RIGHT-WIDTH-EN
-        .child_title,.module
+
+        .child_title, .module
           width RIGHT-WIDTH-EN
+
 .builder.fixedBuilder
   position fixed
   top 0

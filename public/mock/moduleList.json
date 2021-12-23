@@ -3,7 +3,7 @@
     "shapes": [
       {
         "title": "cube",
-        "name": "矩形",
+        "name": "CUBE",
         "code": 0,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "矩形{height:80px;width:80px;background-position: 0 -82px;}矩形-Y{height:80px;width:80px;background-position: -80px -82px;}",
@@ -11,7 +11,7 @@
       },
       {
         "title": "ball",
-        "name": "球",
+        "name": "BALL",
         "code": 3,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "球-Y{height:80px;width:80px;background-position: -241px -82px;}\n@mixin 球{height:80px;width:80px;background-position: -160px -82px;}",
@@ -19,7 +19,7 @@
       },
       {
         "title": "cylinder",
-        "name": "圆柱",
+        "name": "CYLINDER",
         "code": 1,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "圆柱{height:80px;width:80px;background-position: -480px 0;}\n@mixin 圆柱-Y{height:80px;width:80px;background-position: -560px 0;}",
@@ -27,7 +27,7 @@
       },
       {
         "title": "prismatic",
-        "name": "棱柱",
+        "name": "PRISMATIC",
         "code": 5,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "棱柱{height:80px;width:80px;background-position: -321px -82px;}\n@mixin 棱柱-Y{height:80px;width:80px;background-position: -399px -81px;}",
@@ -35,7 +35,7 @@
       },
       {
         "title": "cone",
-        "name": "圆锥",
+        "name": "CONE",
         "code": 2,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "圆锥{height:200px;width:200px;background-position: -532px -138px;}\n@mixin 圆锥-Y{height:200px;width:200px;background-position: -313px -170px;}",
@@ -43,7 +43,7 @@
       },
       {
         "title": "pyramid",
-        "name": "三棱锥",
+        "name": "PYRAMID",
         "code": 6,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "三棱柱{height:80px;width:80px;background-position: -160px 0;}三棱柱-Y{height:80px;width:80px;background-position: -240px 0;}",
@@ -51,7 +51,7 @@
       },
       {
         "title": "doughnut",
-        "name": "甜甜圈",
+        "name": "DOUGHNUT",
         "code": 4,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "甜甜圈{height:80px;width:80px;background-position: 0 0;}甜甜圈-Y{height:80px;width:80px;background-position: -80px 0;}",
@@ -59,7 +59,7 @@
       },
       {
         "title": "hollowcylinder",
-        "name": "空心圆柱",
+        "name": "HOLLOW_CYLINDER",
         "code": 7,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "空心圆柱{height:80px;width:80px;background-position: -640px 0;}\n@mixin 空心圆柱-Y{height:80px;width:80px;background-position: -720px 0;}",
@@ -67,7 +67,7 @@
       },
       {
         "title": "triprism",
-        "name": "直三棱柱",
+        "name": "TRIPRISM",
         "code": 8,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "直三棱柱{height:80px;width:80px;background-position: -320px 0;} 直三棱柱-Y{height:80px;width:80px;background-position: -400px 0;}",
@@ -75,7 +75,7 @@
       },
       {
         "title": "fivepointstar",
-        "name": "五角星",
+        "name": "FIVE_POINT_STAR",
         "code": 11,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "",
@@ -83,7 +83,7 @@
       },
       {
         "title": "text",
-        "name": "文字",
+        "name": "TEXT",
         "code": 222,
         "url": "../img/3dPrinting/shapes.png",
         "sprint": "",
@@ -93,77 +93,77 @@
     "stl": [
       {
         "title": "standing",
-        "name": "站立",
+        "name": "STAND",
         "url": "",
         "module": "stl",
         "code": 0
       },
       {
         "title": "climbing",
-        "name": "爬",
+        "name": "CLIMBING",
         "url": "",
         "module": "stl",
         "code": 1
       },
       {
         "title": "lying",
-        "name": "躺",
+        "name": "LYING",
         "url": "",
         "module": "stl",
         "code": 2
       },
       {
         "title": "sitting",
-        "name": "坐",
+        "name": "SITTING",
         "url": ".",
         "module": "stl",
         "code":3
       },
       {
         "title": "tyrannosaurusRex",
-        "name": "霸王龙",
+        "name": "TYRANNOSAURUS_REX",
         "url": "",
         "module": "stl",
         "code":4
       },
       {
         "title": "bulbasaur",
-        "name": "妙蛙种子",
+        "name": "BULBASAUR",
         "url": "",
         "module": "stl",
         "code":5
       },
       {
         "title": "charmander",
-        "name": "小火龙",
+        "name": "CHARMANDER",
         "url": "../img/3dPrinting/doughnut.png",
         "module": "stl",
         "code":6
       },
       {
         "title": "chikorita",
-        "name": "菊草叶",
+        "name": "CHIKORITA",
         "url": "../img/3dPrinting/doughnut.png",
         "module": "stl",
         "code":7
       },
       {
         "title": "pikachu",
-        "name": "皮卡丘",
+        "name": "PIKACHU",
         "url": "../img/3dPrinting/doughnut.png",
         "module": "stl",
         "code":8
       },
       {
         "title": "squirtle",
-        "name": "杰尼龟",
+        "name": "SQUIRTLE",
         "url": "../img/3dPrinting/doughnut.png",
         "module": "stl",
         "code":9
       },
       {
         "title": "totodile",
-        "name": "小锯鳄",
+        "name": "TOTODILE",
         "url": "../img/3dPrinting/doughnut.png",
         "module": "stl",
         "code":10
