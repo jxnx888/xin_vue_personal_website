@@ -26,9 +26,9 @@ const zh_cn = {
     KEEP_LEARNING: ['不断学习，不断成长','一旦你停止学习,你就会开始死亡 ','阿尔伯特 · 爱因斯坦'],
     PROJECT1: {
         title: '长城汽车股份有限公司(最后一份工作)',
-        responsibility: ['维护和修改公司的电商网站',
-            '作为项目管理助理管理前端团队',
-            'Utilizing the Three.js to design and build 3D related WebApps (Android && iOS)'],
+        responsibility: ['维护和更新迭代当前的电子商务网站',
+            '管理 React 团队以提高我们的能力，例如代码审查、知识共享',
+            '为 GWM 内部项目创建命令行界面(GWM-CLI)'],
         childList: [
             {
                 title: '电商网站',
@@ -38,7 +38,7 @@ const zh_cn = {
     },
     PROJECT2: {
         title: '凯融信息科技',
-        responsibility:['维护和修改公司的电商网站','作为项目管理助理管理前端团队','使用Three.js设计并开发关于3D项目的App'],
+        responsibility:['维护和更新迭代公司的电商网站','作为项目管理助理管理前端团队','使用Three.js设计并开发关于3D项目的App'],
         childList: [
             {
                 title: '电商网站',
@@ -94,6 +94,7 @@ const zh_cn = {
             'Listening': '倾听能力'
         }
     },
+    RESPONSIBILITIES: "工作职责",
     REGULAR:'基础',
     CARTOON:'卡通',
     MODEL: '模型',
@@ -139,5 +140,6 @@ const zh_cn = {
     PIKACHU:'皮卡丘',
     SQUIRTLE:'杰尼龟',
     TOTODILE:'小锯鳄',
+    PRINT:'打印'
 }
 export default zh_cn

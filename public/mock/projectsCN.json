@@ -1,6 +1,32 @@
 {
   "code": 200,
   "data": {
+    "Great Wall Motor": {
+      "companyName": "长城汽车股份有限公司",
+      "companySC": "长城汽车",
+      "jobtitle": "前端开发工程师",
+      "responsibilities": [
+        "利用React Hocks框架与团队成员构建全新的长城国际电子商务网站，并与UE/UI设计师和产品经理密 切合作，开发响应式、高性能、可访问、可靠的电子商务网站。",
+        "管理 React 团队以提高我们的能力，例如代码审查、知识共享。",
+        "维护和更新迭代当前的电子商务网站。",
+        "在 React Hocks 中构建可重用、稳定的组件。",
+        "与国外供应商对接，实现相关功能。",
+        "为 GWM 内部项目创建命令行界面(GWM-CLI)。"
+      ],
+      "startDate": "2021/03",
+      "endDate": "2021/09",
+      "duration": "6 个月",
+      "projects": [
+        {
+          "title": "GWM 电商网站 - 泰国",
+          "img": "/image/home/greatWall.jpg",
+          "desc": "GWM 线上售车网站 - 泰国",
+          "tags": "开发、维护、更新、迭代, React Hooks, Vue.js, Javascript, CSS3, HTML5",
+          "url": "https://www.gwm.co.th/en/",
+          "code": 0
+        }
+      ]
+    },
     "Kai Rong": {
       "companyName": "上海凯融信息公司",
       "companySC": "上海凯融",

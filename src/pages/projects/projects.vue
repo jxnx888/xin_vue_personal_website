@@ -18,7 +18,7 @@
           <div class='jobCompany'>-- {{ value.companyName }}</div>
           <div class='jobduration'>-- {{ value.startDate }} - {{ value.endDate }} ({{ value.duration }})</div>
           <div class='jobResponsibilities'>
-            -- Responsibilities
+            -- {{ $t('RESPONSIBILITIES') }}
             <ul>
               <li v-for='(resp,rIndex) in value.responsibilities'
                   :key='rIndex'>
@@ -92,7 +92,7 @@ export default {
     getProject() {
       var url = '/mock/projects.json'
       var lang = this.$i18n.locale
-      if ('zh_cn' == lang) {
+      if ('zh_cn' === lang) {
         url = '/mock/projectsCN.json'
       }
       this.$ajax.get(url) // npm run build ==>  ./static/mock/index.json

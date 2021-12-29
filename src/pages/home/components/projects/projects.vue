@@ -40,7 +40,7 @@
         <div class='each_content' v-show='currentListIndex===1'>
           <ul class='each_content_list only_one_item'>
             <li class='item_1'>
-              <a href='https://mall.gwm.co.th/' target='_blank'>
+              <a href='https://www.gwm.co.th/en/' target='_blank'>
                 <div class='each_content' v-show='currentListIndex===1'>
                   <img v-lazy="'/image/home/greatWall.jpg'" alt=''>
                   <div class='intro_wrapper'>

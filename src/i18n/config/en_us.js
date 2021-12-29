@@ -25,9 +25,10 @@ const en_us = {
   KEEP_LEARNING: ['KEEP LEARNING, KEEP GROWING', 'Once you stop learning, you start dying.', 'Albert Einstein'],
   PROJECT1: {
     title: 'Great Wall Motor (Last work)',
-    responsibility: ['Maintaining & modifying E-commerce website',
-      'Managing front-end team as a project manager assistant',
-      'Utilizing the Three.js to design and build 3D related WebApps (Android && iOS)'],
+    responsibility: [
+      'Maintained and updated the current E-commerce website.',
+      'Managed React team to improve our ability, such as code review, knowledge share.',
+      'Created Command-line Interface for GWM inner projects.'],
     childList: [
       {
         title: 'E-commerce websites',
@@ -96,6 +97,7 @@ const en_us = {
       'Listening': 'Listening'
     }
   },
+  RESPONSIBILITIES: "Responsibilities",
   REGULAR:'Regular',
   CARTOON:'Cartoon',
   MODEL: 'model',
@@ -141,5 +143,6 @@ const en_us = {
   PIKACHU:'Pikachu',
   SQUIRTLE:'Squirtle',
   TOTODILE:'Totodile',
+  PRINT:'Print'
 }
 export default en_us

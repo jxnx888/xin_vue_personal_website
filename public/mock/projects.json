@@ -1,6 +1,32 @@
 {
   "code": 200,
   "data": {
+    "Great Wall Motor": {
+      "companyName": "Great Wall Motor Co., Ltd.",
+      "companySC": "Great Wall Motor",
+      "jobtitle": "Front-end Developer",
+      "responsibilities": [
+        "Utilized the React Hocks framework to build a new international GWM E-commerce website with team members, and worked closely with UE/UI designers and product managers to develop responsive, high-performance, accessible, reliable E-commerce websites.",
+        "Managed React team to improve our ability, such as code review, knowledge share.",
+        "Maintained and updated the current E-commerce website.",
+        "Built the reusable, stable components in React Hocks",
+        "Docked with foreign suppliers about implementing related features",
+        "Created Command-line Interface for GWM inner projects."
+      ],
+      "startDate": "2021/03",
+      "endDate": "2021/09",
+      "duration": "6 mos",
+      "projects": [
+        {
+          "title": "GWM Online Store - THAI",
+          "img": "/image/home/greatWall.jpg",
+          "desc": "Online store for selling GWM vehicles - THAI",
+          "tags": "Development and maintenance, React Hooks, Vue.js, Javascript, CSS3, HTML5",
+          "url": "https://www.gwm.co.th/en/",
+          "code": 0
+        }
+      ]
+    },
     "Kai Rong": {
       "companyName": "Shanghai Kairong Information Technology Co., Lt",
       "companySC": "Kai Rong",
