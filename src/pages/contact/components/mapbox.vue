@@ -98,11 +98,12 @@ export default {
           positionOptions: {
             enableHighAccuracy: true
           },
-          trackUserLocation: true
+// When active the map will receive updates to the device's location as it changes.
+          trackUserLocation: true,
+// Draw an arrow next to the location dot to indicate which direction the device is heading.
+          showUserHeading: true
         })
       )
-
-      // console.log(map)
     },
     addMarkers(map) {
       // add markers to map
@@ -138,8 +139,8 @@ export default {
       return styleObj
     },
     calcUrl() {
-      console.log("this.icon", this.publicPath + "/image/head_ico.png")
-      return this.publicPath + "/image/head_ico.png";
+      // console.log("this.icon", this.publicPath + "image/head_ico.png")
+      return this.publicPath + "image/head_ico.png";
     }
   }
 }
