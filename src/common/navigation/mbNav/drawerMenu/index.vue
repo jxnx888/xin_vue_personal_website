@@ -42,7 +42,7 @@
         v-for='(item, key) in menuData'
         :key='key'>
         <el-col
-          :class="`each_link ${item.id == navIndex?'activeMenu':''}`"
+          :class="`each_link ${item.routerLink === currentPath?'activeMenu':''}`"
           >
           <div @click='goTo(item.routerLink, item.id)'>
             {{ $t(item.name) }}
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import menuData from '../../menuData.js';
 export default {
   name: 'drawerMenu',
   data() {
@@ -61,33 +62,7 @@ export default {
       drawer: false,
       currrent_lang: 'en_us', //语言默认值
       navIndex: 0,
-      menuData: [
-        {
-          id: 1,
-          'name': 'HOME',
-          routerLink: '/'
-        },
-        {
-          id: 2,
-          'name': 'SKILLS',
-          routerLink: '/skills'
-        },
-        {
-          id: 3,
-          'name': 'PROJECTS',
-          routerLink: '/projects'
-        },
-        {
-          id: 4,
-          'name': 'ABOUT_ME',
-          routerLink: '/aboutme'
-        },
-        {
-          id: 5,
-          'name': 'CONTACT',
-          routerLink: '/contact'
-        }
-      ]
+      menuData: menuData
     }
   },
   methods: {
@@ -115,26 +90,34 @@ export default {
   mounted() {
     this.getCurrentLang()
   },
+  computed: {
+    currentPath(){
+      return this.$route.fullPath
+    }
+  },
   watch: {
     // eslint-disable-next-line no-unused-vars
-    $route(to, from) {
-      switch (to.name) {
-        case 'Skills':
-          this.navIndex = 2
-          break
-        case 'Projects':
-          this.navIndex = 3
-          break
-        case 'Aboutme':
-          this.navIndex = 4
-          break
-        case 'Contact':
-          this.navIndex = 5
-          break
-        default:
-          this.navIndex = 1
-      }
-    }
+    // $route(to, from) {
+    //   switch (to.name) {
+    //     case 'Skills':
+    //       this.navIndex = 2
+    //       break
+    //     case 'Projects':
+    //       this.navIndex = 3
+    //       break
+    //     case 'Aboutme':
+    //       this.navIndex = 4
+    //       break
+    //     case 'Blog':
+    //       this.navIndex = 5
+    //       break
+    //     case 'Contact':
+    //       this.navIndex = 6
+    //       break
+    //     default:
+    //       this.navIndex = 1
+    //   }
+    // }
   }
 }
 </script>
