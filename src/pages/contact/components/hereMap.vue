@@ -1,5 +1,5 @@
 <template>
-  <div id='mapContainer' :class='`mapContainer-${this.$root.userAgent}`' ref='hereMap'></div>
+  <div id='mapContainer' :class='`mapContainer-${$root.$userAgent}`' ref='hereMap'></div>
 </template>
 
 <script>

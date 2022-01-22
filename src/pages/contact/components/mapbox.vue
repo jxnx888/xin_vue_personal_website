@@ -1,5 +1,5 @@
 <template>
-  <div ref='basicMapbox' id='mapContainer' :class='`mapContainer-${this.$root.userAgent}`'></div>
+  <div ref='basicMapbox' id='mapContainer' :class='`mapContainer-${$root.$userAgent}`'></div>
 </template>
 
 <script>

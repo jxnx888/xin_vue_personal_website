@@ -2,7 +2,7 @@ const { MongoClient } = require('mongodb')
 const _ = require('lodash')
 
 // MongoDB cloud URL
-// const url = 'mongodb+srv://xinning:BLACKrose521@cluster0.5bulp.mongodb.net?retryWrites=true&w=majority'
+const url = 'mongodb+srv://xinning:BLACKrose521@cluster0.5bulp.mongodb.net?retryWrites=true&w=majority'
 
 // MongoDB local URL
 /**
@@ -24,7 +24,7 @@ const _ = require('lodash')
  **/
 
 
-const url = 'mongodb://127.0.0.1:27017'
+// const url = 'mongodb://127.0.0.1:27017'
 
 const connectDB = async (dbName, collectionName, type, newListing, nameOfListing) => {
   // Init MongoClient

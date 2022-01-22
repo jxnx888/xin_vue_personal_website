@@ -1,6 +1,6 @@
 <template>
 
-  <div :class="`contactInfo contactInfo-${this.$root.userAgent}`">
+  <div :class="`contactInfo contactInfo-${$root.$userAgent}`">
   <div class="contactInfo_wrapper">
     <h1 class="top_title">{{$t('contact.topTitle[0]')}}</h1>
     <div class="top_subtitle">{{$t('contact.topTitle[1]')}}</div>

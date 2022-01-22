@@ -1,5 +1,5 @@
 <template>
-  <div :class='`project_wrapper clearfix project_wrapper-${this.$root.userAgent}`'>
+  <div :class='`project_wrapper clearfix project_wrapper-${$root.$userAgent}`'>
     <div class='project_banner'>
       <topBanner
         :bannerImg="'/image/banner2.png'"
@@ -41,7 +41,7 @@
           :id="childItem.title.replaceAll(' ','')"
         ></projectTem>
       </div>
-      <div class='animation_menu' :class="`animation_menu-${this.$root.userAgent} ${scrollingMenu? 'scrollMenu':''}`"
+      <div class='animation_menu' :class="`animation_menu-${$root.$userAgent} ${scrollingMenu? 'scrollMenu':''}`"
            v-if='!mobile'>
         <div class='each_company_menu'
              v-for='(key,val, index) in menuArr'
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <router-view></router-view> <!--用于子路由渲染-->
+    <router-view /> <!--用于子路由渲染-->
   </div>
 </template>
 

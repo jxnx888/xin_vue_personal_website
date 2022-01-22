@@ -1,5 +1,5 @@
 <template>
-  <div :class="`banner-${this.$root.userAgent} main_wrapper`">
+  <div :class="`banner-${$root.$userAgent} main_wrapper`">
       <div class="banner banner_one">
         <img :src="bannerList[0]" alt="">
         <div class="banner_info">
@@ -14,9 +14,9 @@
           <p class="title">{{$t('MY_TITLE')}}</p>
           <p class="subtitle">{{$t('MY_SUBTITLE')}}</p>
         </div>
-        <autoTyping v-if='this.$root.userAgent !== "phone"' :key="timer" :dataType="$t('INTRODUCTION')"></autoTyping>
+        <autoTyping v-if='$root.$userAgent !== "phone"' :key="timer" :dataType="$t('INTRODUCTION')"></autoTyping>
       </div>
-    <autoTyping v-if='this.$root.userAgent === "phone"' :key="timer" :dataType="$t('INTRODUCTION')"></autoTyping>
+    <autoTyping v-if='$root.$userAgent === "phone"' :key="timer" :dataType="$t('INTRODUCTION')"></autoTyping>
   </div>
 </template>
 

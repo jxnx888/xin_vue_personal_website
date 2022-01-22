@@ -1,5 +1,5 @@
 <template>
-<div :class="`main_wrapper clearfix main_wrapper-${this.$root.userAgent}`">
+<div :class="`main_wrapper clearfix main_wrapper-${$root.$userAgent}`">
   <div class="left_img">
     <img v-lazy="'/image/home/keep-learning.jpg'" alt="">
   </div>

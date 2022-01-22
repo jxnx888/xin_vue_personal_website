@@ -1,5 +1,5 @@
 <template>
-  <div :class="`each_content each_content-${this.$root.userAgent}`">
+  <div :class="`each_content each_content-${$root.$userAgent}`">
     <a v-if="'3'!=code && '4'!=code && '5'!=code" :href="link">
       <div class="each_wrapper">
         <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">

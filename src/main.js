@@ -11,6 +11,7 @@ import './assets/style/reset.css';
 import './assets/style/border.css';
 import './assets/style/common.css';
 import './assets/iconfont/iconfont.css';
+import './assets/style/blog-common.css';
 
 // 解决移动端点击延迟200ms的问题
 import FastClick from 'fastclick'
@@ -71,6 +72,7 @@ Vue.use(BaiduMap, {
 })
 
 import getUserAgent from './utils/getUserAgent'
+import { gapPad } from './utils/gapOfWindowWidth'
 
 let userAgent = getUserAgent();
 Vue.prototype.$userAgent = userAgent
@@ -85,8 +87,7 @@ new Vue({
       focusedTransformObj:null,
       deleteObjFlag:null,
       userAgent:userAgent,
-      windowWidth: (window.innerWidth > 992) // 992 pc菜单最小宽度（加滚动条）
-
+      windowWidth: (window.innerWidth > gapPad) // gapPad pc菜单最小宽度（加滚动条） 导航使用
     }
   },
   store,

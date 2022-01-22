@@ -1,5 +1,5 @@
 <template>
-  <div :class="`progress_main clearfix progress_main-${this.$root.userAgent}`">
+  <div :class="`progress_main clearfix progress_main-${$root.$userAgent}`">
     <div class="skills_progress clearfix">
     <div class="develop_skills clearfix">
       <h1>{{$t('skills.devSkill')}}</h1>

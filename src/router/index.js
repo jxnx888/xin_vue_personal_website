@@ -18,14 +18,6 @@ const routes = [
       keepAlive: true
     }
   },
- /* {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/!* webpackChunkName: "about" *!/ '../views/About.vue')
-  },*/
   {
     path: '/projects',
     name: 'Projects',
@@ -33,7 +25,8 @@ const routes = [
     meta: {
       keepAlive: true
     },
-    children:[
+    // 子路由 需要在负组件中增加     <router-view /> <!--用于子路由渲染-->
+    children: [
       {
         path: 'magicBox',
         name: 'MagicBox',
@@ -85,6 +78,33 @@ const routes = [
     }
   },
   {
+    path: '/blog',
+    name: 'Blog',
+    component: () => import('@/pages/blog/blog'),
+    redirect: '/blog/list',
+    meta: {
+      keepAlive: true
+    },
+    // 子路由 需要在负组件中增加     <router-view /> <!--用于子路由渲染-->
+    children: [
+      {
+        path: 'list',
+        name: 'BlogList',
+        component: () => import('@/pages/blog/components/blogList'),
+        meta: {
+          keepAlive: false
+        }
+      }, {
+        path: ':id',
+        name: 'BlogDetail',
+        component: () => import('@/pages/blog/components/blogTem'),
+        meta: {
+          keepAlive: false
+        }
+      }
+    ]
+  },
+  {
     path: '/threejs',
     name: 'threejs',
     // component: () => import('@/common/threejs/luggageDecalSplatter/decals'),
@@ -92,12 +112,28 @@ const routes = [
     meta: {
       keepAlive: true
     }
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@/common/notFound/index'),
+    meta: {
+      keepAlive: true,
+    }
+  },
+  {
+    path: '/:pathMatch(.*)',
+    redirect: '/404'
   }
 ]
 //表示页面跳转的时候，新页面始终是在顶部
+
 // eslint-disable-next-line no-unused-vars
 const scrollBehavior = function (to, from, savedPosition) {
-  if (to.hash) {
+  if (savedPosition) {
+    return savedPosition
+  }
+  else if (to.hash) {
     return {
       // 通过 to.hash 的值來找到对应的元素
       selector: to.hash

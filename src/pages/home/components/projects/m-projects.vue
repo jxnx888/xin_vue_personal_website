@@ -1,5 +1,5 @@
 <template>
-  <div :class='`project_wrapper project_wrapper-${this.$root.userAgent}`'>
+  <div :class='`project_wrapper project_wrapper-${$root.$userAgent}`'>
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide
         v-for='(item, index) in projects'

@@ -1,7 +1,7 @@
 <template>
-  <div :class="`skill_wrapper skill_wrapper-${this.$root.userAgent}`">
+  <div :class="`skill_wrapper skill_wrapper-${$root.$userAgent}`">
     <meteorShower></meteorShower>
-    <template v-if='this.$root.userAgent === "pc"'>
+    <template v-if='$root.$userAgent === "pc"'>
       <snowMeteor></snowMeteor>
     </template>
     <!--<topBanner

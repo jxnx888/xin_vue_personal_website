@@ -1,5 +1,5 @@
 <template>
-  <div :class="`footer_wrapper footer_wrapper-${this.$root.userAgent}`">
+  <div :class="`footer_wrapper footer_wrapper-${$root.$userAgent}`">
     <footer class="common_footer">
       <el-row>
         <el-col :span="24">

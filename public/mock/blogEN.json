@@ -1,0 +1,30 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "id": 1,
+      "title": "cross-env 运行跨平台设置和使用环境变量的脚本",
+      "time": "2021-08-23 14:11",
+      "abstract": "1.1 cross-env是什么 运行跨平台设置和使用环境变量的脚本 1.2 出现原因 当您使用 NODE_ENV=production, 来设置环境变量时，大多数 Windows 命令提示将会阻塞(报错)。（异常是Windows上的Bash，它使用本机Bash。）",
+      "type": ["JavaScript","Node.js"],
+      "content": "<h5 id=\"2111-cross-env是什么\">1.1 cross-env是什么</h5>\n<p>运行跨平台设置和使用环境变量的脚本</p>\n<h5 id=\"2112-出现原因\">1.2 出现原因</h5>\n<p>当您使用 NODE_ENV=production, 来设置环境变量时，大多数 Windows 命令提示将会阻塞(报错)。（异常是Windows上的Bash，它使用本机Bash。）换言之，Windows 不支持 NODE_ENV=production 的设置方式。</p>\n<h5 id=\"2113-解决\">1.3 解决</h5>\n<p>cross-env 使得您可以使用单个命令，而不必担心为平台正确设置或使用环境变量。这个迷你的包(cross-env)能够提供一个设置环境变量的 scripts，让你能够以 Unix 方式设置环境变量，然后在 Windows 上也能兼容运行。</p>\n<h5 id=\"2114-安装\">1.4 安装</h5>\n<div class=\"cnblogs_code\">\n<pre>npm install --save-dev cross-env</pre>\n</div>\n<p>&nbsp;</p>\n<h5 id=\"2115-使用\">1.5 使用</h5>\n<div class=\"cnblogs_code\">\n<pre><span style=\"color: #000000;\">{\n  </span>\"scripts\"<span style=\"color: #000000;\">: {\n    </span>\"build\": \"cross-env NODE_ENV=production webpack --config build/webpack.config.js\"<span style=\"color: #000000;\">\n  }\n}</span></pre>\n</div>\n<p>&nbsp;</p>\n<p>NODE_ENV环境变量将由 cross-env 设置 打印 process.env.NODE_ENV === 'production'</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>\n<p>例如，webpack很多都有设置如下：</p>\n<div class=\"cnblogs_code\">\n<pre><span style=\"color: #008000;\">//</span><span style=\"color: #008000;\"> Source maps are resource heavy and can cause out of memory issue for large source files.</span>\nconst shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';</pre>\n</div>\n<p>此时 该判断在打包的时候，会一直默认是需要map文件的， 其本身是有三种方式处理：</p>\n<p>1： 根目录下创建 .env文件，并增加一句参数</p>\n<div class=\"cnblogs_code\">\n<pre>GENERATE_SOURCEMAP=<span style=\"color: #0000ff;\">false</span></pre>\n</div>\n<p>2： 将改语句改为：</p>\n<div class=\"cnblogs_code\">\n<pre><span style=\"color: #008000;\">//</span><span style=\"color: #008000;\"> Source maps are resource heavy and can cause out of memory issue for large source files.</span><span style=\"color: #008000;\">\n//</span><span style=\"color: #008000;\"> const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';</span>\n const shouldUseSourceMap = <span style=\"color: #0000ff;\">false</span>;</pre>\n</div>\n<p>3: 就用到我们这个插件，在package.json中创建一个用于不生成sourcemap的打包命令：</p>\n<div class=\"cnblogs_code\">\n<pre> \"scripts\"<span style=\"color: #000000;\">: {\n    </span>\"start\": \"node scripts/start.js\"<span style=\"color: #000000;\">,\n    </span>\"build\": \"node scripts/build.js\"<span style=\"color: #000000;\">,\n    </span><span style=\"color: #ff6600;\">\"build-p\": \"cross-env GENERATE_SOURCEMAP=false node scripts/build.js\",\n    </span>\"test\": \"node scripts/test.js\"<span style=\"color: #000000;\">\n  },</span></pre>\n</div>\n<p>&nbsp;</p>"
+    },
+    {
+      "id": 2,
+      "title": "cross-env 1",
+      "time": "2021-08-23 14:11",
+      "type": ["MongoDB","Node.js"],
+      "abstract": "",
+      "content":""
+    },
+    {
+      "id": 1,
+      "title": "cross-env 2",
+      "time": "2021-08-23 14:11",
+      "type": ["MongoDB","JavaScript","Node.js"],
+      "abstract": "",
+      "content":""
+    }
+
+  ]
+}

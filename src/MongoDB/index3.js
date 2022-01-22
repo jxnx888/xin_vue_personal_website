@@ -34,6 +34,9 @@ const connectDB = async (dbName, collectionName,) => {
   }
 
 connectDB("xin_website","project_list");
+
+
+export default { connectDB };
 // const listDatabases = (client) => {
 //   const databasesList = client().admin().listDatabases()
 //   console.log('Databases List: ')

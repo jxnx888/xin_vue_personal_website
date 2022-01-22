@@ -17,6 +17,8 @@
     "imports-loader": "^1.2.0",
     "jquery": "^3.6.0",
     "mapbox-gl": "^2.6.1",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
     "mongodb": "^4.1.3",
     "nodemailer": "^6.4.16",
     "nodemailer-smtp-transport": "^2.7.4",

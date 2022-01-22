@@ -140,6 +140,13 @@ const zh_cn = {
     PIKACHU:'皮卡丘',
     SQUIRTLE:'杰尼龟',
     TOTODILE:'小锯鳄',
-    PRINT:'打印'
+    PRINT:'打印',
+    BLOG: '博客',
+    VIEW: '阅读',
+    POSTED: 'Posted',
+    SOMETHING_WRONG: '抱歉，出了点问题，请刷新!',
+    404: '抱歉，您所访问的页面不存在!',
+    ARTICLES: '博文',
+    MY_TAGS: '我的标签'
 }
 export default zh_cn

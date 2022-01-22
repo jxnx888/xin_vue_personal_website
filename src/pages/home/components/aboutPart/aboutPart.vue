@@ -1,7 +1,7 @@
 <template>
-  <div :class='`aboutPart aboutPart-${this.$root.userAgent }`'>
+  <div :class='`aboutPart aboutPart-${$root.$userAgent }`'>
     <div class='top_intro'>
-      <template v-if="this.$root.userAgent === 'pc'">
+      <template v-if="$root.$userAgent === 'pc'">
         <p>{{ $t('HOME_WELCOME1') }}</p>
         <p>{{ $t('HOME_WELCOME2') }}
           <a
@@ -17,7 +17,7 @@
           <router-link to='/contact'>{{ $t('CONTACTPAGE') }}</router-link>
         </p>
       </template>
-      <template v-if="this.$root.userAgent !== 'pc'">
+      <template v-if="$root.$userAgent !== 'pc'">
         <p>{{ $t('HOME_WELCOME1') }} {{ $t('HOME_WELCOME2') }}
           <a
             :href='resumeLink'
@@ -38,20 +38,20 @@
         <li id='homeAM' :class="ifAnimation ? 'bounceInLeft animated':''">
           <router-link to='/aboutme' class='each_link'>
             <p>{{ $t('ABOUT_ME') }}</p>
-            <img v-lazy="this.$root.userAgent === 'pc' ? '/image/home/aboutme1.jpg' : ''" alt=''>
+            <img v-lazy="$root.$userAgent === 'pc' ? '/image/home/aboutme1.jpg' : ''" alt=''>
           </router-link>
         </li>
         <li id='homePj' :class="ifAnimation ? 'bounceIn animated':''">
           <router-link to='/projects' class='each_link'>
             <p>{{ $t('My_PROJECTS') }}</p>
-            <img v-lazy="this.$root.userAgent === 'pc' ? '/image/home/myprojects.jpg' : ''" alt=''>
+            <img v-lazy="$root.$userAgent === 'pc' ? '/image/home/myprojects.jpg' : ''" alt=''>
           </router-link>
         </li>
 
         <li class='last' id='homeSk' :class="ifAnimation ? 'bounceInRight animated':''">
           <router-link to='/skills' class='each_link'>
             <p>{{ $t('MY_SKILLS') }}</p>
-            <img v-lazy="this.$root.userAgent === 'pc' ? '/image/home/myskills.jpg' : ''" alt=''>
+            <img v-lazy="$root.$userAgent === 'pc' ? '/image/home/myskills.jpg' : ''" alt=''>
           </router-link>
         </li>
       </ul>

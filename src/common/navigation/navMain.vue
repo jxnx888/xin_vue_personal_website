@@ -1,7 +1,7 @@
 <template>
   <div id='nav'>
-    <pcNav v-if="this.$root.userAgent && this.$root.userAgent !== 'phone' && this.$root.windowWidth"></pcNav>
-    <mobileNav v-if="this.$root.userAgent && this.$root.userAgent === 'phone' || !this.$root.windowWidth"></mobileNav>
+    <pcNav v-if="$root.$userAgent && $root.$userAgent !== 'phone' && this.$root.windowWidth"></pcNav>
+    <mobileNav v-if="$root.$userAgent && $root.$userAgent === 'phone' || !this.$root.windowWidth"></mobileNav>
   </div>
 </template>
 

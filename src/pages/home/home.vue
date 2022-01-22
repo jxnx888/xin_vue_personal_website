@@ -2,8 +2,8 @@
   <div>
     <topBannerSwiper :bannerList='bannerList'></topBannerSwiper>
     <aboutPart></aboutPart>
-    <projects v-if='this.$root.userAgent === "pc"'></projects>
-    <mProjects v-if='this.$root.userAgent !== "pc"'></mProjects>
+    <projects v-if='$root.$userAgent === "pc"'></projects>
+    <mProjects v-if='$root.$userAgent !== "pc"'></mProjects>
     <keepLearning></keepLearning>
   </div>
 </template>

@@ -143,6 +143,13 @@ const en_us = {
   PIKACHU:'Pikachu',
   SQUIRTLE:'Squirtle',
   TOTODILE:'Totodile',
-  PRINT:'Print'
+  PRINT:'Print',
+  BLOG: 'Blog',
+  VIEW: 'View',
+  POSTED: 'Posted',
+  SOMETHING_WRONG: 'Sorry, something went wrong, please refresh!',
+  404: 'Sorry, the page you visited does not exist!',
+  ARTICLES: 'Articles',
+  MY_TAGS: 'My Tags'
 }
 export default en_us

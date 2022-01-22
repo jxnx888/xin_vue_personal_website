@@ -1,0 +1,223 @@
+
+
+.cnblogs_code {
+    background-color: #f5f5f5;
+    font-family: Courier New !important;
+    font-size: 12px !important;
+    border: 1px solid #ccc;
+    padding: 5px;
+    overflow: auto;
+    margin: 5px 0;
+    color: #000
+}
+
+.cnblogs_code pre code {
+    background-color: #f5f5f5;
+    color: initial;
+    font-family: inherit
+}
+
+span.cnblogs_code {
+    padding: 3px
+}
+
+.cnblogs_code div {
+    background-color: #f5f5f5
+}
+
+pre {
+    overflow: auto
+}
+
+.cnblogs_code pre {
+    font-family: Courier New;
+    font-size: 12px;
+    word-wrap: break-word
+}
+
+.cnblogs_code span {
+    font-family: Courier New;
+    font-size: 12px;
+    line-height: 1.5
+}
+
+.cnblogs_code_Collapse {
+    border-right: #808080 1px solid;
+    border-top: #808080 1px solid;
+    border-left: #808080 1px solid;
+    border-bottom: #808080 1px solid;
+    background-color: #fff;
+    padding: 2px
+}
+
+.cnblogs_code_collapse {
+    border-right: #808080 1px solid;
+    border-top: #808080 1px solid;
+    border-left: #808080 1px solid;
+    border-bottom: #808080 1px solid;
+    background-color: #fff;
+    padding: 2px
+}
+
+.cnblogs_code_hide {
+    display: none
+}
+
+.code_img_closed {
+    vertical-align: middle;
+    padding-right: 5px
+}
+
+.code_img_opened {
+    vertical-align: middle;
+    padding-right: 5px
+}
+
+.cnblogs_code_open {
+    margin-top: 5px
+}
+
+.codeLineNumber {
+    -moz-user-select: none;
+    color: #008080;
+    padding-right: 10px
+}
+
+.cnblogs_code ol {
+    margin-left: 0;
+    color: #008080
+}
+
+.cnblogs_code ol li {
+    list-style-image: none
+}
+
+.cnblogs_code ol li span {
+    color: #000
+}
+
+.cnblogs_code_toolbar a:hover,.cnblogs_code_toolbar a:link,.cnblogs_code_toolbar a:visited,.cnblogs_code_toolbar a:active,.cnblogs_code_toolbar a:link img,.cnblogs_code_toolbar a:visited img {
+    background-color: #f5f5f5 !important;
+    border: none !important
+}
+
+.cnblogs_code_toolbar {
+    margin-top: 5px
+}
+
+.cnblogs_code_toolbar span {
+    padding-right: 5px
+}
+
+
+#cnblogs_post_body blockquote ul {
+    margin-left: 25px
+}
+
+#cnblogs_post_body {
+    margin-bottom: 20px
+}
+
+#cnblogs_post_body ul {
+    margin-left: 30px;
+    padding-left: 0
+}
+
+#cnblogs_post_body ol {
+    padding-left: 40px
+}
+
+#cnblogs_post_body ol li {
+    list-style-type: decimal
+}
+
+#cnblogs_post_body ul li {
+    list-style-type: disc
+}
+
+#cnblogs_post_body ul ul li {
+    list-style-type: circle
+}
+
+#cnblogs_post_body table,.cnblogs-post-body table {
+    border-collapse: collapse;
+    word-break: break-word
+}
+
+#cnblogs_post_body .table-wrapper {
+    display: block;
+    overflow-x: auto
+}
+
+#cnblogs_post_body th,.cnblogs-post-body th {
+    background-color: #fafafa
+}
+
+#cnblogs_post_body img,.cnblogs-post-body img {
+    max-width: 100% !important;
+    height: auto
+}
+
+
+#cnblogs_post_body {
+    word-break: break-word
+}
+
+#cnblogs_post_body>pre,#cnblogs_post_body p {
+    margin: 10px auto
+}
+
+#cnblogs_post_body p {
+    text-indent: 0
+}
+
+#cnblogs_post_body h1 {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 10px 0
+}
+
+#cnblogs_post_body h2 {
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 10px 0
+}
+
+#cnblogs_post_body h3 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 10px 0
+}
+
+#cnblogs_post_body h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0
+}
+
+#cnblogs_post_body h5 {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px 0
+}
+
+#cnblogs_post_body h6 {
+    font-size: 11px;
+    font-weight: bold;
+    margin: 10px 0
+}
+
+#cnblogs_post_body hr {
+    border-top: #888;
+    margin: 5px 0
+}
+
+#cnblogs_post_body img[id^=uploading_image_] {
+    display: none
+}
+#cnblogs_post_body .postTitle {
+    height: auto
+}

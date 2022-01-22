@@ -1,5 +1,5 @@
 <template>
-  <div :class='`project_wrapper project_wrapper-${this.$root.userAgent}`'>
+  <div :class='`project_wrapper project_wrapper-${$root.$userAgent}`'>
     <div class='project_hook'>
       <div class='left_tab'>
         <ul class='tab_list'>

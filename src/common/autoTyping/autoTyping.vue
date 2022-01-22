@@ -1,5 +1,5 @@
 <template>
-  <div :class="`typeWrite not-select typeWrite-${this.$root.userAgent}`">
+  <div :class="`typeWrite not-select typeWrite-${$root.$userAgent}`">
 
     <h1 class="typewrite-word" data-period="2000"
         :data-type="dataType">
