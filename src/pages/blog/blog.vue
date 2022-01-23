@@ -1,16 +1,19 @@
 <template>
   <div :class='`clearfix blog blog-${$root.$userAgent}`'>
     <topBanner
-      :bannerImg="'/image/banner3.png'" />
+      :bannerImg="'/image/banner3.png'"
+      :bannerSlice = "bannerSlice"
+    />
     <div class='blog-container'>
-      <div class='left-side'>
-        <div class='article'>{{$t('ARTICLES')}}</div>
-        <router-view :key="$route.fullPath" :blogData='blogData' /> <!--用于子路由渲染-->
+      <div :class='`left-side left-side-${$root.$userAgent}`'>
+        <div class='article'>{{$t('ARTICLES')}} {{totalArticle}}</div>
+        <router-view :key="$route.fullPath" :blogData='blogData' @getTotalArticle='getTotalArticle($event)' /> <!--用于子路由渲染-->
       </div>
       <div class='right-side'>
         <blogSide :blogData='blogData' />
       </div>
     </div>
+    <el-backtop class='back-top' target=".article"></el-backtop>
   </div>
 </template>
 
@@ -26,7 +29,8 @@ export default {
   },
   data() {
     return {
-      blogData: []
+      blogData: [],
+      totalArticle: null
     }
   },
   methods: {
@@ -49,13 +53,26 @@ export default {
         this.blogData = data
         // console.log(this.blogData, 'this.blogData')
       }
+    },
+    getTotalArticle(count){
+      this.totalArticle = `(${count})`
     }
   },
   mounted() {
 
+
   },
   created() {
     this.getBlog()
+  },
+  computed:{
+    bannerSlice(){
+      if(this.$route.name === 'BlogDetail'){
+        return 2
+      } else{
+        return null
+      }
+    }
   },
   watch: {
     '$i18n.locale'(newValue, oldValue) {
@@ -73,6 +90,8 @@ export default {
     max-width: 1200px;
     margin auto
 
+    .left-side.left-side-pad-v,.left-side.left-side-phone
+      width 100%
     .left-side
       width 70%
       float left
@@ -83,6 +102,15 @@ export default {
         text-align left
         font-size .2rem
         font-weight bold
+        position: relative;
+        &::after
+          content ' '
+          position: absolute;
+          left 0
+          bottom 0
+          width 100%
+          height 1px
+          border-bottom 1px solid #999
       .blog-title
         text-align center
 

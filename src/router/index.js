@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import i18n from '../i18n'
 
 Vue.use(VueRouter)
 
@@ -15,7 +16,8 @@ const routes = [
     name: 'Home',
     component: () => import('@/pages/home/home'),
     meta: {
-      keepAlive: true
+      keepAlive: true,
+      title: `${i18n.t('MY_NAME')} :: ${i18n.t('HOME')}`
     }
   },
   {
@@ -23,7 +25,8 @@ const routes = [
     name: 'Projects',
     component: () => import('@/pages/projects/projects'),
     meta: {
-      keepAlive: true
+      keepAlive: true,
+      title: `${i18n.t('MY_NAME')} :: ${i18n.t('PROJECTS')}`
     },
     // 子路由 需要在负组件中增加     <router-view /> <!--用于子路由渲染-->
     children: [
@@ -32,7 +35,8 @@ const routes = [
         name: 'MagicBox',
         component: () => import('@/common/threejs/threeDBuilder/ThreeDimensionalBuilder'),
         meta: {
-          keepAlive: false
+          keepAlive: false,
+          title: `${i18n.t('MY_NAME')} :: MagicBox`
         }
       },
       {
@@ -40,7 +44,8 @@ const routes = [
         name: 'LuggageDecalSplatter',
         component: () => import('@/common/threejs/luggageDecalSplatter/decals'),
         meta: {
-          keepAlive: false
+          keepAlive: false,
+          title: `${i18n.t('MY_NAME')} :: Luggage Decal Splatter`
         }
       },
       {
@@ -48,7 +53,8 @@ const routes = [
         name: 'ForFun',
         component: () => import('@/common/forFun/forFun'),
         meta: {
-          keepAlive: false
+          keepAlive: false,
+          title: `${i18n.t('MY_NAME')} :: For Fun`
         }
       }
     ]
@@ -58,7 +64,8 @@ const routes = [
     name: 'Skills',
     component: () => import('@/pages/skills/skills'),
     meta: {
-      keepAlive: false
+      keepAlive: false,
+      title: `${i18n.t('MY_NAME')} :: ${i18n.t('SKILLS')}`
     }
   },
   {
@@ -66,7 +73,8 @@ const routes = [
     name: 'Aboutme',
     component: () => import('@/pages/aboutme/aboutme'),
     meta: {
-      keepAlive: true
+      keepAlive: true,
+      title: `${i18n.t('MY_NAME')} :: ${i18n.t('ABOUT_ME')}`
     }
   },
   {
@@ -74,7 +82,8 @@ const routes = [
     name: 'Contact',
     component: () => import('@/pages/contact/contact'),
     meta: {
-      keepAlive: true
+      keepAlive: true,
+      title: `${i18n.t('MY_NAME')} :: ${i18n.t('CONTACT')}`
     }
   },
   {
@@ -83,7 +92,8 @@ const routes = [
     component: () => import('@/pages/blog/blog'),
     redirect: '/blog/list',
     meta: {
-      keepAlive: true
+      keepAlive: true,
+      title: `${i18n.t('MY_NAME')} :: ${i18n.t('BLOG')}`
     },
     // 子路由 需要在负组件中增加     <router-view /> <!--用于子路由渲染-->
     children: [
@@ -92,14 +102,16 @@ const routes = [
         name: 'BlogList',
         component: () => import('@/pages/blog/components/blogList'),
         meta: {
-          keepAlive: false
+          keepAlive: false,
+          title: `${i18n.t('MY_NAME')} :: ${i18n.t('BLOG')}`
         }
       }, {
         path: ':id',
         name: 'BlogDetail',
         component: () => import('@/pages/blog/components/blogTem'),
         meta: {
-          keepAlive: false
+          keepAlive: false,
+          title: `${i18n.t('MY_NAME')} :: ${i18n.t('BLOG')}`
         }
       }
     ]
@@ -144,10 +156,19 @@ const scrollBehavior = function (to, from, savedPosition) {
   }
 }
 
+
+
 const router = new VueRouter({
   routes,
   scrollBehavior,
   mode: 'history'   //去除url #
+})
+
+router.beforeEach((to,from,next)=> {//beforeEach是router的钩子函数，在进入路由前执行
+  if (to.meta.title) {//判断是否有标题
+    document.title = to.meta.title
+  }
+  next()  //执行进入路由，如果不写就不会进入目标页
 })
 
 export default router

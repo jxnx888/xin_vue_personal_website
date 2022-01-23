@@ -1,4 +1,4 @@
-import { gapPad, gapPhone } from './gapOfWindowWidth.js'
+import  { gapPadHorizontal, gapPadVertical, gapPhone } from './gapOfWindowWidth.js'
 
 export default function getUserAgent() {
   let ua
@@ -20,10 +20,13 @@ export default function getUserAgent() {
   } else if (isPc) {
     ua = 'pc'
   }
-  if (ua === 'pc' && window.innerWidth < gapPad) {
+  if (ua === 'pc' && window.innerWidth < gapPadHorizontal) {
     ua = 'pad'
-    if (window.innerWidth < gapPhone) {
-      ua = 'phone'
+    if(window.innerWidth < gapPadVertical){
+      ua = 'pad-v'
+      if (window.innerWidth < gapPhone) {
+        ua = 'phone'
+      }
     }
   }
   return ua

@@ -1,8 +1,8 @@
 <template>
-  <div :class='`bolg-list bolg-list-${$root.$userAgent} clearfix`'>
+  <div :class='`bolg-list bolg-list-${$root.$userAgent} clearfix`' ref='blogList' id='blogListId'>
     <el-row>
-      <div
-        v-for='(item, index ) in finalData'
+      <el-col
+        v-for='(item, index ) in finalData.slice((currentPage-1)*pageSize,currentPage*pageSize)'
         :key='index'
         class='each-card clearfix'
       >
@@ -12,31 +12,40 @@
           <el-col :span='7' class='card-img-wrapper'>
             <img
               class='card-img'
-              v-lazy='`/image/blog/${item.type[0].toLowerCase()}.jpg`'
+              v-lazy='`/image/blog/${item.type[0].toLowerCase().replace(/ /g,"")}.jpg`'
               :key='`/image/blog/${item.type[0].toLowerCase()}.jpg/${index}`'
               :alt='item.type[0]'>
           </el-col>
           <el-col :span='17' class='each-blog-info'>
             <h3 class='blog-title'>{{ item.title }}</h3>
             <p class='blog-abstract'>{{ item.abstract }}</p>
-            <div class='blog-bottom'>
-
-              <div class='bolg-tags'>
+            <el-row class='blog-bottom'>
+              <el-col :span='14' class='bolg-tags'>
                 <span
                   v-for='(tag, tagIndex) in item.type'
                   class='bolg-tag'
                   :key='tagIndex'
-                ><em class='iconfont'>&#xe866;</em>{{ tag }}</span>
-              </div>
-
-              <div class='blog-time'>{{ $t('POSTED') }} @ {{ item.time }}
+                ><em class='iconfont' :style='{color:tagColor[tag]}'>&#xe866;</em>{{ tag }}</span>
+              </el-col>
+              <el-col :span='10' class='blog-time'>{{ $t('POSTED') }} @ {{ item.time }}
                 <!--                <span class='blog-read'>{{$t('VIEW')}}(99+)</span>-->
-              </div>
-            </div>
+              </el-col>
+            </el-row>
           </el-col>
         </router-link>
-      </div>
+      </el-col>
     </el-row>
+    <el-pagination
+      background
+      @size-change='handleSizeChange'
+      @current-change='handleCurrentChange'
+      :hide-on-single-page='false'
+      :current-page='currentPage'
+      :page-sizes='[5, 10, 20, 40]'
+      :page-size='pageSize'
+      layout='total, sizes, prev, pager, next, jumper'
+      :total='finalData.length'>
+    </el-pagination>
   </div>
 </template>
 
@@ -50,21 +59,65 @@ export default {
   },
   data() {
     return {
-      tag: ''
+      tag: '',
+      tagColor: {
+        'JavaScript': '#fcdc00',
+        'TypeScript': '#3178c6',
+        'Node.js': '#d52bb3',
+        'MongoDB': '#8ad684',
+        'IOS': '#000000',
+        'Microsoft Exchange Server': '#0272b9'
+      },
+      currentPage: 1, //初始页
+      pageSize: 5    //每页的数据
     }
   },
-  methods: {},
-  mounted() {
-    this.tag = this.$route.query.tag
+  methods: {
+    // 初始页currentPage、初始每页数据数pagesize和数据data
+    handleSizeChange(size) {
+      this.pageSize = size
+      this.scrollTop()
+    },
+    handleCurrentChange(currentPage) {
+      this.currentPage = currentPage
+      this.scrollTop()
+    },
+    // 翻页后滚动条回到页面顶端
+    scrollTop() {
+      // this.$refs.blogList.scrollTop = 0;
+      // let element = this.$refs.blogList || window;
+      // console.log(element.scrollTo,'element')
+      //
+      // element.scrollTo(0, 0);
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
+    },
+    checkTag(){
+      this.tag = this.$route.query.tag
+    },
+    getArticleCount(){
+      this.$emit('getTotalArticle', this.finalData.length)
+    }
+
   },
-  computed:{
-    finalData(){
+  mounted() {
+    this.checkTag()
+    this.getArticleCount()
+  },
+  computed: {
+    finalData() {
       let _this = this
-      if(_this.tag){
-        let final = _this.blogData.filter((item)=>item.type.find((childItem)=>_this.tag === childItem))
-        return final
-      } else{
+      if (_this.tag) {
+        return _this.blogData.filter((item) => item.type.find((childItem) => _this.tag === childItem))
+      } else {
         return this.blogData
+      }
+    }
+  },
+  watch:{
+    finalData(newVal, oldVal){
+      if(newVal !== oldVal){
+        this.getArticleCount()
       }
     }
   }
@@ -96,13 +149,18 @@ export default {
 
       .blog-title
         text-decoration underline
+
     .card-img-wrapper
       display block
+
       .card-img
         max-width: 100%;
         margin auto
         max-height 1.5rem
         border-radius .05rem
+
+    .each-blog-info
+      padding-left .15rem
 
     .blog-title
       font-size: .16rem;
@@ -114,31 +172,41 @@ export default {
       font-size .14rem
       color #333
       line-height .2rem
-      padding-bottom: .2rem;
+      overflow: hidden;
+      display: -webkit-box;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      white-space: normal;
 
     .blog-bottom
       display: flex;
       flex-wrap: nowrap;
       align-content: center;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
+      padding-top: 0.23rem;
 
       .bolg-tag
         em.iconfont
           font-size .18rem
-          color #d52bb3
 
-      .bolg-tag:nth-of-type(2)
-        em.iconfont
-          color #52cb9a
-
-      .bolg-tag:nth-of-type(3)
-        em.iconfont
-          color #0000ff
+      //    color #d52bb3
+      //
+      //.bolg-tag:nth-of-type(2)
+      //  em.iconfont
+      //    color #52cb9a
+      //
+      //.bolg-tag:nth-of-type(3)
+      //  em.iconfont
+      //    color #0000ff
 
       .blog-time
         font-size .12rem
         color #666
+        text-align right
 
         .blog-read
           color #666

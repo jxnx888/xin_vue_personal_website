@@ -15,7 +15,7 @@
 <script>
 import navMain from './common/navigation/navMain'
 import footerVue from './common/footerVue/footerVue'
-import { gapPad, gapPhone } from './utils/gapOfWindowWidth'
+import  { gapPadHorizontal, gapPadVertical, gapPhone } from './utils/gapOfWindowWidth'
 export default {
   name: 'App',
   components: {
@@ -24,15 +24,18 @@ export default {
   },
   mounted() {
     window.addEventListener('resize', () => {
-      this.$root.windowWidth = (window.innerWidth > gapPad) // 992 pc菜单最小宽度（加滚动条）
+      this.$root.windowWidth = (window.innerWidth > gapPadHorizontal) // 992 pc菜单最小宽度（加滚动条）
       let userAgent = 'pc'
-      if (window.innerWidth < gapPad) {
+      if (window.innerWidth < gapPadHorizontal) {
         userAgent = 'pad'
-        if (window.innerWidth < gapPhone) {
-          userAgent = 'phone'
+        if(window.innerWidth < gapPadVertical){
+          userAgent = 'pad-v'
+          if (window.innerWidth < gapPhone) {
+            userAgent = 'phone'
+          }
         }
       }
-      this.$root.userAgent = userAgent
+      this.$root.$userAgent = userAgent
     })
   }
 }

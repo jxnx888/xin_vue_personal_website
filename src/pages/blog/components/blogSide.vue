@@ -76,7 +76,16 @@ export default {
       text-align left
       font-size .2rem
       font-weight bold
-
+      line-height: 1.6;
+      position: relative;
+      &::after
+        content ' '
+        position: absolute;
+        left 0
+        bottom 0
+        width 100%
+        height 1px
+        border-bottom 1px solid #999
     .type-list-wrapper
       margin .2rem auto
 

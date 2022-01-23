@@ -72,7 +72,7 @@ Vue.use(BaiduMap, {
 })
 
 import getUserAgent from './utils/getUserAgent'
-import { gapPad } from './utils/gapOfWindowWidth'
+import { gapPadHorizontal } from './utils/gapOfWindowWidth'
 
 let userAgent = getUserAgent();
 Vue.prototype.$userAgent = userAgent
@@ -87,7 +87,7 @@ new Vue({
       focusedTransformObj:null,
       deleteObjFlag:null,
       userAgent:userAgent,
-      windowWidth: (window.innerWidth > gapPad) // gapPad pc菜单最小宽度（加滚动条） 导航使用
+      windowWidth: (window.innerWidth > gapPadHorizontal) // gapPad pc菜单最小宽度（加滚动条） 导航使用
     }
   },
   store,
