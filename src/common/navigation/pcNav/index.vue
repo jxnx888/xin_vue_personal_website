@@ -73,11 +73,7 @@ export default {
       const scrollTop = $(window).scrollTop()
       if (scrollTop >= navHeight) {
         this.fixedHide = true
-        if (scrollTop - this.lastScrollTop <= 0) {
-          this.fixedShow = true
-        } else {
-          this.fixedShow = false
-        }
+        this.fixedShow = scrollTop - this.lastScrollTop <= 0;
       } else {
         this.fixedHide = false
       }

@@ -6,9 +6,8 @@
         :key='index'
         class='each-card clearfix'
       >
-        <router-link
-          :to='`/blog/${item.id}`'
-        >
+        <router-link :to="{path:`/blog/${item.id}`,query:{page:currentPage,pagesize:pageSize}}">
+
           <el-col :span='7' class='card-img-wrapper'>
             <img
               class='card-img'
@@ -36,6 +35,7 @@
       </el-col>
     </el-row>
     <el-pagination
+      ref='pagination'
       background
       @size-change='handleSizeChange'
       @current-change='handleCurrentChange'
@@ -76,32 +76,43 @@ export default {
     // 初始页currentPage、初始每页数据数pagesize和数据data
     handleSizeChange(size) {
       this.pageSize = size
+      // 切换size的时候，页面重置
+      this.replacePath(1, size)
       this.scrollTop()
     },
     handleCurrentChange(currentPage) {
       this.currentPage = currentPage
+      this.replacePath(currentPage, this.pageSize)
       this.scrollTop()
     },
     // 翻页后滚动条回到页面顶端
     scrollTop() {
-      // this.$refs.blogList.scrollTop = 0;
-      // let element = this.$refs.blogList || window;
-      // console.log(element.scrollTo,'element')
-      //
-      // element.scrollTo(0, 0);
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
     },
-    checkTag(){
+    checkParams() {
       this.tag = this.$route.query.tag
+      this.currentPage = Number(this.$route.query.page || this.currentPage)
+      this.pageSize = Number(this.$route.query.pagesize || this.pageSize)
+      this.replacePath(this.currentPage, this.pageSize)
     },
-    getArticleCount(){
+    getArticleCount() {
       this.$emit('getTotalArticle', this.finalData.length)
+    },
+    replacePath(page, pageSize) {
+      let path = this.$route.fullPath
+      let paramPage = this.$route.query.page
+      let paramSize = this.$route.query.pagesize
+      if(paramPage != page || paramSize!=pageSize){
+        this.$router.replace({ path, query: { page: page, pagesize: pageSize } })
+      }
     }
 
   },
+  created() {
+    this.checkParams()
+  },
   mounted() {
-    this.checkTag()
     this.getArticleCount()
   },
   computed: {
@@ -114,9 +125,9 @@ export default {
       }
     }
   },
-  watch:{
-    finalData(newVal, oldVal){
-      if(newVal !== oldVal){
+  watch: {
+    finalData(newVal, oldVal) {
+      if (newVal !== oldVal) {
         this.getArticleCount()
       }
     }

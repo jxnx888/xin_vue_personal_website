@@ -10,6 +10,7 @@ const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
+
 const routes = [
   {
     path: '/',
@@ -102,7 +103,7 @@ const routes = [
         name: 'BlogList',
         component: () => import('@/pages/blog/components/blogList'),
         meta: {
-          keepAlive: false,
+          keepAlive: true,
           title: `${i18n.t('MY_NAME')} :: ${i18n.t('BLOG')}`
         }
       }, {
@@ -110,7 +111,7 @@ const routes = [
         name: 'BlogDetail',
         component: () => import('@/pages/blog/components/blogTem'),
         meta: {
-          keepAlive: false,
+          keepAlive: true,
           title: `${i18n.t('MY_NAME')} :: ${i18n.t('BLOG')}`
         }
       }

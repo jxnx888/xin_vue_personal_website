@@ -6,7 +6,7 @@
     />
     <div class='blog-container'>
       <div :class='`left-side left-side-${$root.$userAgent}`'>
-        <div class='article'>{{$t('ARTICLES')}} {{totalArticle}}</div>
+        <div class='article'>{{$t('ARTICLES')}} <span class='article-type' v-if='$route.query.tag'>({{ $route.query.tag }})</span> {{totalArticle}}</div>
         <router-view :key="$route.fullPath" :blogData='blogData' @getTotalArticle='getTotalArticle($event)' /> <!--用于子路由渲染-->
       </div>
       <div class='right-side'>
@@ -30,7 +30,8 @@ export default {
   data() {
     return {
       blogData: [],
-      totalArticle: null
+      totalArticle: null,
+      currentType: null
     }
   },
   methods: {
@@ -56,10 +57,12 @@ export default {
     },
     getTotalArticle(count){
       this.totalArticle = `(${count})`
+    },
+    getCurrentType(type){
+      this.currentType = type
     }
   },
   mounted() {
-
 
   },
   created() {
@@ -111,6 +114,10 @@ export default {
           width 100%
           height 1px
           border-bottom 1px solid #999
+        .article-type
+          font-size .15rem
+          font-weight normal
+          color #999
       .blog-title
         text-align center
 

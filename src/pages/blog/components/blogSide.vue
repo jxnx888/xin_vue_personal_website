@@ -1,16 +1,16 @@
 <template>
-  <div class='blog-side'>
+  <div :class="`blog-side ${fixedShow ? 'fixedShow':''} ${fixedHide ? 'fixedHide':''}`" ref='BlogSide'>
     <div class='type-list'>
       <div class='article'>{{ $t('MY_TAGS') }}</div>
       <div class='type-list-wrapper'>
-        <router-link
-          class='each_type'
+        <div
           v-for='(value, key, index) in typeList'
           :key='index'
-          :to="{path:'/blog/list',query: { tag: key }}"
+          :class='`each_type ${key === tag ? "active-tag":""}`'
+          @click="goToPage(key)"
         >
           {{ key }} ({{ value }})
-        </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -30,16 +30,19 @@ export default {
   data() {
     return {
       blogNewData: [],
-      typeList: {}
+      typeList: {},
+      tag: null,
+      lastScrollTop: 0,
+      fixedHide: false, // nav是否隐藏
+      fixedShow: false, // nav显示
     }
   },
   methods: {
     getTypeList() {
       let _this = this
       let data = this.blogNewData
-
       let obj = {}
-      data && data.forEach((item, index) => {
+      data && data.forEach((item) => {
         //执行代码
         let type = item.type
         for (let i in type) {
@@ -52,17 +55,57 @@ export default {
         }
       })
       _this.typeList = obj
+    },
+    checkParams(){
+      this.tag = this.$route.query.tag
+    },
+    sidePosition(){
+      const navHeight = document.getElementsByClassName('nav_wrapper')[0].scrollHeight // 100 $(".nav_wrapper").height();
+      const bannerHeight = document.getElementsByClassName('banner')[0].scrollHeight;
+      const scrollTop = $(window).scrollTop()
+      if (scrollTop >= (navHeight + bannerHeight)) {
+        this.fixedHide = true
+        this.fixedShow = scrollTop - this.lastScrollTop <= 0;
+      } else {
+        this.fixedHide = false
+        this.fixedShow = false
+      }
+      this.lastScrollTop = scrollTop
+    },
+    goToPage(tag){
+      if(this.$route.query.tag === tag ) {
+        return
+      }
+      this.$router.push({path:'/blog/list',query: { tag: tag }})
     }
 
   },
   mounted() {
+    this.checkParams()
+    window.addEventListener('scroll', this.sidePosition)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.sidePosition) // 销毁监听
+  },
+  //keep-alive 激活状态，无法销毁监听，需要使用deactivated来销毁
+  deactivated() {
+    window.removeEventListener('scroll', this.sidePosition) // 销毁监听
   },
   watch: {
     blogData(newValue, oldValue) {
-      if (newValue != oldValue) {
+      if (newValue !== oldValue) {
         this.blogNewData = newValue
         this.getTypeList()
       }
+    },
+    $route: {
+      handler: function(val){
+        if(val){
+          this.checkParams()
+        }
+      },
+      // 深度观察监听
+      deep: true
     }
   },
   computed: {}
@@ -94,7 +137,15 @@ export default {
         text-align left
         line-height .2rem
         cursor: pointer;
-
+      .active-tag
+        color #999
+        cursor not-allowed
+.blog-side.fixedHide
+  position: fixed;
+  top .1rem
+.blog-side.fixedShow
+  position: fixed;
+  top 1rem
 a
   color #2c3e50
   &:hover
