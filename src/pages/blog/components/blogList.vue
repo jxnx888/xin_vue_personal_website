@@ -8,25 +8,32 @@
       >
         <router-link :to="{path:`/blog/${item.id}`,query:{page:currentPage,pagesize:pageSize}}">
 
-          <el-col :span='7' class='card-img-wrapper'>
+          <el-col v-if='$root.$userAgent !== "phone"' :span='7' class='card-img-wrapper'>
             <img
               class='card-img'
               v-lazy='`/image/blog/${item.type[0].toLowerCase().replace(/ /g,"")}.jpg`'
               :key='`/image/blog/${item.type[0].toLowerCase()}.jpg/${index}`'
               :alt='item.type[0]'>
           </el-col>
-          <el-col :span='17' class='each-blog-info'>
+          <el-col
+            :span='$root.$userAgent === "phone" ? 24 : 17'
+            class='each-blog-info'
+          >
             <h3 class='blog-title'>{{ item.title }}</h3>
             <p class='blog-abstract'>{{ item.abstract }}</p>
-            <el-row class='blog-bottom'>
-              <el-col :span='14' class='bolg-tags'>
+            <el-row class='blog-bottom' >
+
+              <el-col :span='$root.$userAgent === "phone" ? 24 : 14' class='bolg-tags'>
                 <span
                   v-for='(tag, tagIndex) in item.type'
                   class='bolg-tag'
                   :key='tagIndex'
                 ><em class='iconfont' :style='{color:tagColor[tag]}'>&#xe866;</em>{{ tag }}</span>
               </el-col>
-              <el-col :span='10' class='blog-time'>{{ $t('POSTED') }} @ {{ item.time }}
+              <el-col
+                :span='$root.$userAgent === "phone" ? 24 : 10'
+                :class='`blog-time ${$root.$userAgent === "phone" ? "text-left":""}`'
+              >{{ $t('POSTED') }} @ {{ item.time }}
                 <!--                <span class='blog-read'>{{$t('VIEW')}}(99+)</span>-->
               </el-col>
             </el-row>
@@ -37,13 +44,16 @@
     <el-pagination
       ref='pagination'
       background
+      class='pagination'
       @size-change='handleSizeChange'
       @current-change='handleCurrentChange'
       :hide-on-single-page='false'
       :current-page='currentPage'
       :page-sizes='[5, 10, 20, 40]'
       :page-size='pageSize'
-      layout='total, sizes, prev, pager, next, jumper'
+      :pager-count = 5
+      :small = "$root.$userAgent !== 'pc'"
+      :layout='`${$root.$userAgent !== "pc" ? "prev, pager, next" : "prev, pager, next, jumper,sizes"}`'
       :total='finalData.length'>
     </el-pagination>
   </div>
@@ -193,35 +203,35 @@ export default {
       white-space: normal;
 
     .blog-bottom
-      display: flex;
-      flex-wrap: nowrap;
-      align-content: center;
-      justify-content: space-between;
-      align-items: baseline;
+      //display: flex;
+      //flex-wrap: nowrap;
+      //align-content: center;
+      //justify-content: space-between;
+      //align-items: baseline;
       padding-top: 0.23rem;
 
       .bolg-tag
+        color #333
         em.iconfont
           font-size .18rem
-
-      //    color #d52bb3
-      //
-      //.bolg-tag:nth-of-type(2)
-      //  em.iconfont
-      //    color #52cb9a
-      //
-      //.bolg-tag:nth-of-type(3)
-      //  em.iconfont
-      //    color #0000ff
-
       .blog-time
         font-size .12rem
         color #666
         text-align right
-
+        &.text-left
+          text-align left
+          padding-left: 5px;
         .blog-read
           color #666
 
+
+  .pagination
+    width 100%
+    text-align center
+.bolg-list-phone
+  .each-card
+    .each-blog-info
+      padding 0
 a
   color #2c3e50
 

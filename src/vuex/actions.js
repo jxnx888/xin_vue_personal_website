@@ -25,8 +25,17 @@ import {
     setLocalStore
 } from './../config/global'*/
 
-export default {
+import { MOBILE_DRAWER_OPENED } from './mutation-type'
 
+export default {
+  mobileDrawerOpenedFn({
+                 commit,
+               },status) {
+    let currentStatus = !status
+    commit(MOBILE_DRAWER_OPENED, {
+      currentStatus
+    });
+  },
    /* // 1.同步用户信息
     syncuserInfo({
         commit,

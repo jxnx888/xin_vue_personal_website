@@ -8,4 +8,5 @@ import {getLocalStore} from '../config/global'
 export default {
     locale: getLocalStore('locale') || 'en_us', // 语言标识
     recruitScrollY:0, //默认滚动距离
+    mobileDrawerOpened: false
 }

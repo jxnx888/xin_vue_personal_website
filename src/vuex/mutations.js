@@ -14,7 +14,7 @@
  * 2: this.$store.commit("add",param);
  */
 import {
-    CURRENT_LANGUAGE,
+    CURRENT_LANGUAGE, MOBILE_DRAWER_OPENED,
     RECRUIT_SCROLLY
 } from './mutation-type'
 
@@ -30,6 +30,12 @@ export default {
     [RECRUIT_SCROLLY](state,recruitScrollY) {
         state.recruitScrollY = recruitScrollY;
     },
+    [MOBILE_DRAWER_OPENED](state,mobileDrawerOpened) {
+        state.mobileDrawerOpened = mobileDrawerOpened;
+    },
+    switchMobileDrawerStatus(state,status){
+        state.mobileDrawerOpened = status
+    }
     /*
     //方法可以这么写 调用该方法，在组件方法中 this.$store.commit('addFn') //commit 作用就是调用某个mutation
     addFn(state){

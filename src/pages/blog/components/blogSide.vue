@@ -1,5 +1,5 @@
 <template>
-  <div :class="`blog-side ${fixedShow ? 'fixedShow':''} ${fixedHide ? 'fixedHide':''}`" ref='BlogSide'>
+  <div v-if='$root.$userAgent !=="phone"' :class="`blog-side ${fixedShow ? 'fixedShow':''} ${fixedHide ? 'fixedHide':''}`" ref='BlogSide'>
     <div class='type-list'>
       <div class='article'>{{ $t('MY_TAGS') }}</div>
       <div class='type-list-wrapper'>
@@ -13,6 +13,28 @@
         </div>
       </div>
     </div>
+  </div>
+  <div v-else class='blog-side blog-side-phone'>
+    <el-dropdown
+      :split-button=false
+      type="primary"
+      trigger="click"
+      placement='bottom'
+      class='dropdown-tag'
+      v-if='!this.$store.state.mobileDrawerOpened'
+    >
+       <span class="el-dropdown-link">{{ $t('MY_TAGS') }}<i class="el-icon-arrow-down el-icon--right"></i>
+  </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item
+          v-for='(value, key, index) in typeList'
+          :key='index'
+          :class='`each_type ${key === tag ? "active-tag":""}`'
+          @click="goToPage(key)"
+        >{{ key }} ({{ value }})</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+
   </div>
 </template>
 
@@ -60,7 +82,7 @@ export default {
       this.tag = this.$route.query.tag
     },
     sidePosition(){
-      const navHeight = document.getElementsByClassName('nav_wrapper')[0].scrollHeight // 100 $(".nav_wrapper").height();
+      const navHeight = document.getElementsByClassName('nav_wrapper')[0]?.scrollHeight || 0 // 100 $(".nav_wrapper").height();
       const bannerHeight = document.getElementsByClassName('banner')[0].scrollHeight;
       const scrollTop = $(window).scrollTop()
       if (scrollTop >= (navHeight + bannerHeight)) {
@@ -146,6 +168,16 @@ export default {
 .blog-side.fixedShow
   position: fixed;
   top 1rem
+
+.blog-side.blog-side-phone
+  position: fixed;
+  top 0
+  left 50%
+  transform translateX(-50%)
+  z-index: 10;
+  line-height: .6rem;
+  .dropdown-tag
+    color #333
 a
   color #2c3e50
   &:hover

@@ -30,12 +30,15 @@
       :modal-append-to-body='false'
       :size='"80%"'
       :with-header='false'
+      @open='changeState(true)'
+      @close='changeState(false)'
       class='menu-drawer'>
       <el-row class='each_menu'>
         <el-col :span='6' class='logo img_wrapper'>
           <img src='/image/logo.png' alt="Xin's Website" @click="goTo('/', 1)">
         </el-col>
-        <el-col :span='2' :offset='16' class='close-icon'><span  @click='drawer = false' class='iconfont'>&#xe602;</span></el-col>
+        <el-col :span='2' :offset='16' class='close-icon'><span @click='drawer = false' class='iconfont'>&#xe602;</span>
+        </el-col>
       </el-row>
       <el-row
         class='each_menu'
@@ -43,7 +46,7 @@
         :key='key'>
         <el-col
           :class="`each_link ${item.routerLink === currentPath?'activeMenu':''}`"
-          >
+        >
           <div @click='goTo(item.routerLink, item.id)'>
             {{ $t(item.name) }}
           </div>
@@ -54,7 +57,8 @@
 </template>
 
 <script>
-import menuData from '../../menuData.js';
+import menuData from '../../menuData.js'
+
 export default {
   name: 'drawerMenu',
   data() {
@@ -85,39 +89,20 @@ export default {
       this.navIndex = index
       this.drawer = false
       this.$router.push({ path: path })
+    },
+    changeState(status) {
+      this.$store.commit('switchMobileDrawerStatus',status)
     }
   },
   mounted() {
     this.getCurrentLang()
   },
   computed: {
-    currentPath(){
+    currentPath() {
       return this.$route.fullPath
     }
   },
   watch: {
-    // eslint-disable-next-line no-unused-vars
-    // $route(to, from) {
-    //   switch (to.name) {
-    //     case 'Skills':
-    //       this.navIndex = 2
-    //       break
-    //     case 'Projects':
-    //       this.navIndex = 3
-    //       break
-    //     case 'Aboutme':
-    //       this.navIndex = 4
-    //       break
-    //     case 'Blog':
-    //       this.navIndex = 5
-    //       break
-    //     case 'Contact':
-    //       this.navIndex = 6
-    //       break
-    //     default:
-    //       this.navIndex = 1
-    //   }
-    // }
   }
 }
 </script>
@@ -132,8 +117,10 @@ export default {
   background #FFF
   box-shadow: 0 0.005rem 0.1rem rgb(28 28 28 / 20%);
   -webkit-box-shadow: 0 0.005rem 0.1rem rgb(28 28 28 / 20%);
+
   & *
     touch-action: none;
+
   .nav
     height .6rem
 

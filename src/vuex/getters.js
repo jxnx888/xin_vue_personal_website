@@ -7,9 +7,9 @@
  * }
  */
 import {
-    CURRENT_LANGUAGE,
+    CURRENT_LANGUAGE, MOBILE_DRAWER_OPENED,
     RECRUIT_SCROLLY
-} from "./mutation-type";
+} from './mutation-type'
 
 // 引入本地存储
 import {getLocalStore} from '../config/global'
@@ -24,5 +24,10 @@ export default {
     [RECRUIT_SCROLLY](state){
         let scrolly = state.recruitScrollY || 0;
         return scrolly;
+    },
+    // 3. 移动端菜单是否打开
+    [MOBILE_DRAWER_OPENED](state){
+        let mobileDrawerOpened = state.mobileDrawerOpened || false;
+        return mobileDrawerOpened;
     }
 }

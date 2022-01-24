@@ -5,4 +5,6 @@
 export const CURRENT_LANGUAGE = "CURRENT_LANGUAGE";
 //2. 全局上一次滚动距离，用于返回到原始位置
 export const RECRUIT_SCROLLY = 0 ;
+//3. 移动端菜单是否打开
+export const MOBILE_DRAWER_OPENED = false ;
 
