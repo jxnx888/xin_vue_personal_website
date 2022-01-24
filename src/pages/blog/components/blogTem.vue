@@ -13,31 +13,38 @@
 <script>
 export default {
   name: 'blogTem',
-  props:{
-    blogData:Array
+  props: {
+    blogData: Array
   },
   data() {
     return {
       blogId: 0,
-      currentBlog:[]
+      currentBlog: []
     }
   },
   methods: {
     getBlogId() {
       this.blogId = this.$route.params.id
       this.currentBlog = this.blogData.find((item) => item.id == this.blogId)
-      // console.log(this.currentBlog, 'this.currentBlog')
-    },
+    }
   },
   mounted() {
     this.getBlogId()
   },
   computed: {},
+  watch: {
+    blogData: {
+      immediate: true,    // 这句重要
+      handler () {
+        this.getBlogId()
+      }
+    }
+  }
 }
 </script>
 
 <style scoped lang='stylus'>
-@import "/src/assets/style/blog-common.css"
+@import '~@/assets/style/blog-common.css'
 .blog
   min-height: 80vh;
   text-align left

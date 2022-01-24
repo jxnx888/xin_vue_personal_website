@@ -2,6 +2,7 @@
 const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 const UglifyPlugin = require('uglifyjs-webpack-plugin')
+const path = require('path');
 
 module.exports = {
   publicPath: '/',
@@ -21,6 +22,8 @@ module.exports = {
         'window.jQuery': 'jquery'
       }
       ])
+    config.resolve.alias
+      .set('@', path.resolve(__dirname, 'src' ))
   },
   configureWebpack: (config) => {
     /*if (process.env.NODE_ENV === 'production') {
@@ -63,6 +66,7 @@ module.exports = {
     Object.assign(config, {
       optimization
     })
+
   },
   // 配置 webpack-dev-server 行为。
   devServer: {

@@ -11,7 +11,6 @@ import './assets/style/reset.css';
 import './assets/style/border.css';
 import './assets/style/common.css';
 import './assets/iconfont/iconfont.css';
-import './assets/style/blog-common.css';
 
 // 解决移动端点击延迟200ms的问题
 import FastClick from 'fastclick'
