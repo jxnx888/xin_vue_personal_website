@@ -3,6 +3,11 @@ const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 const UglifyPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+
+const date = new Date();
+const Timestamp = String(String(String(String(date.getFullYear()) + (date.getMonth() + 1)) + date.getDate()) + date.getHours()) + date.getMinutes();
 
 module.exports = {
   publicPath: '/',
@@ -24,6 +29,15 @@ module.exports = {
       ])
     config.resolve.alias
       .set('@', path.resolve(__dirname, 'src' ))
+
+    // 给js和css配置版本号
+    config.output.filename('js/[name].' + Timestamp + '.js').end();
+    config.output.chunkFilename('js/[name].' + Timestamp + '.js').end();
+    config.plugin('mini-css-extract-plugin')
+      .use(MiniCssExtractPlugin, [{
+        filename: `css/[name].${Timestamp}.css`,
+        chunkFilename: `css/[name].${Timestamp}.css`
+      }]).end()
   },
   configureWebpack: (config) => {
     /*if (process.env.NODE_ENV === 'production') {
