@@ -30,7 +30,7 @@
           v-for='(value, key, index) in typeList'
           :key='index'
           :class='`each_type ${key === tag ? "active-tag":""}`'
-          @click="goToPage(key)"
+          @click.native="goToPage(key)"
         >{{ key }} ({{ value }})</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>

@@ -26,6 +26,11 @@ export default {
     getBlogId() {
       this.blogId = this.$route.params.id
       this.currentBlog = this.blogData.find((item) => item.id == this.blogId)
+      if(this.currentBlog && this.currentBlog.content) {
+        // 直接访问会403， 所以在标签上增加no-referrer，
+        // 同时meta增加<meta name="referrer" content="no-referrer" />
+        this.currentBlog.content = this.currentBlog.content.replace(/<img src=/g, '<img referrer="no-referrer|origin|unsafe-url" src=')
+      }
     }
   },
   mounted() {
