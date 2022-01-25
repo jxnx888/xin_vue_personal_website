@@ -19,7 +19,7 @@
       "projects": [
         {
           "title": "GWM 电商网站 - 泰国",
-          "img": "/image/home/greatWall.jpg",
+          "img": "/image/projects/greatWall.jpg",
           "desc": "GWM 线上售车网站 - 泰国",
           "tags": "开发、维护、更新、迭代, React Hooks, Vue.js, Javascript, CSS3, HTML5",
           "url": "https://www.gwm.co.th/en/",

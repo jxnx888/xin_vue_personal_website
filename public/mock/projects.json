@@ -19,7 +19,7 @@
       "projects": [
         {
           "title": "GWM Online Store - THAI",
-          "img": "/image/home/greatWall.jpg",
+          "img": "/image/projects/greatWall.jpg",
           "desc": "Online store for selling GWM vehicles - THAI",
           "tags": "Development and maintenance, React Hooks, Vue.js, Javascript, CSS3, HTML5",
           "url": "https://www.gwm.co.th/en/",
