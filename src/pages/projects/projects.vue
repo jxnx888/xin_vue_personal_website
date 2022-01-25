@@ -10,13 +10,14 @@
      <forFun v-if="showTester" :key="timer" :forFunJson="forFunJson"></forFun>
      <luggageDecalSplatter  v-if="showDecal" :key="timer" ></luggageDecalSplatter>-->
     <div class='project_main clearfix'>
+<!--      <div class='top-info'>{{ $t('projects.topInfo')}}</div>-->
       <div v-for='(value,key,index) in projectsJson'
            :key='index'
            class='each_career clearfix'>
         <h1 :id="key.replace(/ /g,'')" class='company_name'>
           <div class='jobTitle'>{{ value.jobtitle }}</div>
           <div class='jobCompany'>-- {{ value.companyName }}</div>
-          <div class='jobduration'>-- {{ value.startDate }} - {{ value.endDate }} ({{ value.duration }})</div>
+<!--          <div class='jobduration'>&#45;&#45; {{ value.startDate }} - {{ value.endDate }} ({{ value.duration }})</div>-->
           <div class='jobResponsibilities'>
             -- {{ $t('RESPONSIBILITIES') }}
             <ul>
@@ -294,6 +295,13 @@ export default {
               list-style: initial;
               margin-left .35rem
 
+    .top-info
+      max-width: 980px;
+      margin .2rem auto 0
+      text-align left
+      font-size .2rem
+      color #333
+      line-height .3rem
 .project_wrapper-phone, .project_wrapper-pad
   .project_main
     padding 0 .15rem

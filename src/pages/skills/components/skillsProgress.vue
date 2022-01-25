@@ -1,131 +1,144 @@
 <template>
-  <div :class="`progress_main clearfix progress_main-${$root.$userAgent}`">
-    <div class="skills_progress clearfix">
-    <div class="develop_skills clearfix">
-      <h1>{{$t('skills.devSkill')}}</h1>
-      <div class="each_skill progressbar clearfix"
-      v-for="(value, key, index) in skillsList"
-      :key="index"
-      >
-      <div class="skill_title">{{key}}</div>
-        <div class="skill_progress" :percentage="value">
-          <div class="percbar"><span></span></div>
-          <div class="perc_lable"><span></span><div class="perc"></div></div>
+  <div :class='`progress_main clearfix progress_main-${$root.$userAgent}`'>
+    <div class='skills_progress clearfix'>
+      <div class='develop_skills clearfix'>
+        <h1>{{ $t('skills.devSkill') }}</h1>
+        <div class='each_skill progressbar clearfix'
+             v-for='(value, key, index) in skillsList'
+             :key='index'
+        >
+          <div class='skill_title'>{{ key }}</div>
+          <div class='skill_progress' :percentage='value'>
+            <div class='percbar'><span></span></div>
+            <div class='perc_lable'><span></span>
+              <div class='perc'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='softskills clearfix'>
+        <h1>{{ $t('skills.SoftSkill') }}</h1>
+        <div class='each_skill progressbar clearfix'
+             v-for='(value, key, index) in softSkills'
+             :key='index'
+        >
+          <div class='skill_title'>{{ $t(value.name) }}</div>
+          <div class='skill_progress' :percentage='value.value'>
+            <div class='percbar'><span></span></div>
+            <div class='perc_lable'><span></span>
+              <div class='perc'></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="softskills clearfix">
-      <h1>{{$t('skills.SoftSkill')}}</h1>
-      <div class="each_skill progressbar clearfix"
-           v-for="(value, key, index) in softSkills"
-           :key="index"
-      >
-        <div class="skill_title">{{$t(value.name)}}</div>
-        <div class="skill_progress" :percentage="value.value">
-          <div class="percbar"><span></span></div>
-          <div class="perc_lable"><span></span><div class="perc"></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
   </div>
 </template>
 
 <script>
-    export default {
-        name: "skillsProgress",
-        data() {
-            return {
-                skillsList:{
-                    "Javascript": 90,
-                    "JQuery": 90,
-                    "HTML5/CSS3": 90,
-                    "Stylus": 90,
-                    "Vue.js": 61,
-                    "Three.js": 61,
-                    "Bootstrap.css": 61,
-                    "WordPress": 31,
-                    "SQL": 31,
-                    "Java": 31,
-                    "Microsoft Office": 90,
-                },
-                windowWidth :0,
-                context :'',
-                starsArr :[],
-                starCount :800,
-                rainsArr : [],
-                rainCount : 20
-            }
-        },
-      computed:{
-        softSkills() {
-          return {
-            "Focus": {name: this.$t('skills.softSkillName.Focus'), value: 100}, // Coding requires focus and dedication - do they have what it takes?
-            "Teamwork": {name: this.$t('skills.softSkillName.Teamwork'), value: 90}, //will they contribute to and strengthen existing teams?
-            "Patience": {name: this.$t('skills.softSkillName.Patience'), value: 80}, //Can they explain technical concepts patiently, concisely and simply?
-            "Organisation": {name: this.$t('skills.softSkillName.Organisation'), value: 80}, //Can they balance multiple projects with conflicting pressures?
-            "Flexibility":{name: this.$t('skills.softSkillName.Flexibility'), value: 80}, // How will they react to circumstances that are out of their control
-            "Communication": {name: this.$t('skills.softSkillName.Communication'), value: 80}, // Could they successfully explain delays to clients and team decisions to the CTO?
-            "Listening": {name: this.$t('skills.softSkillName.Listening'), value: 80},//Would they be prepared to clearfiy something they'd misheard?
-          }
-        },
+export default {
+  name: 'skillsProgress',
+  data() {
+    return {
+      skillsList: {
+        'Javascript': 96,
+        'HTML5/CSS3': 96,
+        'Vue.js': 96,
+        'React Hooks': 96,
+        'Node.js': 60,
+        'TypeScript': 60,
+        'JQuery': 90,
+        'Stylus': 90,
+        'Three.js': 61,
+        'Bootstrap.css': 61,
+        'WordPress': 31,
+        'SQL': 31,
+        'Java': 31,
+        'Microsoft Office': 90
       },
-        methods: {
-          animateProg(){
-              $(".each_skill").each(function(){
-                  var t = $(this);
-                  var dataperc = t.find(".skill_progress").attr("percentage");
-                  var barperc = Math.round(dataperc*0.95);//因为样式的bar长度是主题的95%
-                  t.find('.percbar').animate({width:barperc+'%'}, dataperc*25);
-                  var red = parseInt(Math.random()*257);
-                  var blue = parseInt(Math.random()*257);
-                  var green= parseInt(Math.random()*257);
-                  var red2 = red-30;
-                  var blue2 = blue-30;
-                  var green2 = green-30;
-                  var color = 'linear-gradient(to bottom, '+ 'rgba('+red+','+blue+','+green+',1)'+' 0%, '+ 'rgba('+red2+','+blue2+','+green2+',1)'+' 100%)'
-                  var boxshow = '0px 0px 0.12rem 0px '+ 'rgba('+red+','+blue+','+green+',1)'+', inset 0px 1px 0px 0px rgba(255,255,255,0.45), inset 1px 0px 0px 0px rgba(255,255,255,0.25), inset -1px 0px 0px 0px rgba(255,255,255,0.25)'
-                  t.find('.percbar').css("background",color)
-                  t.find('.percbar').css("box-shadow",boxshow)
-                  function perc() {
-                      var totalLength = t.find(".skill_progress").width();//因为样式的bar长度是主题的95%
-                      var length = Number(t.find('.percbar').css('width').replace(/px/g,''));
-                      var labelpos = (parseInt(length)-12);
-                      length = length>2 ? length-2:0;
-                      var percentage = Math.round((length/0.95)*100/totalLength);//因为样式，有2px的border 因为样式的bar长度是主题的95%
-                      t.find('.perc_lable').css('left', labelpos);
-                      t.find('.perc_lable .perc').text(percentage+'%');
-                  }
-                  perc();
-                  setInterval(perc, 0);
-              })
-              clearInterval()
-          },
-        },
-        mounted() {
-            this.animateProg();
-        },
+      windowWidth: 0,
+      context: '',
+      starsArr: [],
+      starCount: 800,
+      rainsArr: [],
+      rainCount: 20
     }
+  },
+  computed: {
+    softSkills() {
+      return {
+        'Focus': { name: this.$t('skills.softSkillName.Focus'), value: 100 }, // Coding requires focus and dedication - do they have what it takes?
+        'Teamwork': { name: this.$t('skills.softSkillName.Teamwork'), value: 96 }, //will they contribute to and strengthen existing teams?
+        'Patience': { name: this.$t('skills.softSkillName.Patience'), value: 96 }, //Can they explain technical concepts patiently, concisely and simply?
+        'Organisation': { name: this.$t('skills.softSkillName.Organisation'), value: 81 }, //Can they balance multiple projects with conflicting pressures?
+        'Flexibility': { name: this.$t('skills.softSkillName.Flexibility'), value: 81 }, // How will they react to circumstances that are out of their control
+        'Communication': { name: this.$t('skills.softSkillName.Communication'), value: 81 }, // Could they successfully explain delays to clients and team decisions to the CTO?
+        'Listening': { name: this.$t('skills.softSkillName.Listening'), value: 93 }//Would they be prepared to clearfiy something they'd misheard?
+      }
+    }
+  },
+  methods: {
+    animateProg() {
+      $('.each_skill').each(function() {
+        var t = $(this)
+        var dataperc = t.find('.skill_progress').attr('percentage')
+        var barperc = Math.round(dataperc * 0.95)//因为样式的bar长度是主题的95%
+        t.find('.percbar').animate({ width: barperc + '%' }, dataperc * 25)
+        var red = parseInt(Math.random() * 257)
+        var blue = parseInt(Math.random() * 257)
+        var green = parseInt(Math.random() * 257)
+        var red2 = red - 30
+        var blue2 = blue - 30
+        var green2 = green - 30
+        var color = 'linear-gradient(to bottom, ' + 'rgba(' + red + ',' + blue + ',' + green + ',1)' + ' 0%, ' + 'rgba(' + red2 + ',' + blue2 + ',' + green2 + ',1)' + ' 100%)'
+        var boxshow = '0px 0px 0.12rem 0px ' + 'rgba(' + red + ',' + blue + ',' + green + ',1)' + ', inset 0px 1px 0px 0px rgba(255,255,255,0.45), inset 1px 0px 0px 0px rgba(255,255,255,0.25), inset -1px 0px 0px 0px rgba(255,255,255,0.25)'
+        t.find('.percbar').css('background', color)
+        t.find('.percbar').css('box-shadow', boxshow)
+
+        function perc() {
+          var totalLength = t.find('.skill_progress').width()//因为样式的bar长度是主题的95%
+          var length = Number(t.find('.percbar').css('width').replace(/px/g, ''))
+          var labelpos = (parseInt(length) - 12)
+          length = length > 2 ? length - 2 : 0
+          var percentage = Math.round((length / 0.95) * 100 / totalLength)//因为样式，有2px的border 因为样式的bar长度是主题的95%
+          t.find('.perc_lable').css('left', labelpos)
+          t.find('.perc_lable .perc').text(percentage + '%')
+        }
+
+        perc()
+        setInterval(perc, 0)
+      })
+      clearInterval()
+    }
+  },
+  mounted() {
+    this.animateProg()
+  }
+}
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang='stylus'>
 .progress_main
   position: relative;
+
   .skills_progress
     width 1200px;
     margin auto
     padding-bottom 1rem
+
     h1
       color #fff
       font-size .3rem
       line-height: .5rem;
       padding .15rem 0
+
     .each_skill
       height .3rem
       line-height .3rem
       margin-bottom .4rem
       width 50%
       float left
+
       .skill_title
         color #ffffff
         float left
@@ -133,6 +146,7 @@
         height .3rem
         line-height .3rem
         text-align left
+
       .skill_progress
         position relative
         float: left;
@@ -140,38 +154,40 @@
         height .35rem
         line-height .3rem
         /*background #eee*/
-        border-bottom: 1px solid rgba(255,255,255,0.25);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
         border-radius: .15rem;
-        -webkit-box-shadow: 0px 4px 4px -4px rgba(255, 255, 255, 0.4),0px -3px 3px -3px rgba(255, 255, 255, 0.25),inset 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
-        box-shadow: 0px 4px 4px -4px rgba(255, 255, 255, 0.4),0px -3px 3px -3px rgba(255, 255, 255, 0.25),inset 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 0px 4px 4px -4px rgba(255, 255, 255, 0.4), 0px -3px 3px -3px rgba(255, 255, 255, 0.25), inset 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 4px 4px -4px rgba(255, 255, 255, 0.4), 0px -3px 3px -3px rgba(255, 255, 255, 0.25), inset 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+
         .percbar
           position absolute
           top: 50%;
-          transform translate(0,-50%)
+          transform translate(0, -50%)
           left: 2.5%;
           right 0
           height .2rem
           line-height .2rem
           width: 0;
           display: block;
-          background: rgb(126,234,25);
-          background: -moz-linear-gradient(top, rgba(126,234,25,1) 0%, rgba(83,173,0,1) 100%);
-          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(126,234,25,1)), color-stop(100%,rgba(83,173,0,1)));
-          background: -webkit-linear-gradient(top, rgba(126,234,25,1) 0%,rgba(83,173,0,1) 100%);
-          background: -o-linear-gradient(top, rgba(126,234,25,1) 0%,rgba(83,173,0,1) 100%);
-          background: -ms-linear-gradient(top, rgba(126,234,25,1) 0%,rgba(83,173,0,1) 100%);
-          background: linear-gradient(to bottom, rgba(126,234,25,1) 0%,rgba(83,173,0,1) 100%);
+          background: rgb(126, 234, 25);
+          background: -moz-linear-gradient(top, rgba(126, 234, 25, 1) 0%, rgba(83, 173, 0, 1) 100%);
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(126, 234, 25, 1)), color-stop(100%, rgba(83, 173, 0, 1)));
+          background: -webkit-linear-gradient(top, rgba(126, 234, 25, 1) 0%, rgba(83, 173, 0, 1) 100%);
+          background: -o-linear-gradient(top, rgba(126, 234, 25, 1) 0%, rgba(83, 173, 0, 1) 100%);
+          background: -ms-linear-gradient(top, rgba(126, 234, 25, 1) 0%, rgba(83, 173, 0, 1) 100%);
+          background: linear-gradient(to bottom, rgba(126, 234, 25, 1) 0%, rgba(83, 173, 0, 1) 100%);
           -webkit-border-radius: .26rem
           border-radius: .26rem
-          -webkit-box-shadow: 0px 0px .12rem 0px rgba(126, 234, 25, 1),inset 0px 1px 0px 0px rgba(255, 255, 255, 0.45),inset 1px 0px 0px 0px rgba(255, 255, 255, 0.25),inset -1px 0px 0px 0px rgba(255, 255, 255, 0.25);
-          box-shadow: 0px 0px .12rem 0px rgba(126, 234, 25, 1),inset 0px 1px 0px 0px rgba(255, 255, 255, 0.45),inset 1px 0px 0px 0px rgba(255, 255, 255, 0.25),inset -1px 0px 0px 0px rgba(255, 255, 255, 0.25);
+          -webkit-box-shadow: 0px 0px .12rem 0px rgba(126, 234, 25, 1), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.45), inset 1px 0px 0px 0px rgba(255, 255, 255, 0.25), inset -1px 0px 0px 0px rgba(255, 255, 255, 0.25);
+          box-shadow: 0px 0px .12rem 0px rgba(126, 234, 25, 1), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.45), inset 1px 0px 0px 0px rgba(255, 255, 255, 0.25), inset -1px 0px 0px 0px rgba(255, 255, 255, 0.25);
           overflow: hidden;
+
           span
             position: absolute;
             display: block;
             width: 100%;
             height: .26rem;
-            -webkit-border-radius:.26rem
+            -webkit-border-radius: .26rem
             border-radius: .26rem
             top: 0;
             left: 0;
@@ -181,6 +197,7 @@
             -o-animation: sparkle 1500ms linear infinite;
             animation: sparkle 1500ms linear infinite;
             opacity: 0.2;
+
         .percbar:before
           position: absolute;
           display: block;
@@ -189,12 +206,13 @@
           height: 100%;
           top: 0;
           left: 0;
-          background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0) 51%, rgba(255,255,255,0) 100%);
-          background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,0.35)), color-stop(50%,rgba(255,255,255,0.01)), color-stop(51%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0)));
-          background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.35) 0%,rgba(255,255,255,0.01) 50%,rgba(255,255,255,0) 51%,rgba(255,255,255,0) 100%);
-          background: -o-radial-gradient(center, ellipse cover, rgba(255,255,255,0.35) 0%,rgba(255,255,255,0.01) 50%,rgba(255,255,255,0) 51%,rgba(255,255,255,0) 100%);
-          background: -ms-radial-gradient(center, ellipse cover, rgba(255,255,255,0.35) 0%,rgba(255,255,255,0.01) 50%,rgba(255,255,255,0) 51%,rgba(255,255,255,0) 100%);
-          background: radial-gradient(ellipse at center, rgba(255,255,255,0.35) 0%,rgba(255,255,255,0.01) 50%,rgba(255,255,255,0) 51%,rgba(255,255,255,0) 100%);
+          background: -moz-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0) 51%, rgba(255, 255, 255, 0) 100%);
+          background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255, 255, 255, 0.35)), color-stop(50%, rgba(255, 255, 255, 0.01)), color-stop(51%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0)));
+          background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0) 51%, rgba(255, 255, 255, 0) 100%);
+          background: -o-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0) 51%, rgba(255, 255, 255, 0) 100%);
+          background: -ms-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0) 51%, rgba(255, 255, 255, 0) 100%);
+          background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.01) 50%, rgba(255, 255, 255, 0) 51%, rgba(255, 255, 255, 0) 100%);
+
         .percbar:after
           position: absolute;
           display: block;
@@ -205,12 +223,13 @@
           top: 0;
           -webkit-border-radius: 0px .1rem .26rem 0px;
           border-radius: 0px .26rem .1rem 0px;
-          background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 98%, rgba(255,255,255,0) 100%);
-          background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(98%,rgba(255,255,255,0.6)), color-stop(100%,rgba(255,255,255,0)));
-          background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 98%,rgba(255,255,255,0) 100%);
-          background: -o-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 98%,rgba(255,255,255,0) 100%);
-          background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 98%,rgba(255,255,255,0) 100%);
-          background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 98%,rgba(255,255,255,0) 100%);
+          background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 98%, rgba(255, 255, 255, 0) 100%);
+          background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(98%, rgba(255, 255, 255, 0.6)), color-stop(100%, rgba(255, 255, 255, 0)));
+          background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 98%, rgba(255, 255, 255, 0) 100%);
+          background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 98%, rgba(255, 255, 255, 0) 100%);
+          background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 98%, rgba(255, 255, 255, 0) 100%);
+          background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 98%, rgba(255, 255, 255, 0) 100%);
+
         .perc_lable
           position: absolute;
           display: block;
@@ -219,23 +238,24 @@
           line-height: .3rem;
           top: .32rem
           left: 0px;
-          background: rgb(76,76,76);
-          background: -moz-linear-gradient(top, rgba(76,76,76,1) 0%, rgba(38,38,38,1) 100%);
-          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(76,76,76,1)), color-stop(100%,rgba(38,38,38,1)));
-          background: -webkit-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(38,38,38,1) 100%);
-          background: -o-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(38,38,38,1) 100%);
-          background: -ms-linear-gradient(top, rgba(76,76,76,1) 0%,rgba(38,38,38,1) 100%);
-          background: linear-gradient(to bottom, rgba(76,76,76,1) 0%,rgba(38,38,38,1) 100%);
+          background: rgb(76, 76, 76);
+          background: -moz-linear-gradient(top, rgba(76, 76, 76, 1) 0%, rgba(38, 38, 38, 1) 100%);
+          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(76, 76, 76, 1)), color-stop(100%, rgba(38, 38, 38, 1)));
+          background: -webkit-linear-gradient(top, rgba(76, 76, 76, 1) 0%, rgba(38, 38, 38, 1) 100%);
+          background: -o-linear-gradient(top, rgba(76, 76, 76, 1) 0%, rgba(38, 38, 38, 1) 100%);
+          background: -ms-linear-gradient(top, rgba(76, 76, 76, 1) 0%, rgba(38, 38, 38, 1) 100%);
+          background: linear-gradient(to bottom, rgba(76, 76, 76, 1) 0%, rgba(38, 38, 38, 1) 100%);
           font-weight: bold;
           font-size: 12px;
           color: #fff;
           text-align: center;
           -webkit-border-radius: 6px;
           border-radius: 6px;
-          border: 1px solid rgba(0,0,0,0.2);
+          border: 1px solid rgba(0, 0, 0, 0.2);
           -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.3);
           box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.3);
-          text-shadow: 0px -1px 0px #000000,0px 1px 1px #000000;
+          text-shadow: 0px -1px 0px #000000, 0px 1px 1px #000000;
+
           span
             position: absolute;
             display: block;
@@ -243,9 +263,10 @@
             height: .09rem
             top: -0.09rem;
             left: 50%
-            transform translate(-50%,0)
+            transform translate(-50%, 0)
             background: transparent;
             overflow: hidden;
+
           span:before
             position: absolute;
             display: block;
@@ -254,14 +275,14 @@
             height: .08rem;
             top: 0.04rem;
             left: 0.02rem;
-            border: 1px solid rgba(0,0,0,0.5);
-            background: rgb(86,86,86);
-            background: -moz-linear-gradient(-45deg, rgba(86,86,86,1) 0%, rgba(76,76,76,1) 50%);
-            background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(86,86,86,1)), color-stop(50%,rgba(76,76,76,1)));
-            background: -webkit-linear-gradient(-45deg, rgba(86,86,86,1) 0%,rgba(76,76,76,1) 50%);
-            background: -o-linear-gradient(-45deg, rgba(86,86,86,1) 0%,rgba(76,76,76,1) 50%);
-            background: -ms-linear-gradient(-45deg, rgba(86,86,86,1) 0%,rgba(76,76,76,1) 50%);
-            background: linear-gradient(135deg, rgba(86,86,86,1) 0%,rgba(76,76,76,1) 50%);
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            background: rgb(86, 86, 86);
+            background: -moz-linear-gradient(-45deg, rgba(86, 86, 86, 1) 0%, rgba(76, 76, 76, 1) 50%);
+            background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(86, 86, 86, 1)), color-stop(50%, rgba(76, 76, 76, 1)));
+            background: -webkit-linear-gradient(-45deg, rgba(86, 86, 86, 1) 0%, rgba(76, 76, 76, 1) 50%);
+            background: -o-linear-gradient(-45deg, rgba(86, 86, 86, 1) 0%, rgba(76, 76, 76, 1) 50%);
+            background: -ms-linear-gradient(-45deg, rgba(86, 86, 86, 1) 0%, rgba(76, 76, 76, 1) 50%);
+            background: linear-gradient(135deg, rgba(86, 86, 86, 1) 0%, rgba(76, 76, 76, 1) 50%);
             -webkit-box-shadow: 0px -1px 2px 0px rgba(0, 0, 0, 0.15);
             box-shadow: 0px -1px 2px 0px rgba(0, 0, 0, 0.15);
             -moz-transform: rotate(45deg);
@@ -269,6 +290,7 @@
             -o-transform: rotate(45deg);
             -ms-transform: rotate(45deg);
             transform: rotate(45deg);
+
       .skill_progress:before
         position: absolute;
         display: block;
@@ -276,7 +298,7 @@
         width: 96%;
         height: .22rem;
         top: 50%;
-        transform translate(0,-50%)
+        transform translate(0, -50%)
         left: 0;
         right 0
         margin auto
@@ -285,36 +307,59 @@
         background: #222;
         -webkit-box-shadow: inset 0px 0px 6px 0px rgba(0, 0, 0, 0.85);
         box-shadow: inset 0px 0px 6px 0px rgba(0, 0, 0, 0.85);
-        border: 1px solid rgba(0,0,0,0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
 
 
-
-.progress_main-phone,.progress_main-pad
+.progress_main-phone, .progress_main-pad
   .skills_progress
     width 100%
+
     h1
       font-size .2rem
+
     .each_skill
       width 100%
       float none
+
       .skill_title
         width 30%
+
       .skill_progress
         width 70%
+
 @-webkit-keyframes sparkle {
-  from {background-position: 0 0;}
-  to {background-position: 0 -64px;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -64px;
+  }
 }
+
 @-moz-keyframes sparkle {
-  from {background-position: 0 0;}
-  to {background-position: 0 -64px;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -64px;
+  }
 }
+
 @-o-keyframes sparkle {
-  from {background-position: 0 0;}
-  to {background-position: 0 -64px;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -64px;
+  }
 }
+
 @keyframes sparkle {
-  from {background-position: 0 0;}
-  to {background-position: 0 -64px;}
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -64px;
+  }
 }
 </style>
