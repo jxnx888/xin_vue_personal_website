@@ -1,7 +1,7 @@
 <template>
-  <div :class='`aboutPart aboutPart-${$root.$userAgent }`'>
+  <div :class='`aboutPart aboutPart-${userAgent}`'>
     <div class='top_intro'>
-      <template v-if="$root.$userAgent === 'pc'">
+      <template v-if="userAgent === 'pc'">
         <p>{{ $t('HOME_WELCOME1') }}</p>
         <p>{{ $t('HOME_WELCOME2') }}
           <a
@@ -12,12 +12,12 @@
           </a>
         </p>
         <p>{{ $t('HOME_WELCOME3') }}
-          <a :href = "mailTo">{{ $t('EMAIL') }}</a>,</p>
+          <a :href='mailTo'>{{ $t('EMAIL') }}</a>,</p>
         <p>{{ $t('HOME_WELCOME4') }}
           <router-link to='/contact'>{{ $t('CONTACTPAGE') }}</router-link>
         </p>
       </template>
-      <template v-if="$root.$userAgent !== 'pc'">
+      <template v-if="userAgent !== 'pc'">
         <p>{{ $t('HOME_WELCOME1') }} {{ $t('HOME_WELCOME2') }}
           <a
             :href='resumeLink'
@@ -26,35 +26,49 @@
             {{ $t('RESUME_LOWER') }}
           </a>
           .
-        {{ $t('HOME_WELCOME3') }}
-          <a :href = "mailTo">{{ $t('EMAIL') }}</a>,{{ $t('HOME_WELCOME4') }}
+          {{ $t('HOME_WELCOME3') }}
+          <a :href='mailTo'>{{ $t('EMAIL') }}</a>,{{ $t('HOME_WELCOME4') }}
           <router-link to='/contact'>{{ $t('CONTACTPAGE') }}</router-link>
         </p>
       </template>
 
     </div>
     <div class='bottom_list' id='homeList'>
-      <ul class='detail_list clearfix'>
-        <li id='homeAM' :class="ifAnimation ? 'bounceInLeft animated':''">
+      <el-row
+        :gutter="20"
+        class='detail_list clearfix'>
+        <el-col
+          :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
+          id='homeAM'
+          :class="`${ifAnimation ? 'bounceInLeft animated':''} detail_list_item`"
+        >
           <router-link to='/aboutme' class='each_link'>
             <p>{{ $t('ABOUT_ME') }}</p>
-            <img v-lazy="$root.$userAgent === 'pc' ? '/image/home/aboutme1.jpg' : ''" alt=''>
+            <img v-lazy="`/image/home/aboutme1${userAgent === 'pc' ? '': '-mobile'}.jpg`" :alt="$i18n.t('ABOUT_ME')">
           </router-link>
-        </li>
-        <li id='homePj' :class="ifAnimation ? 'bounceIn animated':''">
+        </el-col>
+        <el-col
+          :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
+          id='homePj'
+          :class="`detail_list_item ${ifAnimation ? 'bounceIn animated':''}`"
+        >
           <router-link to='/projects' class='each_link'>
             <p>{{ $t('My_PROJECTS') }}</p>
-            <img v-lazy="$root.$userAgent === 'pc' ? '/image/home/myprojects.jpg' : ''" alt=''>
+            <img v-lazy="`/image/home/myprojects${userAgent === 'pc' ? '': '-mobile'}.jpg`" alt="$i18n.t('My_PROJECTS')">
           </router-link>
-        </li>
-
-        <li class='last' id='homeSk' :class="ifAnimation ? 'bounceInRight animated':''">
+        </el-col>
+        <el-col
+          :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
+          class='last'
+          id='homeSk'
+          :class="`detail_list_item ${ifAnimation ? 'bounceInRight animated':''}`"
+        >
           <router-link to='/skills' class='each_link'>
             <p>{{ $t('MY_SKILLS') }}</p>
-            <img v-lazy="$root.$userAgent === 'pc' ? '/image/home/myskills.jpg' : ''" alt=''>
+            <img v-lazy="`/image/home/myskills${userAgent === 'pc' ? '': '-mobile'}.jpg`" alt="$i18n.t('MY_SKILLS')">
           </router-link>
-        </li>
-      </ul>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -64,8 +78,11 @@ export default {
   name: 'aboutPart',
   data() {
     return {
-      addAnimation: false,
+      addAnimation: false
     }
+  },
+  props: {
+    userAgent: String
   },
   methods: {
     checkPosition() {
@@ -97,19 +114,18 @@ export default {
   deactivated() {
     window.removeEventListener('scroll', this.checkPosition)
   },
-  computed:{
-    mailTo(){
+  computed: {
+    mailTo() {
       return `mailto:${this.$t('EMAIL')}`
     },
-    resumeLink(){
-      return `${this.$i18n.locale === "zh_cn" ? "/file/XinNing-Resume-CN.pdf" : "/file/XinNing-Resume-EN.pdf"}`
+    resumeLink() {
+      return `${this.$i18n.locale === 'zh_cn' ? '/file/XinNing-Resume-CN.pdf' : '/file/XinNing-Resume-EN.pdf'}`
     },
-    ifAnimation(){
-      return (this.$root.userAgent === 'pc' ? this.addAnimation : true )
+    ifAnimation() {
+      return (this.$root.userAgent === 'pc' ? this.addAnimation : true)
     }
   },
-  watch: {
-  }
+  watch: {}
 }
 </script>
 
@@ -124,28 +140,33 @@ export default {
     padding: 105px 0 74px;
 
   .bottom_list
-    width: 1240px;
+    max-width: 1240px;
     margin: 0px auto 84px auto;
     height: 250px;
 
     .detail_list
-      li
-        display: inline-block;
-        float: left;
-        height: 250px;
-        width: 400px;
-        text-align: center;
-        margin-right: 20px;
+      .detail_list_item
+        //display: inline-block;
+        //float: left;
+        //height: 250px;
+        //max-width: 400px;
+        //width 100%
+        //text-align: center;
+        //margin-right: 20px;
         position: relative;
         overflow: hidden;
-        background: #eee;
+        //background: #eee;
         opacity 0
         -webkit-animation-duration: 1s;
         animation-duration: 1s;
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both
-
+        //@media screen and (max-width: 768px)
+        //  height 25vh
+        //@media screen and (max-width: 475px)
+        //  height 18vh
         .each_link
+          width 100%
           p
             display: block;
             float: left;
@@ -181,15 +202,15 @@ export default {
             z-index: 1;
             transform: scale(1);
             transition: all 0.3s ease-out;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
+            //position: absolute;
+            //top: 0;
+            //bottom: 0;
+            //left: 0;
+            //right: 0;
+            //margin: auto;
             max-width: 100%;
             max-height: 100%;
-
+            min-height: 8vh;
         .each_link:after
           display: block;
           content: "";
@@ -214,36 +235,42 @@ export default {
           left: 0;
           width: 100%;
 
-      li.last
-        margin-right 0
-
-      li.animated
+      .detail_list_item.animated
         opacity 1
-.aboutPart-pad, .aboutPart-phone
+
+.aboutPart-pad,.aboutPart-pad-v, .aboutPart-phone
   .bottom_list
     width 90%
     height auto
-    .detail_list
-      li
-        width 100%
-        margin-bottom: .2rem;
-        margin-right: 0;
-        float: none;
-.aboutPart-pad
+
+.aboutPart-pad,.aboutPart-pad-v
   & *
-    font-size .20rem
+    font-size .20rem!important
+
   .top_intro
     font-size .20rem
     padding .5rem .2rem .2rem .2rem
     text-align left
     text-indent: 2em;
+  .each_link
+    p
+      top 62%!important
+.aboutPart-pad-v
+  .bottom_list
+    .detail_list_item
+      margin-bottom .2rem!important
 .aboutPart-phone
   & *
-    font-size .14rem
+    font-size .2rem!important
+
   .top_intro
     width 95%
     text-align left
     text-indent: 1em;
     padding .2rem .15rem
-
+  .bottom_list
+    margin-bottom .2rem!important
+    .detail_list
+      .detail_list_item
+        margin-bottom .15rem!important
 </style>

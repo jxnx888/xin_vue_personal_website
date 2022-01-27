@@ -1,10 +1,21 @@
 <template>
   <div>
-    <topBannerSwiper :bannerList='bannerList'></topBannerSwiper>
-    <aboutPart></aboutPart>
-    <projects v-if='$root.$userAgent === "pc"'></projects>
-    <mProjects v-if='$root.$userAgent !== "pc"'></mProjects>
-    <keepLearning></keepLearning>
+    <topBannerSwiper
+      :bannerList='bannerList'
+      :userAgent='userAgent'
+    />
+    <aboutPart
+      :userAgent='userAgent'
+    />
+    <projects
+      v-if='$root.$userAgent === "pc"'
+      :userAgent='userAgent'
+    />
+    <mProjects
+      v-if='$root.$userAgent !== "pc"'
+      :userAgent='userAgent'
+    />
+    <keepLearning />
   </div>
 </template>
 
@@ -23,6 +34,9 @@ export default {
     projects,
     mProjects,
     keepLearning
+  },
+  props: {
+    userAgent: String
   },
   data() {
     return {

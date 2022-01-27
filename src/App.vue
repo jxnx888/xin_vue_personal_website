@@ -4,10 +4,12 @@
     <keep-alive>
       <router-view
         v-if='$route.meta.keepAlive'
+        :userAgent='userAgent'
         :class="`${$root.$userAgent}-body ${this.$root.windowWidth ? '':'mobileBody'} mainBody`"></router-view>
     </keep-alive>
     <router-view
       v-if='!$route.meta.keepAlive'
+      :userAgent='userAgent'
       :class="`${$root.$userAgent}-body ${this.$root.windowWidth ? '':'mobileBody'} mainBody`"></router-view>
     <footerVue></footerVue>
   </div>
@@ -20,24 +22,33 @@ export default {
   name: 'App',
   components: {
     navMain,
-    footerVue
+    footerVue,
   },
-  mounted() {
-    window.addEventListener('resize', () => {
+  data(){
+    return {
+      userAgent: 'pc'
+    }
+  },
+  methods:{
+    checkUserAgent(){
       this.$root.windowWidth = (window.innerWidth > gapPadHorizontal) // 992 pc菜单最小宽度（加滚动条）
-      let userAgent = 'pc'
       if (window.innerWidth < gapPadHorizontal) {
-        userAgent = 'pad'
+        this.userAgent = 'pad'
         if(window.innerWidth < gapPadVertical){
-          userAgent = 'pad-v'
+          this.userAgent = 'pad-v'
           if (window.innerWidth < gapPhone) {
-            userAgent = 'phone'
+            this.userAgent = 'phone'
           }
         }
+      } else {
+        this.userAgent = 'pc'
       }
-      this.$root.$userAgent = userAgent
-    })
-  }
+      console.log(this.userAgent,'this.userAgent')
+    }
+  },
+  mounted() {
+    this.checkUserAgent()
+    window.addEventListener('resize', this.checkUserAgent)}
 }
 </script>
 <style lang='stylus'>
