@@ -1,5 +1,5 @@
 <template>
-  <div :class="`footer_wrapper footer_wrapper-${$root.$userAgent}`">
+  <div :class="`footer_wrapper footer_wrapper-${userAgent}`">
     <footer class="common_footer">
       <el-row>
         <el-col :span="24">
@@ -64,6 +64,9 @@
 <script>
 export default {
   name: "footerVue",
+  props: {
+    userAgent: String
+  },
   data() {
     return {
       showWebChat:false
@@ -73,7 +76,7 @@ export default {
   },
   methods: {
     openWechatImg(){
-      if(this.$root.userAgent !== "pc") {
+      if(this.userAgent !== "pc") {
         this.showWebChat = !this.showWebChat
       }
     }

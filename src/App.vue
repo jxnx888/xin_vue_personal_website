@@ -7,13 +7,13 @@
       <router-view
         v-if='$route.meta.keepAlive'
         :userAgent='userAgent'
-        :class="`${userAgent}-body ${this.$root.windowWidth ? '':'mobileBody'} mainBody`"></router-view>
+        :class="`${userAgent}-body mainBody`"></router-view>
     </keep-alive>
     <router-view
       v-if='!$route.meta.keepAlive'
       :userAgent='userAgent'
-      :class="`${userAgent}-body ${this.$root.windowWidth ? '':'mobileBody'} mainBody`"></router-view>
-    <footerVue></footerVue>
+      :class="`${userAgent}-body mainBody`"></router-view>
+    <footerVue :userAgent='userAgent' />
   </div>
 </template>
 <script>
@@ -47,8 +47,7 @@ export default {
       } else {
         this.userAgent = 'pc'
       }
-      console.log(this.userAgent, 'this.userAgent')
-    },
+    }
 },
   mounted() {
     this.checkUserAgent()
@@ -69,6 +68,6 @@ export default {
   .mainBody
     margin-top 1rem
 
-  .mobileBody
+  .pad-body,.pad-v-body, .phone-body
     margin-top .6rem
 </style>

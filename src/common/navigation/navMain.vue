@@ -23,10 +23,10 @@ export default {
     }
   },
   mounted() {
-    console.log(this.userAgent,'this.userAgent')
-    console.log(this.$root.windowWidth,'this.$root.windowWidth')
-    console.log(this.userAgent && this.userAgent !== 'phone' && this.$root.windowWidth, 'userAgent && userAgent !== \'phone\' && this.$root.windowWidth')
-    console.log(this.userAgent && this.userAgent === 'phone' || !this.$root.windowWidth, 'userAgent && userAgent === \'phone\' || !this.$root.windowWidth')
+    // console.log(this.userAgent,'this.userAgent')
+    // console.log(this.$root.windowWidth,'this.$root.windowWidth')
+    // console.log(this.userAgent && this.userAgent !== 'phone' && this.$root.windowWidth, 'userAgent && userAgent !== \'phone\' && this.$root.windowWidth')
+    // console.log(this.userAgent && this.userAgent === 'phone' || !this.$root.windowWidth, 'userAgent && userAgent === \'phone\' || !this.$root.windowWidth')
   }
 }
 </script>

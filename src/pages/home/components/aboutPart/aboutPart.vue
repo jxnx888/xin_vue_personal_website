@@ -37,7 +37,7 @@
       <el-row
         :gutter="20"
         class='detail_list clearfix'>
-        <el-col
+<!--        <el-col
           :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
           id='homeAM'
           :class="`${ifAnimation ? 'bounceInLeft animated':''} detail_list_item`"
@@ -46,11 +46,11 @@
             <p>{{ $t('ABOUT_ME') }}</p>
             <img v-lazy="`/image/home/aboutme1${userAgent === 'pc' ? '': '-mobile'}.jpg`" :alt="$i18n.t('ABOUT_ME')">
           </router-link>
-        </el-col>
+        </el-col>-->
         <el-col
           :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
           id='homePj'
-          :class="`detail_list_item ${ifAnimation ? 'bounceIn animated':''}`"
+          :class="`detail_list_item ${ifAnimation ? 'bounceInLeft animated':''}`"
         >
           <router-link to='/projects' class='each_link'>
             <p>{{ $t('My_PROJECTS') }}</p>
@@ -61,11 +61,22 @@
           :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
           class='last'
           id='homeSk'
-          :class="`detail_list_item ${ifAnimation ? 'bounceInRight animated':''}`"
+          :class="`detail_list_item ${ifAnimation ? 'bounceIn animated':''}`"
         >
           <router-link to='/skills' class='each_link'>
             <p>{{ $t('MY_SKILLS') }}</p>
             <img v-lazy="`/image/home/myskills${userAgent === 'pc' ? '': '-mobile'}.jpg`" alt="$i18n.t('MY_SKILLS')">
+          </router-link>
+        </el-col>
+      <el-col
+          :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
+          class='last'
+          id='homeBlog'
+          :class="`detail_list_item ${ifAnimation ? 'bounceInRight animated':''}`"
+        >
+          <router-link to='/blog' class='each_link'>
+            <p>{{ $t('BLOG') }}</p>
+            <img v-lazy="`/image/home/blog${userAgent === 'pc' ? '': '-mobile'}.jpg`" alt="$i18n.t('MY_SKILLS')">
           </router-link>
         </el-col>
       </el-row>
@@ -93,9 +104,10 @@ export default {
       //添加动画的元素的开始位置 (防止报错,建议写死)
       var animationPart = $('#homeList').offset().top
       var postionToSee = scrollTop + windowHeight
-      // console.log("scrollTop::"+scrollTop)
-      // console.log("animationPart::"+animationPart)
-      if (postionToSee >= animationPart) {
+      console.log("scrollTop::"+scrollTop)
+      console.log("postionToSee::"+postionToSee)
+      console.log("animationPart::"+animationPart)
+      if (postionToSee >= animationPart ) {
         this.addAnimation = true
       } else {
         this.addAnimation = false
@@ -122,7 +134,7 @@ export default {
       return `${this.$i18n.locale === 'zh_cn' ? '/file/XinNing-Resume-CN.pdf' : '/file/XinNing-Resume-EN.pdf'}`
     },
     ifAnimation() {
-      return (this.$root.userAgent === 'pc' ? this.addAnimation : true)
+      return (this.userAgent === 'pc' ? this.addAnimation : true)
     }
   },
   watch: {}
