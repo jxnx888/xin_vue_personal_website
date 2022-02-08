@@ -108,7 +108,7 @@ const routes = [
         }
       }, {
         path: ':id',
-        name: 'BlogDetail',
+        name: 'BlogList',
         component: () => import('@/pages/blog/components/blogTem'),
         meta: {
           keepAlive: true,

@@ -104,9 +104,9 @@ export default {
       //添加动画的元素的开始位置 (防止报错,建议写死)
       var animationPart = $('#homeList').offset().top
       var postionToSee = scrollTop + windowHeight
-      console.log("scrollTop::"+scrollTop)
-      console.log("postionToSee::"+postionToSee)
-      console.log("animationPart::"+animationPart)
+      // console.log("scrollTop::"+scrollTop)
+      // console.log("postionToSee::"+postionToSee)
+      // console.log("animationPart::"+animationPart)
       if (postionToSee >= animationPart ) {
         this.addAnimation = true
       } else {

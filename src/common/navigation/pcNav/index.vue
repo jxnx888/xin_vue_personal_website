@@ -12,7 +12,7 @@
           class='each_menu'
           v-for='(item, index) in menuData'
           :key='index'
-          :class="item.routerLink === currentPath?'activeMenu':''"
+          :class="item.routerName === currentPath?'activeMenu':''"
         >
           <router-link :to='item.routerLink' class='each_link'>{{ $t(item.name) }}</router-link>
         </div>
@@ -93,7 +93,8 @@ export default {
   },
   computed: {
     currentPath(){
-      return this.$route.fullPath
+      console.log(this.$route,'this.$route')
+      return this.$route.name
     }
   },
   watch: {
