@@ -8,14 +8,16 @@
       :userAgent='userAgent'
     />
     <projects
-      v-if='$root.$userAgent === "pc"'
+      v-if='userAgent === "pc"'
       :userAgent='userAgent'
     />
     <mProjects
-      v-if='$root.$userAgent !== "pc"'
+      v-if='userAgent !== "pc"'
       :userAgent='userAgent'
     />
-    <keepLearning />
+    <keepLearning
+      :userAgent='userAgent'
+    />
   </div>
 </template>
 

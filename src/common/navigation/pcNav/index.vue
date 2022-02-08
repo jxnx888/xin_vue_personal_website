@@ -136,7 +136,12 @@ export default {
         position relative
         padding: 0 .15rem
         font-size: .18rem
-
+        @media screen and (max-width: 1065px)
+          padding 0 .1rem
+        @media screen and (max-width: 1010px)
+          padding 0 .05rem
+        @media screen and (max-width: 950px)
+          padding 0
         .each_link
           color #333
           margin 0 .15rem

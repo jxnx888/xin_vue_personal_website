@@ -1,5 +1,5 @@
 <template>
-  <div :class='`project_wrapper clearfix project_wrapper-${$root.$userAgent}`'>
+  <div :class='`project_wrapper clearfix project_wrapper-${userAgent}`'>
     <div class='project_banner'>
       <topBanner
         :bannerImg="'/image/banner2.png'"
@@ -42,7 +42,7 @@
           :id="childItem.title.replaceAll(' ','')"
         ></projectTem>
       </div>
-      <div class='animation_menu' :class="`animation_menu-${$root.$userAgent} ${scrollingMenu? 'scrollMenu':''}`"
+      <div class='animation_menu' :class="`animation_menu-${userAgent} ${scrollingMenu? 'scrollMenu':''}`"
            v-if='!mobile'>
         <div class='each_company_menu'
              v-for='(key,val, index) in menuArr'
@@ -67,6 +67,9 @@ import projectTem from './components/projectTem'
 // import luggageDecalSplatter from "@/common/threejs/luggageDecalSplatter/luggageDecalSplatter";
 export default {
   name: 'projects',
+  props: {
+    userAgent: String
+  },
   components: {
     topBanner,
     projectTem
@@ -194,7 +197,6 @@ export default {
     this.getProject()
     this.getForFun()
     window.addEventListener('scroll', this.menuScroll)
-    this.mobile = /Android|webOS|iPhone|iPad|BlackBerry/i.test(navigator.userAgent)
     window.addEventListener('resize', this.resizeDecals, false)
     // 判断commentId 是否有值，如果没有的话，就不进行跳转，我这里就用'null'来判断了，你们随意
     // document.querySelector用来获取element，有个坑，id值不能全为数字，否则报错，所以我在id值前面加了id，id格式大致是：id123456

@@ -1,6 +1,14 @@
 <template>
   <div :class='`project_wrapper project_wrapper-${$root.$userAgent}`'>
-    <swiper class="swiper" :options="swiperOption">
+    <swiper
+      class="swiper"
+      ref="mySwiper"
+      :options="swiperOption"
+      :auto-update="true"
+      :auto-destroy="true"
+      :delete-instance-on-destroy="true"
+      :cleanup-styles-on-destroy="true"
+    >
       <swiper-slide
         v-for='(item, index) in projects'
         :key='index'
@@ -59,24 +67,43 @@
           </ul>
         </div>
       </swiper-slide>
+
+      <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+      <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
       <div class='swiper-pagination' slot='pagination'></div>
     </swiper>
+
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'projects',
   data() {
     return {
       currentListIndex: 1,
       swiperOption: {
-        pagination: '.swiper-pagination',
-        paginationType: 'fraction',
+        pagination: {
+          el: ".swiper-pagination",
+          // clickable: true,
+          type: "progressbar", // bullets fraction progressbar
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
         observeParents: true,
         observer: true,
         loop: true,
-        lazy: true
+        lazy: true,
+        // autoplay: true,
+        speed:1000,
+        autoplay: {
+          delay: 5000,
+          stopOnLastSlide: false,
+          disableOnInteraction: true,
+        }
       }
     }
   },
@@ -208,6 +235,9 @@ export default {
 </script>
 
 <style scoped lang='stylus'>
+.project_wrapper >>> .swiper-button-prev::after, .project_wrapper >>> .swiper-button-next::after
+  font-size .2rem
+
 projectHeight = 60vh
 .project_wrapper
   width: 100%;

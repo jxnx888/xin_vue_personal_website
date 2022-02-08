@@ -14,9 +14,13 @@
         <p class='title'>{{ $t('MY_TITLE') }}</p>
         <p class='subtitle'>{{ $t('MY_SUBTITLE') }}</p>
       </div>
-      <autoTyping v-if='userAgent !== "phone"' :key='timer' :dataType="$t('INTRODUCTION')"></autoTyping>
+      <autoTyping
+        :userAgent='userAgent'
+        :key='timer'
+        :dataType="$t('INTRODUCTION')"
+      />
     </div>
-    <autoTyping v-if='userAgent === "phone"' :key='timer' :dataType="$t('INTRODUCTION')"></autoTyping>
+<!--    <autoTyping v-if='userAgent === "phone"' :key='timer' :dataType="$t('INTRODUCTION')"></autoTyping>-->
   </div>
 </template>
 

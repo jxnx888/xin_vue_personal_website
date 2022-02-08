@@ -1,36 +1,57 @@
 <template>
-  <div :class='`progress_main clearfix progress_main-${$root.$userAgent}`'>
+  <div :class='`progress_main clearfix progress_main-${userAgent}`'>
     <div class='skills_progress clearfix'>
-      <div class='develop_skills clearfix'>
+      <el-row
+        :gutter='20'
+        class='develop_skills clearfix'>
         <h1>{{ $t('skills.devSkill') }}</h1>
-        <div class='each_skill progressbar clearfix'
-             v-for='(value, key, index) in skillsList'
-             :key='index'
+        <el-col
+          :span='(userAgent === "pc" || userAgent === "pad") ? 12: 24'
+          class='each_skill progressbar clearfix'
+          v-for='(value, key, index) in skillsList'
+          :key='index'
         >
-          <div class='skill_title'>{{ key }}</div>
-          <div class='skill_progress' :percentage='value'>
-            <div class='percbar'><span></span></div>
-            <div class='perc_lable'><span></span>
-              <div class='perc'></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class='softskills clearfix'>
+          <el-row>
+            <el-col :span='6'>
+              <div class='skill_title'>{{ key }}</div>
+            </el-col>
+            <el-col :span='18'>
+              <div class='skill_progress' :percentage='value'>
+                <div class='percbar'><span></span></div>
+                <div class='perc_lable'><span></span>
+                  <div class='perc'></div>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
+
+        </el-col>
+      </el-row>
+      <el-row
+        :gutter='20'
+        class='softskills clearfix'>
         <h1>{{ $t('skills.SoftSkill') }}</h1>
-        <div class='each_skill progressbar clearfix'
-             v-for='(value, key, index) in softSkills'
-             :key='index'
+        <el-col
+          :span='(userAgent === "pc" || userAgent === "pad") ? 12: 24'
+          class='each_skill progressbar clearfix'
+          v-for='(value, key, index) in softSkills'
+          :key='index'
         >
-          <div class='skill_title'>{{ $t(value.name) }}</div>
-          <div class='skill_progress' :percentage='value.value'>
-            <div class='percbar'><span></span></div>
-            <div class='perc_lable'><span></span>
-              <div class='perc'></div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <el-row>
+            <el-col :span='6'>
+              <div class='skill_title'>{{ $t(value.name) }}</div>
+            </el-col>
+            <el-col :span='18'>
+              <div class='skill_progress' :percentage='value.value'>
+                <div class='percbar'><span></span></div>
+                <div class='perc_lable'><span></span>
+                  <div class='perc'></div>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -38,6 +59,9 @@
 <script>
 export default {
   name: 'skillsProgress',
+  props: {
+    userAgent: String
+  },
   data() {
     return {
       skillsList: {
@@ -122,7 +146,7 @@ export default {
   position: relative;
 
   .skills_progress
-    width 1200px;
+    max-width 1200px;
     margin auto
     padding-bottom 1rem
 
@@ -136,21 +160,17 @@ export default {
       height .3rem
       line-height .3rem
       margin-bottom .4rem
-      width 50%
-      float left
 
       .skill_title
         color #ffffff
-        float left
-        width 1.5rem
+        width 100%
         height .3rem
         line-height .3rem
         text-align left
 
       .skill_progress
         position relative
-        float: left;
-        width 4rem
+        width 100%
         height .35rem
         line-height .3rem
         /*background #eee*/
@@ -310,22 +330,12 @@ export default {
         border: 1px solid rgba(0, 0, 0, 0.8);
 
 
-.progress_main-phone, .progress_main-pad
+.progress_main-phone, .progress_main-pad-v
+  max-width 90%
+  margin auto
   .skills_progress
-    width 100%
-
     h1
       font-size .2rem
-
-    .each_skill
-      width 100%
-      float none
-
-      .skill_title
-        width 30%
-
-      .skill_progress
-        width 70%
 
 @-webkit-keyframes sparkle {
   from {
