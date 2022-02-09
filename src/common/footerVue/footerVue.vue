@@ -14,7 +14,7 @@
               </a>
             </div>
             <div class="each_social">
-              <a href="https://www.linkedin.com/in/xin-ning-28818b115/" class="linkedin-btn" target="_blank"  title="LinkedIn:Xin Ning">
+              <a href="https://www.linkedin.com/in/xinning1007" class="linkedin-btn" target="_blank"  title="LinkedIn:Xin Ning">
                 <div class="icon i_linkedin"></div>
               </a>
             </div>
