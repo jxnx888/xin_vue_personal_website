@@ -4,10 +4,13 @@
       <template v-if="userAgent === 'pc'">
         <p>{{ $t('HOME_WELCOME1') }}</p>
         <p>{{ $t('HOME_WELCOME2') }}
-          <a
+<!--          <a
             :href='resumeLink'
             :download='resumeLink'
           >
+            {{ $t('RESUME_LOWER') }}
+          </a>-->
+          <a href='javascript:void(0)' @click="openResume">
             {{ $t('RESUME_LOWER') }}
           </a>
         </p>
@@ -19,10 +22,13 @@
       </template>
       <template v-if="userAgent !== 'pc'">
         <p>{{ $t('HOME_WELCOME1') }} {{ $t('HOME_WELCOME2') }}
-          <a
+<!--          <a
             :href='resumeLink'
             :download='resumeLink'
           >
+            {{ $t('RESUME_LOWER') }}
+          </a>-->
+          <a href='javascript:void(0)' @click="openResume">
             {{ $t('RESUME_LOWER') }}
           </a>
           .
@@ -112,7 +118,11 @@ export default {
       } else {
         this.addAnimation = false
       }
-    }
+    },
+    openResume(){
+      // this.$refs.pdfView[0].print()
+      window.open(`https://ning-xin.com${this.resumeLink}`)
+    },
   },
   mounted() {
     window.addEventListener('scroll', this.checkPosition)
