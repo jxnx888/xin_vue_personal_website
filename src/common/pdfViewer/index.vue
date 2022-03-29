@@ -48,7 +48,7 @@ export default {
         this.numPages = pdf.numPages
       }).catch((error) => {
         console.log('There was an pdf pdf error, error.response')
-        console.log(error)
+        console.error(error)
       })
     },
     pdfPrintAll(){

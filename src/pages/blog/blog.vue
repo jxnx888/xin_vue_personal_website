@@ -44,7 +44,7 @@ export default {
       this.$ajax.get(url) // npm run build ==>  ./static/mock/index.json
         .then(this.getBlogSucc)
         .catch(function(res) {
-          console.log('error:' + res)
+          console.error(res)
         })
     },
     getBlogSucc(res) {

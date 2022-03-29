@@ -112,7 +112,7 @@ methods:{
                 //console.log(this.object)
                 document.body.appendChild(obj);
                 let that=this;
-                console.log(obj.t)
+                // console.log(obj.t)
                 obj.t=setInterval(function(){that.float(obj.index)}, obj.interval);
             },
             float(index) {

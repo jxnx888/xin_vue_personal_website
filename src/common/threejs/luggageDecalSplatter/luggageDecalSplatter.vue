@@ -209,7 +209,6 @@
             },
             containerMouseDown(e){
                 const _this = this;
-                console.log("containerMouseDown")
                 _this.moved = false;
                 if (e.button == 0) { //mouse left button
                     if(_this.focusedDecalFlag&&_this.shotFlag){
@@ -225,7 +224,6 @@
             },
             containerMouseUp(e){
                 const _this = this;
-                console.log("containerMouseUp")
                 if (e.button == 0) { //mouse left button
                     // menuShowFlag = true;
                     _this.clickedLeftMouse = false;
@@ -333,7 +331,6 @@
                     _this.mouseHelper= new THREE.Mesh( new DecalGeometry(_this.mesh, _this.position, _this.orientation, _this.currentSize ), currentmaterial1 );
                     _this.mouseHelper.name = 'mouseHelper';
                     _this.scene.add( _this.mouseHelper );
-                    console.log(_this.scene.children)
                     setTimeout(function () {
                         $(".each_decal:eq(0)").trigger("click"); //激活鼠标首次decal显示
                     },200)

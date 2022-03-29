@@ -127,6 +127,15 @@ const routes = [
     }
   },
   {
+    path: '/randomPickUpName',
+    name: 'randomPickUpName',
+    // component: () => import('@/common/threejs/luggageDecalSplatter/decals'),
+    component: () => import('@/pages/others/randomName'),
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import('@/common/notFound/index'),

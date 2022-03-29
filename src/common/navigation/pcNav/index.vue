@@ -93,7 +93,6 @@ export default {
   },
   computed: {
     currentPath(){
-      console.log(this.$route,'this.$route')
       return this.$route.name
     }
   },

@@ -85,7 +85,6 @@ export default {
       this.currrent_lang = localStorage.getItem('locale') || 'en_us' // 语言标识
     },
     goTo(path, index) {
-      console.log(123)
       this.navIndex = index
       this.drawer = false
       this.$router.push({ path: path })

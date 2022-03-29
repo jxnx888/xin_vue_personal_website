@@ -185,7 +185,6 @@ var TransformControls = function ( camera, domElement ) {
 			// eslint-disable-next-line no-undef
 			window.focusedTransformObj = object;
 			// eslint-disable-next-line no-undef
-			console.log("window.deleteObjFlag::"+window.deleteObjFlag)
 			window.deleteObjFlag = false;
 			$(".color_control_wrapper").show();
 			$(".active_control").removeClass("active_control");

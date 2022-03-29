@@ -573,7 +573,7 @@ export default {
       this.$ajax.get(url)
         .then(this.listModuleSucc)
         .catch(function(res) {
-          console.log('error:' + res)
+          console.error( res)
         })
     },
     listModuleSucc(res) {
@@ -607,7 +607,6 @@ export default {
       this.onWindowResize()
     },
     dropOffListerner() {
-      console.log('dropOffListerner')
       const _this = this
       _this.shapesMain.addEventListener('touchstart', function() {
         //隐藏子窗口
@@ -704,7 +703,6 @@ export default {
         _this.showColorOption = false
       })
       _this.shapesEventL.addEventListener('mousedown', function(e) {
-        console.log(123)
         //隐藏子窗口
         _this.showColorOption = false
         _this.showColorOption = false
@@ -814,7 +812,6 @@ export default {
         // _this.maxH = document.body.clientHeight - _this.selectedDragObj[0].offsetHeight;
         _this.maxW = $('.builder .main_wrapper').width() - _this.selectedDragObj[0].offsetWidth
         _this.maxH = $('.builder .main_wrapper').height() - _this.selectedDragObj[0].offsetHeight
-        console.log()
       }
     },
     moveImg(e) {
@@ -823,7 +820,6 @@ export default {
       var ev = e || window.event
       var windowWidth = _this.CONTAIN_WIDTH
       _this.movedDir = windowWidth - (ev.clientX)
-      console.log('123')
       if (_this.dragObj && _this.movedDir < 100) {
         $('body').append(_this.dragObj)
         var oLeft = ev.clientX - 50
@@ -876,7 +872,6 @@ export default {
       $('.active_shape').removeClass('active_shape')
     },
     selectModule(type, code, index, module) {
-      console.log('selectModule::' + module)
       if (0 == type && 'text' == module) {
         type = 2
       } else if (0 == type && 'stl' == module) {
@@ -1013,7 +1008,6 @@ export default {
       _this.showLoading = true
       _this.showInput(1)
       this.fontLoader.load('/font/SimHei_Regular.json', function(font) {
-          console.log(123)
           _this.wordFont = font
           _this.createText()
           _this.showLoading = false
@@ -1025,7 +1019,7 @@ export default {
         },
         // onError callback
         function(err) {
-          console.log('An error happened :' + err)
+          console.error('An error happened :' + err)
         })
     },
     createText() {
@@ -1081,7 +1075,6 @@ export default {
       _this.activeSave = true
       _this.transformControl.object = text
       _this.focusedTransformObj = _this.transformControl.object
-      console.log(text)
       _this.cleanSelectedObject(text)
       _this.createObjForOperation(text, 'add')
       _this.eachObjSetps(text, 0)
@@ -1611,7 +1604,6 @@ export default {
           this.statusTxt = this.textTR
           this.transformControlModeType = 1
       }
-      console.log(this.transformControl.object)
       this.transformControl.object ? this.colorControl = true : this.colorControl = false
 
     },

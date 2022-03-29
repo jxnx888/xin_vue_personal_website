@@ -41,7 +41,6 @@
 
         watch: {
             decaleClosed(newVal,oldVal){
-                console.log(newVal)
                 if(newVal!=oldVal){
                     if(newVal){
                       this.decaleClosed = newVal;
