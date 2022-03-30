@@ -103,6 +103,7 @@ export default {
   .show-name
     .each-tag
       font-size .16rem
+      margin-bottom .15rem
     .each-tag:not(:first-child)
       margin-left .1rem
   .final-name
