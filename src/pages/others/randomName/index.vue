@@ -6,6 +6,8 @@
         v-for='(item, index) in names'
         :key=item
         :type='tagType[index%4]'
+        closable
+        @close="handleClose(item)"
       >
         {{ item }}
       </el-tag>
@@ -83,6 +85,9 @@ export default {
       this.names = this.$options.data().names
       this.finalName = this.$options.data().finalName
       this.resetGame = false
+    },
+    handleClose(tag){
+      this.names.splice(this.names.indexOf(tag), 1);
     }
   },
   mounted() {
@@ -119,5 +124,6 @@ export default {
 
 #randomNamePickUp.random-container-mobile
   height calc(100vh - 282px)
-
+>>> .el-tag .el-icon-close::before
+  padding-top: 2px;
 </style>

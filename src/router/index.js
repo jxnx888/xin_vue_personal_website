@@ -120,17 +120,23 @@ const routes = [
   {
     path: '/threejs',
     name: 'threejs',
-    // component: () => import('@/common/threejs/luggageDecalSplatter/decals'),
     component: () => import('@/common/threejs/threeDBuilder/ThreeDimensionalBuilder'),
     meta: {
       keepAlive: true
     }
   },
   {
-    path: '/randomPickUpName',
-    name: 'randomPickUpName',
-    // component: () => import('@/common/threejs/luggageDecalSplatter/decals'),
+    path: '/randomlyPickName',
+    name: 'randomlyPickName',
     component: () => import('@/pages/others/randomName'),
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
+    path: '/facebook',
+    name: 'facebook',
+    component: () => import('@/common/facebook'),
     meta: {
       keepAlive: true
     }
