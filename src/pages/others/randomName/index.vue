@@ -1,5 +1,5 @@
 <template>
-  <div id='randomNamePickUp' :class='`${userAgent === "pc" ? "" : "random-container-mobile"}`'>
+  <div id='randomNamePickUp' :class='`${userAgent === "pc" ? "" : "random-container-mobile"}  not-select`'>
     <div class='show-name tag-group'>
       <el-tag
         class='each-tag'
@@ -11,11 +11,22 @@
       >
         {{ item }}
       </el-tag>
+      <el-input
+        class="each-tag input-new-tag"
+        v-if="inputVisible && inputVisible"
+        v-model="inputValue"
+        ref="saveTagInput"
+        @keyup.enter.native="handleInputConfirm"
+        @blur="handleInputConfirm"
+      >
+      </el-input>
+      <el-tag v-if='showBtnCount > names.length && !addTag' class="each-tag button-new-tag"  @click="showInput"> + </el-tag>
     </div>
 
     <el-tag
       class='final-name'
       effect='dark'
+      @click='showAddButton'
       :type='tagType[3]'
     >
       {{ finalName }}
@@ -68,6 +79,11 @@ export default {
       finalIndex: null,
       finalName: 'Who is next',
       resetGame: false,
+      showBtnTimeOut:null,
+      showBtnCount:0,
+      addTag: false,
+      inputVisible: false,
+      inputValue: '',
       videoIndex: 0,
       mp3: [
         {
@@ -141,6 +157,33 @@ export default {
     },
     handleClose(tag) {
       this.names.splice(this.names.indexOf(tag), 1)
+    },
+    showAddButton(){
+      let _this = this
+      clearTimeout(_this.showBtnTimeOut)
+      _this.showBtnCount++
+      if(_this.showBtnCount > _this.names.length){
+        return
+      }
+      _this.showBtnTimeOut = setTimeout(()=>{
+        _this.showBtnCount = 0
+      },1000)
+    },
+    showInput() {
+      this.inputVisible = true;
+      this.addTag = true;
+      this.$nextTick(() => {
+        this.$refs.saveTagInput.$refs.input.focus();
+      });
+    },
+    handleInputConfirm() {
+      let inputValue = this.inputValue;
+      if (inputValue) {
+        this.names.push(inputValue);
+      }
+      this.addTag = false;
+      this.inputVisible = false;
+      this.inputValue = '';
     }
   },
   mounted() {
@@ -166,7 +209,8 @@ export default {
 
     .each-tag:not(:first-child)
       margin-left .1rem
-
+    .input-new-tag
+      max-width 100px
   .final-name
     font-size .2rem
     display block
