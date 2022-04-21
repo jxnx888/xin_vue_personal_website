@@ -318,12 +318,15 @@ export default {
         console.warn(`%c${p}`,'font-size:12px;color:#e59de3')
         console.warn(`%c${g}`,'font-size:10px;color:#e59de3')
       } else{
+        this.names.splice(this.names.indexOf('Priyanka Ghadge'), 1)
         console.warn(`May 2ed isn't arrive`)
       }
     }
   },
   mounted() {
     this.videoIndex = this.randomNum(0, this.mp3.length -1)
+  },
+  created(){
     this.welcomeFn()
     // 将分享方法绑定在window上
     window['welcomeFn'] = () => {
