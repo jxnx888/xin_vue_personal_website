@@ -256,13 +256,12 @@ export default {
           enabled: _this.enableMusic
         }
       });
+      this.fireworksObj.start()
     },
     fireworksFn(){
       const container = document.getElementById('firework')
      this.fireworksObj = new Fireworks(container, this.options)
-      console.log(this.fireworksObj._canvas)
-      this.fireworksObj._canvas.fillStyle = 'black'
-      this.fireworksObj.start()
+
     },
     welcomeFn(optional){
       // need delete after 05/02/2022
