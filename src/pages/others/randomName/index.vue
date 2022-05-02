@@ -325,13 +325,11 @@ export default {
   },
   mounted() {
     this.videoIndex = this.randomNum(0, this.mp3.length -1)
+    this.welcomeFn()
+
   },
   created(){
-    this.welcomeFn()
-    // 将分享方法绑定在window上
-    window['welcomeFn'] = () => {
-      this.welcomeFn(true)
-    }
+
   }
 }
 </script>
