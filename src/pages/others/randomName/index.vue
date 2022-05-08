@@ -67,7 +67,7 @@
 
 import Aplayer from 'vue-aplayer'
 import Welcome from './welcome'
-
+import _ from 'lodash'
 export default {
   name: 'index',
   props: {
@@ -140,13 +140,13 @@ export default {
           _this.finalIndex = randomN
           _this.finalName = _this.names[randomN]
         }, 100)
-
+        let nameLengthSec = _this.names.length * 1000 - 1000
         setTimeout(() => {
           clearInterval(_this.loopInterval)
           _this.loopInterval = null
           _this.startStop = true
           _this.splicePickedName()
-        }, _this.names.length > 1 ? _this.names.length * 1000 - 1000 : 500)
+        }, _this.names.length > 1 ? nameLengthSec > 3000 ? 3000: nameLengthSec : 500)
       }
     },
     splicePickedName() {
@@ -158,7 +158,7 @@ export default {
       }
     },
     resetGameFn() {
-      this.names = this.$options.data().names
+      this.names = _.shuffle(this.$options.data().names)
       this.finalName = this.$options.data().finalName
       this.resetGame = false
     },
@@ -197,7 +197,7 @@ export default {
     this.videoIndex = this.randomNum(0, this.mp3.length - 1)
   },
   created() {
-
+    this.names = _.shuffle(this.names)
   }
 }
 </script>
