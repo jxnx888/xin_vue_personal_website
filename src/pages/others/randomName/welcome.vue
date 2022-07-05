@@ -14,6 +14,7 @@
 
 <script>
 import { Fireworks } from 'fireworks-js'
+import moment from 'moment'
 export default {
   name: 'welcome',
   data() {
@@ -67,7 +68,8 @@ export default {
           max: 1
         }
       },
-      enableMusic: false
+      enableMusic: false,
+      fireworkStart:false
     }
   },
   methods: {
@@ -79,7 +81,14 @@ export default {
           enabled: _this.enableMusic
         }
       })
-      this.fireworksObj.start()
+      if(this.fireworkStart){
+        this.fireworksObj.stop()
+        this.fireworkStart = false
+      } else{
+        this.fireworksObj.start()
+        this.fireworkStart = true
+      }
+
     },
     fireworksFn() {
       const container = document.getElementById('firework')
@@ -125,7 +134,7 @@ export default {
       this.itIsTime = now > startTimeStamp && startTimeStampEnd > now || optional
       if (this.itIsTime) {
         this.fireworksFn()
-        console.warn('%c ------------%c Today is May 2ed! %c ------------ ', color1, color2, color3)
+        console.warn(`%c ------------%c Today is ${moment().format('MMMM Do YYYY')}! %c ------------ `, color1, color2, color3)
         const logImg = `padding: 100px 200px;
       width:100%;
       background-image: url(${this.welcomeImg});
@@ -137,6 +146,9 @@ export default {
         console.warn(`🌴🌴🌴🌴🌴🌴🍁🍁🍁🍁🍁🍁🌴🌴🌴🌴🌴🌴`)
         console.warn(`%c${p}`, 'font-size:12px;color:#e59de3')
         console.warn(`%c${g}`, 'font-size:10px;color:#e59de3')
+        if(optional){
+          this.toggleSound()
+        }
       } else {
         // this.names.splice(this.names.indexOf('Priyanka Ghadge'), 1)
         console.warn(`May 2ed isn't arrive`)

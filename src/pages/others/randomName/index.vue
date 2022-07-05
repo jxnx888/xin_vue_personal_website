@@ -1,6 +1,10 @@
 <template>
   <div id='wrapper'>
     <Welcome />
+    <HappyBirthday
+      @closeWindow='closeWindow'
+      v-if='showBirthday'
+    />
     <div id='randomNamePickUp' :class='`${userAgent === "pc" ? "" : "random-container-mobile"}  not-select`'>
       <div class='show-name tag-group'>
         <el-tag
@@ -46,7 +50,6 @@
       </el-button>
 
       <Aplayer
-        autoplay
         preload
         float
         :mini=false
@@ -67,7 +70,9 @@
 
 import Aplayer from 'vue-aplayer'
 import Welcome from './welcome'
+import HappyBirthday from './happyBirthday'
 import _ from 'lodash'
+
 export default {
   name: 'index',
   props: {
@@ -75,7 +80,8 @@ export default {
   },
   components: {
     Aplayer,
-    Welcome
+    Welcome,
+    HappyBirthday
   },
   data() {
     return {
@@ -123,7 +129,13 @@ export default {
           src: 'mp3/the other side.mp3',
           pic: ''
         }
-      ]
+      ],
+      birthday: [{
+        title: 'Happy Birthday',
+        artist: 'Happy Birthday',
+        src: 'mp3/happy-birthday.mp3'
+      }],
+      showBirthday: false
     }
   },
   methods: {
@@ -132,21 +144,39 @@ export default {
     },
     pickUpName() {
       let _this = this
+      // startStop === true 可以点击开始选择名字
       if (_this.startStop) {
         _this.startStop = false
-
+        // 开始随机名字 用于 who is next 中轮播名字
         _this.loopInterval = setInterval(function() {
+          // 获取随机数
           let randomN = _this.randomNum(0, _this.names.length - 1)
+          // 设置随机数组的index 用于展示在who is next
           _this.finalIndex = randomN
+          // 根据随机index提取名字 用于展示在who is next
           _this.finalName = _this.names[randomN]
         }, 100)
         let nameLengthSec = _this.names.length * 1000 - 1000
         setTimeout(() => {
+          // 停止轮播名字
           clearInterval(_this.loopInterval)
           _this.loopInterval = null
           _this.startStop = true
           _this.splicePickedName()
-        }, _this.names.length > 1 ? nameLengthSec > 3000 ? 3000: nameLengthSec : 500)
+          _this.ifNameMatch()
+        }, _this.names.length > 1 ? nameLengthSec > 3000 ? 3000 : nameLengthSec : 500)
+      }
+    },
+    ifNameMatch() {
+      const date = new Date()
+      const now = date.getTime()
+      if (this.finalName !== 'Jean-Nicolas Gauthier' && !(now > 1657080000000 && now < 1657166399000)) {
+        console.log('happy birthday')
+        this.showBirthday = true
+        window.welcomeFn()
+      } else {
+        // console.log('not the time')
+        this.showBirthday = false
       }
     },
     splicePickedName() {
@@ -191,6 +221,9 @@ export default {
       this.addTag = false
       this.inputVisible = false
       this.inputValue = ''
+    },
+    closeWindow() {
+      this.showBirthday = false
     }
   },
   mounted() {
@@ -205,6 +238,10 @@ export default {
 <style scoped lang='stylus'>
 #wrapper
   position: relative;
+
+  #birthday_wrapper
+    position: relative;
+
   #randomNamePickUp
     height calc(100vh - 260px)
     display: flex;
