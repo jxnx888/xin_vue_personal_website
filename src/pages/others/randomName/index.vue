@@ -142,7 +142,7 @@ export default {
     randomNum(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min)
     },
-    pickUpName() {
+    pickUpName(optional) {
       let _this = this
       // startStop === true 可以点击开始选择名字
       if (_this.startStop) {
@@ -163,14 +163,14 @@ export default {
           _this.loopInterval = null
           _this.startStop = true
           _this.splicePickedName()
-          _this.ifNameMatch()
+          _this.ifNameMatch(optional)
         }, _this.names.length > 1 ? nameLengthSec > 3000 ? 3000 : nameLengthSec : 500)
       }
     },
-    ifNameMatch() {
+    ifNameMatch(optional) {
       const date = new Date()
       const now = date.getTime()
-      if (this.finalName === 'Jean-Nicolas Gauthier' && (now > 1657080000000 && now < 1657166399000)) {
+      if (this.finalName === 'Jean-Nicolas Gauthier' && (now > 1657080000000 && now < 1657166399000) || optional) {
         console.log('happy birthday')
         this.showBirthday = true
         window.welcomeFn()
@@ -228,6 +228,10 @@ export default {
   },
   mounted() {
     this.videoIndex = this.randomNum(0, this.mp3.length - 1)
+    // 将分享方法绑定在window上
+    window['pickUpName'] = () => {
+      this.pickUpName(true)
+    }
   },
   created() {
     this.names = _.shuffle(this.names)
