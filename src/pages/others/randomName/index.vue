@@ -170,7 +170,7 @@ export default {
     ifNameMatch() {
       const date = new Date()
       const now = date.getTime()
-      if (this.finalName !== 'Jean-Nicolas Gauthier' && !(now > 1657080000000 && now < 1657166399000)) {
+      if (this.finalName === 'Jean-Nicolas Gauthier' && (now > 1657080000000 && now < 1657166399000)) {
         console.log('happy birthday')
         this.showBirthday = true
         window.welcomeFn()
