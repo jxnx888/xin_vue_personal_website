@@ -3,6 +3,7 @@
     <Welcome />
     <HappyBirthday
       @closeWindow='closeWindow'
+      :birthName='finalName'
       v-if='showBirthday'
     />
     <div id='randomNamePickUp' :class='`${userAgent === "pc" ? "" : "random-container-mobile"}  not-select`'>
@@ -72,6 +73,7 @@ import Aplayer from 'vue-aplayer'
 import Welcome from './welcome'
 import HappyBirthday from './happyBirthday'
 import _ from 'lodash'
+import moment from 'moment'
 
 export default {
   name: 'index',
@@ -142,7 +144,7 @@ export default {
     randomNum(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min)
     },
-    pickUpName(optional) {
+    pickUpName() {
       let _this = this
       // startStop === true 可以点击开始选择名字
       if (_this.startStop) {
@@ -163,19 +165,19 @@ export default {
           _this.loopInterval = null
           _this.startStop = true
           _this.splicePickedName()
-          _this.ifNameMatch(optional)
+          _this.ifNameMatch()
         }, _this.names.length > 1 ? nameLengthSec > 3000 ? 3000 : nameLengthSec : 500)
       }
     },
-    ifNameMatch(optional) {
-      const date = new Date()
-      const now = date.getTime()
-      if (this.finalName === 'Jean-Nicolas Gauthier' && (now > 1657080000000 && now < 1657166399000) || optional) {
-        console.log('happy birthday')
+    ifNameMatch() {
+      const now = moment().format('MM/DD')
+      const birthday = {
+        '07/06': 'Jean-Nicolas Gauthier',
+        '09/26': 'Priyanka Ghadge'
+      }
+      if(birthday[now] && this.finalName === birthday[now]){
         this.showBirthday = true
-        window.welcomeFn()
-      } else {
-        // console.log('not the time')
+      } else{
         this.showBirthday = false
       }
     },
@@ -230,7 +232,7 @@ export default {
     this.videoIndex = this.randomNum(0, this.mp3.length - 1)
     // 将分享方法绑定在window上
     window['pickUpName'] = () => {
-      this.pickUpName(true)
+      this.pickUpName()
     }
   },
   created() {

@@ -14,6 +14,9 @@ import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 export default {
   name: 'happyBirthday',
+  props: {
+    birthName: String
+  },
   data() {
     return {
       container: null,
@@ -33,7 +36,7 @@ export default {
       ballColors: [0x00bfff, 0xff00ff, 0x7cfc00, 0xdc143c, 0x7fff00, 0x00bfff, 0x00ffff, 0xff0000],
       balloonCount: 100,
       balloonSpeed: 0.0001,
-      wishText: 'Happy Birthday! Dear Jean-Nicolas Gauthier!',
+      wishText: ``,
       textColors: [0x00bfff, 0xff00ff, 0x7cfc00, 0xdc143c, 0x7fff00, 0x00bfff, 0x00ffff, 0xff0000],
       textScaleSize: 0.3, //delta scale for letters
       textAnimeColors: [], // Index of current color for each letter
@@ -568,12 +571,10 @@ export default {
   mounted() {
     this.CONTAIN_HEIGHT = document.getElementById('happy_birthday').offsetHeight
     this.CONTAIN_WIDTH = document.getElementById('happy_birthday').offsetWidth
-
     this.windowHalfX = this.CONTAIN_WIDTH / 2
     this.windowHalfY = this.CONTAIN_HEIGHT / 2
-
+    this.wishText = `Happy Birthday! Dear ${this.birthName}!`
     this.init()
-
   },
 
   watch: {
