@@ -74,6 +74,7 @@ import Welcome from './welcome'
 import HappyBirthday from './happyBirthday'
 import _ from 'lodash'
 import moment from 'moment'
+import calendarFormatter from '@/utils/convertLunarSolar'
 
 export default {
   name: 'index',
@@ -171,10 +172,18 @@ export default {
     },
     ifNameMatch() {
       const now = moment().format('MM/DD')
+      const xinBirthday =calendarFormatter.lunar2solar(moment().year(), 10, 4)
+      const xinMonth = xinBirthday.cMonth <10 ? `0${xinBirthday.cMonth}` : xinBirthday.cMonth
+      const xinDay = xinBirthday.cDay <10 ? `0${xinBirthday.cDay}` : xinBirthday.cDay
       const birthday = {
+        '02/10': 'Erfan Ensafi Moghaddam',
         '07/06': 'Jean-Nicolas Gauthier',
-        '09/26': 'Priyanka Ghadge'
+        '09/26': 'Priyanka Ghadge',
+        '11/09': 'German Mahecha',
+        '11/14': 'Aga Arafat Hossain Chowdhury',
       }
+      birthday[`${xinMonth}/${xinDay}`] = 'Xin Ning'
+
       if(birthday[now] && this.finalName === birthday[now]){
         this.showBirthday = true
       } else{
