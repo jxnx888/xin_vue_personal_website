@@ -88,7 +88,7 @@ export default {
   },
   data() {
     return {
-      names: ['Aga Arafat Hossain Chowdhury', 'Erfan Ensafi Moghaddam', 'German Mahecha', 'Jean-Nicolas Gauthier', 'Priyanka Ghadge', 'Xin Ning'],
+      names: ['Aga Arafat Hossain Chowdhury', 'Erfan Ensafi Moghaddam', 'German Mahecha', 'Jean-Nicolas Gauthier', 'Priyanka Ghadge', 'Tristan Hamel', 'Xin Ning'],
       tagType: ['success', 'info', 'warning', 'danger'],
       startStop: true,
       loopInterval: null,
