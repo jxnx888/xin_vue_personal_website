@@ -178,6 +178,7 @@ export default {
       const birthday = {
         '02/10': 'Erfan Ensafi Moghaddam',
         '07/06': 'Jean-Nicolas Gauthier',
+        '09/22': 'Tristan Hamel',
         '09/26': 'Priyanka Ghadge',
         '11/09': 'German Mahecha',
         '11/14': 'Aga Arafat Hossain Chowdhury',
