@@ -33,7 +33,7 @@
       "jobtitle": "Senior Front-end Developer",
       "responsibilities": [
         "Managing front end team as a project manager assistant.",
-        "Maintaining current E-commerce website by using HTML, CSS, JQuery, JSP, Thymeleaf.",
+        "Maintaining current E-commerce website by using HTML, CSS, jQuery, JSP, Thymeleaf.",
         "Utilizing the Vue.js framework to build a new version of the E-commerce website by self.",
         "Working closely with UX/UI designers and product manager to develop responsive, high performance, accessible, reliable E-commerce websites.",
         "Utilizing the Three.js to design and build 3D printer, and luggage decal related WebApp."
@@ -46,7 +46,7 @@
           "title": "Import Express - Ecommerce",
           "img": "/image/projects/import.jpg",
           "desc": "Online Shopping for Clothing, Mobile Phone, Computers, Jewelry, Beauty, Sports, Home and so on; Shopping on Our website For Small Businesses.",
-          "tags": "Development and maintenance, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "tags": "Development and maintenance, Javascript, jQuery, CSS3, HTML5, JSP, Thymeleaf",
           "url": "https://www.import-express.com/",
           "code": 0
         },
@@ -54,7 +54,7 @@
           "title": "Kids Charming - Ecommerce",
           "img": "/image/projects/kids.jpg",
           "desc": "China Wholesale Online, China Wholesale Suppliers, China Cheap Products for Children",
-          "tags": "Development and maintenance, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "tags": "Development and maintenance, Javascript, jQuery, CSS3, HTML5, JSP, Thymeleaf",
           "url": "https://www.kidscharming.com/",
           "code": 1
         },
@@ -62,7 +62,7 @@
           "title": "Pet Store - Ecommerce",
           "img": "/image/projects/pet.jpg",
           "desc": "China Wholesale Online, China Wholesale Suppliers, China Cheap Products for Pets",
-          "tags": "Development and maintenance, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "tags": "Development and maintenance, Javascript, jQuery, CSS3, HTML5, JSP, Thymeleaf",
           "url": "https://www.petstoreinc.com/",
           "code": 2
         },
@@ -70,7 +70,7 @@
           "title": "Magic Box - App for Children",
           "img": "/image/projects/magicBox.jpg",
           "desc": "MagicBox for kids education based on Three.js. Build modules by using default geometries",
-          "tags": "Development and maintenance, Android, iOS, Three.js, Javascript, Jquery, CSS3, HTML5",
+          "tags": "Development and maintenance, Android, iOS, Three.js, Javascript, jQuery, CSS3, HTML5",
           "url": "/threeDimensionalBuilder",
           "storeUrlQr": {
             "ios": "/image/qr/magicboxQR.png",
@@ -82,7 +82,7 @@
           "title": "Luggage Decal Splatter",
           "img": "/image/projects/luggage.jpg",
           "desc": "Pick or upload decals to  on luggage. Before and after shooting the decal, users can change the decal size and rotation and position",
-          "tags": "Development and maintenance, Three.js, Javascript, Jquery, CSS3, HTML5",
+          "tags": "Development and maintenance, Three.js, Javascript, jQuery, CSS3, HTML5",
           "url": "/threeDimensionalBuilder",
           "code": 4
         }
@@ -104,8 +104,8 @@
         {
           "title": "WeChat  ",
           "img": "/image/projects/mice.jpg",
-          "desc": "Gain an authentic, dedicated, and diverse online following from scratch for WeChat",
-          "tags": "Development and maintenance, Javascript, Jquery, CSS3, HTML5",
+          "desc": "Secret Test - Get test results by filling in or selecting information, and drain traffic through QR codes.",
+          "tags": "Development and maintenance, Javascript, jQuery, CSS3, HTML5",
           "code": 5
         }
       ]

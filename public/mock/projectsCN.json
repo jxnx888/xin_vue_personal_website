@@ -33,7 +33,7 @@
       "jobtitle": "高级前端开发人员",
       "responsibilities": [
         "作为项目经理助理，管理前端团队.",
-        "使用HTML, CSS, JQuery, JSP, Thymeleaf等维护现有的三个电商网站.",
+        "使用HTML, CSS, jQuery, JSP, Thymeleaf等维护现有的三个电商网站.",
         "通过Vue.js来开发新版本的电商网站.",
         "与UX/UI设计师和产品经理密切合作，开发响应快、性能高、易访问、可靠的电子商务网站.",
         "使用three.js开发纯前端的3D打印机，以及行李箱涂鸦项目的配套App."
@@ -46,7 +46,7 @@
           "title": "Import Express - Ecommerce",
           "img": "/image/projects/import.jpg",
           "desc": "我们出售服装、手机、电脑、珠宝、美容、运动、家居等商品; 推荐小企业在我们的网站上购物",
-          "tags": "开发和维护, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "tags": "开发和维护, Javascript, jQuery, CSS3, HTML5, JSP, Thymeleaf",
           "url": "https://www.import-express.com/",
           "code": 0
         },
@@ -54,7 +54,7 @@
           "title": "Kids Charming - Ecommerce",
           "img": "/image/projects/kids.jpg",
           "desc": "中国网上批发, 中国供应商批发, 中国儿童廉价产品",
-          "tags": "开发和维护, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "tags": "开发和维护, Javascript, jQuery, CSS3, HTML5, JSP, Thymeleaf",
           "url": "https://www.kidscharming.com/",
           "code": 1
         },
@@ -62,7 +62,7 @@
           "title": "Pet Store - Ecommerce",
           "img": "/image/projects/pet.jpg",
           "desc": "中国网上批发, 中国供应商批发, 中国宠物廉价产品",
-          "tags": "开发和维护, Javascript, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "tags": "开发和维护, Javascript, jQuery, CSS3, HTML5, JSP, Thymeleaf",
           "url": "https://www.petstoreinc.com/",
           "code": 2
         },
@@ -70,7 +70,7 @@
           "title": "Magic Box - App for Children",
           "img": "/image/home/3dprinting.jpg",
           "desc": "MagicBox是针对于小孩教育的一款Three.js的App, 用户可以使用默认的几何模型或者卡通模型来搭建模型",
-          "tags": "开发和维护, Android, iOS, Three.js, Javascript, Jquery, CSS3, HTML5",
+          "tags": "开发和维护, Android, iOS, Three.js, Javascript, jQuery, CSS3, HTML5",
           "url": "/threeDimensionalBuilder",
           "storeUrlQr": {
             "ios": "/image/qr/magicboxQR.png",
@@ -82,7 +82,7 @@
           "title": "Luggage Decal Splatter",
           "img": "/image/projects/luggage.jpg",
           "desc": "挑选或上传图片, 并涂鸦在行李上。在涂鸦前后，用户可以更改涂鸦的大小、旋转角度和位置",
-          "tags": "开发和维护，three.js, Javascript, Jquery, CSS3, HTML5",
+          "tags": "开发和维护，three.js, Javascript, jQuery, CSS3, HTML5",
           "url": "/threeDimensionalBuilder",
           "code": 4
         }
@@ -104,8 +104,8 @@
         {
           "title": "Import Express - Ecommerce",
           "img": "/image/projects/mice.jpg",
-          "desc": "Online Shopping for Clothing, Mobile Phone, Computers, Jewelry, Beauty, Sports, Home and so on; Shopping on Our website For Small Businesses.",
-          "tags": "Development and maintainance, Jquery, CSS3, HTML5, JSP, Thymeleaf",
+          "desc": "秘测 - 通过填写、选择信息，获取测试结果， 通过二维码引流。",
+          "tags": "开发和维护,Vue.js, Javascript, jQuery, CSS3, HTML5",
           "code": 5
         }
       ]
