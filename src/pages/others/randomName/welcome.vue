@@ -90,9 +90,9 @@ export default {
       }
 
     },
-    fireworksFn() {
+    fireworksFn(option) {
       const container = document.getElementById('firework')
-      this.fireworksObj = new Fireworks(container, this.options)
+      this.fireworksObj = new Fireworks(container, option || this.options)
 
     },
     welcomeFn(optional) {

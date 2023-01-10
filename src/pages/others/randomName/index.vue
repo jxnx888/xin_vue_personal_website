@@ -1,12 +1,25 @@
 <template>
   <div id='wrapper'>
-    <Welcome />
+    <Welcome ref='welcome' />
     <HappyBirthday
       @closeWindow='closeWindow'
       :birthName='finalName'
       v-if='showBirthday'
     />
     <div id='randomNamePickUp' :class='`${userAgent === "pc" ? "" : "random-container-mobile"}  not-select`'>
+      <div
+        class='master_ceremony'
+        v-if='!pickMasterOfCeremony && masterOfCeremony'
+      >
+        <!--        <img :src='require()' alt=''>-->
+        <el-tag
+          class='master-ceremony-tag'
+          effect='dark'
+        >
+          {{ masterOfCeremony }}
+        </el-tag>
+      </div>
+
       <div class='show-name tag-group'>
         <el-tag
           class='each-tag'
@@ -41,6 +54,18 @@
       </el-tag>
 
       <el-button
+        v-if='pickMasterOfCeremony'
+        :class='`pickup-name`'
+        type='primary'
+        round
+        @click='resetGame ? resetGameFn() : pickUpName()'
+        :disabled=!this.startStop
+        :loading=!this.startStop
+      > Pick The Master Of Ceremony
+      </el-button>
+
+      <el-button
+        v-else
         :class='`pickup-name`'
         type='primary'
         round
@@ -94,6 +119,8 @@ export default {
       loopInterval: null,
       finalIndex: null,
       finalName: 'Who is next',
+      pickMasterOfCeremony: true,
+      masterOfCeremony: '',
       resetGame: false,
       showBtnTimeOut: null,
       showBtnCount: 0,
@@ -138,7 +165,37 @@ export default {
         artist: 'Happy Birthday',
         src: 'mp3/happy-birthday.mp3'
       }],
-      showBirthday: false
+      showBirthday: false,
+      fireworkOption: {
+        hue: { //色彩范围
+          min: 0,
+          max: 360
+        },
+        delay: { // 放烟花速度
+          min: 0,
+          max: 50
+        },
+        rocketsPoint: 50, // 炮台位置
+        speed: 50,
+        acceleration:30, // 放烟花速度
+        friction: .9, // 烟花大小
+        gravity: 1.8, // 烟花下垂度
+        particles: 90,
+        trace: 5, // 烟花轨迹宽度
+        explosion: 6, //烟花爆炸开后的下垂的尾长
+        autoresize: true, //自动调整大小
+        brightness: {// 烟花大小
+          min: 70,
+          max: 80,
+          decay: { //衰变，烟花消失速度
+            min: 0.015,
+            max: 0.03
+          }
+        },
+        boundaries: {
+          visible: false
+        }
+      }
     }
   },
   methods: {
@@ -165,29 +222,45 @@ export default {
           clearInterval(_this.loopInterval)
           _this.loopInterval = null
           _this.startStop = true
-          _this.splicePickedName()
+          if (this.pickMasterOfCeremony) {
+            this.$refs.welcome.fireworksFn()
+            this.$refs.welcome.fireworksObj.start()
+            this.pickMasterOfCeremony = false
+            this.masterOfCeremony = this.finalName
+            this.finalName = 'Who is next'
+            setTimeout(() => {
+              this.$refs.welcome.fireworksObj.stop()
+              // remove the Canvas tag
+                let fireworkDOM = document.getElementById('firework')
+                  while(fireworkDOM.hasChildNodes()){
+                    fireworkDOM.removeChild(fireworkDOM.firstChild)
+                  }
+            }, 3000)
+          } else {
+            _this.splicePickedName()
+          }
           _this.ifNameMatch()
         }, _this.names.length > 1 ? nameLengthSec > 3000 ? 3000 : nameLengthSec : 500)
       }
     },
     ifNameMatch() {
       const now = moment().format('MM/DD')
-      const xinBirthday =calendarFormatter.lunar2solar(moment().year(), 10, 4)
-      const xinMonth = xinBirthday.cMonth <10 ? `0${xinBirthday.cMonth}` : xinBirthday.cMonth
-      const xinDay = xinBirthday.cDay <10 ? `0${xinBirthday.cDay}` : xinBirthday.cDay
+      const xinBirthday = calendarFormatter.lunar2solar(moment().year(), 10, 4)
+      const xinMonth = xinBirthday.cMonth < 10 ? `0${xinBirthday.cMonth}` : xinBirthday.cMonth
+      const xinDay = xinBirthday.cDay < 10 ? `0${xinBirthday.cDay}` : xinBirthday.cDay
       const birthday = {
         '02/10': 'Erfan Ensafi Moghaddam',
         '07/06': 'Jean-Nicolas Gauthier',
         '09/22': 'Tristan Hamel',
         '09/26': 'Priyanka Ghadge',
         '11/09': 'German Mahecha',
-        '11/14': 'Aga Arafat Hossain Chowdhury',
+        '11/14': 'Aga Arafat Hossain Chowdhury'
       }
       birthday[`${xinMonth}/${xinDay}`] = 'Xin Ning'
 
-      if(birthday[now] && this.finalName === birthday[now]){
+      if (birthday[now] && this.finalName === birthday[now]) {
         this.showBirthday = true
-      } else{
+      } else {
         this.showBirthday = false
       }
     },
@@ -203,6 +276,10 @@ export default {
       this.names = _.shuffle(this.$options.data().names)
       this.finalName = this.$options.data().finalName
       this.resetGame = false
+
+      // Reset master of ceremony
+      this.pickMasterOfCeremony = true
+      this.masterOfCeremony = null
     },
     handleClose(tag) {
       this.names.splice(this.names.indexOf(tag), 1)
@@ -267,6 +344,15 @@ export default {
     justify-content: space-evenly;
     align-items: center;
     position relative
+
+    .master_ceremony {
+      .master-ceremony-tag {
+        font-size: .25rem
+        display block
+        padding .15rem
+        height initial
+      }
+    }
 
     .show-name
       .each-tag
