@@ -60,8 +60,7 @@ Vue.use(VueLazyload, {
 // 引入轮播图插件库和css
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 // require styles
-// import  'swiper/swiper-bundle.css'
-import  'swiper/css/swiper.css'
+import 'swiper/swiper.css'
 
 Vue.use(VueAwesomeSwiper, /* { default global options } */);
 

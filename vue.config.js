@@ -1,5 +1,4 @@
 'use strict'
-const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack')
 const UglifyPlugin = require('uglifyjs-webpack-plugin')
 const path = require('path');
@@ -52,18 +51,6 @@ module.exports = {
         // 你的配置
       },
       minimizer: [
-        new TerserPlugin({
-          terserOptions: {
-            ecma: undefined,
-            warnings: false,
-            parse: {},
-            compress: {
-              drop_console: true,
-              drop_debugger: true,
-              pure_funcs: ['console.log'] // 移除console
-            }
-          }
-        }),
         new UglifyPlugin({
           uglifyOptions: {
             compress: {
