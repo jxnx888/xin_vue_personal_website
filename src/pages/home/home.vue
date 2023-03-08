@@ -1,6 +1,12 @@
 <template>
   <div>
     <topBannerSwiper
+      v-if='bannerList.length>1'
+      :imgs='bannerList'
+      :userAgent='userAgent'
+    />
+    <topBanner
+      v-else
       :bannerList='bannerList'
       :userAgent='userAgent'
     />
@@ -22,7 +28,8 @@
 </template>
 
 <script>
-import topBannerSwiper from './components/topBanner/topBanner'
+import topBannerSwiper from './components/topSwiper/topSwiper.vue'
+import topBanner from './components/topBanner/topBanner'
 import aboutPart from '@/pages/home/components/aboutPart/aboutPart'
 import projects from '@/pages/home/components/projects/projects'
 import mProjects from '@/pages/home/components/projects/m-projects'
@@ -31,6 +38,7 @@ import keepLearning from '@/pages/home/components/keepLearning/keepLearning'
 export default {
   name: 'home',
   components: {
+    topBanner,
     topBannerSwiper,
     aboutPart,
     projects,
@@ -43,20 +51,6 @@ export default {
   data() {
     return {
       bannerList: ['/image/banner1.png']
-    }
-  },
-  methods: {
-
-    getHomeInfo() {
-      this.$ajax.get('/mock/index.json') // npm run build ==>  ./static/mock/index.json
-        .then(this.getHomeInfoSucc)
-    },
-    getHomeInfoSucc(res) {
-      if (res && res.data) {
-        const data = res.data
-        this.homeTopSwiperList = data.homeTopSwiperList
-        // console.log("data:" + JSON.stringify(data))
-      }
     }
   },
   mounted() {

@@ -43,16 +43,6 @@
       <el-row
         :gutter="20"
         class='detail_list clearfix'>
-<!--        <el-col
-          :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
-          id='homeAM'
-          :class="`${ifAnimation ? 'bounceInLeft animated':''} detail_list_item`"
-        >
-          <router-link to='/aboutme' class='each_link'>
-            <p>{{ $t('ABOUT_ME') }}</p>
-            <img v-lazy="`/image/home/aboutme1${userAgent === 'pc' ? '': '-mobile'}.jpg`" :alt="$i18n.t('ABOUT_ME')">
-          </router-link>
-        </el-col>-->
         <el-col
           :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
           id='homePj'
@@ -189,6 +179,11 @@ export default {
         //  height 18vh
         .each_link
           width 100%
+          display block
+          height 0
+          padding-bottom 62.5%
+          position: relative;
+          background #eee
           p
             display: block;
             float: left;
@@ -220,37 +215,26 @@ export default {
             -webkit-transition: all 0.2s linear;
 
           img
-            display: block;
-            z-index: 1;
-            transform: scale(1);
+            position absolute
+            top 50%
+            left 50%
+            transform translate(-50%,-50%)
             transition: all 0.3s ease-out;
-            //position: absolute;
-            //top: 0;
-            //bottom: 0;
-            //left: 0;
-            //right: 0;
-            //margin: auto;
-            max-width: 100%;
-            max-height: 100%;
-            min-height: 8vh;
-        .each_link:after
-          display: block;
-          content: "";
-          height: 100%;
-          width: 100%;
-          background: rgba(0, 82, 217, 0.7);
-          position: absolute;
-          left: 0px;
-          top: 0px;
-          z-index: 2;
-          opacity: 0;
-          transition: opacity 0.3s ease-out;
+          &:after
+            display: block;
+            content: "";
+            height: 100%;
+            width: 100%;
+            background: rgba(20, 20, 20, 0.7);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
 
         .each_link:hover:after
           opacity: 1;
-
-        .each_link:hover img
-          transform: scale(1.024);
 
         .each_link:hover p:after
           opacity: 1;

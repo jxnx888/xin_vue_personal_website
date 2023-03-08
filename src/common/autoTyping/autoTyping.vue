@@ -49,6 +49,7 @@ export default {
     left 50%
     color: #6ba2ca;
     font-size: 24px;
+    z-index 9
   .typeWrite
     max-width: 650px;
     bottom: 8%;

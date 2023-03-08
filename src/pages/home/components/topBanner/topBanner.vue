@@ -109,13 +109,12 @@ export default {
   .banner
     position: relative;
     width 100%
-    height 50vh
-    min-height 2.56rem
+    height: 0;
+    padding-bottom: 29.2%;
     background #eee
-    background-repeat no-repeat
-    background-size cover
-    @media screen and (max-width: 768px)
-      min-height 1rem
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
 
     img
       max-width: 100%;

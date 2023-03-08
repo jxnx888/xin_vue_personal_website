@@ -51,7 +51,7 @@ Vue.prototype.$qs = qs;
 import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload, {
   preLoad: 1.3,  //如需测试，改为0.5 屏幕比例
-  error: '/image/error.png',
+  error: '/image/loading.gif',
   loading: '/image/loading.gif', //预加载loading图片  图片在static文件夹，就可以直接写路径了
   // loading: require('/image/loading.gif'), //预加载loading图片 图片在assets文件夹，就需要使用require（）进行引入。
   attempt: 1

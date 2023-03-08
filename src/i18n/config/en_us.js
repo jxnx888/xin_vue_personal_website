@@ -24,11 +24,14 @@ const en_us = {
   MY_SKILLS: 'My Skills',
   KEEP_LEARNING: ['KEEP LEARNING, KEEP GROWING', 'Once you stop learning, you start dying.', 'Albert Einstein'],
   PROJECT1: {
-    title: 'Great Wall Motor (Last work)',
+    title: 'Great Wall Motor',
     responsibility: [
-      'Maintained and updated the current E-commerce website.',
-      'Managed React team to improve our ability, such as code review, knowledge share.',
-      'Created Command-line Interface for GWM inner projects.'],
+      "Utilized the React Hocks framework to build a new responsive, high-performance, accessible, reliable GWM E-commerce website.",
+      "Managed React team to improve our ability, such as code review, knowledge share.",
+      "Maintained and updated the current E-commerce website.",
+      "Built the reusable, stable components in React Hocks",
+      "Created Command-line Interface for GWM inner projects."
+    ],
     childList: [
       {
         title: 'E-commerce websites',
@@ -38,9 +41,12 @@ const en_us = {
   },
   PROJECT2: {
     title: 'KAI RONG',
-    responsibility: ['Maintaining & modifying E-commerce website',
-      'Managing front-end team as a project manager assistant',
-      'Utilizing the Three.js to design and build 3D related WebApps (Android && iOS)'],
+    responsibility: [
+      "Maintaining current E-commerce website by using HTML, CSS, jQuery, JSP, Thymeleaf.",
+      "Utilizing the Vue.js framework to build a new version of the E-commerce website by self.",
+      "Working closely with UX/UI designers and product manager to develop responsive, high performance, accessible, reliable E-commerce websites.",
+      "Utilizing the Three.js to design and build 3D printer, and luggage decal related WebApp."
+    ],
     childList: [
       {
         title: 'E-commerce websites',

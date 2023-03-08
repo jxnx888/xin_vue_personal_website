@@ -115,7 +115,7 @@
         methods:{
             getForFun() {
                 var url = '/mock/yuandian.json';
-                this.$ajax.get(url) // npm run build ==>  ./static/mock/index.json
+                this.$ajax.get(url)
                     .then(this.getForFunSucc)
                     .catch(function (res) {
                         console.log("error:" + res)

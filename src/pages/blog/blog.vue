@@ -41,7 +41,7 @@ export default {
       if ('zh_cn' === lang) {
         url = '/mock/blogCN.json'
       }
-      this.$ajax.get(url) // npm run build ==>  ./static/mock/index.json
+      this.$ajax.get(url)
         .then(this.getBlogSucc)
         .catch(function(res) {
           console.error(res)
