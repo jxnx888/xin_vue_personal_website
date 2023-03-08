@@ -286,7 +286,7 @@ projectHeight = 60vh
           bottom .2rem
           left .2rem
           & *
-            color #08fdd8
+            color #fff
             text-align left
             line-height .3rem
           h4

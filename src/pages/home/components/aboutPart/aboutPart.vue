@@ -50,7 +50,7 @@
         >
           <router-link to='/projects' class='each_link'>
             <p>{{ $t('My_PROJECTS') }}</p>
-            <img v-lazy="`/image/home/myprojects${userAgent === 'pc' ? '': '-mobile'}.jpg`" alt="$i18n.t('My_PROJECTS')">
+            <img v-lazy="`/image/home/myprojects${notPC ? '': '-mobile'}.jpg`" alt="$i18n.t('My_PROJECTS')">
           </router-link>
         </el-col>
         <el-col
@@ -61,7 +61,7 @@
         >
           <router-link to='/skills' class='each_link'>
             <p>{{ $t('MY_SKILLS') }}</p>
-            <img v-lazy="`/image/home/myskills${userAgent === 'pc' ? '': '-mobile'}.jpg`" alt="$i18n.t('MY_SKILLS')">
+            <img v-lazy="`/image/home/myskills${notPC ? '': '-mobile'}.jpg`" alt="$i18n.t('MY_SKILLS')">
           </router-link>
         </el-col>
       <el-col
@@ -72,7 +72,7 @@
         >
           <router-link to='/blog' class='each_link'>
             <p>{{ $t('BLOG') }}</p>
-            <img v-lazy="`/image/home/blog${userAgent === 'pc' ? '': '-mobile'}.jpg`" alt="$i18n.t('MY_SKILLS')">
+            <img v-lazy="`/image/home/blog${notPC ? '': '-mobile'}.jpg`" alt="$i18n.t('MY_SKILLS')">
           </router-link>
         </el-col>
       </el-row>
@@ -135,6 +135,9 @@ export default {
     },
     ifAnimation() {
       return (this.userAgent === 'pc' ? this.addAnimation : true)
+    },
+    notPC(){
+      return this.userAgent !== 'phone' && this.userAgent !== 'pad-v'
     }
   },
   watch: {}
@@ -184,6 +187,9 @@ export default {
           padding-bottom 62.5%
           position: relative;
           background #eee
+          @media screen and (max-width: 599px){
+            padding-bottom 35.7%
+          }
           p
             display: block;
             float: left;
@@ -220,6 +226,7 @@ export default {
             left 50%
             transform translate(-50%,-50%)
             transition: all 0.3s ease-out;
+            width: 100%;
           &:after
             display: block;
             content: "";

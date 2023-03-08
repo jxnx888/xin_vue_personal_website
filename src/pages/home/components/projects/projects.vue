@@ -192,7 +192,7 @@ projectHeight = 50vw
           &:last-child
             height: 26%;
           .each_title
-            font-size: 30px;
+            font-size: 1.6vw;
             color: #fff;
 
           &:before
@@ -202,7 +202,7 @@ projectHeight = 50vw
             width: 6px;
             background: #1e52d8;
             position: absolute;
-            left: 50px;
+            left: 10%;
             top: 4%;
             opacity: 0;
             transform: translate(-30px, 0px);
