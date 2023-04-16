@@ -95,7 +95,8 @@ export default {
   min-height: 100px;
 
   .common_footer
-    width 1200px
+    width 100%
+    max-width 1200px
     margin auto
     text-align center
     @media screen and (max-width: 768px)

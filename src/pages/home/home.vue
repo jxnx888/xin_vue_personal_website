@@ -53,9 +53,6 @@ export default {
       bannerList: ['/image/banner1.png']
     }
   },
-  mounted() {
-    this.getHomeInfo()
-  }
 }
 </script>
 

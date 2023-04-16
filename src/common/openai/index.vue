@@ -40,6 +40,7 @@
         <div class='open-input-submit'>
           <el-input
             class='openai_input'
+
             type="input"
             :autosize="{ minRows: 2, maxRows: 3}"
             placeholder="Send a message"

@@ -33,10 +33,11 @@ app.post('/openai/chat/conversition', async (req, res) => {
   const input = req.body.input
   console.log('input',input)
   const model = [
+    "davinci",
     "text-davinci-002",
     "text-moderation-playground",
   ]
-  const data = await generateText(input,model[1]);
+  const data = await generateText(input,model[0]);
   if(data){
     res.status(200).json(data)
   } else{

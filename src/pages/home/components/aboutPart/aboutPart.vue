@@ -46,7 +46,7 @@
         <el-col
           :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
           id='homePj'
-          :class="`detail_list_item ${ifAnimation ? 'bounceInLeft animated':''}`"
+          :class="`detail_list_item detail_list_item_first ${ifAnimation ? 'bounceInLeft animated':''}`"
         >
           <router-link to='/projects' class='each_link'>
             <p>{{ $t('My_PROJECTS') }}</p>
@@ -68,7 +68,7 @@
           :span='(userAgent !== "phone" && userAgent !== "pad-v") ? 8 : 24'
           class='last'
           id='homeBlog'
-          :class="`detail_list_item ${ifAnimation ? 'bounceInRight animated':''}`"
+          :class="`detail_list_item detail_list_item_last ${ifAnimation ? 'bounceInRight animated':''}`"
         >
           <router-link to='/blog' class='each_link'>
             <p>{{ $t('BLOG') }}</p>
@@ -160,6 +160,7 @@ export default {
     height: 250px;
 
     .detail_list
+      padding 0 15px
       .detail_list_item
         //display: inline-block;
         //float: left;
@@ -180,6 +181,10 @@ export default {
         //  height 25vh
         //@media screen and (max-width: 475px)
         //  height 18vh
+        &.detail_list_item_first
+          padding-left 0
+        &.detail_list_item_last
+          padding-right 0
         .each_link
           width 100%
           display block
