@@ -3,37 +3,41 @@
     <navMain
       :userAgent='userAgent'
     />
+    <Openai />
     <keep-alive>
       <router-view
         v-if='$route.meta.keepAlive'
         :userAgent='userAgent'
-        :class="`${userAgent}-body mainBody`"></router-view>
+        :class='`${userAgent}-body mainBody`'></router-view>
     </keep-alive>
     <router-view
       v-if='!$route.meta.keepAlive'
       :userAgent='userAgent'
-      :class="`${userAgent}-body mainBody`"></router-view>
+      :class='`${userAgent}-body mainBody`'></router-view>
     <footerVue :userAgent='userAgent' />
+
   </div>
 </template>
 <script>
 import navMain from './common/navigation/navMain'
 import footerVue from './common/footerVue/footerVue'
 import { gapPadHorizontal, gapPadVertical, gapPhone } from './utils/gapOfWindowWidth'
+import Openai from '@/common/openai/index.vue'
 
 export default {
   name: 'App',
   components: {
     navMain,
-    footerVue
+    footerVue,
+    Openai
   },
-  data() {
+  data () {
     return {
       userAgent: 'pc'
     }
   },
   methods: {
-    checkUserAgent() {
+    checkUserAgent () {
       if (window.innerWidth < gapPadHorizontal) {
         if (window.innerWidth < gapPadVertical) {
           if (window.innerWidth < gapPhone) {
@@ -48,13 +52,12 @@ export default {
         this.userAgent = 'pc'
       }
     }
-},
-  mounted() {
+  },
+  mounted () {
     this.checkUserAgent()
     window.addEventListener('resize', this.checkUserAgent)
   },
-  computed: {
-  }
+  computed: {}
 }
 </script>
 <style lang='stylus'>
@@ -68,6 +71,6 @@ export default {
   .mainBody
     margin-top 1rem
 
-  .pad-body,.pad-v-body, .phone-body
+  .pad-body, .pad-v-body, .phone-body
     margin-top .6rem
 </style>

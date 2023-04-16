@@ -816,3 +816,8 @@ animation-fill-mode: both*
 #left {background: #ff51e8;}
 #top {background: #fff;}
 /*three js end*/
+
+
+.openai-loading{
+    font-size: 40px;
+}

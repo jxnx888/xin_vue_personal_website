@@ -1,12 +1,12 @@
 <template>
-  <router-link :to="link">
-    <li class="item" ref="item" :style="styleArr" @click="changeShowItem">
+  <router-link :to='link'>
+    <li class='item' ref='item' :style='styleArr' @click='changeShowItem'>
 
       <transition :name="currentIndex === index?'item-selected':'item-not-selected'">
 
-        <div class="item-wrapper" v-show="showItem" @animationend="animationEnd">
+        <div class='item-wrapper' v-show='showItem' @animationend='animationEnd'>
 
-          <button class="item-btn" :class="[icon]"></button>
+          <button class='item-btn' :class='[icon]'></button>
         </div>
       </transition>
 
@@ -15,360 +15,360 @@
 </template>
 
 <script>
-    export default {
+export default {
 
-        props: {
+  props: {
 
-            radius: Number,
+    radius: Number,
 
-            angleCur: Number,
+    angleCur: Number,
 
-            index: Number,
+    index: Number,
 
-            animationDuration: Number,
+    animationDuration: Number,
 
-            itemAnimationDelay: Number,
+    itemAnimationDelay: Number,
 
-            icon: String,
+    icon: String,
 
-            showItem: Boolean,
+    showItem: Boolean,
 
-            isOpen: Boolean,
+    isOpen: Boolean,
 
-            total: Number,
+    total: Number,
 
-            currentIndex: Number,
-            link: String
+    currentIndex: Number,
+    link: String
 
-        },
+  },
 
-        data() {
+  data () {
 
-            return {
+    return {
 
-                styleArr: [],
+      styleArr: [],
 
-                itemExpandAnimationStyle: {
+      itemExpandAnimationStyle: {
 
-                    animationName: 'expand-item-' + this.index,
+        animationName: 'expand-item-' + this.index,
 
-                    animationFillMode: 'forwards',
+        animationFillMode: 'forwards',
 
-                    animationDuration: +this.animationDuration + 's',
+        animationDuration: +this.animationDuration + 's',
 
-                    animationDelay: this.itemAnimationDelay + 's',
+        animationDelay: this.itemAnimationDelay + 's',
 
-                    animationTimingFunction: 'ease-in'
+        animationTimingFunction: 'ease-in'
 
-                },
+      },
 
-                animationEndCount: 0,
+      animationEndCount: 0,
 
-                itemContractAnimationStyle: {
+      itemContractAnimationStyle: {
 
-                    animationName: 'contract-item-' + this.index,
+        animationName: 'contract-item-' + this.index,
 
-                    animationFillMode: 'backwards',
+        animationFillMode: 'backwards',
 
-                    animationDuration: +this.animationDuration + 's',
+        animationDuration: +this.animationDuration + 's',
 
-                    animationDelay: this.itemAnimationDelay + 's',
+        animationDelay: this.itemAnimationDelay + 's',
 
-                    animationTimingFunction: 'ease-out'
+        animationTimingFunction: 'ease-out'
 
-                }
+      }
 
-            }
+    }
 
 
-        },
+  },
 
 
-        computed: {
+  computed: {
 
-            x() {
-                return this.radius * Math.cos(this.toRadians(this.angleCur))
+    x () {
+      return this.radius * Math.cos(this.toRadians(this.angleCur))
 
-            },
+    },
 
-            y() {
+    y () {
 
-                return this.radius * Math.sin(this.toRadians(this.angleCur))
+      return this.radius * Math.sin(this.toRadians(this.angleCur))
 
-            },
+    },
 
-            x0() {
+    x0 () {
 
-                return 0 //最原始位置，3点方向为0，顺时针方向递增
+      return 0 //最原始位置，3点方向为0，顺时针方向递增
 
-            },
+    },
 
-            y0() {
+    y0 () {
 
-                return 0
+      return 0
 
-            },
+    },
 
-            x2() {
+    x2 () {
 
-                return Number((this.x).toFixed(2)) //menu打开后的最后的位置
+      return Number((this.x).toFixed(2)) //menu打开后的最后的位置
 
-            },
+    },
 
-            y2() {
+    y2 () {
 
-                return Number((this.y).toFixed(2))
+      return Number((this.y).toFixed(2))
 
-            },
+    },
 
-            x1() {
+    x1 () {
 
-                return this.x2 * 1.2 //最远的位置，形成拉回效果
+      return this.x2 * 1.2 //最远的位置，形成拉回效果
 
-            },
+    },
 
-            y1() {
+    y1 () {
 
-                return this.y2 * 1.2
+      return this.y2 * 1.2
 
-            },
+    }
 
-           /* animation() {
+    /* animation() {
 
-                if (this.isOpen) {
+         if (this.isOpen) {
 
 
-                } else {
+         } else {
 
-                    return this.generateAminate()
+             return this.generateAminate()
 
-                }
+         }
 
-            }*/
+     }*/
 
-        },
+  },
 
-        watch: {
+  watch: {
 
-            isOpen: function () {
+    isOpen: function() {
 
-                if (this.isOpen) {
+      if (this.isOpen) {
 
-                    try {
+        try {
 
-                        this.styleArr.pop()
+          this.styleArr.pop()
 
-                    } catch (e) {
+        } catch (e) {
 
-                        console.log(e)
-
-                    }
-
-                    this.styleArr.push(this.itemExpandAnimationStyle)
-
-                } else {
-
-                    this.styleArr.pop()
-
-                    this.styleArr.push(this.itemContractAnimationStyle)
-
-                }
-
-
-            }
-
-        },
-
-
-        mounted() {
-
-            this.insertStyleSheet()
-
-        },
-
-        methods: {
-
-            animationEnd() {
-
-                this.$emit('animationCountIncrease')
-
-            },
-
-            changeShowItem() {
-
-                this.$emit('showItemChange', this.index)
-
-            },
-
-            toRadians(angle) {
-
-                return angle * (Math.PI / 180)
-
-            },
-
-            generateBaseKeyFrame(stage) {
-
-                let str = ''
-
-                if (stage === 'expand-item-') { //展开动画
-
-                    str = stage + this.index + '{' +
-
-                        '0% {' +
-
-                        'transform: translate(' + this.x0 + 'px,' + this.y0 + 'px)' +
-
-                        '}' +
-
-                        '70% {' +
-
-                        'transform: translate(' + this.x1 + 'px,' + this.y1 + 'px)' +
-
-                        '}' +
-
-                        '100% {' +
-
-                        'transform: translate(' + this.x2 + 'px,' + this.y2 + 'px)' +
-
-                        '}' +
-
-                        '}\n'
-
-                } else {
-
-                    str = stage + this.index + '{' + //收缩动画
-
-                        '100% {' +
-
-                        'transform: translate(' + this.x0 + 'px,' + this.y0 + 'px)' +
-
-                        '}' +
-
-                        '0% {' +
-
-                        'transform: translate(' + this.x2 + 'px,' + this.y2 + 'px)' +
-
-                        '}' +
-
-                        '}\n'
-
-                }
-
-                return '@keyframes ' + str + '@-webkit-keyframes   ' + str
-
-
-            },
-
-            genetateAnimateDetail() {
-
-
-                let str = '.item-active {' +
-
-                    'animation-name: ' + 'expand-item-' + this.index + ';' +
-
-                    'animation-fill-mode: forwards;' +
-
-                    'animation-duration: 0.7s;' +
-
-                    'animation-timing-function: ease-out'
-
-                '}\n'
-
-                return str
-
-            },
-
-            insertStyleSheet() {
-
-                let cssRule = this.generateBaseKeyFrame('expand-item-')
-
-                cssRule += this.generateBaseKeyFrame('contract-item-')
-
-                cssRule += this.genetateAnimateDetail()
-
-                let style = document.createElement('style')
-
-                style.type = 'text/css'
-
-                style.innerHTML = cssRule
-
-                document.head.appendChild(style)
-
-
-            }
+          console.log(e)
 
         }
 
+        this.styleArr.push(this.itemExpandAnimationStyle)
+
+      } else {
+
+        this.styleArr.pop()
+
+        this.styleArr.push(this.itemContractAnimationStyle)
+
+      }
+
 
     }
+
+  },
+
+
+  mounted () {
+
+    this.insertStyleSheet()
+
+  },
+
+  methods: {
+
+    animationEnd () {
+
+      this.$emit('animationCountIncrease')
+
+    },
+
+    changeShowItem () {
+
+      this.$emit('showItemChange', this.index)
+
+    },
+
+    toRadians (angle) {
+
+      return angle * (Math.PI / 180)
+
+    },
+
+    generateBaseKeyFrame (stage) {
+
+      let str = ''
+
+      if (stage === 'expand-item-') { //展开动画
+
+        str = stage + this.index + '{' +
+
+          '0% {' +
+
+          'transform: translate(' + this.x0 + 'px,' + this.y0 + 'px)' +
+
+          '}' +
+
+          '70% {' +
+
+          'transform: translate(' + this.x1 + 'px,' + this.y1 + 'px)' +
+
+          '}' +
+
+          '100% {' +
+
+          'transform: translate(' + this.x2 + 'px,' + this.y2 + 'px)' +
+
+          '}' +
+
+          '}\n'
+
+      } else {
+
+        str = stage + this.index + '{' + //收缩动画
+
+          '100% {' +
+
+          'transform: translate(' + this.x0 + 'px,' + this.y0 + 'px)' +
+
+          '}' +
+
+          '0% {' +
+
+          'transform: translate(' + this.x2 + 'px,' + this.y2 + 'px)' +
+
+          '}' +
+
+          '}\n'
+
+      }
+
+      return '@keyframes ' + str + '@-webkit-keyframes   ' + str
+
+
+    },
+
+    genetateAnimateDetail () {
+
+
+      let str = '.item-active {' +
+
+        'animation-name: ' + 'expand-item-' + this.index + ';' +
+
+        'animation-fill-mode: forwards;' +
+
+        'animation-duration: 0.7s;' +
+
+        'animation-timing-function: ease-out'
+
+      '}\n'
+
+      return str
+
+    },
+
+    insertStyleSheet () {
+
+      let cssRule = this.generateBaseKeyFrame('expand-item-')
+
+      cssRule += this.generateBaseKeyFrame('contract-item-')
+
+      cssRule += this.genetateAnimateDetail()
+
+      let style = document.createElement('style')
+
+      style.type = 'text/css'
+
+      style.innerHTML = cssRule
+
+      document.head.appendChild(style)
+
+
+    }
+
+  }
+
+
+}
 </script>
 
 
-<style scoped lang="stylus" type="text/stylus">
-  .item
-    opacity 1
-    position absolute
-    top: 0.1rem
-    left: 0.1rem
-    transition transform .28s cubic-bezier(.4, 0, .2, 1), box-shadow .28s cubic-bezier(.4, 0, .2, 1), opacity .28s cubic-bezier(.4, 0, .2, 1)
-    width .8rem
-    height .8rem
+<style scoped lang='stylus' type='text/stylus'>
+.item
+  opacity 1
+  position absolute
+  top: 0.1rem
+  left: 0.1rem
+  transition transform .28s cubic-bezier(.4, 0, .2, 1), box-shadow .28s cubic-bezier(.4, 0, .2, 1), opacity .28s cubic-bezier(.4, 0, .2, 1)
+  width .8rem
+  height .8rem
+  border-radius 50%
+
+  .item-wrapper
+    width 100%
+    height 100%
+    background linear-gradient(#cdf5ff, #4e95ff);
     border-radius 50%
 
-    .item-wrapper
+    .item-btn
+      cursor pointer
+      border-radius 50%
+      border none
+      background-color transparent
       width 100%
       height 100%
-      background linear-gradient(#cdf5ff, #4e95ff);
-      border-radius 50%
+      box-shadow 0 2px 5px 0 rgba(0, 0, 0, .26)
+      transition box-shadow .28s cubic-bezier(.4, 0, .2, 1)
+      opacity .28s cubic-bezier(.4, 0, .2, 1)
+      background-position center center
+      background-repeat no-repeat
+      /*opacity 0.8*/
+      outline none
 
-      .item-btn
-        cursor pointer
-        border-radius 50%
-        border none
-        background-color transparent
-        width 100%
-        height 100%
-        box-shadow 0 2px 5px 0 rgba(0, 0, 0, .26)
-        transition box-shadow .28s cubic-bezier(.4, 0, .2, 1)
-        opacity .28s cubic-bezier(.4, 0, .2, 1)
-        background-position center center
-        background-repeat no-repeat
-        /*opacity 0.8*/
-        outline none
+      &:hover
+        box-shadow 0 8px 17px 0 rgba(0, 0, 0, .2)
 
-        &:hover
-          box-shadow 0 8px 17px 0 rgba(0, 0, 0, .2)
+.item-selected-leave-active
+  animation-name select-item
+  animation-duration animationDuriation
+  animation-fill-mode forwards
 
-  .item-selected-leave-active
-    animation-name select-item
-    animation-duration animationDuriation
-    animation-fill-mode forwards
+.item-not-selected-leave-active
+  animation-name not-select-item
+  animation-duration animationDuriation
+  animation-fill-mode backwards
 
-  .item-not-selected-leave-active
-    animation-name not-select-item
-    animation-duration animationDuriation
-    animation-fill-mode backwards
-
-  @keyframes select-item {
-    0% {
-      transform scale(1)
-      opacity 1
-    }
-    100% {
-      transform scale(2)
-      opacity 0
-    }
+@keyframes select-item {
+  0% {
+    transform scale(1)
+    opacity 1
   }
-
-  @keyframes not-select-item {
-    0% {
-      transform scale(1)
-      opacity 1
-    }
-    100% {
-      transform scale(0.5)
-      opacity 0
-    }
+  100% {
+    transform scale(2)
+    opacity 0
   }
+}
+
+@keyframes not-select-item {
+  0% {
+    transform scale(1)
+    opacity 1
+  }
+  100% {
+    transform scale(0.5)
+    opacity 0
+  }
+}
 
 </style>
