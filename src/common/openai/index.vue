@@ -26,7 +26,7 @@
                   <div
                     :class="`openai-tag ${Number(key)%2 ===0 ? 'tag-q':'tag-a'}`"
                   >
-                    {{ Number(key)%2 ===0 ? 'A' : 'Q' }}
+                    {{ Number(key)%2 ===0 ? 'Q' : 'A' }}
                   </div>
                 </el-col>
                 <el-col else :span="userAgent === 'phone' ? '21' : '22'" class='each_line each-content'>
