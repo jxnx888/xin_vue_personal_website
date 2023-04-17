@@ -12,7 +12,7 @@
       :visible.sync="visible"
       :before-close="handleClose"
       class='openai_window'
-      size='80%'
+      :size="userAgent === 'phone' ? '100%' : '80%'"
     >
       <div class='openai_content'>
         <div class='openai_com'>
@@ -22,14 +22,14 @@
               :key='key'
             >
               <el-row :class="`openai-each openai-each-${Number(key)%2 ===0 ? 'user':'ai'}`">
-                <el-col :span='2' class='each_line'>
+                <el-col :span="userAgent === 'phone' ? '3' : '2'" class='each_line'>
                   <div
                     :class="`openai-tag ${Number(key)%2 ===0 ? 'tag-q':'tag-a'}`"
                   >
                     {{ Number(key)%2 ===0 ? 'A' : 'Q' }}
                   </div>
                 </el-col>
-                <el-col else :span='22' class='each_line each-content'>
+                <el-col else :span="userAgent === 'phone' ? '21' : '22'" class='each_line each-content'>
                   {{item}}
                 </el-col>
               </el-row>
@@ -72,6 +72,9 @@
 <script>
 export default {
   name: 'index',
+  props: {
+    userAgent: String
+  },
   data () {
     return {
       visible: false,
@@ -107,7 +110,10 @@ export default {
       this.closeLoading()
     },
     handleClose(done) {
-      this.$confirm('Are you sure to close？')
+      this.$confirm('Are you sure to close？',{
+        confirmButtonText:'OK',
+        cancelButtonText:'Cancel'
+      })
         // eslint-disable-next-line no-unused-vars
         .then(_ => {
           done();
@@ -153,7 +159,7 @@ export default {
     position fixed
     bottom 20px;
     right 20px
-    z-index 1
+    z-index 2
   .openai_window
     .openai_content
       .openai_com
