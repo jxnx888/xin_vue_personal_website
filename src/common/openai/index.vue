@@ -88,7 +88,7 @@ export default {
       this.textareaData = ''
       this.conversitionArr.push(userInput)
       this.$ajax.post(
-        `http://localhost:3000/openai/chat/conversition`,
+        `https://api.ning-xin.com/openai/chat/conversition`,
         {
           input:userInput
         }
