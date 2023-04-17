@@ -159,8 +159,8 @@ export default {
       .openai_com
         height calc(100vh - 200px)
         width 90%
-        margin auto
-        overflow auto
+        margin: 0 auto 15px;
+        overflow: auto;
         .openai-each
           padding 15px
           &.openai-each-ai
