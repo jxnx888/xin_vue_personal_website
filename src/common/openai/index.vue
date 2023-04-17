@@ -89,6 +89,7 @@ export default {
       this.conversitionArr.push(userInput)
       this.$ajax.post(
         `https://api.ning-xin.com/openai/chat/conversition`,
+        // `http://localhost:3000/openai/chat/conversition`,
         {
           input:userInput
         }
@@ -106,7 +107,7 @@ export default {
       this.closeLoading()
     },
     handleClose(done) {
-      this.$confirm('确认关闭？')
+      this.$confirm('Are you sure to close？')
         // eslint-disable-next-line no-unused-vars
         .then(_ => {
           done();
@@ -159,6 +160,7 @@ export default {
         height calc(100vh - 200px)
         width 90%
         margin auto
+        overflow auto
         .openai-each
           padding 15px
           &.openai-each-ai
