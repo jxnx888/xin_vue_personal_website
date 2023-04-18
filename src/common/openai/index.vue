@@ -1,5 +1,5 @@
 <template>
-  <div id='container'>
+  <div v-if='new Date().getTime() < 1685592000000' id='container'>
     <el-button
       @click='visible = true'
       type='primary'
@@ -86,13 +86,14 @@ export default {
   },
   methods: {
     conversitionFn() {
-      this.openLoading()
       const userInput = this.textareaData
+      if(userInput.length<2) return
       this.textareaData = ''
       this.conversitionArr.push(userInput)
+      this.openLoading()
       this.$ajax.post(
-        `https://api.ning-xin.com/openai/chat/conversition`,
-        // `http://localhost:3000/openai/chat/conversition`,
+        `https://api.ning-xin.com/openai/chat/completions/conversition`,
+        // `http://localhost:3000/openai/chat/completions/conversition`,
         {
           input:userInput
         }
@@ -118,6 +119,7 @@ export default {
         .then(_ => {
           done();
         })
+        // eslint-disable-next-line no-unused-vars
         .catch(_ => {});
     },
     openLoading(){
@@ -133,7 +135,6 @@ export default {
     },
   },
   mounted() {
-    // this.openLoading()
   },
 
   watch: {
