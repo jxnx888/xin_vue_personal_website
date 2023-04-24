@@ -113,7 +113,7 @@ export default {
   },
   data() {
     return {
-      names: ['Aga Arafat Hossain Chowdhury', 'Erfan Ensafi Moghaddam', 'German Mahecha', 'Jean-Nicolas Gauthier', 'Priyanka Ghadge', 'Tristan Hamel', 'Xin Ning'],
+      names: ['Aga Arafat Hossain Chowdhury', 'Erfan Ensafi Moghaddam', 'German Mahecha', 'Jean-Nicolas Gauthier', 'Priyanka Ghadge', 'Xin Ning'],
       tagType: ['success', 'info', 'warning', 'danger'],
       startStop: true,
       loopInterval: null,
@@ -177,7 +177,7 @@ export default {
         },
         rocketsPoint: 50, // 炮台位置
         speed: 50,
-        acceleration:30, // 放烟花速度
+        acceleration: 30, // 放烟花速度
         friction: .9, // 烟花大小
         gravity: 1.8, // 烟花下垂度
         particles: 90,
@@ -231,10 +231,10 @@ export default {
             setTimeout(() => {
               this.$refs.welcome.fireworksObj.stop()
               // remove the Canvas tag
-                let fireworkDOM = document.getElementById('firework')
-                  while(fireworkDOM.hasChildNodes()){
-                    fireworkDOM.removeChild(fireworkDOM.firstChild)
-                  }
+              let fireworkDOM = document.getElementById('firework')
+              while (fireworkDOM.hasChildNodes()) {
+                fireworkDOM.removeChild(fireworkDOM.firstChild)
+              }
             }, 3000)
           } else {
             _this.splicePickedName()
@@ -251,7 +251,6 @@ export default {
       const birthday = {
         '02/10': 'Erfan Ensafi Moghaddam',
         '07/06': 'Jean-Nicolas Gauthier',
-        '09/22': 'Tristan Hamel',
         '09/26': 'Priyanka Ghadge',
         '11/09': 'German Mahecha',
         '11/14': 'Aga Arafat Hossain Chowdhury'
