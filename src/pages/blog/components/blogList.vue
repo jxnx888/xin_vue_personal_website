@@ -71,6 +71,7 @@ export default {
     return {
       tag: '',
       tagColor: {
+        'Coveo': '#0d1136',
         'JavaScript': '#fcdc00',
         'TypeScript': '#3178c6',
         'Node.js': '#d52bb3',
