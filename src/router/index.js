@@ -134,6 +134,14 @@ const routes = [
     }
   },
   {
+    path: '/iframe',
+    name: 'iframe',
+    component: () => import('@/pages/others/iframe'),
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import('@/common/notFound/index'),
