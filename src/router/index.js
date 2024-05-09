@@ -134,9 +134,9 @@ const routes = [
     }
   },
   {
-    path: '/iframe',
-    name: 'iframe',
-    component: () => import('@/pages/others/iframe'),
+    path: '/math',
+    name: 'math',
+    component: () => import('@/pages/others/math'),
     meta: {
       keepAlive: true
     }
