@@ -113,7 +113,14 @@ export default {
   },
   data() {
     return {
-      names: ['Aga Arafat Hossain Chowdhury', 'Erfan Ensafi Moghaddam', 'German Mahecha', 'Jean-Nicolas Gauthier', 'Priyanka Ghadge', 'Xin Ning'],
+      names: [
+        'Brian McIntyre',
+        'Dhiaeddine Loghmari',
+        'German Mahecha',
+        'Marc-Olivier Bouchard',
+        'Sam Gard',
+        'Xin Ning'
+      ],
       tagType: ['success', 'info', 'warning', 'danger'],
       startStop: true,
       loopInterval: null,
