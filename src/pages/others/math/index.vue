@@ -9,14 +9,14 @@
       <el-form-item class='form-item' label="最大值">
         <el-input-number v-model='num2' @change='handleChange' :min='1' label='最大值'></el-input-number>
       </el-form-item>
-      <el-button type='primary' @click='generateQuestions'>主要按钮</el-button>
+      <el-button type='primary' @click='generateQuestions'>生成</el-button>
     </el-form>
     <el-row :gutter='20' class='results'>
       <el-col
         v-for='(item, index) in problems'
         :span='6'
         :key='index'>
-        {{ item }}
+        {{ item }} <br>
       </el-col>
     </el-row>
   </div>
