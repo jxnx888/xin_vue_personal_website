@@ -44,9 +44,9 @@ export default {
       const operand2 = _this.generateRandomNumber(1, secondNum)
       const operator = Math.random() < 0.5 ? '+' : '-'
       if (operand1 > operand2) {
-        return `${operand1} ${operator} ${operand2} =    `
+        return `${operand1}${operator}${operand2}=`
       }
-      return `${operand2} ${operator} ${operand1} =    `
+      return `${operand2}${operator}${operand1}=`
     },
     generateQuestions () {
       const _this = this
