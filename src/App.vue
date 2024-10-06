@@ -3,7 +3,7 @@
     <navMain
       :userAgent='userAgent'
     />
-    <Openai  :userAgent='userAgent' />
+<!--    <Openai  :userAgent='userAgent' />-->
     <keep-alive>
       <router-view
         v-if='$route.meta.keepAlive'

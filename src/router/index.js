@@ -142,6 +142,14 @@ const routes = [
     }
   },
   {
+    path: '/animations/animatedBoxes',
+    name: 'animatedBoxes',
+    component: () => import('@/pages/others/animations/animatedBoxes'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import('@/common/notFound/index'),

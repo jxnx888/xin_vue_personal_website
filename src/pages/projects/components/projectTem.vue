@@ -1,6 +1,6 @@
 <template>
   <div :class="`each_content each_content-${$root.$userAgent}`">
-    <a v-if="'3'!=code && '4'!=code && '5'!=code" :href="link">
+    <a v-if="'3'!=code && '4'!=code && '5'!=code" :href="link" target='_blank'>
       <div class="each_wrapper">
         <img v-lazy="bgImg" :key="bgImg" alt="" class="each_img">
         <div class="info_wrapper">
