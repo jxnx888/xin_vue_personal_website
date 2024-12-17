@@ -9,6 +9,7 @@
       <el-form-item class='form-item' label="最大值">
         <el-input-number v-model='num2' @change='handleChange' :min='1' label='最大值'></el-input-number>
       </el-form-item>
+      <el-input-number v-model='numOfOperands' @change='handleChange' :min='1' label='几个数字的加减法'></el-input-number>
       <el-button type='primary' @click='generateQuestions'>生成</el-button>
     </el-form>
     <el-row :gutter='20' class='results'>
@@ -26,7 +27,8 @@ export default {
   data () {
     return {
       num1: 20,
-      num2: 100,
+      num2: 50,
+      numOfOperands: 3,
       numberOfProblems: 100,
       problems: []
     }
@@ -40,13 +42,34 @@ export default {
     },
     generateQuestion (firstNum, secondNum) {
       const _this = this
-      const operand1 = _this.generateRandomNumber(1, firstNum)
-      const operand2 = _this.generateRandomNumber(1, secondNum)
-      const operator = Math.random() < 0.5 ? '+' : '-'
-      if (operand1 > operand2) {
-        return `${operand1}${operator}${operand2}=`
+      const operands = [];
+      const operators = [];
+      // 生成随机操作数
+      for (let i = 0; i < _this.numOfOperands; i++) {
+        const operand = _this.generateRandomNumber(1, i === 0 ? firstNum : secondNum);
+        operands.push(operand);
       }
-      return `${operand2}${operator}${operand1}=`
+      // 生成随机运算符
+      for (let i = 0; i < _this.numOfOperands - 1; i++) {
+        const operator = Math.random() < 0.5 ? '+' : '-';
+        operators.push(operator);
+      }
+
+      // 组合操作数和运算符
+      let question = `${operands[0]}`;
+      for (let i = 0; i < operators.length; i++) {
+        question += `${operators[i]}${operands[i + 1]}`;
+      }
+      return `${question}=`;
+
+
+      // const operand1 = _this.generateRandomNumber(1, firstNum)
+      // const operand2 = _this.generateRandomNumber(1, secondNum)
+      // const operator = Math.random() < 0.5 ? '+' : '-'
+      // if (operand1 > operand2) {
+      //   return `${operand1}${operator}${operand2}=`
+      // }
+      // return `${operand2}${operator}${operand1}=`
     },
     generateQuestions () {
       const _this = this
