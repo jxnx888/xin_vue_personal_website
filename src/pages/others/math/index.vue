@@ -9,7 +9,7 @@
       <el-form-item class='form-item' label="最大值">
         <el-input-number v-model='num2' @change='handleChange' :min='1' label='最大值'></el-input-number>
       </el-form-item>
-      <el-input-number v-model='numOfOperands' @change='handleChange' :min='1' label='几个数字的加减法'></el-input-number>
+      <el-input-number v-model='numOfOperands' @change='handleChange' :min='2' label='几个数字的加减法'></el-input-number>
       <el-button type='primary' @click='generateQuestions'>生成</el-button>
     </el-form>
     <el-row :gutter='20' class='results'>
