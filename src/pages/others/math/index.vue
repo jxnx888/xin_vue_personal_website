@@ -89,7 +89,14 @@ export default {
         const question = _this.generateQuestion(_this.num1, _this.num2)
         newQuestions.push(question)
       }
+
       _this.problems = newQuestions
+    },
+    generateMultiplication(){
+      const _this = this
+      const a = _this.generateRandomNumber(1, 9);
+      const b = _this.generateRandomNumber(1, 9);
+      return `${a} x ${b}`
     }
   }
 }
