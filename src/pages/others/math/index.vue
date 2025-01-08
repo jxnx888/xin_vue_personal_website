@@ -9,7 +9,9 @@
       <el-form-item class='form-item' label="最大值">
         <el-input-number v-model='num2' @change='handleChange' :min='1' label='最大值'></el-input-number>
       </el-form-item>
-      <el-input-number v-model='numOfOperands' @change='handleChange' :min='2' label='几个数字的加减法'></el-input-number>
+      <el-form-item class='form-item' label="几个数字">
+        <el-input-number v-model='numOfOperands' @change='handleChange' :min='2' label='几个数字的加减法'></el-input-number>
+      </el-form-item>
       <el-button type='primary' @click='generateQuestions'>生成</el-button>
     </el-form>
     <el-row :gutter='20' class='results'>
@@ -23,6 +25,7 @@
   </div>
 </template>
 <script>
+
 export default {
   data () {
     return {
@@ -49,9 +52,16 @@ export default {
         const operand = _this.generateRandomNumber(1, i === 0 ? firstNum : secondNum);
         operands.push(operand);
       }
-      // 生成随机运算符
+
+      // 生成随机运算符并确保结果为正整数
       for (let i = 0; i < _this.numOfOperands - 1; i++) {
-        const operator = Math.random() < 0.5 ? '+' : '-';
+        let operator = Math.random() < 0.5 ? '+' : '-';
+
+        // 如果操作符是减号且会导致负数，强制改为加号
+        if (operator === '-' && operands[i] < operands[i + 1]) {
+          console.log(  1);
+          [operands[i], operands[i + 1]] = [operands[i + 1], operands[i]];
+        }
         operators.push(operator);
       }
 
@@ -96,7 +106,7 @@ export default {
     margin auto
     font-size 15px
   .form
-    width: fit-content;
+    width: 100%;
     margin: auto;
     padding: 15px;
     display: flex;
@@ -104,6 +114,7 @@ export default {
     align-content: center;
     flex-wrap: nowrap;
     gap: 15px;
+    justify-content: center;
     .form-item
       margin: 0
   .results
