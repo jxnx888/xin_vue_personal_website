@@ -24,28 +24,15 @@
              :style='checkPosition(n)'>
                 <video v-else-if='playWith !=="Image" && currentVideo' :src='currentVideo'
                        :style='checkPosition(n)' autoplay muted loop></video>
-
-<!--        <div v-else-if='playWith !=="Image" && currentVideo' :style='checkPosition(n)'>-->
-<!--          <VideoPlayer-->
-<!--            :src='currentVideo'-->
-<!--            autoplay-->
-<!--            muted-->
-<!--            loop-->
-<!--          />-->
-<!--        </div>-->
       </div>
     </div>
   </div>
 </template>
 <script>
-import { VideoPlayer } from '@videojs-player/vue'
 import 'video.js/dist/video-js.css'
 
 export default {
   name: 'animatedBoxes',
-  components: {
-    VideoPlayer
-  },
   props: {},
   data () {
     return {
