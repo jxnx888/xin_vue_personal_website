@@ -77,7 +77,8 @@ export default {
         'Node.js': '#d52bb3',
         'MongoDB': '#8ad684',
         'IOS': '#000000',
-        'Microsoft Exchange Server': '#0272b9'
+        'Microsoft Exchange Server': '#0272b9',
+        'Css': '#226d9e'
       },
       currentPage: 1, //初始页
       pageSize: 5    //每页的数据
